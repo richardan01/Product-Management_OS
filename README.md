@@ -1,14 +1,14 @@
-# Carl's Product OS
+# Richard's Product OS
 
 **A Personal Operating System for Claude Code**
 
 ## Introduction
 
-The biggest question I get after people finish my [Claude Code for PMs](https://ccforpms.com/) or [for Everyone](https://ccforeveryone.com/) courses: **"How should I set up my space?"**
+Claude Code is infinitely flexible — there's no single right way to organize it, which is both liberating and paralyzing. This is my personal setup as a [Your Role], built around how I actually work day-to-day.
 
-Claude Code is infinitely flexible. There's no single right way to organize it, which is both liberating and paralyzing. This repo shows how I personally use Claude Code day-to-day, plus the principles behind each decision.
+The structure is designed for product and marketing work: managing projects like CDP implementation, running repeatable workflows (standups, research synthesis, stakeholder updates), and keeping knowledge organized across a fast-moving role.
 
-This setup is battle-tested across content creation, product work, and running a small business. But it's not gospel. Try things, break things, and see what actually works for your workflow.
+Start minimal, add structure when friction appears.
 
 
 ## Structure Overview
@@ -26,7 +26,6 @@ This setup is battle-tested across content creation, product work, and running a
 | `Knowledge/` | Persistent reference material that spans projects. |
 | `Templates/` | Document structures for consistent outputs. |
 | `.claude/skills/` | Slash commands. Type `/skillname` to trigger. |
-| `Tools/` | Scripts, utilities, and automations. |
 | `_Registry/` | System reference and documentation. |
 | `_temp/` | Drop zone for files in transit. |
 
@@ -85,8 +84,4 @@ Depends on scope:
 
 ## About
 
-Built by **Carl Vellotti** as part of teaching product managers to use Claude Code effectively.
-
-- **Course**: [Claude Code for PMs](https://ccforpms.com)
-- **Twitter/X**: [@carlvellotti](https://twitter.com/carlvellotti)
-- **LinkedIn**: [linkedin.com/in/carlvellotti](https://linkedin.com/in/carlvellotti)
+[Your Name]'s personal Claude Code OS — built for [Your Role] work at [Your Company].
