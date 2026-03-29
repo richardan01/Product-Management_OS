@@ -18,7 +18,7 @@ For project work, also read:
 
 This OS is powered by 9 specialized agents. You can invoke them via slash commands or natural language — Claude routes to the right agent automatically.
 
-See `Agents/README.md` for full architecture. Agent definitions live in `Agents/[name]/AGENT.md`. Sub-agents (AI workers) live in `.claude/agents/`.
+See `Agents/README.md` for full architecture. Agent definitions live in `Agents/[name]/[name].md`. Sub-agents (AI workers) live in `.claude/agents/`.
 
 ### Agent Registry
 
@@ -33,6 +33,11 @@ See `Agents/README.md` for full architecture. Agent definitions live in `Agents/
 | Product Definer | PRDs, requirements, specs | `/prd`, `/use-case`, `/requirements-review`, `/spec-handoff` |
 | Data & Tech Architect | Data models, integrations, feasibility | `/data-model`, `/integration-map`, `/tech-feasibility`, `/data-quality` |
 | CDP Specialist | CDP implementation | `/cdp-status`, `/cdp-use-cases`, `/vendor-scorecard`, `/data-sources` |
+| **Launch Manager** | Go-live readiness, launch comms, post-launch | `/launch-plan`, `/go-nogo`, `/launch-comms`, `/post-launch` |
+| **QA & Acceptance Tester** | Test plans, UAT, data quality | `/test-plan`, `/uat-check`, `/data-quality-check`, `/bug-report` |
+| **Enablement & Change Manager** | Training, adoption, change impact | `/training-plan`, `/user-guide`, `/adoption-check`, `/change-impact` |
+| **Risk & Dependency Tracker** | Risk register, dependencies, escalations | `/risk-register`, `/add-risk`, `/dependency-check`, `/escalation-draft` |
+| **Retro & Learning Coach** | Retros, post-mortems, lessons, growth | `/retro`, `/postmortem`, `/lessons`, `/growth-check` |
 
 ## Key Commands
 
@@ -42,6 +47,7 @@ See `Agents/README.md` for full architecture. Agent definitions live in `Agents/
 | `briefing` | Morning brief: tasks + meetings + metrics + CDP status |
 | `eod` | End of day: summarize done, update tasks, flag carry-overs |
 | `os-check` | System health: validate files, flag stale data |
+| `peer-review [file]` | Evaluate any agent output against its quality standards |
 
 ### Task Manager
 | Say | Does |
@@ -114,6 +120,46 @@ See `Agents/README.md` for full architecture. Agent definitions live in `Agents/
 | `stack-audit` | Review martech stack, flag stale entries |
 | `cdp-adoption` | Track team CDP usage (post-launch) |
 
+### Launch Manager
+| Say | Does |
+| --- | --- |
+| `launch-plan [project]` | Build full launch checklist: readiness, rollout, comms |
+| `go-nogo [project]` | Run go/no-go assessment before launch |
+| `launch-comms [project]` | Draft internal launch announcement |
+| `post-launch [project]` | 1-week and 4-week post-launch review |
+
+### QA & Acceptance Tester
+| Say | Does |
+| --- | --- |
+| `test-plan [feature]` | Build test plan from PRD acceptance criteria |
+| `uat-check [feature]` | Run UAT checklist, capture pass/fail, flag bugs |
+| `data-quality-check [source]` | Validate CDP data completeness, naming, PII |
+| `bug-report` | Log and triage bugs found during testing |
+
+### Enablement & Change Manager
+| Say | Does |
+| --- | --- |
+| `training-plan [feature]` | Build role-specific training plan for CDP or martech tools |
+| `user-guide [feature]` | Draft step-by-step user guide |
+| `adoption-check` | Review CDP usage, flag low adopters, suggest next actions |
+| `change-impact [project]` | Assess how a change affects each stakeholder |
+
+### Risk & Dependency Tracker
+| Say | Does |
+| --- | --- |
+| `risk-register` | View and update unified risk register across all projects |
+| `add-risk [description]` | Log a new risk with probability, impact, mitigation |
+| `dependency-check` | Review all open external dependencies |
+| `escalation-draft [risk-id]` | Draft escalation message to Jervis for a blocked risk |
+
+### Retro & Learning Coach
+| Say | Does |
+| --- | --- |
+| `retro` | End-of-sprint: what worked, what did not, one change |
+| `postmortem [project]` | Deep-dive on a completed or failed project |
+| `lessons` | View and update cumulative lessons learned log |
+| `growth-check` | Assess progress against 30-60-90 goals, flag skill gaps |
+
 ### Other
 | Say | Does |
 | --- | --- |
@@ -122,7 +168,7 @@ See `Agents/README.md` for full architecture. Agent definitions live in `Agents/
 ## System Structure
 
 ```
-Agents/          → Agent definitions (AGENT.md) — 9 specialized PM agents
+Agents/          → Agent definitions ([name].md) — 14 specialized PM agents
 Tasks/           → Active sprint + backlog (keep 3–6 active items max)
 Projects/        → One-off work with its own context; archived when done
 Workflows/       → Repeatable processes (detailed step-by-step reference docs)

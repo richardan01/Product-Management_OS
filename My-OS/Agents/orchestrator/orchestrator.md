@@ -13,6 +13,7 @@ Cross-cutting — reads from all agent domains but owns no content files. The Or
 | Morning Briefing | `/briefing` | Combine tasks + meetings + metrics + CDP status into one view |
 | End of Day | `/eod` | Summarize work done, update active.md, flag carry-overs |
 | OS Health Check | `/os-check` | Validate agent files, flag stale data, suggest maintenance |
+| Peer Review | `/peer-review [file]` | Evaluate any agent's output against its quality standards before use |
 
 ## Files
 
@@ -22,7 +23,7 @@ Cross-cutting — reads from all agent domains but owns no content files. The Or
 - `Meetings/` — today's meetings and recent notes (via Stakeholder Manager)
 - `Knowledge/Reference/metrics/latest.md` — key metrics (via Analytics)
 - `Projects/cdp-implementation/brief.md` — CDP milestone status (via CDP Specialist)
-- `Agents/*/AGENT.md` — all agent definitions for routing context
+- `Agents/*/[name].md` — all agent definitions for routing context
 
 ### Writes
 - `Tasks/active.md` — mark items done/carry-over during `/eod`
@@ -40,8 +41,32 @@ Cross-cutting — reads from all agent domains but owns no content files. The Or
 ### Sends to
 - User — assembled unified views
 
+## System Status (include at end of every `/briefing` output)
+
+Check when each key file was last modified and flag stale ones:
+
+| File | Stale If | Flag Message |
+|------|----------|--------------|
+| `Tasks/active.md` | >3 days | "Task list may be stale — run `today` to update" |
+| `Knowledge/Reference/metrics/latest.md` | >7 days | "Metrics not updated — run `metrics-snapshot`" |
+| `Projects/cdp-implementation/brief.md` | >5 days | "CDP brief not updated — run `cdp-status`" |
+| `Meetings/1on1s/jervis.md` | last entry >2 weeks | "No recent 1:1 notes — run `meeting notes jervis` after your next 1:1" |
+
+Always end every `/briefing` with:
+
+```
+**Suggested next command:** [most relevant action based on what's blocked or stale]
+Options:
+- `today` — review and update your task list
+- `roadmap review` — check milestone and CDP status
+- `weekly update` — draft your Jervis update
+- `meeting prep jervis` — prep for upcoming 1:1
+- `cdp-status` — drill into CDP project detail
+```
+
 ## Quality Checks
 - [ ] All data sources read successfully (degrade gracefully if a file is missing)
 - [ ] Output is scannable in under 30 seconds
 - [ ] Blocked items are highlighted prominently
 - [ ] Suggested focus aligns with #p0 priorities
+- [ ] System Status section included with staleness flags and suggested next command

@@ -1,6 +1,6 @@
 # Synthesize Research
 
-**Agent:** Research Analyst — see `Agents/research-analyst/AGENT.md` for full context.
+**Agent:** Research Analyst — see `Agents/research-analyst/research-analyst.md` for full context.
 
 Usage: "synthesize research" — run after completing a round of CDP use case interviews
 

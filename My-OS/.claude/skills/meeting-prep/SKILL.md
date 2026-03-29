@@ -1,6 +1,6 @@
 # Meeting Prep
 
-**Agent:** Stakeholder Manager — see `Agents/stakeholder-manager/AGENT.md` for full context.
+**Agent:** Stakeholder Manager — see `Agents/stakeholder-manager/stakeholder-manager.md` for full context.
 **Sub-agent:** Spawn `stakeholder-profiler` to build rich person context in parallel if preparing for a complex meeting.
 
 Usage: "meeting prep [name]" (e.g., "meeting prep jervis", "meeting prep rachel")

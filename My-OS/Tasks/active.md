@@ -26,12 +26,15 @@
 
 - [ ] **Audit existing martech tools and data flows** #p1 #martech
   - Map what tools Kpay already uses, what data they produce, gaps
-  - Populate `Knowledge/Reference/martech-stack.md`
+  - `Knowledge/Reference/martech-stack.md` updated March 27 from Martech Architecture Framework PDF
+  - Confirmed: GA4/GTM, SensorData, AWS Redshift, HubSpot, KPay CRM (HK), Tableau, ChatBI (early dev)
+  - Remaining: lifecycle tool, ad connectors, attribution, CMS — still TBD
   - Started: March 11, 2026
 
-- [ ] **Build Martech Stack template — tools and framework** #p1 #martech
-  - Create a structured template covering tool categories, use cases, data flows, and gaps
-  - Target: complete draft by March 17, 2026
+- [x] **Build Martech Stack template — tools and framework** #p1 #martech
+  - Done: Martech Architecture Framework PDF completed — 5-layer framework with tool mapping
+  - Populated into `Knowledge/Reference/martech-stack.md`
+  - Completed: March 27, 2026
 
 - [ ] **Understand HK DMO user base and market context** #p1 #dmo #cdp
   - DMO = Digital Merchant Onboarding — self-service onboarding product by Digital Growth team

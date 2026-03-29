@@ -1,6 +1,6 @@
 # Roadmap Review
 
-**Agent:** Strategy & Roadmap — see `Agents/strategy-roadmap/AGENT.md` for full context.
+**Agent:** Strategy & Roadmap — see `Agents/strategy-roadmap/strategy-roadmap.md` for full context.
 **Sub-agent:** Spawn `project-scanner` to assess milestone status across projects.
 **Detailed process:** See `Workflows/roadmap-review/workflow-spec.md` for full step-by-step.
 
@@ -15,25 +15,34 @@ Usage: "roadmap review" — weekly check-in on roadmap progress and deliverable 
    - `GOALS.md` — 30-60-90 day targets
    - `Knowledge/Reference/metrics/latest.md` — key metrics (if available)
 
-2. **Review milestones** — for each active milestone:
+2. **Task–OKR alignment check** — for each task in `Tasks/active.md`, verify it maps to at least one OKR or milestone in `GOALS.md`. Flag orphaned tasks.
+
+| Task | Maps to OKR / Milestone | Aligned? |
+|------|------------------------|----------|
+| | | ✓ / ✗ Orphaned |
+
+   - **Orphaned task** = no clear link to any current goal → deprioritize or drop
+   - If >2 orphaned tasks found → flag: "Active work has drifted from OKRs — reprioritize before proceeding"
+
+3. **Review milestones** — for each active milestone:
 
 | Milestone | Target Date | Status | On Track? | Notes |
 |-----------|-------------|--------|-----------|-------|
 | | | | 🟢/🟡/🔴 | |
 
-3. **Identify risks & blockers** — for each 🟡 or 🔴 item:
+4. **Identify risks & blockers** — for each 🟡 or 🔴 item:
    - Root cause
    - What's needed to unblock
    - Who to talk to
    - Whether timeline adjustment needed
 
-4. **Reprioritize active tasks:**
+5. **Reprioritize active tasks:**
    - Archive completed items
    - Pull next-up from backlog
    - Ensure alignment to nearest milestone
    - Confirm: highest-leverage work in focus?
 
-5. **Prepare for Jervis** (if 1:1 or weekly update coming):
+6. **Prepare for Jervis** (if 1:1 or weekly update coming):
    - 2–3 key updates
    - Decisions needed from him
    - Suggest running `/weekly-update` to draft the update
@@ -62,4 +71,8 @@ Usage: "roadmap review" — weekly check-in on roadmap progress and deliverable 
 
 After review, offer:
 - "Update `Tasks/active.md` with these changes?"
-- "Run `/weekly-update` to draft a status update?"
+
+**Next Steps (run one of these now):**
+- `weekly update` — draft your Jervis update based on this review (recommended if update is due this week)
+- `cdp-status` — drill into CDP detail if any milestone is 🟡 or 🔴
+- `meeting prep jervis` — prep your 1:1 if happening this week

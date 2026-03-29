@@ -1,6 +1,6 @@
 # Weekly Update
 
-**Agent:** Stakeholder Manager — see `Agents/stakeholder-manager/AGENT.md` for full context.
+**Agent:** Stakeholder Manager — see `Agents/stakeholder-manager/stakeholder-manager.md` for full context.
 **Sub-agents:** Spawn `task-analyzer` and `metrics-reader` in parallel to gather task progress and latest metrics.
 
 Read the following files to draft Richard's weekly update for Jervis and the Digital Growth team:
@@ -29,3 +29,10 @@ After drafting, show it to Richard and ask:
 Revise based on feedback.
 
 Also pull latest metrics from `Knowledge/Reference/metrics/latest.md` if it exists, and include key numbers (ROAS, activation, retention) in the update.
+
+---
+
+**After sending this update:**
+- `meeting prep jervis` — prep for the alignment conversation if 1:1 is upcoming
+- `follow-ups` — scan for open action items from recent meetings
+- `roadmap review` — if you haven't done one this week, check milestone status next

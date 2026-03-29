@@ -1,6 +1,6 @@
 # Quarterly Planning
 
-**Agent:** Strategy & Roadmap — see `Agents/strategy-roadmap/AGENT.md` for full context.
+**Agent:** Strategy & Roadmap — see `Agents/strategy-roadmap/strategy-roadmap.md` for full context.
 **Sub-agents:** Spawn `task-analyzer` (velocity/shipped items) and `project-scanner` (milestone status) in parallel.
 **Detailed process:** See `Workflows/quarterly-planning/workflow-spec.md` for full step-by-step.
 

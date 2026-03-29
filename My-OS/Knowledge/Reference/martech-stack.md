@@ -1,8 +1,8 @@
 # Martech Stack — Audit & Reference
 
 **Owner:** Richard Ng
-**Last updated:** 2026-03-17
-**Status:** Audit in progress — discovery sessions scheduled
+**Last updated:** 2026-03-27
+**Status:** Framework complete — tool mapping in progress (some layers TBD)
 **Feeds into:** CDP vendor selection, Martech Roadmap v1.0
 
 ---
@@ -47,26 +47,45 @@ Update this file after each discovery session. Goal: complete picture by Day 30 
 
 ### Current Stack Summary
 
-| Category | Tool | Status | Primary Owner | Score | Notes |
+Legend: ✅ Confirmed active · 🟡 Partial / in progress · ⬜ TBD / not yet mapped
+
+| Layer | Category | Tool | Status | Primary Owner | Notes |
 | --- | --- | --- | --- | --- | --- |
+| L1 Data Sources | Web | GA4 / GTM | ✅ Active | Lina | Marketing site, lead forms, DMO entry |
+| L1 Data Sources | Product Analytics | SensorData | 🟡 Live since Jan | — | In-app behavioral events; full funnel dashboard submitted to JieHuan/BI |
+| L1 Data Sources | POS / Transactions | KPay system → DB | ✅ Active | Engineering | Terminal transaction events; GPV scoring source |
+| L1 Data Sources | Marketing Automation | HubSpot | ✅ Active | — | Email, form submits, nurture; marketing engagement layer |
+| L1 Data Sources | CRM | KPay built-in CRM | ✅ Active (HK only) | — | Merchant records, BD activity, SQL status |
+| L1 Data Sources | Ad Platforms | Meta / Google / LinkedIn | ⬜ TBD | Xinyi | Vendor eval pending; connectors needed |
+| L1 Data Sources | DocuSign | DocuSign | ⬜ TBD | — | DMO document submission events; identity gap |
+| L1 Data Sources | Offline / CS Referrals | — | ⬜ TBD | — | CS-sourced leads; Friends of KPay referral (SG) |
+| L3 CDP Backbone | CDP | None | Planned | Richard | Vendor TBD; evaluation in progress |
+| L4A Warehouse | Data Warehouse | AWS Redshift | ✅ Active | Data team | Central store; existing ETL from KPay DBs |
+| L4A Warehouse | ETL Pipeline | Existing ETL | ✅ Active | Engineering | KPay DBs → Redshift batch ingestion |
+| L4A Warehouse | Enrichment Models | TBD | ⬜ TBD | — | GPV scoring, LTV, churn propensity; ML tooling needed |
+| L4A Warehouse | Reverse ETL | TBD | ⬜ TBD | — | Push scores from Redshift → CDP + activation tools |
+| L4B Activation | Lifecycle Messaging | TBD | ⬜ TBD | Rachel | Candidates: Braze, Customer.io, HubSpot MH, Iterable |
+| L4B Activation | Paid Media | Ad platform connectors | ⬜ TBD | Xinyi | CDP segment sync to Meta, Google, LinkedIn |
+| L4B Activation | In-App Personalization | SensorData (planned) | 🟡 Planned | — | Triggered in-app messages by lifecycle stage |
+| L4B Activation | WhatsApp / Conversational | — | 🟡 Pilot (HK) | — | CS chatbot pilot |
+| L5 Measurement | BI / Reporting | Tableau | ✅ Active | — | Dashboards from Redshift; future CDP views + ChatBI |
+| L5 Measurement | BI / Reporting | ChatBI | 🟡 Early dev | — | Conversational BI layer in development |
+| L5 Measurement | Web Analytics | GA4 | ✅ Active | Lina | Traffic, DMO attribution, form conversions |
+| L5 Measurement | Product Analytics | SensorData | 🟡 Live since Jan | — | In-app funnel, feature adoption, session depth |
+| L5 Measurement | Attribution | TBD | ⬜ TBD | — | Multi-touch model needed; currently broken at MQL→BD handoff |
+| L5 Measurement | Experimentation | TBD | ⬜ TBD | — | A/B testing; SensorData paid module or standalone |
 | CDP | None | Planned | Richard | — | Flight 1 target: June 2026 |
-| CRM | TBD | TBD | TBD | TBD | Discover in stakeholder interviews |
-| Email / Lifecycle | TBD | TBD | Rachel | TBD |  |
-| Paid Ads — Search | TBD | Active | Xinyi | TBD | Likely Google Ads |
-| Paid Ads — Social | TBD | Active | Xinyi | TBD | Likely Meta, TikTok |
-| Web Analytics | TBD | Active | Lina | TBD |  |
-| Tag Management | TBD | TBD | Lina | TBD |  |
-| CMS | TBD | Active | Lina | TBD |  |
-| SEO / Content | TBD | Active | Mardiana | TBD |  |
-| Attribution | TBD | TBD | TBD | TBD | High priority to discover |
-| Data Warehouse | TBD | TBD | Data team? | TBD | Critical for CDP integration |
-| Creative / Media | TBD | Active | Mardiana / Xinyi | TBD | Include AI creative tools |
 
 ### Evaluating / Planned
 
 | Tool | Category | Why Evaluating | Status | Decision Target |
 | --- | --- | --- | --- | --- |
-| CDP vendor (TBD) | CDP | Unify customer data, enable activation | Discovery phase | April 2026 |
+| CDP vendor (TBD) | CDP | Unify customer data, enable activation | Evaluation in progress | April 2026 |
+| Lifecycle messaging tool | Activation | Email/push/SMS for onboarding + retention journeys | Candidates: Braze, Customer.io, HubSpot MH, Iterable | TBD |
+| Reverse ETL tool | Data Warehouse | Push enrichment scores from Redshift → CDP + activation | TBD | TBD |
+| Attribution tool | Measurement | Multi-touch model; MQL→SQL→merchant funnel visibility | TBD | TBD |
+| Experimentation tool | Measurement | A/B testing for messaging + onboarding flows | SensorData paid module or standalone | TBD |
+| Ad platform connectors | Activation | CDP segment sync to Meta / Google / LinkedIn | TBD | TBD |
 | Video / image editing + AI creative tools | Creative / Media | Evaluate options for content and ads creative production | Research phase | TBD |
 
 ---
@@ -175,34 +194,36 @@ Keep / Expand / Optimize / Review / Sunset
 ### Current State (as of March 2026)
 
 ```
-[Transaction System / Payment Processing]
-  --transaction events, merchant profile--> ?
-  --> [CRM?]
+[KPay POS / Hive / Transaction DBs]
+  --batch transaction events--> [AWS Redshift] (via existing ETL pipeline)
 
-[Website / CMS]
-  --pageview, form fill, conversion events--> [Web Analytics: TBD]
-  --> [Tag Manager: TBD]
+[KPay built-in CRM (HK only)]
+  --merchant records, BD activity, SQL status--> [AWS Redshift?] (confirm)
 
-[Tag Manager: TBD]
-  --pixels, tracking scripts--> [Paid Ads platforms]
-  --events--> [Web Analytics]
+[Website / Marketing Site]
+  --pageview, form fill, DMO entry, conversions--> [GA4] (via GTM)
 
-[Web Analytics: TBD]
-  --> ?
+[GTM]
+  --pixels, tracking scripts--> [Ad Platforms: Meta / Google / LinkedIn]
+  --events--> [GA4]
 
-[Email / Lifecycle: TBD]
-  --open, click, unsubscribe--> ?
-  <--merchant list, segments--> ?
+[HubSpot]
+  --email opens, form submits, nurture activity--> [HubSpot internal]
+  <--merchant list--> ? (source TBD)
 
-[Paid Ads — Search: TBD]
-  --conversion data--> ?
-  <--audience lists--> ?
+[SensorData]
+  --in-app behavioral events, feature adoption, session data--> [SensorData]
+  --full funnel dashboard--> [JieHuan/BI] (submitted Jan 2026)
 
-[Paid Ads — Social: TBD]
-  --conversion data--> ?
-  <--audience lists--> ?
+[AWS Redshift]
+  --BI queries--> [Tableau]
+  --enrichment scores (future)--> [Reverse ETL: TBD] --> [CDP: TBD]
+
+[Lark Webhooks]
+  --lead form submissions--> [Collection layer] (real-time trigger)
 
 [CDP: None yet]
+[Attribution: Broken] — MQL→BD handoff gap; 1+ month lag to conversion data
 ```
 
 ### Target State (Post-CDP, Flight 1)
@@ -397,16 +418,19 @@ For each gap: capability missing → business impact → current workaround → 
 
 | Question | Priority | Status | Answer |
 | --- | --- | --- | --- |
-| Is there a data warehouse at Kpay? If so, what's in it and who owns it? | P0 | Open |  |
-| Who is the engineering / data partner for CDP implementation? | P0 | Open |  |
-| What is the budget range for CDP tooling? | P0 | Open |  |
-| Is there any existing identity resolution (web visitor → known merchant)? | P0 | Open |  |
-| What compliance / data privacy constraints exist? (PDPA, PCI-related) | P0 | Open |  |
-| What tools are currently paid for but barely used (shelfware candidates)? | P1 | Open |  |
-| Is there an existing attribution model? Is it trusted? | P1 | Open |  |
-| What is the renewal date and cost of the email/lifecycle tool? | P1 | Open |  |
-| What video/image editing and AI creative tools are in use or being considered? | P2 | Open |  |
-| What is the current CMS and how does it integrate with analytics? | P1 | Open |  |
+| Is there a data warehouse at Kpay? If so, what's in it and who owns it? | P0 | **Answered** | AWS Redshift — existing ETL pipeline from KPay DBs; owns enrichment and BI layer |
+| Who is the engineering / data partner for CDP implementation? | P0 | Open | |
+| What is the budget range for CDP tooling? | P0 | Open | |
+| Is there any existing identity resolution (web visitor → known merchant)? | P0 | Open | No CDP yet; no stitching confirmed — gap to close |
+| What compliance / data privacy constraints exist? | P0 | **Partial** | PDPO (HK) / PDPA (SG/TH) / Privacy Act (AU) / APPI (JP) — consent + suppression required at profile level |
+| Does CRM extend beyond HK? | P0 | **Partial** | KPay built-in CRM is HK only — other markets TBD |
+| What tools are currently paid for but barely used (shelfware candidates)? | P1 | Open | |
+| Is there an existing attribution model? Is it trusted? | P1 | **Partial** | Currently broken — MQL→BD handoff gap; 1+ month lag to conversion data |
+| What is the renewal date and cost of the email/lifecycle tool? | P1 | Open | Lifecycle tool not yet selected |
+| What video/image editing and AI creative tools are in use or being considered? | P2 | Open | |
+| What is the current CMS and how does it integrate with analytics? | P1 | Open | |
+| Who owns / built the Merchant Identity Model (B2B2C hierarchy)? | P1 | Open | Design required — not yet modelled |
+| What is the SensorData contract scope — which paid modules are active? | P1 | Open | In-app behavioral live; paid modules (experimentation) not confirmed |
 
 ---
 

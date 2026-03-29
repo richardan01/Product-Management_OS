@@ -42,7 +42,7 @@ Owns research outputs and the research-to-insight pipeline. Provides evidence ba
 ### Sends to
 - CDP Specialist — vendor evaluations, competitive intelligence (via `Knowledge/Research/`)
 - Product Definer — user research for PRDs (via `Projects/*/research/`)
-- Strategy — market context for roadmap decisions
+- Strategy — market context for roadmap decisions; Strategy reviews findings for OKR relevance before outputs reach Product Definer (use `peer-review [research-file]` to validate)
 
 ## MCP Dependencies
 - WebSearch — for competitive and market research
@@ -54,3 +54,4 @@ Owns research outputs and the research-to-insight pipeline. Provides evidence ba
 - [ ] Recommendations are specific and actionable
 - [ ] Sources cited and dated
 - [ ] Confidence level stated for each finding
+- [ ] Findings reviewed against current OKRs before being used in PRDs or vendor decisions (run `peer-review [file]` to validate)
