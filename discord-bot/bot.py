@@ -8,9 +8,12 @@ import config
 from commands.os_commands import setup_os_commands
 from commands.capture import setup_capture_commands
 from commands.query import setup_query_commands
+from commands.code_pairing import setup_code_pairing, handle_dm
 from notifications.scheduler import setup_scheduler
 
 intents = discord.Intents.default()
+intents.message_content = True
+intents.dm_messages = True
 
 bot = commands.Bot(command_prefix="!", intents=intents)
 
@@ -26,6 +29,19 @@ async def on_ready():
         print(f"Failed to sync commands: {e}")
 
 
+@bot.event
+async def on_message(message: discord.Message):
+    # Ignore messages from the bot itself
+    if message.author == bot.user:
+        return
+    # Handle DMs — prompt code pairing
+    if isinstance(message.channel, discord.DMChannel):
+        await handle_dm(bot, message)
+        return
+    # Process prefix commands in guild channels
+    await bot.process_commands(message)
+
+
 @bot.tree.command(name="ping", description="Check if the bot is alive")
 async def ping(interaction: discord.Interaction):
     await interaction.response.send_message("pong — Product OS bot is online ✓")
@@ -34,6 +50,7 @@ async def ping(interaction: discord.Interaction):
 setup_os_commands(bot)
 setup_capture_commands(bot)
 setup_query_commands(bot)
+setup_code_pairing(bot)
 
 
 async def main():
