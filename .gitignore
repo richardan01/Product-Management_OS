@@ -1,0 +1,24 @@
+# Personal OS — never commit
+My-OS/
+.telemetry/
+
+# Local data / scratch
+Clippings/
+nimbalyst-local/
+*.xlsx
+SensorData_*.md
+tasks.py
+
+# Editor / OS
+.DS_Store
+.obsidian/
+.vscode/
+.venv/
+
+# Worktrees
+.claude/worktrees/
+
+# Python
+__pycache__/
+*.pyc
+.env
