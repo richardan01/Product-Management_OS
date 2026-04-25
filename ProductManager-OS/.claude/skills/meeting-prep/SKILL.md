@@ -10,7 +10,7 @@ Steps:
 1. **Find the person** in `Knowledge/People/` based on the name argument
 2. **Pull meeting history** from `Meetings/1on1s/[name].md` if it exists
 3. **Read current context** from `Tasks/active.md` and `GOALS.md`
-4. **Read project context** from `Projects/cdp-implementation/brief.md` if relevant
+4. **Read project context** from `Projects/[your-main-project]/brief.md` if relevant
 
 Then generate a prep doc:
 

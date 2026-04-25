@@ -17,7 +17,7 @@ Build a comprehensive context profile for a specific person to prepare for inter
    - Recurring themes and concerns
    - Decisions pending their input
 3. Read `Tasks/active.md` — find tasks relevant to this person
-4. Read `Projects/cdp-implementation/brief.md` — find their involvement/dependencies
+4. Read `Projects/[your-main-project]/brief.md` — find their involvement/dependencies
 
 ## Output Format
 Return a structured profile:

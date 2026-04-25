@@ -13,8 +13,8 @@ The structure is designed for product and marketing work: managing projects, run
 ## Getting Started
 
 1. **Clone this repo** — Fork or clone it as your starting point
-2. **Browse `EXAMPLE-OS/`** — A worked example showing how the system is meant to be used. Every file uses placeholders (`[Your Name]`, `[Your Manager]`, etc.) ready for you to fill in.
-3. **Copy `EXAMPLE-OS/` to a folder of your own** — `cp -r EXAMPLE-OS My-OS` (or any name you prefer). Open that folder in Claude Code and use it as your workspace root.
+2. **Browse `ProductManager-OS/`** — The template directory. Every file uses placeholders (`[Your Name]`, `[Your Manager]`, etc.) ready for you to fill in.
+3. **Copy `ProductManager-OS/` to a folder of your own** — `cp -r ProductManager-OS My-OS` (or any name you prefer). Open that folder in Claude Code and use it as your workspace root.
 4. **Fill in `CLAUDE.md` + `GOALS.md`** — Replace all `[placeholder]` fields with your own context. These two files give you 80% of the value.
 5. **Update `Tasks/active.md`** — Set your first sprint
 6. **Customize agents as needed** — The 14 agents cover most PM domains; delete or repurpose any that don't fit your role
@@ -23,7 +23,7 @@ You don't need everything on day one. Start minimal, add structure when friction
 
 ## Structure Overview
 
-The folders below live inside `EXAMPLE-OS/` (or whatever you renamed it to). The repo root just contains this README and the template directory.
+The folders below live inside `ProductManager-OS/` (or whatever you renamed it to). The repo root just contains this README and the template directory.
 
 | Folder/File | Purpose |
 |-------------|---------|
@@ -85,4 +85,4 @@ Depends on scope:
 
 **What's the Domain Specialist agent?**
 
-`Agents/cdp-specialist/` is an example of a domain-specific initiative agent (built around CDP implementation). If your main initiative is different, repurpose or replace it with a specialist agent for your domain. The pattern — scoped skills, dedicated project files, clear coordination with other agents — applies to any major initiative.
+`Agents/cdp-specialist/` is an *example* of a domain-specific initiative agent (built around a Customer Data Platform implementation as the worked example). It's there to show the pattern. If your main initiative is different, rename the folder, replace the body, and adapt the skills to your domain. The pattern — scoped skills, dedicated project files, clear coordination with other agents — applies to any major initiative.

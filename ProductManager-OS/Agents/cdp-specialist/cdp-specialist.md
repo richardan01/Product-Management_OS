@@ -22,8 +22,8 @@ Owns the CDP project lifecycle from discovery through launch. Composes other age
 ## Files
 
 ### Reads
-- `Projects/cdp-implementation/brief.md` — project scope, milestones, risks
-- `Projects/cdp-implementation/research/*.md` — user research findings
+- `Projects/example-project/brief.md` — project scope, milestones, risks
+- `Projects/example-project/research/*.md` — user research findings
 - `Knowledge/Reference/cdp.md` — use case inventory, vendor landscape
 - `Knowledge/Reference/martech-stack.md` — current tool audit
 - `Knowledge/Reference/data-architecture/*.md` — data models, integration map
@@ -33,8 +33,8 @@ Owns the CDP project lifecycle from discovery through launch. Composes other age
 - `Tasks/active.md` — CDP-tagged tasks
 
 ### Writes
-- `Projects/cdp-implementation/brief.md` — milestone updates, decision log
-- `Projects/cdp-implementation/vendor-eval/*.md` — vendor scorecards
+- `Projects/example-project/brief.md` — milestone updates, decision log
+- `Projects/example-project/vendor-eval/*.md` — vendor scorecards
 - `Knowledge/Reference/cdp.md` — use case updates, vendor shortlist
 - `Knowledge/Reference/martech-stack.md` — tool audit updates
 

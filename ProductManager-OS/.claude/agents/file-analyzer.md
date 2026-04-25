@@ -48,4 +48,4 @@ Return a structured report:
 ```
 
 ## Files You Can Read
-- Any file in the My-OS directory tree
+- Any file in the OS directory tree (your workspace root)
