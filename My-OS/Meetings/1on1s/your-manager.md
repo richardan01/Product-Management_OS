@@ -1,6 +1,6 @@
-# 1:1s with Jervis
+# 1:1s with [Your Manager]
 
-**Cadence:** Weekly (to be set up)
+**Cadence:** [Weekly / Bi-weekly — to be set up]
 **Format:** See `Templates/1on1-notes.md`
 
 ---

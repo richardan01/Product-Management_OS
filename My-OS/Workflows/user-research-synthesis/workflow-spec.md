@@ -1,6 +1,6 @@
 # Workflow: User Research Synthesis
 
-**Use when:** After completing a round of discovery or validation interviews (e.g., CDP use case interviews with Rachel, Xinyi, Lina, Mardiana)
+**Use when:** After completing a round of discovery or validation interviews
 **Trigger phrase:** "synthesize research"
 **Output:** Completed `Templates/research-summary.md`
 
@@ -45,10 +45,10 @@ Use `Templates/research-summary.md`. Structure:
 
 ### Step 4: Share & Act
 
-1. Share draft with Jervis and relevant team members
+1. Share draft with manager and relevant team members
 2. Run a 30-minute discussion to pressure-test findings
-3. Update `Knowledge/Reference/cdp.md` with validated use cases
-4. Update `Tasks/backlog.md` or `Projects/cdp-implementation/brief.md` based on learnings
+3. Update `Knowledge/Reference/[domain].md` with validated use cases
+4. Update `Tasks/backlog.md` or `Projects/[your-main-project]/brief.md` based on learnings
 
 ---
 

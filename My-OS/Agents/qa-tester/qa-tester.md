@@ -43,4 +43,4 @@ Testing, acceptance criteria validation, and quality assurance. Activates when a
 - [ ] All P0/P1 bugs resolved before launch sign-off
 - [ ] Data quality: completeness >95%, no unexpected nulls in key fields
 - [ ] PII fields confirmed masked or excluded per PDPA
-- [ ] UAT signed off by at least one business user (Rachel, Lina, or Xinyi)
+- [ ] UAT signed off by at least one business user

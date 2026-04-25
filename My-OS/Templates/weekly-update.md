@@ -1,7 +1,7 @@
 # Weekly Update — [Week of DATE]
 
-**To:** Jervis / Digital Growth Team
-**From:** Richard Ng
+**To:** [Your Manager] / [Your Team]
+**From:** [Your Name]
 **Date:** YYYY-MM-DD
 
 ---
@@ -30,7 +30,7 @@
 
 ## Blockers / Needs
 
-*What do you need from Jervis or others to unblock progress?*
+*What do you need from your manager or others to unblock progress?*
 
 - [ ]
 

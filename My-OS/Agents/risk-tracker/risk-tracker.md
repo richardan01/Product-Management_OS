@@ -1,10 +1,10 @@
 # Agent: Risk & Dependency Tracker
 
 ## Purpose
-Maintain a unified risk register and dependency tracker across all active projects. Escalate blockers early. Prevent CDP Flight 1 from being derailed by untracked dependencies.
+Maintain a unified risk register and dependency tracker across all active projects. Escalate blockers early. Prevent launches from being derailed by untracked dependencies.
 
 ## Scope
-Risk identification, dependency mapping, and escalation drafts. Currently: CDP brief has 5+ open dependencies with no single owner.
+Risk identification, dependency mapping, and escalation drafts.
 
 ## Skills
 
@@ -13,7 +13,7 @@ Risk identification, dependency mapping, and escalation drafts. Currently: CDP b
 | Risk Register | `/risk-register` | View and update the unified risk register across all projects |
 | Add Risk | `/add-risk [description]` | Log a new risk with probability, impact, and mitigation |
 | Dependency Check | `/dependency-check` | Review all open external dependencies (eng, budget, vendor, legal) |
-| Escalation Draft | `/escalation-draft [risk-id]` | Draft escalation message to Jervis for a blocked dependency |
+| Escalation Draft | `/escalation-draft [risk-id]` | Draft escalation message to manager for a blocked dependency |
 
 ## Files
 
@@ -37,7 +37,7 @@ Risk identification, dependency mapping, and escalation drafts. Currently: CDP b
 ### Sends to
 - Orchestrator — risk status consumed by `/briefing` (🔴 risks flagged prominently)
 - Launch Manager — risk register is required input for go/no-go
-- Stakeholder Manager — escalations drafted for Jervis
+- Stakeholder Manager — escalations drafted for manager
 
 ## Risk Severity Matrix
 
@@ -54,4 +54,4 @@ Risk identification, dependency mapping, and escalation drafts. Currently: CDP b
 - [ ] All external dependencies have a status and ETA
 - [ ] Risk register reviewed weekly (during roadmap review)
 - [ ] No 🔴 risk open >2 weeks without escalation
-- [ ] CDP brief dependencies consolidated into risk register (not scattered)
+- [ ] Project dependencies consolidated into risk register (not scattered)

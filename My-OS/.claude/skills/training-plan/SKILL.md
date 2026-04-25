@@ -7,17 +7,17 @@ Build a role-specific training plan for [feature] launch. Run this at least 1 we
 ## Steps
 
 1. **Read:**
-   - `Knowledge/People/team.md` — Rachel, Lina, Xinyi, Mardiana roles and CDP use cases
+   - `Knowledge/People/team.md` — team roles and use cases
    - `Projects/[project]/brief.md` or `prd-[feature].md` — what the feature does and who uses it
 
 2. **Map users to what they need to DO (not just know):**
 
 | User | Role | What they'll use this for | Training needed | Format | By when | Sign-off criteria |
 |------|------|--------------------------|-----------------|--------|---------|-------------------|
-| Rachel | Lifecycle | | | Live walkthrough / Loom / Written guide | | Can do X without help |
-| Lina | Website | | | | | |
-| Xinyi | Paid Ads | | | | | |
-| Mardiana | Content | | | | | |
+| [Team Member 1] | [Role] | | | Live walkthrough / Loom / Written guide | | Can do X without help |
+| [Team Member 2] | [Role] | | | | | |
+| [Team Member 3] | [Role] | | | | | |
+| [Team Member 4] | [Role] | | | | | |
 
    Only include users who will actually touch the feature — skip irrelevant rows.
 
@@ -38,14 +38,14 @@ Build a role-specific training plan for [feature] launch. Run this at least 1 we
 [table]
 
 **Materials to Create:**
-- [ ] Written guide for [feature] — owner: Richard
-- [ ] Loom walkthrough for [feature] — owner: Richard
+- [ ] Written guide for [feature]
+- [ ] Loom walkthrough for [feature]
 - [ ] Sandbox access confirmed — owner: [eng/vendor]
 
 **Schedule:**
-- [ ] Walkthrough with Rachel: [date]
-- [ ] Walkthrough with Lina: [date]
-- [ ] Walkthrough with Xinyi: [date]
+- [ ] Walkthrough with [Team Member 1]: [date]
+- [ ] Walkthrough with [Team Member 2]: [date]
+- [ ] Walkthrough with [Team Member 3]: [date]
 
 **Readiness Gate:** All users confirmed ready before UAT sign-off
 ```

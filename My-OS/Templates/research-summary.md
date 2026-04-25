@@ -1,8 +1,8 @@
 # Research Summary: [Topic]
 
-**Author:** Richard Ng
+**Author:** [Your Name]
 **Date:** YYYY-MM-DD
-**Project:** [CDP Use Case Discovery / other]
+**Project:** [Project Name / Research Context]
 **Method:** [Interviews / Survey / Desk Research]
 **N:** [Number of participants / sources]
 
@@ -105,5 +105,5 @@
 ## Appendix
 
 - Raw interview notes: `Projects/[project]/research/`
-- Related research: [[Knowledge/Reference/cdp]]
+- Related research: [[Knowledge/Reference/[domain]]]
 - Stakeholders briefed: *[Names and dates]*

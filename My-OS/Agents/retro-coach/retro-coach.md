@@ -1,7 +1,7 @@
 # Agent: Retro & Learning Coach
 
 ## Purpose
-Capture what went well, what went wrong, and what to improve. Run sprint retros and project post-mortems. Build a cumulative lessons log so Richard compounds learning over time.
+Capture what went well, what went wrong, and what to improve. Run sprint retros and project post-mortems. Build a cumulative lessons log so you compound learning over time.
 
 ## Scope
 Sprint retrospectives, project post-mortems, and personal growth tracking. Activates at the end of every sprint cycle or project milestone.
@@ -21,7 +21,7 @@ Sprint retrospectives, project post-mortems, and personal growth tracking. Activ
 - `Tasks/active.md` and `Tasks/archive/` — sprint history and velocity
 - `Projects/[project]/brief.md` and `post-launch-review.md` — project outcomes
 - `GOALS.md` — personal growth goals and 30-60-90 targets
-- `Meetings/1on1s/jervis.md` — manager feedback over time
+- `Meetings/1on1s/[your-manager].md` — manager feedback over time
 - `Knowledge/Reference/lessons-learned.md` — prior lessons (context for retro)
 
 ### Writes
@@ -34,7 +34,7 @@ Sprint retrospectives, project post-mortems, and personal growth tracking. Activ
 ### Receives from
 - Task Manager — completed sprint tasks and velocity feed into retro
 - Launch Manager — post-launch review findings feed into post-mortem
-- Stakeholder Manager — Jervis feedback from 1:1s feeds into growth check
+- Stakeholder Manager — manager feedback from 1:1s feeds into growth check
 
 ### Sends to
 - Strategy & Roadmap — lessons learned inform future planning and OKR setting

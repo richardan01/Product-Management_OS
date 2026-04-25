@@ -1,6 +1,6 @@
 # Project Brief: [Project Name]
 
-**Owner:** Richard Ng
+**Owner:** [Your Name]
 **Status:** [Discovery / Planning / In Progress / Complete]
 **Started:** YYYY-MM-DD
 **Target:** YYYY-MM-DD
@@ -22,7 +22,7 @@
 
 ### Strategic Fit
 
-*Why does this matter for Kpay / Digital Growth now?*
+*Why does this matter for [Your Company] / [Your Team] now?*
 
 ---
 
@@ -70,7 +70,7 @@
 
 | Role | Person | Involvement |
 |------|--------|------------|
-| PM / DRI | Richard Ng | Full-time |
+| PM / DRI | [Your Name] | Full-time |
 | | | |
 
 ---

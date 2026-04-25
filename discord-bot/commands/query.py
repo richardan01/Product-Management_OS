@@ -3,8 +3,8 @@ from discord.ext import commands
 from utils import file_reader
 from utils.claude_client import ask_claude
 
-RICHARD_SYSTEM = (
-    "You are Richard Ng's Product OS assistant. Richard is a Martech PM at Kpay. "
+OS_SYSTEM = (
+    "You are a Product OS assistant. "
     "Answer questions using only the context provided. Be concise and direct. "
     "If the answer is not in the context, say so clearly."
 )
@@ -24,7 +24,7 @@ def setup_query_commands(bot: commands.Bot):
             f"## Martech Stack\n\n{file_reader.read_martech_stack()}",
         ])
         reply = ask_claude(
-            RICHARD_SYSTEM,
+            OS_SYSTEM,
             f"Reply in under 1000 characters. Question: {question}\n\nContext from Product OS:\n\n{context}",
             max_chars=1000,
         )

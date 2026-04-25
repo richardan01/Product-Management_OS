@@ -12,15 +12,17 @@
 - `#p2` — nice to have, backlog
 
 ## Project / Initiative Tags
-- `#cdp` — Customer Data Platform work
-- `#martech` — Martech stack (general)
+*Customize these to match your main initiatives.*
+- `#[initiative-1]` — e.g. CDP, platform, growth
+- `#[initiative-2]` — e.g. martech, data, analytics
 - `#roadmap` — Roadmap and planning tasks
 
-## Area Tags (by team member / channel)
-- `#lifecycle` — Rachel's domain — email, push, retention journeys
-- `#paid-ads` — Xinyi's domain — Google, Meta, TikTok, ROAS
-- `#website` — Lina's domain — web product, personalization
-- `#content` — Mardiana's domain — content strategy, SEO
+## Area Tags
+*Customize these to match your team's domains.*
+- `#[area-1]` — e.g. lifecycle, email, retention
+- `#[area-2]` — e.g. paid-ads, acquisition
+- `#[area-3]` — e.g. website, web product
+- `#[area-4]` — e.g. content, SEO
 
 ## Type Tags
 - `#task` — a discrete action item

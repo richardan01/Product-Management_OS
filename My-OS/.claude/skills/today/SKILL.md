@@ -2,7 +2,7 @@
 
 **Agent:** Task Manager — see `Agents/task-manager/task-manager.md` for full context.
 
-Read the following files to prepare Richard's daily to-do list:
+Read the following files to prepare the daily to-do list:
 1. `Tasks/active.md` — current sprint tasks, blockers, and completed items
 2. `GOALS.md` — 30-60-90 day goals and current focus areas
 3. Check `Meetings/` for any meetings today (if accessible)
@@ -45,7 +45,7 @@ If the user confirms updates, edit `Tasks/active.md` accordingly.
 ---
 
 **What to run next:**
-- Monday or Friday → `roadmap review` to check milestone and CDP status
-- Jervis 1:1 this week → `meeting prep jervis` to prep agenda and open items
+- Monday or Friday → `roadmap review` to check milestone status
+- Manager 1:1 this week → `meeting prep [manager]` to prep agenda and open items
 - Tasks feel stale or priorities shifted → `groom` to clean up the backlog
-- Want full system context → `briefing` for tasks + metrics + CDP status in one view
+- Want full system context → `briefing` for tasks + metrics + project status in one view

@@ -21,11 +21,11 @@ git push -u personal main
 If you use SSH and have different keys for work and personal accounts, edit your `~/.ssh/config`:
 
 ```text
-# Work Account (Kpay)
-Host github.com-kpay
+# Work Account ([Your Company])
+Host github.com-work
     HostName github.com
     User git
-    IdentityFile ~/.ssh/id_rsa_kpay
+    IdentityFile ~/.ssh/id_rsa_work
 
 # Personal Account
 Host github.com-personal

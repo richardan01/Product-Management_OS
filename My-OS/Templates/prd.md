@@ -1,6 +1,6 @@
 # PRD: [Feature / Initiative Name]
 
-**Author:** Richard Ng
+**Author:** [Your Name]
 **Status:** [Draft / In Review / Approved]
 **Last Updated:** YYYY-MM-DD
 **Target Launch:** YYYY-MM-DD

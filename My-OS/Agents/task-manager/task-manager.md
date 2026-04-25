@@ -1,7 +1,7 @@
 # Agent: Task Manager
 
 ## Purpose
-Sprint management, backlog grooming, daily planning, and task lifecycle. Keep Richard focused on the highest-leverage work.
+Sprint management, backlog grooming, daily planning, and task lifecycle. Keep you focused on the highest-leverage work.
 
 ## Scope
 Owns the task system: active sprint, backlog, and archive. Enforces the 3–6 active items rule.
@@ -44,7 +44,7 @@ Owns the task system: active sprint, backlog, and archive. Enforces the 3–6 ac
 
 ## Conventions
 - Priority tags: `#p0` (urgent), `#p1` (this week), `#p2` (backlog)
-- Area tags: `#cdp`, `#martech`, `#lifecycle`, `#paid-ads`, `#roadmap`
+- Area tags: customize to your domain (e.g. `#[area-1]`, `#[area-2]`, `#[area-3]`)
 - Source tags: `#source/meeting-[name]-[date]` for meeting-generated tasks
 - Max 6 active items — push overflow to backlog
 

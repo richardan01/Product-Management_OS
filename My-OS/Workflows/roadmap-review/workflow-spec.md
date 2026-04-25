@@ -14,21 +14,21 @@
 Read:
 - `Tasks/active.md` — what's in flight
 - `Tasks/backlog.md` — what's queued
-- `Projects/cdp-implementation/brief.md` — milestone status
+- `Projects/[your-main-project]/brief.md` — milestone status
 - `GOALS.md` — 30-60-90 day targets
 
 ---
 
 ### Step 2: Review Milestones
 
-For each active milestone in the CDP brief:
+For each active milestone in the project brief:
 
 | Milestone | Target Date | Status | On Track? | Notes |
 |-----------|-------------|--------|-----------|-------|
-| Use case shortlisted | Apr 2026 | | | |
-| Vendor selected | Apr 2026 | | | |
-| Implementation kicked off | May 2026 | | | |
-| Flight 1 live | Jun 2026 | | | |
+| [Milestone 1] | [DATE] | | | |
+| [Milestone 2] | [DATE] | | | |
+| [Milestone 3] | [DATE] | | | |
+| [Milestone 4] | [DATE] | | | |
 
 **Status key:** 🟢 On Track | 🟡 At Risk | 🔴 Blocked
 
@@ -54,11 +54,11 @@ For each item that is 🟡 or 🔴:
 
 ---
 
-### Step 5: Prepare for Jervis
+### Step 5: Prepare for Manager
 
 If a weekly update or 1:1 is coming up:
 - Note 2–3 key updates to share
-- Flag any decisions you need from him
+- Flag any decisions you need from them
 - Draft using `Templates/weekly-update.md`
 
 ---
@@ -67,7 +67,7 @@ If a weekly update or 1:1 is coming up:
 
 | Review Type | Frequency | Who |
 |-------------|-----------|-----|
-| Personal roadmap review | Weekly | Richard solo |
-| Jervis 1:1 alignment | Weekly | Richard + Jervis |
-| CDP stakeholder update | Monthly | Richard + team |
-| Quarterly OKR review | Quarterly | Richard + Jervis |
+| Personal roadmap review | Weekly | Solo |
+| Manager 1:1 alignment | Weekly | You + manager |
+| Stakeholder update | Monthly | You + team |
+| Quarterly OKR review | Quarterly | You + manager |
