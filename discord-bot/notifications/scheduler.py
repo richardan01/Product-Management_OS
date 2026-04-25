@@ -24,7 +24,7 @@ async def _post_standup(bot: commands.Bot):
     has_blockers = "## Blocked" in tasks and tasks.split("## Blocked")[1].strip().startswith("-")
 
     system = (
-        "You are [Your Name]'s Product OS assistant. Be very concise — this is a morning standup message. "
+        "You are a Product OS assistant. Be very concise — this is a morning standup message. "
         "Use bullet points. No preamble."
     )
     prompt = (
