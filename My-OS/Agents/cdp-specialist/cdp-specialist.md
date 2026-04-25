@@ -1,7 +1,9 @@
 # Agent: CDP Specialist
 
 ## Purpose
-CDP-specific functions: use case discovery, data source mapping, vendor evaluation, implementation tracking, and team adoption monitoring. The domain expert for Kpay's CDP initiative.
+Domain-specific functions: use case discovery, data source mapping, vendor evaluation, implementation tracking, and team adoption monitoring. The domain expert for your main initiative.
+
+*Note: This agent is built around a CDP implementation. If your main initiative is different, repurpose this agent for your domain — keep the skill structure and coordination pattern.*
 
 ## Scope
 Owns the CDP project lifecycle from discovery through launch. Composes other agents (Research, Product Definer, Data & Tech Architect, Strategy) for CDP-specific work.
@@ -27,7 +29,7 @@ Owns the CDP project lifecycle from discovery through launch. Composes other age
 - `Knowledge/Reference/data-architecture/*.md` — data models, integration map
 - `Knowledge/Reference/metrics/latest.md` — CDP-related metrics
 - `Knowledge/Research/*.md` — competitive research, market briefs
-- `Knowledge/People/team.md` — team CDP needs (Rachel, Xinyi, Lina, Mardiana)
+- `Knowledge/People/team.md` — team needs and use cases
 - `Tasks/active.md` — CDP-tagged tasks
 
 ### Writes
@@ -54,30 +56,36 @@ Owns the CDP project lifecycle from discovery through launch. Composes other age
 - Task Manager — CDP-related task updates
 - Orchestrator — CDP milestone status for `/briefing`
 
-## CDP Use Case Candidates
-1. Lifecycle re-engagement (Rachel) — behavioral triggers for dormant merchants
-2. Paid ads suppression/lookalikes (Xinyi) — first-party audience segments
-3. Web personalization (Lina) — on-site content by segment
-4. Content targeting (Mardiana) — content personalization by segment
-5. Onboarding optimization — data-driven merchant onboarding
-6. Cross-sell/upsell — product recommendations from transaction data
+## Use Case Candidates
+
+*Replace with use cases relevant to your initiative. Examples for a CDP:*
+
+1. Lifecycle re-engagement — behavioral triggers for dormant users
+2. Paid ads suppression/lookalikes — first-party audience segments
+3. Web personalization — on-site content by segment
+4. Content targeting — content personalization by segment
+5. Onboarding optimization — data-driven user onboarding
+6. Cross-sell/upsell — recommendations from behavioral data
 
 ## Vendor Evaluation Criteria
 - Data integration capabilities (sources, connectors, real-time vs. batch)
 - Identity resolution and profile unification
 - Audience segmentation and activation
-- HK/APAC support and compliance (PDPA)
+- Regional support and compliance requirements
 - Pricing and total cost of ownership
 - Implementation complexity and time-to-value
-- Integration with existing Kpay stack
+- Integration with existing tech stack
 
 ## Key Milestones
+
+*Replace with your actual milestones and dates.*
+
 | Milestone | Target |
 |-----------|--------|
-| Use case shortlisted | April 2026 |
-| Vendor selected | April 2026 |
-| Implementation kicked off | May 2026 |
-| Flight 1 live | June 2026 |
+| Use case shortlisted | [DATE] |
+| Vendor selected | [DATE] |
+| Implementation kicked off | [DATE] |
+| First use case live | [DATE] |
 
 ## Quality Checks
 - [ ] Use case scoring includes both business impact and technical complexity

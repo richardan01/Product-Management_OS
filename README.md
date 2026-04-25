@@ -1,19 +1,26 @@
-# Richard's Product OS
+# Product OS for Claude Code
 
-**A Personal Operating System for Claude Code**
+**A Personal Operating System for Claude Code — PM Edition**
 
 ## Introduction
 
-Claude Code is infinitely flexible — there's no single right way to organize it, which is both liberating and paralyzing. This is my personal setup as a Martech PM, built around how I actually work day-to-day.
+Claude Code is infinitely flexible — there's no single right way to organize it, which is both liberating and paralyzing. This is a template for product managers who want a structured, agent-powered workspace for day-to-day PM work.
 
-The structure is designed for product and marketing work: managing projects like CDP implementation, running repeatable workflows (standups, research synthesis, stakeholder updates), and keeping knowledge organized across a fast-moving role.
+The structure is designed for product and marketing work: managing projects, running repeatable workflows (standups, research synthesis, stakeholder updates), and keeping knowledge organized across a fast-moving role.
 
-Start minimal, add structure when friction appears.
+**Start minimal, add structure when friction appears.**
 
+## Getting Started
+
+1. **Clone this repo** — Fork or clone it as your starting point
+2. **Open `My-OS/` in Claude Code** — Set this as your workspace root (or rename the folder to anything you like)
+3. **Fill in `CLAUDE.md` + `GOALS.md`** — Replace all `[placeholder]` fields with your own context. These two files give you 80% of the value.
+4. **Update `Tasks/active.md`** — Set your first sprint
+5. **Customize agents as needed** — The 14 agents cover most PM domains; delete or repurpose any that don't fit your role
+
+You don't need everything on day one. Start minimal, add structure when friction appears.
 
 ## Structure Overview
-
-*[Screenshot placeholder - will add image]*
 
 | Folder/File | Purpose |
 |-------------|---------|
@@ -52,15 +59,6 @@ Start minimal, add structure when friction appears.
 
 *Your company's brand guidelines go in Knowledge. Competitor research for a specific launch goes in the project.*
 
-## Getting Started
-
-1. **Browse `EXAMPLE-OS/`** — See a working example with real content
-2. **Copy `BLANK-OS/`** — Rename it to your workspace name
-3. **Start with `CLAUDE.md` + `GOALS.md`** — These two files give you 80% of the value
-4. **Add workflows and skills as you repeat things** — Don't over-engineer upfront
-
-You don't need everything on day one. Start minimal, add structure when friction appears.
-
 ## FAQ
 
 **Where does planning go?**
@@ -82,6 +80,6 @@ Depends on scope:
 - Workflows are fuller processes, often with their own context files
 - Start with workflows. Promote to skills when you want faster access.
 
-## About
+**What's the Domain Specialist agent?**
 
-Richard Ng's personal Claude Code OS — built for Martech PM work at Kpay.
+`Agents/cdp-specialist/` is an example of a domain-specific initiative agent (built around CDP implementation). If your main initiative is different, repurpose or replace it with a specialist agent for your domain. The pattern — scoped skills, dedicated project files, clear coordination with other agents — applies to any major initiative.

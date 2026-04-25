@@ -7,11 +7,11 @@ A Discord bot that gives you access to your Product OS from any device.
 | Command | Description |
 |---------|-------------|
 | `/ping` | Check bot is online |
-| `/briefing` | Full morning brief — tasks, CDP, priorities |
+| `/briefing` | Full morning brief — tasks, project status, priorities |
 | `/today` | Today's focus, top 3 tasks, blockers |
 | `/roadmap` | Milestone status, OKR alignment, risks |
-| `/weekly-update` | Draft weekly update for Jervis |
-| `/cdp-status` | CDP phase, risks, flight 1 recommendation |
+| `/weekly-update` | Draft weekly status update for your manager |
+| `/cdp-status` | Domain project status (customize for your main initiative) |
 | `/ask [question]` | Ask anything about your OS |
 | `/add-task [desc]` | Add task to Tasks/active.md |
 | `/note [title] [content]` | Save quick note to Meetings/ |
@@ -35,15 +35,18 @@ A Discord bot that gives you access to your Product OS from any device.
 ### 3. Configure
 
 ```bash
-cd /Users/richardng/Documents/Product-OS/discord-bot
+cd discord-bot
 cp .env.example .env
 ```
 
 Edit `.env`:
 ```
 DISCORD_TOKEN=your_token_here
-ANTHROPIC_API_KEY=your_key_here
 NOTIFICATION_CHANNEL_ID=your_channel_id_here
+
+# Optional: set your timezone for the daily standup
+TIMEZONE=America/New_York
+STANDUP_HOUR=9
 ```
 
 ### 4. Install and run
@@ -57,9 +60,18 @@ Bot should show as Online in Discord. Type `/ping` to verify.
 
 ## Daily notifications
 
-The bot posts a standup message every day at **9:00 AM HKT** to your notification channel.
+The bot posts a standup message at `STANDUP_HOUR` in your configured `TIMEZONE` (default: 9:00 AM UTC).
 Set `NOTIFICATION_CHANNEL_ID` in `.env` to enable it. Leave it as `0` to disable.
 
 ## File paths
 
 The bot reads from and writes to `../My-OS/` relative to its own folder. No separate database — same files Claude Code uses.
+
+## Customization
+
+Update `config.py` to point to your main project files:
+```python
+CDP_BRIEF = MY_OS / "Projects" / "your-project-name" / "brief.md"
+```
+
+Update the system prompts in `commands/os_commands.py` and `commands/query.py` with context about your role and company to get more relevant responses.

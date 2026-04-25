@@ -45,13 +45,16 @@ Owns metrics snapshots and trend data. Does not initiate work — provides numbe
 - Google Sheets (future) — marketing metrics
 - Looker/Metabase (future) — dashboards
 
-## Key Metrics (Kpay Digital Growth)
-- ROAS (Return on Ad Spend)
-- Activation rate
-- Retention rate
-- CAC (Customer Acquisition Cost)
-- LTV (Lifetime Value)
-- Marketing ROI
+## Key Metrics
+
+*Replace with your actual metrics. Examples:*
+
+- [Metric 1 — e.g. Activation rate]
+- [Metric 2 — e.g. Retention rate]
+- [Metric 3 — e.g. ROAS]
+- [Metric 4 — e.g. CAC]
+- [Metric 5 — e.g. LTV]
+- [Metric 6 — e.g. Marketing ROI]
 
 ## Quality Checks
 - [ ] Metrics are dated — never use undated numbers

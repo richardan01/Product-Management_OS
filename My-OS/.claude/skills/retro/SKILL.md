@@ -16,7 +16,7 @@ Run an end-of-sprint retrospective. Keep it focused — aim to complete in under
 
    **What worked well?**
    - 2–3 specific things that went smoothly or exceeded expectations
-   - Be concrete: not "comms were good" but "sending the brief 2 days ahead meant Jervis had context"
+   - Be concrete: not "comms were good" but "sending the brief 2 days ahead meant the team had context"
 
    **What didn't work?**
    - 2–3 friction points, blockers, or surprises

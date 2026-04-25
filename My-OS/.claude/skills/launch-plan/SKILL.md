@@ -24,17 +24,17 @@ Build a launch readiness checklist for [project]. Run this 2–3 weeks before ta
    **Data Readiness**
    - [ ] Data sources connected and validated
    - [ ] Data quality checks passing (>95% completeness)
-   - [ ] PII/PDPA compliance confirmed
+   - [ ] Privacy / PII compliance confirmed per applicable regulations
    - [ ] Metrics baseline captured pre-launch
 
    **Stakeholder Readiness**
-   - [ ] Training completed for Rachel, Lina, Xinyi, Mardiana (as applicable)
+   - [ ] Training completed for all users who will touch the feature (as applicable)
    - [ ] User guides available
    - [ ] Support escalation path defined
 
    **Comms Readiness**
    - [ ] Internal announcement drafted
-   - [ ] Jervis briefed
+   - [ ] Manager briefed
    - [ ] Launch date confirmed with all parties
 
    **Post-Launch Readiness**

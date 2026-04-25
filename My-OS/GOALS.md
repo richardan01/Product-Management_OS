@@ -2,13 +2,13 @@
 
 ## Who I Am
 
-**Richard Ng** — Martech PM at Kpay, leading the marketing technology stack.
+**[Your Name]** — [Your Role] at [Your Company].
 
-**My scope:** Build and implement Kpay's martech foundation — starting with the CDP — to give the Digital Growth team a single source of truth on customer data, enabling smarter paid ads, lifecycle marketing, content, and brand campaigns.
+**My scope:** [Describe what you own and what you're building or running. E.g. "Build and implement the marketing technology stack — starting with a CDP — to give the team a single source of truth on customer data, enabling smarter campaigns across all channels."]
 
-**What energizes me:** Connecting data dots to unlock real marketing impact; turning a messy tech stack into a clean, leverageable platform; owning something from zero to one.
+**What energizes me:** [What motivates you in this role]
 
-**What drains me:** Ambiguity without a path forward; misaligned stakeholders; tools without clear use cases.
+**What drains me:** [What slows you down — be honest, it helps Claude surface the right help]
 
 ---
 
@@ -16,57 +16,50 @@
 
 | Area | Description |
 |------|-------------|
-| CDP Implementation | Lead selection, implementation, and adoption of a Customer Data Platform |
-| Martech Roadmap | Define the overall martech stack strategy and sequencing for Kpay |
-| Internal Enablement | Ensure Digital Growth team can self-serve insights and activate data |
-| Use Case Definition | Identify and prioritize CDP use cases (lifecycle, paid ads, content, web) |
+| [Initiative 1] | [What you're leading or responsible for] |
+| [Initiative 2] | [What you're leading or responsible for] |
+| [Initiative 3] | [What you're leading or responsible for] |
+| [Initiative 4] | [What you're leading or responsible for] |
 
 **Key metrics I care about:**
-- Retention rate
-- Customer activation rate
-- ROAS (Return on Ad Spend)
-- Marketing ROI
-- Data unification coverage (% of customer touchpoints tracked)
-- CDP adoption rate across Digital Growth team
+- [Metric 1]
+- [Metric 2]
+- [Metric 3]
+- [Metric 4]
 
 ---
 
 ## 30-60-90 Day Goals
 
-### Day 1–30: Listen, Learn, Align
-**Theme: Establish foundation and alignment**
+### Day 1–30: [Theme]
+**Focus: [What you're doing in this phase]**
 
-- [ ] Complete stakeholder mapping across Digital Growth team and key partners
-- [ ] Conduct discovery interviews with Rachel (lifecycle), Xinyi (paid ads), Lina (web), Mardiana (content) to understand data pain points
-- [ ] Audit existing martech tools and data flows at Kpay
-- [ ] Align with Jervis on 30-60-90 priorities and success metrics
-- [ ] Identify top 2–3 CDP use case candidates for "flight 1"
-- [ ] Draft initial Martech roadmap v0.1 for Jervis review
+- [ ] [Goal 1]
+- [ ] [Goal 2]
+- [ ] [Goal 3]
+- [ ] [Goal 4]
 
-**Success looks like:** Jervis-aligned 30-60-90 plan, clear picture of data gaps, shortlist of CDP use cases.
+**Success looks like:** [What good looks like at day 30]
 
-### Day 31–60: Define and Decide
-**Theme: Lock in direction and start building**
+### Day 31–60: [Theme]
+**Focus: [What you're doing in this phase]**
 
-- [ ] Finalize CDP use case for flight 1 (with business case)
-- [ ] Complete CDP vendor evaluation (if not already selected)
-- [ ] Define CDP implementation scope, timeline, and dependencies
-- [ ] Draft OKRs for CDP initiative (Q2 2026)
-- [ ] Build martech roadmap v1.0 — sequenced with rationale
-- [ ] First CDP use case in development or pilot
+- [ ] [Goal 1]
+- [ ] [Goal 2]
+- [ ] [Goal 3]
+- [ ] [Goal 4]
 
-**Success looks like:** Approved flight 1 use case, implementation kicked off, roadmap shared with stakeholders.
+**Success looks like:** [What good looks like at day 60]
 
-### Day 61–90: Execute and Show Value
-**Theme: Demonstrate early wins**
+### Day 61–90: [Theme]
+**Focus: [What you're doing in this phase]**
 
-- [ ] Flight 1 CDP use case live or in testing
-- [ ] Measurable early results shared with Jervis and Digital Growth team
-- [ ] CDP adoption onboarding run for at least 2 team members
-- [ ] Q2 OKRs finalized and tracked
-- [ ] Roadmap reviewed and iterated based on learnings
+- [ ] [Goal 1]
+- [ ] [Goal 2]
+- [ ] [Goal 3]
+- [ ] [Goal 4]
 
-**Success looks like:** Tangible CDP output visible to stakeholders, team using data from CDP in at least one campaign.
+**Success looks like:** [What good looks like at day 90]
 
 ---
 
@@ -74,19 +67,19 @@
 
 | Name | Role | Why They Matter |
 |------|------|----------------|
-| Jervis | Sr. Performance Marketing Manager / Head of Digital Growth | My manager — aligns my priorities, approves roadmap |
-| Rachel | Lifecycle Marketing | Primary internal CDP user — retention and engagement campaigns |
-| Xinyi | Paid Ads | CDP use case: audience segmentation and lookalike targeting |
-| Lina | Website Product Owner | CDP integration: web behavior tracking, personalization |
-| Mardiana | Content Manager | CDP use case: content personalization by segment |
+| [Your Manager] | [Title] | [Why they matter to your work] |
+| [Stakeholder 1] | [Role] | [Why they matter] |
+| [Stakeholder 2] | [Role] | [Why they matter] |
+| [Stakeholder 3] | [Role] | [Why they matter] |
+| [Stakeholder 4] | [Role] | [Why they matter] |
 
-*Note: External stakeholders (engineering, data, finance) TBD as I map the org.*
+*Note: Add external stakeholders (engineering, data, finance, etc.) as you map the org.*
 
 ---
 
 ## Personal Development Goals
 
-- Build credibility fast — deliver a visible win within 90 days
-- Develop deep martech domain expertise (CDP, lifecycle tooling, attribution)
-- Establish strong working relationships across Digital Growth team
-- Learn Kpay's payment product deeply to connect martech to business outcomes
+- [Development goal 1 — e.g. "Build credibility fast — deliver a visible win within 90 days"]
+- [Development goal 2 — e.g. "Develop deep domain expertise in [area]"]
+- [Development goal 3 — e.g. "Establish strong working relationships across [team]"]
+- [Development goal 4 — e.g. "Learn [company]'s product deeply to connect [your function] to business outcomes"]

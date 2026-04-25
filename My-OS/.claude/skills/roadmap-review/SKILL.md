@@ -11,7 +11,7 @@ Usage: "roadmap review" — weekly check-in on roadmap progress and deliverable 
 1. **Pull current state** — read:
    - `Tasks/active.md` — what's in flight
    - `Tasks/backlog.md` — what's queued
-   - `Projects/cdp-implementation/brief.md` — milestone status
+   - `Projects/[your-main-project]/brief.md` — milestone status
    - `GOALS.md` — 30-60-90 day targets
    - `Knowledge/Reference/metrics/latest.md` — key metrics (if available)
 
@@ -42,9 +42,9 @@ Usage: "roadmap review" — weekly check-in on roadmap progress and deliverable 
    - Ensure alignment to nearest milestone
    - Confirm: highest-leverage work in focus?
 
-6. **Prepare for Jervis** (if 1:1 or weekly update coming):
+6. **Prepare for manager** (if 1:1 or weekly update coming):
    - 2–3 key updates
-   - Decisions needed from him
+   - Decisions needed
    - Suggest running `/weekly-update` to draft the update
 
 ## Output Format
@@ -65,7 +65,7 @@ Usage: "roadmap review" — weekly check-in on roadmap progress and deliverable 
 - Pulled in: [items]
 - Focus this week: [top 2-3 items]
 
-**For Jervis:**
+**For manager:**
 - [key updates / decisions needed]
 ```
 
@@ -73,6 +73,6 @@ After review, offer:
 - "Update `Tasks/active.md` with these changes?"
 
 **Next Steps (run one of these now):**
-- `weekly update` — draft your Jervis update based on this review (recommended if update is due this week)
-- `cdp-status` — drill into CDP detail if any milestone is 🟡 or 🔴
-- `meeting prep jervis` — prep your 1:1 if happening this week
+- `weekly update` — draft your manager update based on this review (recommended if update is due this week)
+- `[domain]-status` — drill into project detail if any milestone is 🟡 or 🔴
+- `meeting prep [manager]` — prep your 1:1 if happening this week

@@ -22,7 +22,7 @@ Cross-cutting — reads from all agent domains but owns no content files. The Or
 - `GOALS.md` — objectives and OKR status (via Strategy)
 - `Meetings/` — today's meetings and recent notes (via Stakeholder Manager)
 - `Knowledge/Reference/metrics/latest.md` — key metrics (via Analytics)
-- `Projects/cdp-implementation/brief.md` — CDP milestone status (via CDP Specialist)
+- `Projects/[your-main-project]/brief.md` — project milestone status (via Domain Specialist)
 - `Agents/*/[name].md` — all agent definitions for routing context
 
 ### Writes
@@ -49,8 +49,8 @@ Check when each key file was last modified and flag stale ones:
 |------|----------|--------------|
 | `Tasks/active.md` | >3 days | "Task list may be stale — run `today` to update" |
 | `Knowledge/Reference/metrics/latest.md` | >7 days | "Metrics not updated — run `metrics-snapshot`" |
-| `Projects/cdp-implementation/brief.md` | >5 days | "CDP brief not updated — run `cdp-status`" |
-| `Meetings/1on1s/jervis.md` | last entry >2 weeks | "No recent 1:1 notes — run `meeting notes jervis` after your next 1:1" |
+| `Projects/[your-main-project]/brief.md` | >5 days | "Project brief not updated — run `[domain]-status`" |
+| `Meetings/1on1s/[your-manager].md` | last entry >2 weeks | "No recent 1:1 notes — run `meeting notes [manager]` after your next 1:1" |
 
 Always end every `/briefing` with:
 
@@ -59,9 +59,9 @@ Always end every `/briefing` with:
 Options:
 - `today` — review and update your task list
 - `roadmap review` — check milestone and CDP status
-- `weekly update` — draft your Jervis update
-- `meeting prep jervis` — prep for upcoming 1:1
-- `cdp-status` — drill into CDP project detail
+- `weekly update` — draft your weekly status update
+- `meeting prep [manager]` — prep for upcoming 1:1
+- `[domain]-status` — drill into project detail
 ```
 
 ## Quality Checks

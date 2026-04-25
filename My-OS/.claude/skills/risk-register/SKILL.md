@@ -8,7 +8,7 @@ View and update the unified risk register across all active projects. Run this w
 
 1. **Read:**
    - `Knowledge/Reference/risk-register.md` — existing risk log (create if missing)
-   - `Projects/cdp-implementation/brief.md` — extract any risks or dependencies listed
+   - `Projects/[your-main-project]/brief.md` — extract any risks or dependencies listed
    - `Tasks/active.md` — identify blocked items not yet logged as risks
 
 2. **For any new risk found, capture:**
@@ -24,7 +24,7 @@ View and update the unified risk register across all active projects. Run this w
 
 3. **Escalation triggers — flag immediately if:**
    - Any 🔴 risk has no owner → assign one now
-   - Any 🔴 risk open >2 weeks → draft escalation to Jervis
+   - Any 🔴 risk open >2 weeks → draft escalation to manager
    - Any external dependency (vendor, eng, budget, legal) has no ETA → chase it
 
 4. **Output:**
@@ -52,6 +52,6 @@ View and update the unified risk register across all active projects. Run this w
 
 **Next Steps:**
 - `dependency-check` — deep-dive on external dependencies separately
-- `escalation-draft [risk-id]` — draft a Jervis message for any blocked 🔴 risk
+- `escalation-draft [risk-id]` — draft a manager message for any blocked 🔴 risk
 - `roadmap review` — always review risks alongside milestone status
 - `go-nogo [project]` — share risk register with Launch Manager before launch decision

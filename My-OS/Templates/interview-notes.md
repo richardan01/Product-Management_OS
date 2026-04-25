@@ -1,8 +1,8 @@
 # Interview Notes — [Participant Name / Role]
 
 **Date:** YYYY-MM-DD
-**Interviewer:** Richard Ng
-**Project:** [CDP Use Case Discovery / other]
+**Interviewer:** [Your Name]
+**Project:** [Project Name / Research Context]
 **Interview type:** [Discovery / Validation / Usability]
 **Duration:** [45 min]
 
@@ -12,7 +12,7 @@
 
 - **Name / Role:**
 - **Team:**
-- **How long at Kpay:**
+- **How long at [Company]:**
 - **Primary use case relevant to interview:**
 - **Data tools they use today:**
 
@@ -102,5 +102,5 @@
 ## Follow-Up
 
 - [ ] Send thank you / recap
-- [ ] Add to research synthesis: `Projects/cdp-implementation/research/`
-- [ ] Update CDP use case shortlist in `Knowledge/Reference/cdp.md`
+- [ ] Add to research synthesis: `Projects/[project]/research/`
+- [ ] Update use case shortlist in `Knowledge/Reference/[domain].md`

@@ -1,10 +1,10 @@
-# CLAUDE.md — Richard Ng's Personal OS
+# CLAUDE.md — My Product OS
 
 ## Identity
 
-**Richard Ng** — Martech Product Manager at Kpay, Digital Growth team.
-Leading Kpay's marketing technology stack — CDP implementation as the foundation, then full martech stack.
-Manager: Jervis (Senior Performance Marketing Manager / Head of Digital Growth).
+**[Your Name]** — [Your Role] at [Your Company], [Your Team].
+[One sentence describing your scope and mission — e.g. "Building the marketing technology foundation to give the team a single source of truth on customer data."]
+Manager: [Your Manager's Name] ([Their Title]).
 
 ## On Session Start — Always Read These
 
@@ -12,11 +12,11 @@ Manager: Jervis (Senior Performance Marketing Manager / Head of Digital Growth).
 2. `Tasks/active.md` — current sprint, blockers, priorities
 
 For project work, also read:
-- `Projects/cdp-implementation/brief.md` — CDP anchor doc
+- `Projects/[your-main-project]/brief.md` — project anchor doc
 
 ## Agent System
 
-This OS is powered by 9 specialized agents. You can invoke them via slash commands or natural language — Claude routes to the right agent automatically.
+This OS is powered by 14 specialized agents. You can invoke them via slash commands or natural language — Claude routes to the right agent automatically.
 
 See `Agents/README.md` for full architecture. Agent definitions live in `Agents/[name]/[name].md`. Sub-agents (AI workers) live in `.claude/agents/`.
 
@@ -32,7 +32,7 @@ See `Agents/README.md` for full architecture. Agent definitions live in `Agents/
 | Analytics & Metrics | Metrics, dashboards | `/metrics-snapshot`, `/dashboard`, `/trend` |
 | Product Definer | PRDs, requirements, specs | `/prd`, `/use-case`, `/requirements-review`, `/spec-handoff` |
 | Data & Tech Architect | Data models, integrations, feasibility | `/data-model`, `/integration-map`, `/tech-feasibility`, `/data-quality` |
-| CDP Specialist | CDP implementation | `/cdp-status`, `/cdp-use-cases`, `/vendor-scorecard`, `/data-sources` |
+| Domain Specialist | [Your main initiative] | `/[domain]-status`, `/[domain]-use-cases`, `/vendor-scorecard`, `/data-sources` |
 | **Launch Manager** | Go-live readiness, launch comms, post-launch | `/launch-plan`, `/go-nogo`, `/launch-comms`, `/post-launch` |
 | **QA & Acceptance Tester** | Test plans, UAT, data quality | `/test-plan`, `/uat-check`, `/data-quality-check`, `/bug-report` |
 | **Enablement & Change Manager** | Training, adoption, change impact | `/training-plan`, `/user-guide`, `/adoption-check`, `/change-impact` |
@@ -44,7 +44,7 @@ See `Agents/README.md` for full architecture. Agent definitions live in `Agents/
 ### Orchestrator
 | Say | Does |
 | --- | --- |
-| `briefing` | Morning brief: tasks + meetings + metrics + CDP status |
+| `briefing` | Morning brief: tasks + meetings + metrics + project status |
 | `eod` | End of day: summarize done, update tasks, flag carry-overs |
 | `os-check` | System health: validate files, flag stale data |
 | `peer-review [file]` | Evaluate any agent output against its quality standards |
@@ -62,8 +62,8 @@ See `Agents/README.md` for full architecture. Agent definitions live in `Agents/
 | --- | --- |
 | `meeting prep [name]` | Prep doc for 1:1 with context, agenda, open items |
 | `meeting notes [name]` | Structure notes, extract action items → Tasks |
-| `weekly update` | Draft weekly status for Jervis (<300 words) |
-| `monthly update` | Broader update for Digital Growth team |
+| `weekly update` | Draft weekly status update (<300 words) |
+| `monthly update` | Broader update for the team |
 | `follow-ups` | Scan meeting notes, create tasks from action items |
 | `check-in [name]` | Last interaction, open commitments, suggested topics |
 
@@ -104,21 +104,20 @@ See `Agents/README.md` for full architecture. Agent definitions live in `Agents/
 | Say | Does |
 | --- | --- |
 | `data-model [system]` | Document schema, entities, relationships |
-| `integration-map` | Map how martech tools connect |
+| `integration-map` | Map how tools connect |
 | `tech-feasibility [feature]` | Assess viability, dependencies, risks |
 | `event-schema [flow]` | Define event tracking schema |
-| `data-quality [source]` | Check completeness, naming, PII, PDPA |
+| `data-quality [source]` | Check completeness, naming, PII |
 | `tech-spec [doc]` | Review engineering spec from PM perspective |
 
-### CDP Specialist
+### Domain Specialist
 | Say | Does |
 | --- | --- |
-| `cdp-status` | Project dashboard: milestones, blockers, metrics |
-| `cdp-use-cases` | Review/update use case scoring matrix |
+| `[domain]-status` | Project dashboard: milestones, blockers, metrics |
+| `[domain]-use-cases` | Review/update use case scoring matrix |
 | `data-sources` | Data source inventory and integration status |
 | `vendor-scorecard [vendor]` | Score vendor against criteria |
-| `stack-audit` | Review martech stack, flag stale entries |
-| `cdp-adoption` | Track team CDP usage (post-launch) |
+| `stack-audit` | Review tech stack, flag stale entries |
 
 ### Launch Manager
 | Say | Does |
@@ -133,15 +132,15 @@ See `Agents/README.md` for full architecture. Agent definitions live in `Agents/
 | --- | --- |
 | `test-plan [feature]` | Build test plan from PRD acceptance criteria |
 | `uat-check [feature]` | Run UAT checklist, capture pass/fail, flag bugs |
-| `data-quality-check [source]` | Validate CDP data completeness, naming, PII |
+| `data-quality-check [source]` | Validate data completeness, naming, PII |
 | `bug-report` | Log and triage bugs found during testing |
 
 ### Enablement & Change Manager
 | Say | Does |
 | --- | --- |
-| `training-plan [feature]` | Build role-specific training plan for CDP or martech tools |
+| `training-plan [feature]` | Build role-specific training plan |
 | `user-guide [feature]` | Draft step-by-step user guide |
-| `adoption-check` | Review CDP usage, flag low adopters, suggest next actions |
+| `adoption-check` | Review usage, flag low adopters, suggest next actions |
 | `change-impact [project]` | Assess how a change affects each stakeholder |
 
 ### Risk & Dependency Tracker
@@ -150,7 +149,7 @@ See `Agents/README.md` for full architecture. Agent definitions live in `Agents/
 | `risk-register` | View and update unified risk register across all projects |
 | `add-risk [description]` | Log a new risk with probability, impact, mitigation |
 | `dependency-check` | Review all open external dependencies |
-| `escalation-draft [risk-id]` | Draft escalation message to Jervis for a blocked risk |
+| `escalation-draft [risk-id]` | Draft escalation message for a blocked risk |
 
 ### Retro & Learning Coach
 | Say | Does |
@@ -183,28 +182,28 @@ _temp/           → Scratch space
 
 ## Key People
 
+*Replace with your actual stakeholders. Full profiles in `Knowledge/People/`.*
+
 | Person | Role | Relationship |
 | --- | --- | --- |
-| Jervis | Sr. Performance Marketing Manager / Head of Digital Growth | Manager — weekly 1:1 |
-| Rachel | Lifecycle Marketing | CDP primary internal user |
-| Lina | Website Product Owner | CDP integration: web tracking, personalization |
-| Xinyi | Paid Ads | CDP use case: audience segmentation |
-| Mardiana | Content Manager | CDP use case: content personalization |
-
-Full profiles in `Knowledge/People/`.
+| [Your Manager] | [Title] | Manager — [meeting cadence] |
+| [Stakeholder 1] | [Role] | [Relationship / how they connect to your work] |
+| [Stakeholder 2] | [Role] | [Relationship] |
+| [Stakeholder 3] | [Role] | [Relationship] |
+| [Stakeholder 4] | [Role] | [Relationship] |
 
 ## Current Context
 
 > Always check `Tasks/active.md` for the latest blockers and sprint focus — this section is a snapshot only.
 
-- **Role:** Month ~1 at Kpay — ramping up, stakeholder mapping in progress
-- **CDP phase:** Use case discovery — shortlisting which use case to take flight first
-- **Key deliverable:** Martech roadmap for Kpay
+- **Role:** [Your current context — e.g. "Month 1 at [Company] — ramping up" or "In execution on [initiative]"]
+- **Main initiative:** [What you're primarily working on]
+- **Key deliverable:** [Your next major output]
 
 ## Conventions
 
 - All files are Markdown
 - Priority tags: `#p0` (urgent), `#p1` (this week), `#p2` (backlog)
-- Area tags: `#cdp`, `#martech`, `#lifecycle`, `#paid-ads`, `#roadmap`
+- Area tags: customize to your domain (e.g. `#[area-1]`, `#[area-2]`, `#[area-3]`)
 - Use `[[wikilinks]]` to cross-reference notes
 - New documents → use a template from `Templates/`

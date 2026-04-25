@@ -2,7 +2,7 @@
 
 **Use when:** At the start of each quarter to define OKRs and deliverables
 **Trigger phrase:** "quarterly planning"
-**Output:** Finalized OKRs in `GOALS.md`, updated roadmap in `Projects/cdp-implementation/brief.md`
+**Output:** Finalized OKRs in `GOALS.md`, updated roadmap in `Projects/[your-main-project]/brief.md`
 
 ---
 
@@ -11,7 +11,7 @@
 ### Step 1: Review Last Quarter
 
 1. Score each OKR — what % of each key result did we hit?
-2. Write a honest "what worked / what didn't" for each goal
+2. Write an honest "what worked / what didn't" for each goal
 3. Document 3 lessons learned to carry forward
 
 **Template:**
@@ -26,10 +26,10 @@
 
 Before drafting new OKRs, gather:
 
-- [ ] Jervis's priorities for the quarter (ask in 1:1)
-- [ ] Kpay's company goals / top-line metrics for the quarter
-- [ ] Team input from Rachel, Xinyi, Lina, Mardiana — what do they need from me?
-- [ ] CDP implementation status — what milestone are we targeting this quarter?
+- [ ] Manager's priorities for the quarter (ask in 1:1)
+- [ ] Company goals / top-line metrics for the quarter
+- [ ] Team input — what do stakeholders need from you this quarter?
+- [ ] Main initiative status — what milestone are you targeting this quarter?
 - [ ] Anything on the backlog that should be pulled in?
 
 ---
@@ -40,10 +40,10 @@ Before drafting new OKRs, gather:
 - 2–4 Objectives (qualitative, inspiring direction)
 - 2–3 Key Results per Objective (measurable, binary at end of quarter)
 
-**Martech PM OKR areas to consider:**
-- CDP implementation progress
+**OKR areas to consider:**
+- Main initiative progress
 - Team adoption and enablement
-- Business impact (ROAS, retention, activation)
+- Business impact (your key metrics)
 - Roadmap clarity and stakeholder alignment
 
 **Draft template:**
@@ -57,11 +57,11 @@ Before drafting new OKRs, gather:
 
 ### Step 4: Review & Finalize
 
-1. Share draft with Jervis — get feedback in 1:1
+1. Share draft with manager — get feedback in 1:1
 2. Incorporate feedback and resolve any priority conflicts
 3. Update `GOALS.md` with finalized OKRs
-4. Update milestones in `Projects/cdp-implementation/brief.md`
-5. Share final OKRs with Rachel, Xinyi, Lina, Mardiana for awareness
+4. Update milestones in `Projects/[your-main-project]/brief.md`
+5. Share final OKRs with key stakeholders for awareness
 
 ---
 
@@ -82,5 +82,5 @@ Before drafting new OKRs, gather:
 |---------|-----------|
 | Too many OKRs — trying to do everything | Max 4 objectives; ruthlessly cut |
 | Vague key results ("improve retention") | Every KR needs a number and date |
-| OKRs set in isolation from Jervis | Always align before finalizing |
+| OKRs set in isolation from manager | Always align before finalizing |
 | Forgetting dependencies in the plan | Map dependencies in project brief before committing |

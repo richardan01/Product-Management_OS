@@ -19,30 +19,30 @@ Write "what worked / what didn't" for each goal. Document 3 lessons learned.
 
 ### Step 2: Gather Inputs
 Check these sources:
-- `Meetings/1on1s/jervis.md` — Jervis's stated priorities
+- `Meetings/1on1s/[your-manager].md` — manager's stated priorities
 - `Knowledge/Reference/metrics/latest.md` — metric trends
-- `Knowledge/People/team.md` — what Rachel, Xinyi, Lina, Mardiana need
-- `Projects/cdp-implementation/brief.md` — CDP milestone target for the quarter
+- `Knowledge/People/team.md` — what stakeholders need from you this quarter
+- `Projects/[your-main-project]/brief.md` — milestone target for the quarter
 - `Tasks/backlog.md` — anything that should be pulled in
 
-Flag missing inputs with `[NEEDS INPUT]` — Richard may need to gather these in 1:1s.
+Flag missing inputs with `[NEEDS INPUT]` — may need to gather these in 1:1s.
 
 ### Step 3: Draft OKRs
 Framework:
 - 2–4 Objectives (qualitative, inspiring direction)
 - 2–3 Key Results per Objective (measurable, binary at end of quarter)
 
-Martech PM OKR areas:
-- CDP implementation progress
+OKR areas to consider:
+- Main initiative progress
 - Team adoption and enablement
-- Business impact (ROAS, retention, activation)
+- Business impact (your key metrics)
 - Roadmap clarity and stakeholder alignment
 
 ### Step 4: Review & Finalize
-1. Present draft to Richard for review
-2. Suggest: "Run `/meeting-prep jervis` to prepare for OKR alignment meeting"
-3. After Jervis feedback: update `GOALS.md` with finalized OKRs
-4. Update milestones in `Projects/cdp-implementation/brief.md`
+1. Present draft for review
+2. Suggest: "Run `/meeting-prep [manager]` to prepare for OKR alignment meeting"
+3. After manager feedback: update `GOALS.md` with finalized OKRs
+4. Update milestones in `Projects/[your-main-project]/brief.md`
 5. Suggest: "Run `/roadmap-review` to align the roadmap with new OKRs"
 
 ## Timing
@@ -57,5 +57,5 @@ Martech PM OKR areas:
 ## Common Pitfalls
 - Too many OKRs → max 4 objectives, ruthlessly cut
 - Vague KRs ("improve retention") → every KR needs a number and date
-- OKRs set without Jervis → always align before finalizing
+- OKRs set without manager → always align before finalizing
 - Ignoring dependencies → map in project brief before committing

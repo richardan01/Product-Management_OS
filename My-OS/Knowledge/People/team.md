@@ -1,80 +1,77 @@
-# Digital Growth Team
+# Team — Quick Reference
 
 Quick reference on key colleagues. Fill in as you learn more.
 
 ---
 
-## Rachel — Lifecycle Marketing
+## [Team Member 1 Name] — [Role]
 
-**Role:** Lifecycle Marketing
-**CDP relevance:** Primary internal CDP user — owns retention and engagement campaigns (email, push, in-app)
+**Role:** [Role]
+**Relevance to your work:** [How they connect to your main initiatives]
 
-**What she likely needs from CDP:**
-- Unified customer profile (transactions + engagement history)
-- Behavioral triggers for automated journeys (onboarding, re-engagement, upsell)
-- Segmentation by merchant type, activity level, tenure
+**What they likely need from your work:**
+- [Need 1]
+- [Need 2]
+- [Need 3]
 
 **Discover in your first conversation:**
-- What's her biggest data/tooling pain point today?
-- What does her current lifecycle stack look like?
-- What use case would make CDP a "10x" for her?
+- What's their biggest data/tooling pain point today?
+- What would make your initiative a "10x" for them?
+- What does their current workflow look like?
 
 **Notes:** *[Fill in after your first 1:1 or discovery session]*
 
 ---
 
-## Xinyi — Paid Ads
+## [Team Member 2 Name] — [Role]
 
-**Role:** Paid Ads (SEM, social, programmatic)
-**CDP relevance:** Audience activation — suppression lists, lookalike segments, retargeting
+**Role:** [Role]
+**Relevance to your work:** [How they connect to your main initiatives]
 
-**What she likely needs from CDP:**
-- First-party audience segments pushed to Google, Meta, TikTok
-- Suppression of existing customers from acquisition campaigns
-- High-value customer lookalike seeds
-- Conversion data for bid optimization
+**What they likely need from your work:**
+- [Need 1]
+- [Need 2]
+- [Need 3]
 
 **Discover in your first conversation:**
-- What's her current approach to audience building?
-- How much does she rely on third-party data vs. first-party?
-- What's her ROAS target and where is she losing efficiency?
+- What's their current approach to [relevant area]?
+- Where are they losing efficiency today?
+- What would make the biggest difference for them?
 
 **Notes:** *[Fill in after your first discovery session]*
 
 ---
 
-## Lina — Website Product Owner
+## [Team Member 3 Name] — [Role]
 
-**Role:** Website Product Owner
-**CDP relevance:** Web behavior tracking, on-site personalization, conversion optimization
+**Role:** [Role]
+**Relevance to your work:** [How they connect to your main initiatives]
 
-**What she likely needs from CDP:**
-- Unified identity resolution (anonymous → known visitors)
-- Behavioral data from web fed into CDP
-- Segment-based personalization on landing pages
+**What they likely need from your work:**
+- [Need 1]
+- [Need 2]
 
 **Discover in your first conversation:**
-- What's her current analytics and tracking setup?
-- Is there a personalization roadmap for the website?
-- What are her data collection limitations today?
+- What's their current analytics and tracking setup?
+- What are their biggest pain points today?
+- What data do they wish they had?
 
 **Notes:** *[Fill in after your first conversation]*
 
 ---
 
-## Mardiana — Content Manager
+## [Team Member 4 Name] — [Role]
 
-**Role:** Content Manager
-**CDP relevance:** Content personalization by customer segment
+**Role:** [Role]
+**Relevance to your work:** [How they connect to your main initiatives]
 
-**What she likely needs from CDP:**
-- Segment-based content targeting (e.g., new merchants vs. established ones)
-- Performance data on which content resonates with which segments
-- Trigger-based content (e.g., post-onboarding guides)
+**What they likely need from your work:**
+- [Need 1]
+- [Need 2]
 
 **Discover in your first conversation:**
-- How does she currently decide what content to produce?
-- Does she have visibility into which content drives downstream conversions?
-- What would "personalized content" look like in her ideal world?
+- How do they currently make decisions about [relevant area]?
+- What would "better data" look like in their ideal world?
+- What workflows feel unnecessarily manual?
 
 **Notes:** *[Fill in after your first conversation]*

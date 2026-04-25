@@ -19,7 +19,7 @@ Run a structured go/no-go decision for [project]. Use this 24–48 hours before 
 | Product | All P0 acceptance criteria met and tested | 🟢/🟡/🔴 | Go/No-Go |
 | Data | Quality checks passing, PII confirmed | 🟢/🟡/🔴 | Go/No-Go |
 | Stakeholders | Training done, users confirmed ready | 🟢/🟡/🔴 | Go/No-Go |
-| Comms | Announcement drafted, Jervis briefed | 🟢/🟡/🔴 | Go/No-Go |
+| Comms | Announcement drafted, manager briefed | 🟢/🟡/🔴 | Go/No-Go |
 | Risk | No unmitigated 🔴 risks | 🟢/🟡/🔴 | Go/No-Go |
 | Rollback | Rollback plan documented and tested | 🟢/🟡/🔴 | Go/No-Go |
 

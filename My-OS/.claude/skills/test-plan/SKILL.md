@@ -22,7 +22,7 @@ Build a structured test plan from the acceptance criteria in [feature]'s PRD.
    - **Edge cases** — empty states, boundary values, missing data
    - **Data quality** — completeness, nulls, schema validation, duplicate records
    - **Access / permissions** — right users see right data, wrong users cannot
-   - **PDPA / PII** — sensitive fields masked, excluded from exports
+   - **Privacy / PII** — sensitive fields masked, excluded from exports per applicable regulations
 
 4. **Output:**
 
@@ -42,7 +42,7 @@ Build a structured test plan from the acceptance criteria in [feature]'s PRD.
 - [ ] PII fields confirmed masked: [list fields]
 - [ ] Schema matches expected: [source system]
 
-**Sign-off Required From:** Rachel / Lina / Xinyi (select applicable)
+**Sign-off Required From:** [Relevant business users — select applicable]
 **UAT Target Date:** [date — should be 5+ days before launch]
 ```
 

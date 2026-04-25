@@ -1,6 +1,6 @@
 # Agentic PM System
 
-This system organizes Richard's PM work across 14 specialized agents. Each agent owns a domain, provides skills (slash commands), and can spawn sub-agents for parallel work.
+This system organizes your PM work across 14 specialized agents. Each agent owns a domain, provides skills (slash commands), and can spawn sub-agents for parallel work.
 
 ## Architecture
 
@@ -54,7 +54,7 @@ Agent B reads  → same file when its skill is invoked
 | --- | --- | --- |
 | `Tasks/active.md` | Task Manager, Orchestrator | All agents |
 | `GOALS.md` | Strategy & Roadmap | All agents |
-| `Projects/cdp-implementation/brief.md` | CDP Specialist | Orchestrator, Launch Manager, Risk Tracker |
+| `Projects/[your-main-project]/brief.md` | Domain Specialist | Orchestrator, Launch Manager, Risk Tracker |
 | `Knowledge/Reference/risk-register.md` | Risk Tracker | Launch Manager, Orchestrator |
 | `Projects/[project]/uat-results.md` | QA Tester | Launch Manager |
 | `Projects/[project]/training-plan.md` | Enablement Manager | Launch Manager |
