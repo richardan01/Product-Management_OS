@@ -6,14 +6,9 @@ This doc explains how the pieces fit together — agents, skills, workflows, tem
 
 ---
 
-## The 4-layer model
+## The 3-layer model
 
 ```
-┌─────────────────────────────────────────────────────┐
-│  Layer 4 — DISCORD BOT (optional)                   │
-│  Trigger any skill from your phone via Discord DM   │
-└─────────────────────────────────────────────────────┘
-                       ↑
 ┌─────────────────────────────────────────────────────┐
 │  Layer 3 — SKILLS  (.claude/skills/)                │
 │  Slash commands. One-shot triggers.                 │
@@ -138,11 +133,10 @@ Everything else — finding files, recalling what was said, structuring the doc,
 
 ---
 
-## Going further: connect Discord, calendar, Slack
+## Going further: connect calendar, Slack, and your tools
 
-The `discord-bot/` directory in this repo is a starter for triggering skills from Discord (so you can `/today` from your phone). It's optional — the OS works fine without it.
+The OS works standalone out of the box. Wire up MCPs to push automation further:
 
-Future hooks worth wiring up (most are MCP-server territory):
 - **Calendar MCP** → so `/today` and `/meeting-prep` know who you're actually meeting
 - **Slack MCP** → so `/follow-ups` can post action items to the right channel
 - **Notion / Linear MCP** → so `/add-task` writes to the actual ticketing system, not just `Tasks/active.md`

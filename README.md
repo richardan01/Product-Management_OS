@@ -10,7 +10,7 @@ The structure is designed for product and marketing work: managing projects, run
 
 **Start minimal, add structure when friction appears.**
 
-> **Want to understand how the pieces fit together?** Read [`HOW-IT-WORKS.md`](HOW-IT-WORKS.md) — it walks through the 4-layer model (Knowledge → Agents → Skills → Discord), shows what a typical PM week looks like fully automated, and explains how to push automation past 95%.
+> **Want to understand how the pieces fit together?** Read [`HOW-IT-WORKS.md`](HOW-IT-WORKS.md) — it walks through the 3-layer model (Knowledge → Agents → Skills), shows what a typical PM week looks like fully automated, and explains how to push automation past 95%.
 
 ## Getting Started
 
