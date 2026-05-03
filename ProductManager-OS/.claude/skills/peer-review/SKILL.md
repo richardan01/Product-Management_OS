@@ -65,3 +65,31 @@ Example: `peer-review Knowledge/Research/cdp-vendor-scan.md`
 - Output needs revision → return to producing agent with specific gaps
 - Analytics output → `metrics-snapshot` to refresh data if numbers are outdated
 - Research output → `synthesize research` to add missing evidence or address gaps
+
+---
+
+## Verdict file (per `_Registry/reviewer-verdict-schema.md`)
+
+On PASS (or CONDITIONAL-PASS), write `<doc-path>.peer-review-passed` with the byte-exact 4-line header + scorecard:
+
+```
+<sha256>
+pass                  ← or conditional-pass
+peer-review
+<ISO 8601 UTC>
+
+## Scorecard
+
+| Dimension | Score (1–5) | Reason (required if ≤ 3) |
+|---|---|---|
+| Accuracy | <n> | — |
+| Completeness | <n> | — |
+| Consistency | <n> | — |
+| Timeliness | <n> | — |
+| Uniqueness | <n> | — |
+| Validity | <n> | — |
+
+**Composite:** <x.x> · **Pass-bar:** Accuracy ≥ 4 · Completeness ≥ 4 · Consistency ≥ 4 · composite ≥ 4.0
+```
+
+If the pass-bar is missed, downgrade to CONDITIONAL-PASS with required edits, or refuse to write the file (FAIL). Hash is computed AFTER all required edits land.
