@@ -52,3 +52,31 @@ Run a structured go/no-go decision for [project]. Use this 24–48 hours before 
 - Decision is GO → `launch-comms [project]` — send the announcement now
 - Decision is NO-GO → `risk-register` — log the blockers as tracked risks
 - Post-launch → `post-launch [project]` — schedule 1-week review
+
+---
+
+## Verdict file (per `_Registry/reviewer-verdict-schema.md`)
+
+On GO (or CONDITIONAL-GO), write `<launch-doc-path>.go-nogo-passed` with the byte-exact 4-line header + scorecard:
+
+```
+<sha256>
+go                  ← or conditional-go
+go-nogo
+<ISO 8601 UTC>
+
+## Scorecard
+
+| Dimension | Score (1–5) | Reason (required if ≤ 3) |
+|---|---|---|
+| Accuracy | <n> | — |
+| Completeness | <n> | — |
+| Consistency | <n> | — |
+| Timeliness | <n> | — |
+| Uniqueness | <n> | — |
+| Validity | <n> | — |
+
+**Composite:** <x.x> · **Pass-bar:** Completeness ≥ 4 · Validity ≥ 4 · Timeliness ≥ 4 · composite ≥ 4.0
+```
+
+NO-GO writes no verdict file; instead, log blockers to `risk-register`.
