@@ -1,90 +1,198 @@
-# Product OS for Claude Code
+# Product Management OS
 
-**A Personal Operating System for Claude Code — PM Edition**
+A multi-agent personal operating system for Product Managers. Built on Claude Code. Runs with a Batman persona layer.
 
-## Introduction
+---
 
-Claude Code is infinitely flexible — there's no single right way to organize it, which is both liberating and paralyzing. This is a template for product managers who want a structured, agent-powered workspace for day-to-day PM work.
+## What this is
 
-The structure is designed for product and marketing work: managing projects, running repeatable workflows (standups, research synthesis, stakeholder updates), and keeping knowledge organized across a fast-moving role.
+A PM's daily work is high-context, multi-domain, and interruptible. On any given day you're switching between sprint planning, stakeholder prep, vendor evaluation, risk tracking, and writing PRDs — each requiring different data, different frameworks, and different output formats.
 
-**Start minimal, add structure when friction appears.**
+A single AI assistant with one long prompt can't handle this well. It conflates domains, loses context, and produces generic output.
 
-> **Want to understand how the pieces fit together?** Read [`HOW-IT-WORKS.md`](HOW-IT-WORKS.md) — it walks through the 3-layer model (Knowledge → Agents → Skills), shows what a typical PM week looks like fully automated, and explains how to push automation past 95%.
+**This OS solves that.** It's a multi-agent architecture where:
+- Each agent owns a narrow domain
+- Agents coordinate through a shared file system (not direct calls)
+- Orchestration patterns govern how they compose into workflows
+- A Batman/Bruce Wayne persona layer keeps voice consistent and focus ruthless
 
-## Getting Started
+---
 
-1. **Clone this repo** — Fork or clone it as your starting point
-2. **Browse `ProductManager-OS/`** — The template directory. Every file uses placeholders (`[Your Name]`, `[Your Manager]`, etc.) ready for you to fill in.
-3. **Copy `ProductManager-OS/` to a folder of your own** — `cp -r ProductManager-OS My-OS` (or any name you prefer). Open that folder in Claude Code and use it as your workspace root.
-4. **Fill in `CLAUDE.md` + `GOALS.md`** — Replace all `[placeholder]` fields with your own context. These two files give you 80% of the value.
-5. **Update `Tasks/active.md`** — Set your first sprint
-6. **Customize agents as needed** — The 14 agents cover most PM domains; delete or repurpose any that don't fit your role
+## Two layers
 
-You don't need everything on day one. Start minimal, add structure when friction appears.
+### Layer 1: Batman Strategic Layer (AI PM mission)
 
-## Structure Overview
+12 named agents in `Agents/Gotham/Computer/`. These run by default. Their job: compound toward a 24-month career target in AI PM at a frontier lab.
 
-The folders below live inside `ProductManager-OS/` (or whatever you renamed it to). The repo root just contains this README and the template directory.
+| Agent | Domain |
+|-------|--------|
+| **Alfred** | Daily ops, calendar, prep, accountability |
+| **Bruce Wayne** | Career strategy, quarterly thesis, positioning |
+| **Oracle** | Research, intel, JD scans, hiring-manager recon |
+| **Lucius Fox** | Build, prototype, MCP/skill authoring |
+| **Batman** | High-stakes execution (manual `/cowl-up` only) |
+| **Robin** | Junior parallel chores, draft-zero |
+| **Nightwing** | Essays, posts, threads, talks, public voice |
+| **The Riddler** | Adversarial review (mandatory pre-publish gate) |
+| **Vicki Vale** | User-voice review (mandatory pre-publish gate) |
+| **Commissioner Gordon** | Network, warm intros, relationship graph |
+| **Selina Kyle** | Comp negotiation, offers, counter-offers |
+| **Henri Ducard** | Technical-depth coaching and drilling |
 
-| Folder/File | Purpose |
-|-------------|---------|
-| `CLAUDE.md` | Entry point. Claude reads this automatically on every conversation. |
-| `GOALS.md` | Your identity, what you own, and current goals. |
-| `Tasks/` | Simple backlog → active → archive flow. |
-| `Projects/` | Discrete work with its own context, research, and outputs. |
-| `Workflows/` | Repeatable processes. Mini-workspaces you run again and again. |
-| `Meetings/` | Notes organized by meeting type. |
-| `Knowledge/` | Persistent reference material that spans projects. |
-| `Templates/` | Document structures for consistent outputs. |
-| `.claude/skills/` | Slash commands. Type `/skillname` to trigger. |
-| `_Registry/` | System reference and documentation. |
-| `_temp/` | Drop zone for files in transit. |
+### Layer 2: Day-Job Operations Layer
 
-## Key Concepts
+Opt-in. Invoked only when you explicitly name day-job context ([YOUR_MANAGER], [YOUR_ANCHOR_PROJECT], [YOUR_TEAM], etc.). Today this layer is implemented through shared tasks, knowledge files, templates, workflows, and PM skills. Add dedicated day-job agents later only when a workflow becomes common enough to deserve its own owner.
 
-### Projects vs Workflows
+---
 
-- **Projects** are one-off. They have a clear end state. When done, they're archived.
-- **Workflows** are repeatable. They're processes you run many times with different inputs.
+## The "Computer" invocation pattern
 
-*Example: "Launch newsletter" is a project. "Write weekly newsletter" is a workflow.*
+**Say: "Computer, [task]"**
 
-### Templates vs Workflows
+This routes to the right agent automatically. Examples:
 
-- **Templates** provide structure. They're the skeleton of a document.
-- **Workflows** provide process. They're instructions for Claude to follow.
+- `Computer, what should I focus on today?` → Alfred
+- `Computer, scan for [TARGET_COMPANIES] PM roles` → Oracle
+- `Computer, what's our Q3 thesis?` → Bruce Wayne
+- `Computer, prototype the eval harness` → Lucius Fox
+- `Computer, review this essay before I ship it` → Riddler + Vicki Vale
+- `Computer, who should see the flagship repo?` → Gordon
 
-*A template says what the output looks like. A workflow says how to create it.*
+→ Full routing table: `Agents/README.md`
 
-### Knowledge vs Project Research
+---
 
-- **Knowledge** is persistent. It's reference material useful across many projects.
-- **Project research** is scoped. It lives inside the project folder and gets archived with it.
+## How to get started
 
-*Your company's brand guidelines go in Knowledge. Competitor research for a specific launch goes in the project.*
+### Step 1: Fork or clone this template
+This repo is the public template. The OS files live at the repo root so GitHub users can fork it directly.
 
-## FAQ
+### Step 2: Create your private working copy
+Use a private local folder such as `My-OS/` for day-to-day work. `My-OS/` is ignored by git and should never contain public commits.
 
-**Where does planning go?**
+### Step 3: Fill in CLAUDE.md
+In your private copy, open `CLAUDE.md` and replace all `[PLACEHOLDER]` values:
 
-Depends on scope:
-- High-level goals and priorities → `GOALS.md`
-- Planning for a specific deliverable → Inside that `Project/`
-- Planning that's part of a repeatable process → Inside that `Workflow/`
+| Placeholder | Replace with |
+|-------------|--------------|
+| `[YOUR_NAME]` | Your name |
+| `[YOUR_EMAIL]` | Your email |
+| `[YOUR_COMPANY]` | Your company |
+| `[YOUR_ROLE]` | Your job title |
+| `[YOUR_TEAM]` | Your team name |
+| `[YOUR_MANAGER]` | Your manager's name |
+| `[HEAD_OF_DEPT]` | Your skip-level's name |
+| `[COO]` | The senior leader above them |
+| `[YOUR_ANCHOR_PROJECT]` | Your primary project |
+| `[TARGET_COMPANIES]` | Your target companies (for AI PM mission) |
+| `[YOUR_TARGET_DATE]` | Your target date for the career pivot |
+| `[CURRENT_QUARTER]` | Current quarter (e.g., Q3 2026) |
 
-**When do I create a template vs a workflow?**
+### Step 4: Fill in GOALS.md
+Replace all placeholders in `GOALS.md` with your 30-60-90 day goals, stakeholders, and key metrics.
 
-- If you just need consistent document structure → Template
-- If you need Claude to follow steps, do research, or make decisions → Workflow
-- Often you'll have both: a workflow that uses a template for its output
+### Step 5: Start your first session
+```
+/today
+```
 
-**What goes in `.claude/skills/` vs `Workflows/`?**
+Alfred will read your active tasks and goals and give you a morning brief.
 
-- Skills are quick commands triggered with `/skillname`
-- Workflows are fuller processes, often with their own context files
-- Start with workflows. Promote to skills when you want faster access.
+### Step 6: Set up the Batman layer quarterly thesis
+```
+Computer, what should my Q3 thesis be?
+```
 
-**What's the Domain Specialist agent?**
+Bruce Wayne will help you set a quarterly arc for the AI PM mission.
 
-`Agents/cdp-specialist/` is an *example* of a domain-specific initiative agent (built around a Customer Data Platform implementation as the worked example). It's there to show the pattern. If your main initiative is different, rename the folder, replace the body, and adapt the skills to your domain. The pattern — scoped skills, dedicated project files, clear coordination with other agents — applies to any major initiative.
+---
+
+## Directory structure
+
+```
+.
+├── CLAUDE.md                    ← Identity, routing, operating contract
+├── GOALS.md                     ← 30-60-90 goals, stakeholders, metrics
+│
+├── Agents/
+│   ├── README.md               ← Architecture overview, routing table
+│   └── Gotham/Computer/        ← 12 Batman-layer agents
+│       ├── alfred.md
+│       ├── bruce-wayne.md
+│       ├── batman.md
+│       ├── oracle.md
+│       ├── lucius-fox.md
+│       ├── nightwing.md
+│       ├── riddler.md
+│       ├── robin.md
+│       ├── gordon.md
+│       ├── selina-kyle.md
+│       ├── henri-ducard.md
+│       └── vicki-vale.md
+│
+├── Tasks/
+│   ├── active.md               ← Current sprint (#p0/#p1/#p2)
+│   ├── backlog.md              ← Prioritized backlog
+│   └── archive/                ← Completed sprints
+│
+├── Projects/
+│   └── YOUR_ANCHOR_PROJECT/
+│       └── brief.md            ← Project brief template
+│
+├── Knowledge/
+│   ├── People/
+│   │   └── [YOUR_MANAGER].md  ← Manager profile template
+│   └── Reference/
+│       ├── company.md          ← Company context
+│       └── martech-stack.md    ← Tool audit template
+│
+├── Meetings/
+│   └── 1on1s/                  ← 1:1 meeting notes
+│
+├── Reviews/                     ← OS health reviews
+├── Evals/                       ← Eval suites (flagship project)
+├── _temp/                       ← Working drafts (not durable)
+│
+├── _Registry/
+│   └── voice-map.md            ← Batman voice assignments per agent
+│
+└── .claude/
+    ├── skills/                  ← 20+ skill commands (/today, /weekly-update, etc.)
+    └── agents/                  ← 11 sub-agent workers
+```
+
+## Local privacy rule
+
+Keep personal operating data in `My-OS/`. That folder is ignored by git so daily tasks, stakeholder notes, and private reviews stay off GitHub. Promote only generic, reusable improvements back into this public template.
+
+---
+
+## Quality gates (pre-publish)
+
+Every public artifact goes through two mandatory gates before shipping:
+
+1. **Riddler review** (`/riddler <artifact>`) — adversarial review; finds the weakest claim
+2. **Vicki Vale review** (`/vale <artifact>`) — user-voice review; finds where the reader stops reading
+
+Both must pass. No exceptions. This is enforced by the operating contract in `CLAUDE.md`.
+
+---
+
+## The operating contract (Batman / Bruce Wayne)
+
+Four principles, non-negotiable:
+
+1. **Contingency-first.** Every plan ships with B, C, and D. Failure modes named before solutions.
+2. **Theatrical artifact quality.** Public artifacts designed for impact. Opening lines land.
+3. **"I'm Batman" focus mode.** When the bat-signal is up, the world narrows. One objective.
+4. **Multi-year patience.** Bruce Wayne does not announce his moves. He executes them.
+
+---
+
+## Agent routing table
+
+→ `Agents/README.md`
+
+---
+
+Built on Claude Code. Designed for a PM with a 24-month horizon and a day job to fund the pivot.

@@ -43,16 +43,16 @@ Below is what a week looks like when the OS is set up. Each row shows: the momen
 | **Mon 9am** — start the week | `/today` | Reads `Tasks/active.md` + this week's calendar context, surfaces 3 priorities, flags blockers, drafts a Slack standup message |
 | **Mon 11am** — 1:1 with your manager | `/meeting-prep [your-manager]` | Pulls last 1:1 notes, scans `Tasks/active.md` for items they care about, drafts agenda + updates to give + asks to make |
 | **Tue 2pm** — discovery interview done | `/synthesize-research` | Reads interview notes from `Projects/[project]/research/`, extracts pain points, themes, and use case implications into a structured synthesis |
-| **Wed 10am** — vendor question came up | `/vendor-eval [category]` | Builds a comparison matrix across 3 vendors with pricing, integrations, fit-for-use-case scoring |
-| **Wed 4pm** — quick PRD needed | `/prd [feature]` | Generates a PRD draft from `Templates/prd.md`, prefilled with project context from `Projects/[project]/brief.md` |
+| **Wed 10am** — vendor question came up | Use `Templates/research-summary.md` + `/synthesize-research` | Builds a comparison matrix across sources with fit-for-use-case scoring |
+| **Wed 4pm** — quick PRD needed | Use `Templates/prd.md` + `/prd-readiness [file]` | Drafts from the template, then checks readiness before handoff |
 | **Thu 9am** — daily check | `/today` | Same as Monday — but now sees Wednesday's commits, retros what slipped, updates priorities |
-| **Thu 3pm** — risk review | `/risk-register` + `/add-risk [description]` | Logs new risk, scores probability/impact, suggests mitigation, drafts an escalation message if it's a P0 |
+| **Thu 3pm** — risk review | `/risk-register` | Logs risks, scores probability/impact, suggests mitigation, drafts an escalation message if it's a P0 |
 | **Fri 11am** — manager wants an update | `/weekly-update` | Reads what got done this week from `Tasks/active.md` archive, drafts a <300-word update covering: completed, in progress, blockers, decisions needed |
-| **Fri 4pm** — end of sprint | `/sprint-review` + `/retro` | Archives done items, pulls next sprint from backlog, runs a structured retro: what worked / what didn't / one change |
+| **Fri 4pm** — end of sprint | `/retro` | Runs a structured retro: what worked / what didn't / one change |
 | **Quarter end** | `/quarterly-planning` | Scores last quarter's OKRs, drafts next quarter's objectives aligned to `GOALS.md` |
 | **Project kickoff** | `new project [name]` | Creates `Projects/[name]/` with brief, research/, and decisions.md scaffolded from templates |
-| **Project launch** | `/go-nogo [project]` → `/launch-plan [project]` → `/launch-comms [project]` | Full launch sequence: readiness assessment, rollout checklist, internal announcement draft |
-| **Post-launch** | `/post-launch [project]` | 1-week and 4-week retrospective: adoption, issues, what to tweak |
+| **Project launch** | `/go-nogo [project]` → `/launch-plan [project]` | Launch readiness assessment and rollout checklist |
+| **Post-launch** | `/retro` | 1-week and 4-week retrospective: adoption, issues, what to tweak |
 
 What's left for you? **The judgment.** Reviewing the drafts, deciding the call, sending the message. The OS does not automate the thinking — it automates the typing, the looking-things-up, and the structure.
 
@@ -66,7 +66,7 @@ Skills don't run in isolation. A single `/meeting-prep` triggers a chain:
 /meeting-prep your-manager
        │
        ▼
-Stakeholder Manager agent (top-level)
+Alfred / meeting-prep skill
        │
        ├──► reads Knowledge/People/your-manager.md      (Knowledge layer)
        ├──► reads Meetings/1on1s/your-manager.md        (history)
@@ -79,28 +79,23 @@ Stakeholder Manager agent (top-level)
        └──► drafts prep doc (agenda, updates to give, asks to make)
 ```
 
-This is the pattern across the board. **Top-level agents** orchestrate. **Sub-agents** (in `.claude/agents/`) handle parallel/isolated work. **Skills** are the trigger surface.
+This is the pattern across the board. **Skills** are the trigger surface. **Named agents** provide voice and domain judgment. **Sub-agents** (in `.claude/agents/`) handle parallel/isolated work.
 
 ---
 
-## The 14 agents and what they automate
+## What the implemented surface automates
 
-| Agent | Owns | Frees you from |
+| Capability | Implemented surface | Frees you from |
 |---|---|---|
-| **Orchestrator** | Cross-agent views: `/briefing`, `/eod`, `/os-check` | Reassembling context every morning |
-| **Task Manager** | `/today`, `/sprint-review`, `/groom`, `/add-task` | Sprint hygiene, backlog grooming |
-| **Stakeholder Manager** | `/meeting-prep`, `/meeting-notes`, `/weekly-update`, `/follow-ups` | Meeting prep, status updates, follow-up tracking |
-| **Research Analyst** | `/synthesize-research`, `/competitive-scan`, `/vendor-eval` | Synthesizing interviews, competitive scans |
-| **Strategy & Roadmap** | `/roadmap-review`, `/quarterly-planning`, `/business-case`, `/prioritize` | OKR drafting, RICE scoring, ROI cases |
-| **Analytics & Metrics** | `/metrics-snapshot`, `/dashboard`, `/trend` | Pulling and framing metric movements |
-| **Product Definer** | `/prd`, `/use-case`, `/requirements-review` | PRD drafts, requirement docs, spec handoffs |
-| **Data & Tech Architect** | `/data-model`, `/integration-map`, `/tech-feasibility` | Data architecture diagrams, feasibility checks |
-| **Domain Specialist** | Your own initiative — see `Agents/cdp-specialist/` as a template | Deep work on your main initiative |
-| **Launch Manager** | `/launch-plan`, `/go-nogo`, `/launch-comms`, `/post-launch` | Launch readiness checklists, comms drafts |
-| **QA & Acceptance Tester** | `/test-plan`, `/uat-check`, `/data-quality-check` | Test scenarios from acceptance criteria |
-| **Enablement & Change** | `/training-plan`, `/user-guide`, `/adoption-check` | Training materials, user guides, adoption tracking |
-| **Risk & Dependency Tracker** | `/risk-register`, `/add-risk`, `/dependency-check`, `/escalation-draft` | Risk hygiene, dependency follow-ups |
-| **Retro & Learning Coach** | `/retro`, `/postmortem`, `/lessons` | Structured retros, postmortems, lessons log |
+| **Daily ops** | `/today` | Reassembling context every morning |
+| **Stakeholder prep** | `/meeting-prep`, `/weekly-update` | Meeting prep and status updates |
+| **Research synthesis** | `/synthesize-research`, `/research-sufficiency` | Synthesizing interviews and checking decision readiness |
+| **Strategy & roadmap** | `/roadmap-review`, `/quarterly-planning` | OKR drafting and roadmap review |
+| **Product definition** | `Templates/prd.md`, `/prd-readiness`, `/peer-review` | PRD structure and handoff checks |
+| **Build review** | `/build-review`, `/eval-review`, `/test-plan` | Reviewing artifacts, evals, and test coverage |
+| **Launch readiness** | `/launch-plan`, `/go-nogo` | Launch checklists and readiness calls |
+| **Risk tracking** | `/risk-register` | Risk hygiene and mitigation framing |
+| **Learning loop** | `/retro`, `/wiki-lint`, `/wiki-maintain` | Retros and wiki health checks |
 
 ---
 
@@ -120,8 +115,8 @@ These three are easy to confuse:
 
 The first 80% comes from filling out `CLAUDE.md` and `GOALS.md` with real, specific context. The last 15% comes from these three habits:
 
-1. **Update `Tasks/active.md` daily.** This is what `/today`, `/weekly-update`, and `/sprint-review` all read from. Stale tasks → stale automation.
-2. **Capture meeting notes immediately.** Use `/meeting-notes [name]` right after every 1:1 / stakeholder session. The agents stitch these into context next time.
+1. **Update `Tasks/active.md` daily.** This is what `/today` and `/weekly-update` read from. Stale tasks → stale automation.
+2. **Capture meeting notes immediately.** Use `Templates/1on1-notes.md` right after every 1:1 / stakeholder session. The agents stitch these into context next time.
 3. **Keep `Knowledge/People/` warm.** When you learn something new about a colleague's priorities or working style, update their file. Every future `meeting-prep` and `weekly-update` gets sharper because of it.
 
 Done well, the work that *isn't* automated shrinks down to:
@@ -139,7 +134,7 @@ The OS works standalone out of the box. Wire up MCPs to push automation further:
 
 - **Calendar MCP** → so `/today` and `/meeting-prep` know who you're actually meeting
 - **Slack MCP** → so `/follow-ups` can post action items to the right channel
-- **Notion / Linear MCP** → so `/add-task` writes to the actual ticketing system, not just `Tasks/active.md`
+- **Notion / Linear MCP** → so task updates can write to the actual ticketing system, not just `Tasks/active.md`
 - **Email MCP** → so `/weekly-update` lands in your manager's inbox without a copy-paste
 
 The pattern stays the same: **agent reads context, agent does work, agent writes output where you live.**
@@ -150,7 +145,7 @@ The pattern stays the same: **agent reads context, agent does work, agent writes
 
 If you've cloned this repo and want to be running automated by end of week:
 
-- [ ] Day 1 (30 min): copy `ProductManager-OS/` to your own folder; fill in `CLAUDE.md` and `GOALS.md`
+- [ ] Day 1 (30 min): fork or clone this root template; keep private day-to-day work in `My-OS/` or another ignored private copy
 - [ ] Day 1 (15 min): list your 4–6 closest stakeholders in `Knowledge/People/team.md`
 - [ ] Day 2 (15 min): seed `Tasks/active.md` with your real current sprint
 - [ ] Day 2: try `/today` — see what's missing, fill in those gaps
