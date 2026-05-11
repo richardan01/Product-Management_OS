@@ -20,7 +20,7 @@ Read research, project context, and templates to draft structured product docume
 ## Output Format
 Return the complete draft following the template structure. Each section should:
 - Lead with the key point
-- Reference evidence source: "Based on [interview with [LIFECYCLE_PM] / competitive scan / brief]..."
+- Reference evidence source: "Based on [interview with [STAKEHOLDER_1] / competitive scan / brief]..."
 - Include `[NEEDS INPUT]` markers where [YOUR_NAME] needs to provide information
 - Include `[DECISION NEEDED]` markers where a choice must be made
 

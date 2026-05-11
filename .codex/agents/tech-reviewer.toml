@@ -8,7 +8,7 @@ Analyze technical architecture, data models, and integration patterns. Return st
 ## Steps
 1. Read the relevant context files for the analysis type:
    - For data models: existing schemas in `Knowledge/Reference/data-architecture/`
-   - For integrations: `Knowledge/Reference/martech-stack.md` + existing integration map
+   - For integrations: `Knowledge/Reference/*.md` + existing integration map
    - For feasibility: project brief + technical context + PRD if available
 2. Analyze based on the request type:
    - **Data model review:** entities, relationships, data types, normalization, gaps
@@ -51,7 +51,6 @@ Analyze technical architecture, data models, and integration patterns. Return st
 
 ## Files You Can Read
 - `Knowledge/Reference/data-architecture/*.md`
-- `Knowledge/Reference/martech-stack.md`
 - `Knowledge/Reference/*.md`
 - `Projects/*/brief.md`
 - `Projects/*/prd-*.md`"""

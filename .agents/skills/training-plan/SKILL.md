@@ -14,10 +14,10 @@ Build a role-specific training plan for [feature] launch. Run this at least 1 we
 
 | User | Role | What they'll use this for | Training needed | Format | By when | Sign-off criteria |
 |------|------|--------------------------|-----------------|--------|---------|-------------------|
-| [LIFECYCLE_PM] | Lifecycle | | | Live walkthrough / Loom / Written guide | | Can do X without help |
-| [WEBSITE_PM] | Website | | | | | |
-| [PAID_ADS_PM] | Paid Ads | | | | | |
-| [CONTENT_PM] | Content | | | | | |
+| [USER_1] | [Role] | | | Live walkthrough / Loom / Written guide | | Can do X without help |
+| [USER_2] | [Role] | | | | | |
+| [USER_3] | [Role] | | | | | |
+| [USER_4] | [Role] | | | | | |
 
    Only include users who will actually touch the feature — skip irrelevant rows.
 
@@ -43,9 +43,9 @@ Build a role-specific training plan for [feature] launch. Run this at least 1 we
 - [ ] Sandbox access confirmed — owner: [eng/vendor]
 
 **Schedule:**
-- [ ] Walkthrough with [LIFECYCLE_PM]: [date]
-- [ ] Walkthrough with [WEBSITE_PM]: [date]
-- [ ] Walkthrough with [PAID_ADS_PM]: [date]
+- [ ] Walkthrough with [USER_1]: [date]
+- [ ] Walkthrough with [USER_2]: [date]
+- [ ] Walkthrough with [USER_3]: [date]
 
 **Readiness Gate:** All users confirmed ready before UAT sign-off
 ```

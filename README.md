@@ -221,8 +221,7 @@ ProductManagement-OS/
 │   ├── People/
 │   │   └── [YOUR_MANAGER].md    ← Manager/stakeholder profile template
 │   └── Reference/
-│       ├── company.md           ← Company context
-│       └── martech-stack.md     ← Tool audit template
+│       └── company.md           ← Company context
 │
 ├── Meetings/
 │   └── 1on1s/                   ← 1:1 meeting notes

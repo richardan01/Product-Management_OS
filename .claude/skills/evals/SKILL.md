@@ -149,10 +149,10 @@ Good eval metrics:
 
 ```
 ❌ Generic (avoid):          ✅ Application-specific (use):
-  Rouge                        CDP Tool Hallucination
-  Bleu                         Missing Merchant Lifecycle Stage
-  Faithfulness                 Incorrect Market Classification (HK vs SG)
-  Helpfulness                  Failed Sensor Event Naming Convention
+  Rouge                        Feature Definition Drift
+  Bleu                         Missing User Onboarding Stage
+  Faithfulness                 Region-Specific Feature Fit
+  Helpfulness                  Event Taxonomy Consistency
   Tone                         Vendor Brief Missing Comparison Column
 ```
 
@@ -221,7 +221,7 @@ Use this to bootstrap evals before [YOUR_COMPANY]'s AI features are in productio
 
 **How to generate good synthetic data:**
 - **Use structured input for diversity**: Define key dimensions (e.g., Feature,
-  Merchant Persona, Market: HK/SG, Scenario) and use them as variables in your
+  User Persona, Region, Scenario) and use them as variables in your
   generation prompt.
 - **Seed with real logs or traces when possible**: Then ask the model to inject
   changes (new constraint, modified variable) to create realistic edge cases.
@@ -266,7 +266,7 @@ When asked to run an eval suite, follow this sequence:
 1. **Read the suite README** for context (use case, last run date, last pass rate)
 2. **Run each eval individually** — for each one:
    - Read `input.md`, `criteria.md`, and any referenced input fixture
-   - Run the underlying skill (e.g., `synthesize-research`, `kpay-martech-pm`) on the input
+   - Run the underlying skill (e.g., `synthesize-research`, `prd-readiness`) on the input
    - Grade the output against each criterion (✅ / ❌ / ⚠️ partial)
    - Note which failure modes (if any) were caught
 3. **Tally pass rate** — N / 10. Note partials separately.
@@ -388,8 +388,8 @@ production users. Three deployment modes:
   eval blocks the skill from being deployed to production prompts.
 - **Online Monitoring**: After each skill deployment, sample real usage and
   run LLM-judge async to catch new failure modes the curated suite missed.
-- **Guardrails**: For high-stakes outputs (vendor recommendations, merchant
-  classification, campaign targeting), add a pre-response check that blocks
+- **Guardrails**: For high-stakes outputs (vendor recommendations, user
+  segmentation, feature targeting), add a pre-response check that blocks
   outputs with known critical failure signatures before they reach stakeholders.
 
 ---
@@ -452,10 +452,10 @@ When sharing eval results outside the AI PM context (e.g., to [STAKEHOLDER_1], [
 
 | Suite | Use Case | Status |
 |-------|----------|--------|
-| `discovery-synthesis` | Stakeholder session → structured findings | **Built 2026-04-26** — 10 evals committed at `Evals/discovery-synthesis/`, awaiting credible re-run (first run flagged for self-grading bias) |
-| `vendor-brief` (planned) | CDP vendor → comparison brief | TBD — build after CDP shortlist locked (Amplitude / Segment / Mixpanel / Tealium under eval) |
-| `tracking-plan-validation` (planned) | Event taxonomy → governance check | TBD — build after taxonomy v1 |
-| `merchant-lifecycle-classification` (planned) | Merchant attributes → AAARRR stage | TBD — build after CDP pilot |
+| `onboarding` | Interactive onboarding workflow → coherent per-persona config | **Built 2026-05-11** — 6 evals committed at `Evals/onboarding/` |
+| `feature-readiness` (illustrative, planned) | Discovery output → ship/no-ship readiness check | TBD |
+| `research-synthesis-quality` (illustrative, planned) | Interview corpus → synthesis doc | TBD |
+| `prioritization-framework` (illustrative, planned) | Backlog input → ranked output with rationale | TBD |
 
 ---
 
@@ -476,9 +476,9 @@ When sharing eval results outside the AI PM context (e.g., to [STAKEHOLDER_1], [
 
 ## The Bigger Move
 
-Building this suite is the visible artifact of being an AI PM, not a Martech PM.
-Same mission ([YOUR_COMPANY] CDP and martech), different evidence layer. When someone
-asks "what makes you an AI PM?", the honest answer is: *"I run a 10-eval
+Building this suite is the visible artifact of being an AI PM.
+Same mission (building AI-augmented products), different evidence layer. When someone
+asks "what makes you an AI PM?", the honest answer is: *"I run an eval
 suite on every model release and I can show you the pass rate over time."*
 
 That's not a job title. That's a practice.

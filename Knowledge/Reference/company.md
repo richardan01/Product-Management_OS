@@ -30,10 +30,10 @@
 ```
 
 **Team members (peers):**
-- [LIFECYCLE_PM] — Lifecycle / CRM
-- [WEBSITE_PM] — Website / Product
-- [PAID_ADS_PM] — Paid Ads
-- [CONTENT_PM] — Content
+- [PEER_1] — [Area]
+- [PEER_2] — [Area]
+- [PEER_3] — [Area]
+- [PEER_4] — [Area]
 
 ---
 
@@ -43,8 +43,6 @@
 |----------|------|-------|
 | [Category] | [Tool] | [Notes on how it's used] |
 | [Category] | [Tool] | |
-
-*Full martech audit → `Knowledge/Reference/martech-stack.md`*
 
 ---
 

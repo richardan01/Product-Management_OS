@@ -119,7 +119,7 @@ Ask:
    - Executive operator — concise, outcome-driven, low drama
    - Research partner — careful, evidence-first, source-aware
    - Product coach — reflective, developmental, asks good questions
-   - Builder — pragmatic, prototype-first, implementation-oriented
+   - Builder / AI PM — pragmatic, eval-first, model-aware — for PMs building AI-augmented products or developing AI PM expertise (eval discipline, agentic workflows, model upgrade hygiene)
    - Minimalist — terse, checklist-first, low ceremony
    - Custom
 2. When should the assistant push back?
@@ -137,7 +137,7 @@ Tell the user explicitly which parts of the OS each persona turns on or off. Thi
 | **Executive operator** | Concise, outcome-driven | Skills + Workflows only | `/peer-review` default; `/go-nogo` for launches | `/today`, `/weekly-update`, `/meeting-prep`, `/peer-review` | All Batman agents (kept as optional reference, not routed by default) |
 | **Research partner** | Evidence-first, careful, citation-aware | Skills + `Oracle` reference patterns | `/research-sufficiency` + `/peer-review` | `/synthesize-research`, `/research-sufficiency`, `/wiki-ingest`, `/wiki-query` | Batman, Selina Kyle, Henri Ducard, Nightwing |
 | **Product coach** | Reflective, asks good questions | Skills + Workflows | `/peer-review` light edit | `/today`, `/retro`, `/meeting-prep` | Batman, Selina Kyle, Robin |
-| **Builder** | Pragmatic, prototype-first | Skills + `Lucius Fox` reference | `/build-review`, `/eval-review`, `/test-plan` | `/build-review`, `/eval-review`, `/test-plan`, `/today` | Batman, Selina Kyle, Bruce Wayne (career) |
+| **Builder / AI PM** | Pragmatic, eval-first, model-aware | Skills + `Lucius Fox` + `Oracle` reference (build + research) | `/eval-review` + `/build-review` + `/test-plan` mandatory pre-deployment | `/today`, `/evals`, `/eval-review`, `/build-review`, `/test-plan`, `/synthesize-research` | Batman, Selina Kyle, Bruce Wayne (career) |
 | **Minimalist** | Terse, checklist-only | Skills only | `/peer-review` light edit | `/today`, `/weekly-update` | All Batman agents |
 | **Custom** | User-defined | User-chosen | User-chosen | User-chosen | User-chosen |
 
@@ -179,7 +179,14 @@ Ask the user for:
 4. Blockers and who owns them
 5. Follow-ups already promised to other people
 
-Propose updates to:
+**Interactive read-back rule.** After capture, do **not** propose any file updates yet. Read each priority level back to the user as a separate list:
+
+1. "Here are the P0 tasks I captured: [list]. Does this match what you're working on? Anything missing or wrong?"
+2. After user confirms P0 — repeat for P1.
+3. After user confirms P1 — repeat for P2.
+4. After P2 — repeat for blockers, then for follow-ups.
+
+Do not bulk-approve all five categories in one ask. Only after each category is individually confirmed, propose updates to:
 
 - `Tasks/active.md`
 - `Tasks/backlog.md`
@@ -207,9 +214,16 @@ Ask:
 4. What decisions are open on that project?
 5. What risks are already visible?
 
-Propose updates to:
+**Per-stakeholder confirmation rule.** Do **not** draft any `Knowledge/People/` file upfront. For each person the user named, before drafting a profile, ask in conversational back-and-forth:
 
-- `Knowledge/People/[name].md`
+1. "[Name] — what's their role and seniority?"
+2. "Why do they matter to your work — approver, blocker, advisor, user, partner?"
+3. "Anything I should know about their working style or preferences?"
+
+Only after the user has confirmed those three fields for that person do you propose a `Knowledge/People/[name].md` draft. Confirm each person's draft before moving to the next.
+
+Then propose updates to:
+
 - `Projects/[YOUR_ANCHOR_PROJECT]/brief.md`
 - `Tasks/active.md`
 
@@ -276,21 +290,30 @@ Before writing, show:
 - `Projects/.../brief.md`: anchor project context, open decisions, risks
 ```
 
-Ask: `Should I apply these setup changes?`
+**Mandatory display rule.** You must display the Phase 8 summary in the exact format shown above, including the file-by-file edit plan, **before** asking for approval. Do not ask "Ready to onboard?" or any short-form approval question without first showing the full summary. If the user asks for changes, revise the summary and re-display the full block before re-asking.
 
-Only proceed after the user says yes.
+Ask: `Should I apply these setup changes? (Yes / No / Change X)`
+
+Only proceed after the user replies with an explicit "yes." Polite acknowledgements ("ok", "sounds good", "looks fine") do not count as approval — re-confirm explicitly.
 
 ## Phase 9 — Write and next actions
 
-After confirmed edits:
+**Per-file write rule.** Do **not** batch-write multiple files. For each file in the confirmed Phase 8 file-by-file edit plan, in order:
 
-1. Write only the confirmed files.
-2. Show a concise change summary.
-3. Recommend the first three commands:
+1. Ask: "Ready for me to update `[filename]`?"
+2. Wait for an explicit "yes." Polite acknowledgements do not count.
+3. Write the file.
+4. Show a one-line confirmation: "Updated `[filename]`. Next: `[next filename]`."
+5. Move to the next file and repeat.
+
+Only after every file in the plan is written:
+
+1. Show a concise change summary listing every file written.
+2. Recommend the first three commands:
    - `/today`
    - `/meeting-prep [person]`
    - `/weekly-update`
-4. Ask whether the user wants to run `/today` immediately.
+3. Ask whether the user wants to run `/today` immediately.
 
 ## Phase 10 — Verify onboarding completed cleanly
 
@@ -307,15 +330,27 @@ Run this check before declaring onboarding finished. If any item fails, ask the 
 | **Privacy boundaries recorded** | `CLAUDE.md` → `Privacy boundaries` is not a bracketed list. | Re-run Phase 7. |
 | **Anchor project brief exists or skipped intentionally** | `Projects/[YOUR_ANCHOR_PROJECT]/brief.md` exists with non-template content, OR the user has said no anchor project yet. | Re-run Phase 6. |
 
-Report verification results as a short checklist (✅ / ❌ per row) to the user. If anything is ❌, explicitly ask before treating onboarding as complete.
+Report verification results as a short checklist (✅ / ❌ per row) to the user.
+
+**Three-way resolution rule for ❌ items.** Do **not** declare onboarding complete with warnings. For each ❌, ask the user to choose one of:
+
+- **(a) Fill it now** — capture the value in conversation and update the file.
+- **(b) Defer with a follow-up** — record the gap in `Tasks/follow-ups.md` with a date so it doesn't silently survive.
+- **(c) Accept the placeholder intentionally** — the user states a written reason why the placeholder should remain; record that reason in `CLAUDE.md` next to the field so future sessions don't re-flag it.
+
+Only after every ❌ row has been resolved via (a), (b), or (c) may you say "Onboarding complete."
 
 ## Re-running onboarding
 
 The user can re-run this workflow at any time by saying `Computer, onboard me into this OS` again. The assistant should:
 
 1. Read the current `CLAUDE.md`, `GOALS.md`, `Tasks/active.md` to see what is already set.
-2. Ask which sections the user wants to change rather than restarting from scratch.
-3. Preserve existing answers unless the user asks to change them.
+2. **Always re-confirm critical settings explicitly**, even if they have not changed — at minimum the **persona**, the **tone**, and the **quality-gate set**. Ask each as a fresh question, e.g.:
+   - "You previously chose `Builder / AI PM` persona. Still right for you, or do you want to change?"
+   - "Your tone was `pragmatic, eval-first, model-aware`. Still right?"
+   - "Your pre-publish quality gates are `/eval-review` + `/build-review` + `/test-plan`. Still right?"
+3. For non-critical fields, ask which sections the user wants to change rather than restarting from scratch.
+4. Preserve an existing answer only after the user explicitly confirms it in this run. Do **not** silently carry over persona, tone, or quality gates.
 
 ## Dry-run acceptance test
 

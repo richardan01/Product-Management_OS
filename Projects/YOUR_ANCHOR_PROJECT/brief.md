@@ -55,7 +55,7 @@
 |------|------|-------------|
 | [YOUR_MANAGER] | [Role] | Approves roadmap, escalation point |
 | [HEAD_OF_DEPT] | [Role] | Budget/investment decisions |
-| [LIFECYCLE_PM] | [Role] | Primary user of [use case] |
+| [STAKEHOLDER_1] | [Role] | Primary user of [use case] |
 | [Engineering contact] | [Role] | Implementation partner |
 
 ---
