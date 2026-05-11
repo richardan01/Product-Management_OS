@@ -1,5 +1,4 @@
-# Private active Claude OS — never commit
-My-OS/
+# Local telemetry / generated data
 .telemetry/
 
 # Local data / scratch

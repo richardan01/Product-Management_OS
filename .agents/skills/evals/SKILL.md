@@ -1,8 +1,8 @@
 ---
 name: evals
 description: >
-  Design, run, and iterate on eval suites for AI-augmented PM workflows at KPay.
-  Trigger whenever Rich asks to write evals, test a skill, benchmark a workflow,
+  Design, run, and iterate on eval suites for AI-augmented PM workflows at [YOUR_COMPANY].
+  Trigger whenever [YOUR_NAME] asks to write evals, test a skill, benchmark a workflow,
   measure model+harness quality, build pass criteria, run regression tests after
   a model release, or quantify whether an automation is "100% there" (Cat Wu's
   bar). Also trigger on phrases like "is this skill working", "test my prompt",
@@ -10,21 +10,21 @@ description: >
   audit", "harness check", "introspection loop". Use broadly — eval discipline
   is the core AI PM craft and applies to discovery synthesis, tracking plan
   validation, vendor briefs, segmentation frameworks, classification tasks,
-  and any repeatable AI workflow Rich is hardening toward 100% reliability.
+  and any repeatable AI workflow [YOUR_NAME] is hardening toward 100% reliability.
 ---
 
-# Evals Skill — KPay AI PM Edition
+# Evals Skill — [YOUR_COMPANY] AI PM Edition
 
 ## Purpose
 
-This skill encodes Rich's eval discipline as an AI PM. It exists because:
+This skill encodes [YOUR_NAME]'s eval discipline as an AI PM. It exists because:
 
 > **"You don't need to build hundreds of evals for them to be useful. Just
 > building 10 great evals is important for helping the team quantify what the
 > goal is and what their progress towards it is."** — Cat Wu, Anthropic
 
-Evals are how Rich proves — to himself, to Jervis, to Martin Xie, and to future
-Anthropic interviewers — that his AI-augmented workflows actually work. Not
+Evals are how [YOUR_NAME] proves — to themselves, to [STAKEHOLDER_1], to [STAKEHOLDER_2], and to future
+[TARGET_COMPANY_INTERVIEWERS] — that their AI-augmented workflows actually work. Not
 "feel like they work." **Quantitatively work.**
 
 ---
@@ -217,7 +217,7 @@ Use production traces as the most reliable source of real failure patterns.
 
 ### Option B: Synthetic Data (When You Don't Have Traces Yet)
 
-Use this to bootstrap evals before KPay's AI features are in production.
+Use this to bootstrap evals before [YOUR_COMPANY]'s AI features are in production.
 
 **How to generate good synthetic data:**
 - **Use structured input for diversity**: Define key dimensions (e.g., Feature,
@@ -254,7 +254,7 @@ suite-name/
 ```
 
 **Why this structure**: criteria files travel with inputs so anyone (or any
-Codex) can pick up the suite and run it. Results history lets Rich track
+Codex) can pick up the suite and run it. Results history lets [YOUR_NAME] track
 drift across model releases.
 
 ---
@@ -288,7 +288,7 @@ Don't be a pushover, don't be a perfectionist. Three rules:
 - **Reading the transcript first matters.** You can't grade hallucination if you don't know what was in the input.
 - **Partial credit is fine, but tracked separately.** A ⚠️ partial isn't a ✅. Don't round up.
 
-When grading subjective criteria ("specific to KPay context, not generic"),
+When grading subjective criteria ("specific to [YOUR_COMPANY] context, not generic"),
 ask: *would this output be different if the input were a generic SaaS company
 discovery session?* If no, it's not specific enough.
 
@@ -356,7 +356,7 @@ finds the hotspots.
 High numbers on the diagonal = the step is failing in itself.
 High numbers off-diagonal = upstream context is corrupting a downstream step.
 
-**Example for KPay discovery synthesis agent:**
+**Example for [YOUR_COMPANY] discovery synthesis agent:**
 
 | From State → | ParseInput | IdentifyThemes | ExtractEvidence | Format | Output |
 |---|---|---|---|---|---|
@@ -383,7 +383,7 @@ production users. Three deployment modes:
 | **Data** | Curated test cases | Sampled production traffic | 100% of live traffic |
 | **On failure** | Block merge | Trigger an alert | Block response, retry, or fallback to alternative |
 
-**For KPay AI PM workflows:**
+**For [YOUR_COMPANY] AI PM workflows:**
 - **CI/CD**: Before pushing any skill update, run the full eval suite. A failed
   eval blocks the skill from being deployed to production prompts.
 - **Online Monitoring**: After each skill deployment, sample real usage and
@@ -427,7 +427,7 @@ A suite that hasn't been run in 60 days is technical debt.
 
 ## Communicating Results to Stakeholders
 
-When sharing eval results outside the AI PM context (e.g., to Jervis, Martin Xie):
+When sharing eval results outside the AI PM context (e.g., to [STAKEHOLDER_1], [STAKEHOLDER_2]):
 
 - **Don't lead with the number.** Lead with what the suite tested and why it matters.
 - **Frame regressions as caught risks**, not failures. "Eval suite caught a
@@ -448,11 +448,11 @@ When sharing eval results outside the AI PM context (e.g., to Jervis, Martin Xie
 
 ---
 
-## Active Suites at KPay
+## Active Suites at [YOUR_COMPANY]
 
 | Suite | Use Case | Status |
 |-------|----------|--------|
-| `discovery-synthesis` | Stakeholder session → structured findings | **Built 2026-04-26** — 10 evals committed at `My-OS/Evals/discovery-synthesis/`, awaiting credible re-run (first run flagged for self-grading bias) |
+| `discovery-synthesis` | Stakeholder session → structured findings | **Built 2026-04-26** — 10 evals committed at `Evals/discovery-synthesis/`, awaiting credible re-run (first run flagged for self-grading bias) |
 | `vendor-brief` (planned) | CDP vendor → comparison brief | TBD — build after CDP shortlist locked (Amplitude / Segment / Mixpanel / Tealium under eval) |
 | `tracking-plan-validation` (planned) | Event taxonomy → governance check | TBD — build after taxonomy v1 |
 | `merchant-lifecycle-classification` (planned) | Merchant attributes → AAARRR stage | TBD — build after CDP pilot |
@@ -477,7 +477,7 @@ When sharing eval results outside the AI PM context (e.g., to Jervis, Martin Xie
 ## The Bigger Move
 
 Building this suite is the visible artifact of being an AI PM, not a Martech PM.
-Same mission (KPay CDP and martech), different evidence layer. When someone
+Same mission ([YOUR_COMPANY] CDP and martech), different evidence layer. When someone
 asks "what makes you an AI PM?", the honest answer is: *"I run a 10-eval
 suite on every model release and I can show you the pass rate over time."*
 
