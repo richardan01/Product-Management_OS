@@ -6,6 +6,16 @@ This doc explains how the pieces fit together — agents, skills, workflows, tem
 
 ---
 
+## Where work lives
+
+For Richard's local setup, `ProductManager-OS/` is the parent folder with two paths:
+
+- `My-OS/` is the private active Claude workspace for live tasks, stakeholders, company context, meeting notes, and private reviews.
+- `ProductManagement-OS/` is the public GitHub template for product managers to fork and use.
+- Promote reusable ideas from `My-OS/` into `ProductManagement-OS/` only after removing private names, company details, and one-off personal context.
+
+---
+
 ## The 3-layer model
 
 ```
@@ -43,7 +53,7 @@ Below is what a week looks like when the OS is set up. Each row shows: the momen
 | **Mon 9am** — start the week | `/today` | Reads `Tasks/active.md` + this week's calendar context, surfaces 3 priorities, flags blockers, drafts a Slack standup message |
 | **Mon 11am** — 1:1 with your manager | `/meeting-prep [your-manager]` | Pulls last 1:1 notes, scans `Tasks/active.md` for items they care about, drafts agenda + updates to give + asks to make |
 | **Tue 2pm** — discovery interview done | `/synthesize-research` | Reads interview notes from `Projects/[project]/research/`, extracts pain points, themes, and use case implications into a structured synthesis |
-| **Wed 10am** — vendor question came up | Use `Templates/research-summary.md` + `/synthesize-research` | Builds a comparison matrix across sources with fit-for-use-case scoring |
+| **Wed 10am** — solution question came up | Use `Templates/research-summary.md` + `/synthesize-research` | Builds a comparison matrix across sources with fit-for-use-case scoring |
 | **Wed 4pm** — quick PRD needed | Use `Templates/prd.md` + `/prd-readiness [file]` | Drafts from the template, then checks readiness before handoff |
 | **Thu 9am** — daily check | `/today` | Same as Monday — but now sees Wednesday's commits, retros what slipped, updates priorities |
 | **Thu 3pm** — risk review | `/risk-register` | Logs risks, scores probability/impact, suggests mitigation, drafts an escalation message if it's a P0 |
@@ -145,7 +155,7 @@ The pattern stays the same: **agent reads context, agent does work, agent writes
 
 If you've cloned this repo and want to be running automated by end of week:
 
-- [ ] Day 1 (30 min): fork or clone this root template; keep private day-to-day work in `My-OS/` or another ignored private copy
+- [ ] Day 1 (30 min): fork or clone `ProductManagement-OS`; keep private day-to-day work in `My-OS/`
 - [ ] Day 1 (15 min): list your 4–6 closest stakeholders in `Knowledge/People/team.md`
 - [ ] Day 2 (15 min): seed `Tasks/active.md` with your real current sprint
 - [ ] Day 2: try `/today` — see what's missing, fill in those gaps

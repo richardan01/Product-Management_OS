@@ -1,12 +1,21 @@
-# Product Management OS
+# ProductManagement-OS
 
 A multi-agent personal operating system for Product Managers. Built on Claude Code. Runs with a Batman persona layer.
 
 ---
 
+## Folder map
+
+For Richard's local setup, keep two sibling folders inside `ProductManager-OS/`:
+
+- `ProductManager-OS/My-OS/` is Richard's private active Claude workspace. Work here day to day.
+- `ProductManager-OS/ProductManagement-OS/` is the public GitHub template. Product managers can fork it, fill in the placeholders, and use it as a starting operating system.
+
+Do not put private stakeholder names, company context, live tasks, meeting notes, or personal reviews into `ProductManagement-OS/`. When something from `My-OS/` becomes generally reusable, sanitize it first, then promote the generic version back into `ProductManagement-OS/`.
+
 ## What this is
 
-A PM's daily work is high-context, multi-domain, and interruptible. On any given day you're switching between sprint planning, stakeholder prep, vendor evaluation, risk tracking, and writing PRDs — each requiring different data, different frameworks, and different output formats.
+A PM's daily work is high-context, multi-domain, and interruptible. On any given day you're switching between sprint planning, stakeholder prep, solution selection, risk tracking, and writing PRDs — each requiring different data, different frameworks, and different output formats.
 
 A single AI assistant with one long prompt can't handle this well. It conflates domains, loses context, and produces generic output.
 
@@ -65,13 +74,13 @@ This routes to the right agent automatically. Examples:
 ## How to get started
 
 ### Step 1: Fork or clone this template
-This repo is the public template. The OS files live at the repo root so GitHub users can fork it directly.
+`ProductManagement-OS` is the public template. The OS files live at the repo root so GitHub users can fork it directly.
 
 ### Step 2: Create your private working copy
-Use a private local folder such as `My-OS/` for day-to-day work. `My-OS/` is ignored by git and should never contain public commits.
+For Richard's local setup, use sibling folder `../My-OS/` for day-to-day Claude work. If you create a `My-OS/` folder inside this template checkout, it is ignored by git and should never contain public commits.
 
 ### Step 3: Fill in CLAUDE.md
-In your private copy, open `CLAUDE.md` and replace all `[PLACEHOLDER]` values:
+In your private `My-OS/` copy, open `CLAUDE.md` and replace all `[PLACEHOLDER]` values:
 
 | Placeholder | Replace with |
 |-------------|--------------|
@@ -110,60 +119,62 @@ Bruce Wayne will help you set a quarterly arc for the AI PM mission.
 ## Directory structure
 
 ```
-.
-├── CLAUDE.md                    ← Identity, routing, operating contract
-├── GOALS.md                     ← 30-60-90 goals, stakeholders, metrics
+ProductManager-OS/
+├── My-OS/                       ← Private active Claude OS
+└── ProductManagement-OS/        ← Public GitHub template
+    ├── CLAUDE.md                ← Identity, routing, operating contract
+    ├── GOALS.md                 ← 30-60-90 goals, stakeholders, metrics
 │
-├── Agents/
-│   ├── README.md               ← Architecture overview, routing table
-│   └── Gotham/Computer/        ← 12 Batman-layer agents
-│       ├── alfred.md
-│       ├── bruce-wayne.md
-│       ├── batman.md
-│       ├── oracle.md
-│       ├── lucius-fox.md
-│       ├── nightwing.md
-│       ├── riddler.md
-│       ├── robin.md
-│       ├── gordon.md
-│       ├── selina-kyle.md
-│       ├── henri-ducard.md
-│       └── vicki-vale.md
+    ├── Agents/
+    │   ├── README.md            ← Architecture overview, routing table
+    │   └── Gotham/Computer/     ← 12 Batman-layer agents
+    │       ├── alfred.md
+    │       ├── bruce-wayne.md
+    │       ├── batman.md
+    │       ├── oracle.md
+    │       ├── lucius-fox.md
+    │       ├── nightwing.md
+    │       ├── riddler.md
+    │       ├── robin.md
+    │       ├── gordon.md
+    │       ├── selina-kyle.md
+    │       ├── henri-ducard.md
+    │       └── vicki-vale.md
 │
-├── Tasks/
-│   ├── active.md               ← Current sprint (#p0/#p1/#p2)
-│   ├── backlog.md              ← Prioritized backlog
-│   └── archive/                ← Completed sprints
+    ├── Tasks/
+    │   ├── active.md            ← Current sprint (#p0/#p1/#p2)
+    │   ├── backlog.md           ← Prioritized backlog
+    │   └── archive/             ← Completed sprints
 │
-├── Projects/
-│   └── YOUR_ANCHOR_PROJECT/
-│       └── brief.md            ← Project brief template
+    ├── Projects/
+    │   └── YOUR_ANCHOR_PROJECT/
+    │       └── brief.md         ← Project brief template
 │
-├── Knowledge/
-│   ├── People/
-│   │   └── [YOUR_MANAGER].md  ← Manager profile template
-│   └── Reference/
-│       ├── company.md          ← Company context
-│       └── martech-stack.md    ← Tool audit template
+    ├── Knowledge/
+    │   ├── People/
+    │   │   └── [YOUR_MANAGER].md ← Manager profile template
+    │   └── Reference/
+    │       ├── company.md       ← Company context
+    │       └── martech-stack.md ← Tool audit template
 │
-├── Meetings/
-│   └── 1on1s/                  ← 1:1 meeting notes
+    ├── Meetings/
+    │   └── 1on1s/               ← 1:1 meeting notes
 │
-├── Reviews/                     ← OS health reviews
-├── Evals/                       ← Eval suites (flagship project)
-├── _temp/                       ← Working drafts (not durable)
+    ├── Reviews/                 ← OS health reviews
+    ├── Evals/                   ← Eval suites (flagship project)
+    ├── _temp/                   ← Working drafts (not durable)
 │
-├── _Registry/
-│   └── voice-map.md            ← Batman voice assignments per agent
+    ├── _Registry/
+    │   └── voice-map.md         ← Batman voice assignments per agent
 │
-└── .claude/
-    ├── skills/                  ← 20+ skill commands (/today, /weekly-update, etc.)
-    └── agents/                  ← 11 sub-agent workers
+    └── .claude/
+        ├── skills/              ← 20+ skill commands (/today, /weekly-update, etc.)
+        └── agents/              ← 11 sub-agent workers
 ```
 
 ## Local privacy rule
 
-Keep personal operating data in `My-OS/`. That folder is ignored by git so daily tasks, stakeholder notes, and private reviews stay off GitHub. Promote only generic, reusable improvements back into this public template.
+Work day to day in `../My-OS/` when using Richard's local `ProductManager-OS/` parent folder. Keep daily tasks, stakeholder notes, company context, meeting notes, and private reviews out of `ProductManagement-OS/`. Promote only sanitized, generic, reusable improvements back into this public template.
 
 ---
 
