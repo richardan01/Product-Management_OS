@@ -4,6 +4,29 @@ A downloadable multi-agent operating-system template for product managers. It co
 
 ---
 
+## Start here: first-run setup with Claude
+
+If you just downloaded, forked, or cloned this repo, do this first:
+
+1. Open the repo folder in Claude Code or another Claude workspace that can read and edit these files.
+2. Paste this exact prompt:
+
+   ```text
+   Computer, onboard me into this OS.
+   ```
+
+3. Answer Claude's setup interview in short batches. You will choose your OS purpose, default tone, working style, goals, cadence, stakeholders, projects, and privacy boundaries.
+4. Review Claude's proposed file edits before approving. Claude should not write setup files until you explicitly confirm.
+5. After setup, start your first working session with:
+
+   ```text
+   /today
+   ```
+
+**Expected first-run outcome:** a personalized PM OS where `CLAUDE.md` stores how the assistant should behave, `GOALS.md` stores what you are optimizing for, task files store what needs to move now, and project / people files store the context Claude should reuse.
+
+---
+
 ## What this is
 
 A PM's daily work is high-context, multi-domain, and interruptible. On any given day you're switching between sprint planning, stakeholder prep, solution selection, risk tracking, and writing PRDs — each requiring different data, different frameworks, and different output formats.
