@@ -41,4 +41,5 @@
 `#p0` urgent · `#p1` this week · `#p2` backlog
 
 ## Area Tags
-`#flagship` · `#bruce-wayne` · `#ai-pm` · `#[your-domain-1]` · `#[your-domain-2]`
+Set during onboarding. Default: `#strategy` · `#project` · `#research` · `#stakeholders` · `#[your-domain-1]` · `#[your-domain-2]`.
+Batman-persona users may also use: `#flagship` · `#bruce-wayne` · `#ai-pm`.

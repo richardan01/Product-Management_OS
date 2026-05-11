@@ -127,6 +127,29 @@ Ask:
 
 Update `CLAUDE.md` and `_Registry/voice-map.md` only after the user confirms.
 
+### Persona effects matrix
+
+Tell the user explicitly which parts of the OS each persona turns on or off. This is what they are actually configuring.
+
+| Persona | Default tone | Strategic layer | Quality gates | Slash commands surfaced first | Agents pruned from routing |
+|---|---|---|---|---|---|
+| **Batman strategic operator** | Direct, terse, imperative | `Agents/Gotham/Computer/` (all 12) | `/riddler` + `/vale` mandatory pre-publish | `/today`, `/cowl-up`, `/riddler`, `/vale` | None |
+| **Executive operator** | Concise, outcome-driven | Skills + Workflows only | `/peer-review` default; `/go-nogo` for launches | `/today`, `/weekly-update`, `/meeting-prep`, `/peer-review` | All Batman agents (kept as optional reference, not routed by default) |
+| **Research partner** | Evidence-first, careful, citation-aware | Skills + `Oracle` reference patterns | `/research-sufficiency` + `/peer-review` | `/synthesize-research`, `/research-sufficiency`, `/wiki-ingest`, `/wiki-query` | Batman, Selina Kyle, Henri Ducard, Nightwing |
+| **Product coach** | Reflective, asks good questions | Skills + Workflows | `/peer-review` light edit | `/today`, `/retro`, `/meeting-prep` | Batman, Selina Kyle, Robin |
+| **Builder** | Pragmatic, prototype-first | Skills + `Lucius Fox` reference | `/build-review`, `/eval-review`, `/test-plan` | `/build-review`, `/eval-review`, `/test-plan`, `/today` | Batman, Selina Kyle, Bruce Wayne (career) |
+| **Minimalist** | Terse, checklist-only | Skills only | `/peer-review` light edit | `/today`, `/weekly-update` | All Batman agents |
+| **Custom** | User-defined | User-chosen | User-chosen | User-chosen | User-chosen |
+
+When the user selects a non-Batman persona:
+
+1. Record the persona in `CLAUDE.md` → `Default persona`.
+2. Note in `CLAUDE.md` → `Routing` that the Batman layer is **available but not routed by default**.
+3. Do **not** delete `Agents/Gotham/Computer/` — preserve the files so the user can opt back in later by re-running onboarding.
+4. Set the quality-gate defaults in `CLAUDE.md` to match the persona's row above.
+
+Confirm the persona and the routed agent set with the user before writing.
+
 ## Phase 3 — Define operating cadence
 
 Ask which cadence the user wants:
@@ -268,6 +291,31 @@ After confirmed edits:
    - `/meeting-prep [person]`
    - `/weekly-update`
 4. Ask whether the user wants to run `/today` immediately.
+
+## Phase 10 — Verify onboarding completed cleanly
+
+Run this check before declaring onboarding finished. If any item fails, ask the user how to resolve it instead of inventing a value.
+
+| Check | How to verify | If it fails |
+|---|---|---|
+| **Placeholders filled** | Grep `CLAUDE.md`, `GOALS.md`, `Tasks/active.md` for `[YOUR_`, `[STAKEHOLDER_`, `[METRIC_`, `[AREA_`. Any remaining bracket placeholders must be explicit user choices (e.g., the user opted to keep a placeholder). | Ask the user to fill the specific placeholder or confirm keeping it. |
+| **Persona set** | `CLAUDE.md` → `Default persona` is not a bracketed list. | Re-run Phase 2. |
+| **Quality gates match persona** | `CLAUDE.md` → `Quality gates` line matches the persona-effects matrix row. | Re-run Phase 2 confirm step. |
+| **30-60-90 outcomes are specific** | Each phase in `GOALS.md` has at least 2 outcomes that name a deliverable, decision, or evidence — not just a theme. | Re-run Phase 5. |
+| **Active tasks present** | `Tasks/active.md` has ≥1 P0 or P1 item that is not a template placeholder. | Re-run Phase 4. |
+| **At least one stakeholder profile started** | `Knowledge/People/` contains at least one non-template file, or the user has explicitly said they will fill it later. | Re-run Phase 6 or capture the deferral. |
+| **Privacy boundaries recorded** | `CLAUDE.md` → `Privacy boundaries` is not a bracketed list. | Re-run Phase 7. |
+| **Anchor project brief exists or skipped intentionally** | `Projects/[YOUR_ANCHOR_PROJECT]/brief.md` exists with non-template content, OR the user has said no anchor project yet. | Re-run Phase 6. |
+
+Report verification results as a short checklist (✅ / ❌ per row) to the user. If anything is ❌, explicitly ask before treating onboarding as complete.
+
+## Re-running onboarding
+
+The user can re-run this workflow at any time by saying `Computer, onboard me into this OS` again. The assistant should:
+
+1. Read the current `CLAUDE.md`, `GOALS.md`, `Tasks/active.md` to see what is already set.
+2. Ask which sections the user wants to change rather than restarting from scratch.
+3. Preserve existing answers unless the user asks to change them.
 
 ## Dry-run acceptance test
 
