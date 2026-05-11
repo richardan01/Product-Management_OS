@@ -13,7 +13,6 @@ This is the canonical catalog for the Knowledge wiki. Update this file on every 
 | Page | Summary | Last verified |
 |---|---|---|
 | `Knowledge/Reference/company.md` | Company context placeholder. | Unverified |
-| `Knowledge/Reference/martech-stack.md` | Martech stack audit placeholder. | Unverified |
 
 ## Research
 

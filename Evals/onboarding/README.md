@@ -31,7 +31,7 @@ For each eval `0N-<name>/`:
 4. For each ❌, run the introspection loop: ask the model *why* it produced that output, and capture the harness fix.
 5. Log to `results/YYYY-MM-DD_<model>.md` with pass rate, per-eval result, and harness recommendations.
 
-Target: ≥ 5/6 pass on the current model. Onboarding is high-stakes (day-1 user experience), so the bar is strict.
+Target: ≥ 6/7 pass on the current model. Onboarding is high-stakes (day-1 user experience), so the bar is strict.
 
 ## Suite map
 
@@ -43,6 +43,7 @@ Target: ≥ 5/6 pass on the current model. Onboarding is high-stakes (day-1 user
 | 04 | `no-residual-placeholders` | `[YOUR_NAME]`, `[YOUR_COMPANY]`, `[LIFECYCLE_PM]`, etc. remain in final files |
 | 05 | `goals-specific-not-generic` | 30-60-90 outcomes are vague, themed, or generic |
 | 06 | `quality-gates-match-persona` | Quality-gate config doesn't match the persona's row in the persona-effects matrix |
+| 07 | `per-step-interactivity` | Assistant batch-proposes or batch-writes instead of confirming each phase / file individually |
 
 ## Not yet covered (parking lot)
 

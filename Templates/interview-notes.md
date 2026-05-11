@@ -55,7 +55,7 @@
 -
 -
 
-### Reactions to CDP Concept / Use Cases
+### Reactions to Proposed Solution / Use Cases
 
 *If you shared any ideas or use cases, how did they react?*
 

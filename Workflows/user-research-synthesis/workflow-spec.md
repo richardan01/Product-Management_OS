@@ -14,7 +14,7 @@ For each interview note in `Projects/[project]/research/`:
 
 1. Read the full notes
 2. Highlight 2–3 key pain points or needs
-3. Tag themes (e.g., `#data-access`, `#audience-building`, `#lifecycle`, `#personalization`)
+3. Tag themes (e.g., `#user-needs`, `#workflow`, `#decision-impact`, `#business-outcome`)
 4. Note participant context (role, seniority, data maturity)
 
 ---
