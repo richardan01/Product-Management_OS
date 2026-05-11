@@ -83,6 +83,24 @@ By the end of onboarding, the assistant should propose updates to:
 
 The assistant should summarize the proposed edits first and only write files after the user confirms.
 
+### What each persona changes
+
+The persona choice in onboarding is not cosmetic — it changes which agents are routed, which quality gates run pre-publish, and which slash commands are surfaced first. See the **persona-effects matrix** in `Workflows/interactive-onboarding.md` (Phase 2) for the full table. Highlights:
+
+- **Batman** — all 12 Gotham agents active, `/riddler` + `/vale` mandatory pre-publish.
+- **Executive operator** — skills + workflows only, `/peer-review` default gate, Batman agents preserved but not routed.
+- **Research partner** — research-oriented commands surfaced first (`/synthesize-research`, `/wiki-ingest`), `/research-sufficiency` gate.
+- **Builder** — `/build-review`, `/eval-review`, `/test-plan` surfaced first.
+- **Minimalist** — skills only, low-ceremony.
+
+Non-Batman personas keep `Agents/Gotham/Computer/` on disk so the user can opt back in by re-running onboarding.
+
+### Verifying onboarding completed cleanly
+
+Phase 10 of the onboarding workflow runs a verification checklist (placeholders filled, persona set, quality gates match persona, goals specific, active tasks present, privacy boundaries recorded). The assistant reports a ✅ / ❌ checklist; anything ❌ must be resolved before treating onboarding as done.
+
+The `Evals/onboarding/` suite tests these properties against a non-Batman fixture (Jordan Lee, Executive operator) to catch persona-routing and placeholder-residue bugs across model upgrades.
+
 ---
 
 ## Two configurable layers

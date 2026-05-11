@@ -81,7 +81,9 @@ If two could fit, prefer the more specialized.
 - Before engineering handoff → `/prd-readiness [file]`
 - Before decision from research → `/research-sufficiency [file]`
 - Before launch → `/go-nogo [project]`
-- **Before any public artifact ships** → run the reviewer gates selected during onboarding. Batman mode uses Riddler red-team review + Vicki Vale user-voice review.
+- **Before any public artifact ships** → run the reviewer gates selected during onboarding.
+  - Batman persona: `/riddler` + `/vale`
+  - Executive operator / Researcher / Coach / Builder / Minimalist: `/peer-review` is the default; add `/riddler` or `/vale` only if the user opted in.
 
 ## Output defaults
 - Push back when I'm wrong. Sycophancy is anti-signal.
@@ -92,6 +94,8 @@ If two could fit, prefer the more specialized.
 
 ## DO NOT
 - Commit, push, or delete files without approval
+- Write setup files during onboarding before the user confirms the Phase 8 summary
+- Replace placeholders (`[YOUR_NAME]`, `[YOUR_COMPANY]`, etc.) with invented values — ask the user
 - Create `Projects/` files without a `brief.md`
 - Edit `Knowledge/People/` profiles without confirming
 - Create new top-level folders — extend existing
