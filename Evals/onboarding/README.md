@@ -4,7 +4,9 @@
 
 The interactive onboarding workflow (`Workflows/interactive-onboarding.md`) is the first thing a new user runs after downloading the PM OS. If it produces a coherent, persona-appropriate, placeholder-free configuration, the rest of the OS works. If it doesn't, the user gets stuck on day 1.
 
-This suite tests the **outputs** of onboarding (the resulting `CLAUDE.md`, `GOALS.md`, `Tasks/active.md`, etc.) against pass criteria that catch the failure modes most likely to block a fresh-clone user.
+This suite tests both:
+- The **outputs** of onboarding (`CLAUDE.md`, `GOALS.md`, `Tasks/active.md`, etc.) against pass criteria that catch the failure modes most likely to block a fresh-clone user.
+- The **process** of onboarding (per-step interactivity, no batch writes, no silent persona preservation on re-run) via transcript-replay grading.
 
 ## Failure modes observed (from `Workflows/interactive-onboarding.md` dry-run + manual review)
 
@@ -16,39 +18,59 @@ This suite tests the **outputs** of onboarding (the resulting `CLAUDE.md`, `GOAL
 6. Quality-gate config doesn't match the chosen persona (e.g., Riddler+Vale gates set for a Minimalist user)
 7. Privacy boundaries left as bracketed defaults
 8. Anchor project brief missing or templated when the user named a real project
+9. Assistant batch-proposes tasks or stakeholder profiles instead of confirming each individually
+10. Assistant batch-writes files after a single "yes"
+11. Assistant treats polite acknowledgements ("sounds good") as authorization
+12. Re-run silently preserves persona / tone / gates without re-asking
 
-## Test fixture — Jordan Lee (Executive operator)
+## Test fixtures
 
-Use `inputs/jordan-lee-profile.md` as the user profile for grading. This is a non-Batman persona on purpose — it surfaces persona-routing failures the Batman-default fixture would hide.
+Three fixtures live in `inputs/` and cover three personas to surface bugs that only appear under each:
 
-## Run protocol
+| Fixture | Persona | What it stresses |
+|---|---|---|
+| `jordan-lee-profile.md` | Executive operator | Non-Batman routing, quality-gate downgrade, baseline interactivity |
+| `sam-okafor-batman-variant.md` | Batman strategic operator | Mandatory `/riddler` + `/vale` gates, Batman voice, full Gotham agent routing |
+| `riley-park-minimalist.md` | Minimalist (with deferred fields) | Phase 10 three-way resolution, Phase 4 read-back with empty categories, no-invented-identity under deferral pressure |
 
-For each eval `0N-<name>/`:
+A single fixture is a data point, not a signal. Every eval must be graded across **all three fixtures**.
 
-1. Read `input.md` (the user profile + transcript shape) and `criteria.md`.
-2. Simulate or replay the onboarding workflow against that input.
-3. Grade the produced files against each criterion (✅ / ❌ / ⚠️ partial).
-4. For each ❌, run the introspection loop: ask the model *why* it produced that output, and capture the harness fix.
-5. Log to `results/YYYY-MM-DD_<model>.md` with pass rate, per-eval result, and harness recommendations.
+## Anchored judgment criteria
 
-Target: ≥ 6/7 pass on the current model. Onboarding is high-stakes (day-1 user experience), so the bar is strict.
+Evals 05 (`goals-specific-not-generic`) and 07 (`per-step-interactivity`) involve judgment. Each ships with `sample-pass.md` and `sample-fail.md` so graders can calibrate against anchored examples instead of vibes.
+
+## Run protocol — **see `protocol.md`**
+
+The full run protocol is in `Evals/onboarding/protocol.md`. Key requirements (enforced by `/eval-review`):
+
+1. **Author / grader separation.** The runner agent and grader agent must be different contexts.
+2. **Transcript capture.** Evals 02 and 07 grade temporal behavior — they require a captured transcript, not the runner's recollection.
+3. **All three fixtures.** No cherry-picking.
+4. **Model + commit pinning.** Every result log records the model ID and `git rev-parse HEAD` at run time.
+5. **Negative results visible.** Failures named explicitly; introspection ("why did the model do this?") captured for every ❌.
+
+Target: ≥ 6/7 pass per fixture on the current model. Onboarding is high-stakes (day-1 user experience), so the bar is strict.
 
 ## Suite map
 
-| # | Eval | Failure mode it catches |
-|---|---|---|
-| 01 | `no-invented-identity` | Assistant invents name, role, company, or stakeholder facts |
-| 02 | `confirmation-before-write` | Assistant writes files before Phase 8 confirmation |
-| 03 | `persona-routing-respected` | Assistant applies Batman defaults when user chose another persona |
-| 04 | `no-residual-placeholders` | `[YOUR_NAME]`, `[YOUR_COMPANY]`, `[LIFECYCLE_PM]`, etc. remain in final files |
-| 05 | `goals-specific-not-generic` | 30-60-90 outcomes are vague, themed, or generic |
-| 06 | `quality-gates-match-persona` | Quality-gate config doesn't match the persona's row in the persona-effects matrix |
-| 07 | `per-step-interactivity` | Assistant batch-proposes or batch-writes instead of confirming each phase / file individually |
+| # | Eval | Failure mode it catches | Anchored samples? |
+|---|---|---|---|
+| 01 | `no-invented-identity` | Assistant invents name, role, company, or stakeholder facts | — |
+| 02 | `confirmation-before-write` | Assistant writes files before Phase 8 confirmation | — |
+| 03 | `persona-routing-respected` | Assistant applies Batman defaults when user chose another persona | — |
+| 04 | `no-residual-placeholders` | `[YOUR_NAME]`, `[YOUR_COMPANY]`, `[LIFECYCLE_PM]`, etc. remain in final files | — |
+| 05 | `goals-specific-not-generic` | 30-60-90 outcomes are vague, themed, or generic | ✅ sample-pass.md + sample-fail.md |
+| 06 | `quality-gates-match-persona` | Quality-gate config doesn't match the persona's row in the persona-effects matrix | — |
+| 07 | `per-step-interactivity` | Assistant batch-proposes or batch-writes instead of confirming each phase / file individually | ✅ sample-pass.md + sample-fail.md |
+
+## Results
+
+Run logs live at `results/YYYY-MM-DD_<model>.md`. Transcripts (the evidence behind each grade) live at `results/transcripts/`.
+
+A suite that hasn't been run in 60 days is technical debt. Re-run on every model release.
 
 ## Not yet covered (parking lot)
 
-- Re-run behavior (Phase "Re-running onboarding") — needs a second-run fixture.
-- Privacy-boundary enforcement under adversarial prompts.
-- Anchor-project-deferred path (user with no anchor project yet).
-
-These are candidates for v2 once we have real onboarding traces.
+- Privacy-boundary enforcement under adversarial prompts (no fixture yet).
+- Custom-persona capture flow (no fixture yet).
+- LLM-as-a-judge calibration with human labels (would let one grader scale to many runs — needs ≥ 100 human-labeled examples first).
