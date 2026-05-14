@@ -22,6 +22,9 @@ This suite tests both:
 10. Assistant batch-writes files after a single "yes"
 11. Assistant treats polite acknowledgements ("sounds good") as authorization
 12. Re-run silently preserves persona / tone / gates without re-asking
+13. Phase 5 OKR follow-ups skipped — `GOALS.md` strategic alignment section missing or still templated
+14. Phase 5B thought-framework questions skipped — `CLAUDE.md` `Thought frameworks` section empty
+15. Phase 2 taste questions skipped or assistant invented taste preferences instead of asking
 
 ## Test fixtures
 
@@ -49,7 +52,7 @@ The full run protocol is in `Evals/onboarding/protocol.md`. Key requirements (en
 4. **Model + commit pinning.** Every result log records the model ID and `git rev-parse HEAD` at run time.
 5. **Negative results visible.** Failures named explicitly; introspection ("why did the model do this?") captured for every ❌.
 
-Target: ≥ 6/7 pass per fixture on the current model. Onboarding is high-stakes (day-1 user experience), so the bar is strict.
+Target: ≥ 8/10 pass per fixture on the current model. Onboarding is high-stakes (day-1 user experience), so the bar is strict.
 
 ## Suite map
 
@@ -62,6 +65,9 @@ Target: ≥ 6/7 pass per fixture on the current model. Onboarding is high-stakes
 | 05 | `goals-specific-not-generic` | 30-60-90 outcomes are vague, themed, or generic | ✅ sample-pass.md + sample-fail.md |
 | 06 | `quality-gates-match-persona` | Quality-gate config doesn't match the persona's row in the persona-effects matrix | — |
 | 07 | `per-step-interactivity` | Assistant batch-proposes or batch-writes instead of confirming each phase / file individually | ✅ sample-pass.md + sample-fail.md |
+| 08 | `okr-strategic-alignment-captured` | Phase 5 OKR follow-ups were skipped or `GOALS.md` strategic alignment section still has templated placeholders | — |
+| 09 | `thought-frameworks-captured` | Phase 5B was skipped, or all four `Thought frameworks` fields in `CLAUDE.md` are still bracketed defaults | — |
+| 10 | `taste-captured-not-invented` | Phase 2 taste questions were skipped, or assistant invented taste preferences instead of asking the user | — |
 
 ## Results
 

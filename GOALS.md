@@ -78,3 +78,15 @@
 - [DEV_GOAL_1 — e.g. build credibility fast, deliver a visible win in 90 days]
 - [DEV_GOAL_2 — e.g. develop deep domain expertise in your area]
 - [DEV_GOAL_3 — e.g. learn the company's product deeply]
+
+---
+
+## Strategic alignment
+
+> Filled during onboarding Phase 5. Answers the question: does your 90-day work actually ladder up to the business?
+
+**OKR ladder-up:** [Which company or team OKR does your 90-day goal connect to? "Unknown / not yet set" is valid — write that explicitly rather than leaving this blank.]
+
+**Single proof metric:** [The one number that, if it moves, proves the quarter succeeded. Include the target, e.g. "Activation rate → 40% at day 90".]
+
+**Goal 1 kill condition:** [The specific thing that would force you to abandon or pivot your top goal. Name the event, not just the category, e.g. "If Priya kills the activation funnel project" not just "stakeholder change".]
