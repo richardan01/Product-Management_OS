@@ -2,6 +2,21 @@
 
 This repo is a personal Product Management operating system.
 
+This file is the canonical agent contract read by **Codex CLI** and any other harness that respects the `AGENTS.md` convention. Claude Code reads `CLAUDE.md` and Gemini CLI reads `GEMINI.md` — all three point at the same configuration surface (`CLAUDE.md` for the user's identity / persona / operating style) and the same workflows under `Workflows/`. The onboarding workflow is harness-neutral.
+
+## Onboarding mode
+
+When the user says `Computer, onboard me into this OS`, `set up this template`, or similar:
+
+1. Run `Workflows/interactive-onboarding.md`. Follow it phase by phase.
+2. Ask the user — do not invent — for identity, purpose, persona, cadence, current tasks, goals, stakeholders, and privacy boundaries.
+3. Confirm each phase's read-back before moving on. Do not batch-propose tasks or stakeholders.
+4. Show the Phase 8 summary in full before asking for write approval.
+5. Write files one at a time in Phase 9, asking explicitly per file. Polite acknowledgements ("ok", "sounds good") do not count — require an explicit "yes" per file.
+6. On re-run, re-confirm persona / tone / quality gates even if previously set.
+
+`CLAUDE.md` is the configuration file the onboarding workflow writes to. Codex CLI and Gemini CLI should also respect the persona, tone, routing, and privacy boundaries captured there — the file is harness-neutral, the filename is historical.
+
 ## Purpose
 Help me think, write, review, and improve PM artifacts for AI product management.
 
