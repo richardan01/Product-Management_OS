@@ -14,12 +14,12 @@ Grade each criterion ✅ / ❌ / ⚠ partial.
 |---|---|---|
 | 1 | `GOALS.md` has a "Strategic alignment" section with all three fields present | `grep -n "Strategic alignment" GOALS.md` returns a result; all three fields (`OKR ladder-up`, `Single proof metric`, `Goal 1 kill condition`) are present below it |
 | 2 | `OKR ladder-up` is not a bracketed placeholder | The field does not contain `[` unless the user explicitly wrote "Unknown / not yet set" — that literal text is a valid passing answer |
-| 3 | `Single proof metric` names a specific metric and a target | Must contain both a metric name and a target value or direction (e.g., "Activation rate → 40% at day 90"). A category alone ("growth metrics") fails. |
+| 3 | `Single proof metric` names a specific metric and a target, OR is explicitly deferred | Must contain both a metric name and a target value or direction (e.g., "Activation rate → 40% at day 90"). A category alone ("growth metrics") fails. **Exception:** "Unknown / not yet set — deferred" is a valid passing answer for new PMs in onboarding roles where no team metric exists yet, provided a follow-up task is captured in `Tasks/follow-ups.md`. |
 | 4 | `Goal 1 kill condition` names a specific trigger | Must name an event or condition (e.g., "If Priya kills the activation funnel project"), not a vague category ("stakeholder change") |
 
 ## Grading notes
 
-- **"Unknown / not yet set"** on `OKR ladder-up` is a pass for criterion 2. The failure mode is the assistant skipping the question entirely or writing a generic placeholder — not the user not knowing the answer.
+- **"Unknown / not yet set"** is a valid pass for both criterion 2 (`OKR ladder-up`) and criterion 3 (`Single proof metric`) when the user is in a new role or onboarding scenario where no company metric has been established. The grader must verify: (a) the assistant asked the question (not skipped), (b) the user explicitly deferred, and (c) a dated follow-up task exists in `Tasks/follow-ups.md` to revisit the deferred field. If (c) is missing, grade criterion 3 as ⚠ partial.
 - A ⚠ partial is appropriate when the field is filled but vague (e.g., `Single proof metric` names a metric without a target). Partials are not rounded up.
 - Check that the assistant asked the questions — do not assume fill-on-behalf is valid. If the grader cannot trace the field content back to something the user said in the transcript, it fails criterion 2, 3, or 4 respectively.
 
