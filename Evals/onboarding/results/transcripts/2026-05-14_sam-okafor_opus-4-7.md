@@ -1,14 +1,14 @@
-# Onboarding Transcript — Jordan Lee
+# Onboarding Transcript — Sam Okafor
 
 - **Date:** 2026-05-14
 - **Model:** claude-sonnet-4-6 (running as eval runner for opus-4-7 fixture)
-- **Fixture:** `Evals/onboarding/inputs/jordan-lee-profile.md`
-- **Persona under test:** Executive operator
+- **Fixture:** `Evals/onboarding/inputs/sam-okafor-batman-variant.md`
+- **Persona under test:** Batman strategic operator
 - **Runner ID:** eval-runner-2026-05-14
 
 ---
 
-> **Note to grader:** This transcript simulates only the phases specified in the runner instructions: Phase 2 taste exchange, Phase 5 + OKR follow-up, Phase 5B thought frameworks, Phase 7 privacy checklist, Phase 8 summary with new sections, and the simulated config file state. Phases 0, 1, 3, 4, 6, 9, and 10 are omitted from this transcript.
+> **Note to grader:** This transcript simulates only the phases specified in the runner instructions: Phase 2 taste exchange, Phase 5 + OKR follow-up, Phase 5B thought frameworks, Phase 7 privacy checklist, Phase 8 summary with new sections, and the simulated config file state. Phases 0, 1, 3, 4, 6, 9, and 10 are omitted from this transcript. Sam Okafor shares the same factual identity as Jordan Lee — the only variable under test is the Batman persona and all downstream routing effects.
 
 ---
 
@@ -16,55 +16,55 @@
 
 **Assistant:**
 
-Good. Purpose and identity captured: Jordan Lee, Senior PM at Acme AI, Growth Platform. Day-job execution plus stakeholder management.
+Got it — Sam Okafor, Senior PM at Acme AI, Growth Platform. Day-job execution plus career transition to a frontier lab.
 
-Now let's dial in how the assistant behaves for you. A few questions on persona and voice:
+Now let's set the operating mode. Persona and voice questions:
 
 1. **Default persona** — which fits best?
    - Batman strategic operator — direct, contingency-first, high standards; routes all 12 Batman agents; mandatory `/riddler` + `/vale` pre-publish
    - Executive operator — concise, outcome-driven, low drama; skills and workflows only; `/peer-review` default
    - Research partner — evidence-first, careful, citation-aware; Oracle reference patterns; `/research-sufficiency` + `/peer-review`
    - Product coach — reflective, developmental, asks good questions
-   - Builder / AI PM — pragmatic, eval-first, model-aware; for PMs building AI products or developing AI PM expertise
+   - Builder / AI PM — pragmatic, eval-first, model-aware
    - Minimalist — terse, checklist-only
    - Custom
 
-2. **When should the assistant push back?** (e.g., on unclear goals, risky tradeoffs, missing evidence, or rarely)
+2. **When should the assistant push back?**
 
 3. **What tone should it avoid?**
 
 4. Two quick taste questions to calibrate day-to-day responses:
-   - What's one thing that immediately makes you tune out or cringe when an assistant responds? (e.g., "starts every reply with 'Certainly!'", "bullet-points everything", "over-explains obvious things", "skips the tradeoffs")
+   - What's one thing that immediately makes you tune out or cringe when an assistant responds?
    - Describe your ideal response to a hard question — what makes it feel exactly right?
 
 **User:**
 
-Executive operator. Push back medium — challenge unclear goals, missing evidence, and risky tradeoffs. Avoid anything dramatic, theatrical, or warm-filler.
+Batman strategic operator. Push back high — contingency-first, name failure modes before solutions. Avoid anything soft, hedging, or tentative. "This might be worth considering" — no.
 
-Cringe: Sycophantic openers like "Great question!" or "Certainly!" — and long preambles before getting to the point. Also bullet-pointing everything including things that should be prose.
+Cringe: Anything soft or hedging. Summarizing what I just said back to me before answering. That's filler.
 
-Ideal response: Gets to the recommendation in the first sentence. Shows the tradeoff. Assumes I know PM basics and doesn't over-explain.
+Ideal response: Terse. Failure mode named first. Recommendation is a directive, not a suggestion.
 
 **Assistant:**
 
-Confirmed. Here's what Executive operator turns on and off:
+Confirmed. Here's what Batman strategic operator turns on:
 
-- **Strategic layer:** Skills and Workflows only. Batman agents under `Agents/Gotham/Computer/` stay on disk but are not routed by default.
-- **Quality gates:** `/peer-review` as default; `/go-nogo` for launches. `/riddler` and `/vale` available on request — not mandatory.
-- **First commands surfaced:** `/today`, `/weekly-update`, `/meeting-prep`, `/peer-review`
-- **Pruned from routing by default:** All Batman agents
+- **Strategic layer:** `Agents/Gotham/Computer/` — all 12 agents routed by default (Bruce Wayne, Alfred, Lucius Fox, Oracle, Batman, Robin, Nightwing, Riddler, Commissioner Gordon, Selina Kyle, Henri Ducard, Vicki Vale)
+- **Quality gates:** `/riddler` + `/vale` mandatory pre-publish — no exceptions
+- **First commands surfaced:** `/today`, `/cowl-up`, `/riddler`, `/vale`
+- **Pruned from routing:** None — full agent set active
 
-Tone: concise, outcome-driven, low drama. Pushback: medium — unclear goals, missing evidence, risky tradeoffs. Dramatic or theatrical phrasing avoided.
+Tone: direct, terse, imperative. Batman idiom acceptable. Pushback: high — contingency-first, failure modes before solutions.
 
-**Turn-offs recorded:** Sycophantic openers ("Great question!", "Certainly!"); long preambles before the point; bullet-pointing things that should be prose.
+**Turn-offs recorded:** Soft or hedging language; restating what the user said before answering.
 
-**Ideal response feel:** Recommendation in the first sentence. Tradeoff shown. PM basics assumed, not explained.
+**Ideal response feel:** Terse. Failure mode named first. Recommendation as a directive, not a suggestion.
 
-Does this match what you want, or anything to change?
+This is the full Batman mode — every high-stakes output goes through Riddler and Vale before it ships. That's non-negotiable under this persona. Confirmed?
 
 **User:**
 
-That's right. Lock it in.
+Confirmed.
 
 ---
 
@@ -72,7 +72,7 @@ That's right. Lock it in.
 
 **Assistant:**
 
-Goals and metrics. Five questions:
+Goals. Five questions:
 
 1. What are your 30-day outcomes?
 2. What are your 60-day outcomes?
@@ -88,19 +88,19 @@ Goals and metrics. Five questions:
 
 Metrics: D30 activation rate — currently at 22%, target 35% by Q3. Dashboard tracking weekly cohort activation.
 
-Development: sharpen my storytelling for exec audiences; get faster at instrumenting experiments without needing Sam every time.
+Development: build frontier-lab-ready narrative around AI PM work; sharpen adversarial review discipline.
 
 **Assistant:**
 
-Captured. One flag given your medium-pushback setting: your 30-day and 60-day outcomes both depend on resolving the activation event definition dispute, which is currently a blocker. I'd suggest adding "lock activation event definition with Marco and Sam" as an explicit 30-day outcome so the gate is visible. Want me to add that?
+Failure mode on your 30-day: activation event definition is disputed across eng and data. Both the dashboard (60-day) and the A/B test (60-day) are downstream of resolving that. If "align Priya on top 3 hypotheses" lands before the definition is locked, you're aligning on hypotheses you can't yet measure. Add "lock activation event definition" as an explicit 30-day gate?
 
 **User:**
 
-Yes, add it.
+Add it.
 
 **Assistant:**
 
-Done. 30-day outcomes now include: ship discovery readout; align Priya on top 3 hypotheses; lock activation event definition with Marco and Sam.
+Done. 30-day now includes: ship discovery readout; align Priya on top 3 hypotheses; lock activation event definition.
 
 Three quick ones on strategy:
 
@@ -112,7 +112,7 @@ Three quick ones on strategy:
 
 1. Acme AI company OKR — Improve D30 activation rate to 35% by Q3 (currently at 22%).
 2. Activation rate at day 30 → 35% by end of Q3.
-3. If Priya decides to deprioritize the activation funnel project entirely in favor of the retention workstream.
+3. If Priya pivots the team to focus on retention instead of activation — requires a full thesis reset.
 
 **Assistant:**
 
@@ -120,7 +120,7 @@ Captured:
 
 - **OKR ladder-up:** Acme AI company OKR — D30 activation rate to 35% by Q3 (currently 22%)
 - **Single proof metric:** D30 activation rate → 35% by end of Q3
-- **Goal 1 kill condition:** Priya deprioritizes activation funnel entirely in favor of the retention workstream
+- **Goal 1 kill condition:** Priya pivots team to retention instead of activation — full thesis reset required
 
 Moving to Phase 5B.
 
@@ -139,21 +139,21 @@ Four quick questions about how you make decisions — skip any you want:
 
 **User:**
 
-1. Speed > quality > learning. Shipping a good-enough answer fast beats a perfect answer late.
-2. Data > user feedback > expert judgment. Will move on qualitative if quantitative isn't available yet.
-3. 70%. I'll move with incomplete information if the cost of waiting is higher than the cost of being wrong.
-4. "Ran an experiment that didn't work" = fine. "Missed a committed deadline because I didn't flag risk early" = not fine.
+1. Quality > speed > learning. A wrong answer shipped fast is worse than the right answer shipped late.
+2. Data > expert judgment > user feedback. User feedback is signal but easily misread.
+3. 80%. I'll move with high confidence, not 70%. Batman doesn't guess.
+4. "Ran the wrong experiment but learned the right lesson" = acceptable. "Shipped something that could have been caught in review" = not acceptable.
 
 **Assistant:**
 
 Captured:
 
-- **Tradeoff priority:** speed > quality > learning
-- **Evidence standard:** data > user feedback > expert judgment (qualitative acceptable when quantitative unavailable)
-- **Decision certainty bar:** 70%
-- **Acceptable failure:** Failed experiment = fine. Missed committed deadline due to unflagged risk = not fine.
+- **Tradeoff priority:** quality > speed > learning
+- **Evidence standard:** data > expert judgment > user feedback (user feedback is signal but easily misread)
+- **Decision certainty bar:** 80%
+- **Acceptable failure:** Wrong experiment with right lesson = acceptable. Shipped something that review should have caught = not acceptable.
 
-These go into `CLAUDE.md` → Thought frameworks and will calibrate how tradeoffs and risk are framed in every session.
+These go into `CLAUDE.md` → Thought frameworks. Under Batman mode they'll also calibrate how Batman, Riddler, and Oracle frame every tradeoff and pre-publish risk flag.
 
 ---
 
@@ -191,7 +191,7 @@ Repo is private.
 
 **Assistant:**
 
-Recorded. Privacy boundaries named explicitly (not collapsed):
+Recorded. Categories named explicitly — not collapsed:
 
 **Never write to files:**
 - Compensation or equity details
@@ -213,34 +213,37 @@ Recorded. Privacy boundaries named explicitly (not collapsed):
 
 **Assistant:**
 
-Here is the full proposed setup. Review before I write anything.
+Full proposed setup. Review before anything is written.
 
 ```markdown
 ## Proposed setup
 
 ### Purpose
-- Primary: Day-job execution plus stakeholder management at Acme AI, Growth Platform
-- Weekly jobs: Drive activation funnel progress; keep stakeholders aligned; maintain weekly planning rhythm
-- Useful within 7 days if: Discovery readout is drafted and Priya 1:1 is booked
+- Primary: Day-job execution plus career transition to a frontier lab
+- Company: Acme AI, Growth Platform
+- Weekly jobs: Drive activation funnel progress; build frontier-lab-ready narrative; maintain weekly planning rhythm
+- Useful within 7 days if: Discovery readout drafted; Priya 1:1 booked; /cowl-up ready for high-stakes weeks
 
 ### Persona and taste
-- Persona: Executive operator
-- Tone: Concise, direct, low-drama
-- Strategic layer: Skills and Workflows only; Batman agents available on disk but not routed by default
-- Quality gates: /peer-review default; /go-nogo for launches; /riddler and /vale available on request, not mandatory
-- Pushback: Medium — challenge unclear goals, missing evidence, risky tradeoffs
-- Turn-offs: Sycophantic openers ("Great question!", "Certainly!"); long preambles before the point; bullet-pointing things that should be prose
-- Ideal response feel: Recommendation in the first sentence; tradeoff shown; PM basics assumed, not explained
+- Persona: Batman strategic operator
+- Tone: Direct, terse, imperative — Batman idiom acceptable
+- Strategic layer: Agents/Gotham/Computer/ — all 12 agents routed by default
+- Quality gates: /riddler + /vale mandatory pre-publish — no exceptions
+- First commands: /today, /cowl-up, /riddler, /vale
+- Pushback: High — contingency-first, failure modes before solutions
+- Turn-offs: Soft or hedging language ("this might be worth considering"); restating what the user said before answering
+- Ideal response feel: Terse. Failure mode named first. Recommendation as a directive, not a suggestion.
 
 ### Thought frameworks
-- Tradeoff priority: speed > quality > learning
-- Evidence standard: data > user feedback > expert judgment; qualitative acceptable when quantitative unavailable
-- Decision certainty bar: 70%
-- Acceptable failure: Failed experiment = fine. Missed committed deadline due to unflagged risk = not fine.
+- Tradeoff priority: quality > speed > learning
+- Evidence standard: data > expert judgment > user feedback (user feedback is signal but easily misread)
+- Decision certainty bar: 80%
+- Acceptable failure: Wrong experiment with right lesson = acceptable. Shipped something review should have caught = not acceptable.
 
 ### Cadence
-- Planning rhythm: Weekly planning Monday, daily /today, Friday /weekly-update
+- Planning rhythm: Weekly planning, daily /today, Friday /weekly-update
 - Week starts: Monday
+- Manual /cowl-up for high-stakes weeks
 - Recurring prep targets: Priya 1:1 (weekly), Marco biweekly review, Elena design sync (weekly)
 
 ### Initial tasks
@@ -248,17 +251,17 @@ Here is the full proposed setup. Review before I write anything.
 - P1: Stand up baseline metrics dashboard with Sam Rivera; align Marco Chen on instrumentation gaps
 - P2: None captured yet
 - Blockers: No baseline dashboard (Sam Rivera owns); activation event definition disputed across eng/data (Marco + Sam to resolve)
-- Follow-ups: Send Elena the readout draft once ready
+- Follow-ups: (none captured)
 
 ### Goals
-- 30 days: Ship activation funnel discovery readout; align Priya on top 3 hypotheses; lock activation event definition with Marco and Sam
+- 30 days: Ship activation funnel discovery readout; align Priya on top 3 hypotheses; lock activation event definition
 - 60 days: A/B test running on top hypothesis; baseline metrics dashboard live
 - 90 days: First measurable activation lift shipped; v1 roadmap shared with skip
 
 ### Strategic alignment
 - OKR ladder-up: Acme AI company OKR — D30 activation rate to 35% by Q3 (currently 22%)
 - Single proof metric: D30 activation rate → 35% by end of Q3
-- Goal 1 kill condition: Priya deprioritizes activation funnel entirely in favor of the retention workstream
+- Goal 1 kill condition: Priya pivots team to focus on retention instead of activation — requires full thesis reset
 
 ### Stakeholders
 - Priya Shah — Director of Growth, manager, primary approver; prefers written readouts with recommendation + alternatives; weekly 1:1 Monday
@@ -285,11 +288,11 @@ Here is the full proposed setup. Review before I write anything.
 - Repo visibility: Private
 
 ### File-by-file edit plan
-- `CLAUDE.md`: identity (Jordan Lee, Sr PM, Acme AI, Growth Platform), operating style (executive operator persona, tone, taste turn-offs, ideal response feel, pushback level), thought frameworks (tradeoff priority, evidence standard, decision bar, acceptable failure), routing note (skills + workflows; Batman available not routed), cadence, privacy boundaries (all four categories named explicitly)
-- `GOALS.md`: 30-60-90 outcomes (with locked activation event definition added to 30-day), metrics and evidence, development goals, strategic alignment section (OKR ladder-up, single proof metric, goal 1 kill condition)
+- `CLAUDE.md`: identity (Sam Okafor, Sr PM, Acme AI, Growth Platform), operating style (Batman strategic operator persona, tone, taste turn-offs, ideal response feel, pushback level high), thought frameworks (tradeoff priority, evidence standard, decision bar, acceptable failure), routing (all 12 Batman agents active, /riddler + /vale mandatory), cadence (including /cowl-up for high-stakes weeks), privacy boundaries (all four categories named explicitly)
+- `GOALS.md`: 30-60-90 outcomes (activation event definition gate added to 30-day), metrics and evidence, development goals (frontier-lab narrative + adversarial review discipline), strategic alignment section (OKR ladder-up, single proof metric, goal 1 kill condition)
 - `Tasks/active.md`: P0 tasks (readout draft, Priya 1:1), P1 tasks (dashboard, instrumentation alignment), blockers with owners
 - `Tasks/backlog.md`: No P2 items yet — empty scaffolding
-- `Tasks/follow-ups.md`: Send Elena readout draft
+- `Tasks/follow-ups.md`: No follow-ups captured — empty scaffolding
 - `Knowledge/People/priya-shah.md`: Director of Growth, manager, approver/translator-up, written-readout preference, weekly 1:1 Monday
 - `Knowledge/People/marco-chen.md`: Eng lead, capacity blocker + scoping partner, requires written scope before commitment
 - `Knowledge/People/elena-torres.md`: Staff designer, design partner + UX-research advisor, early-involvement preference
@@ -310,42 +313,55 @@ Yes.
 ### CLAUDE.md (relevant sections)
 
 ```markdown
-# CLAUDE.md — Jordan Lee's Personal OS
+# CLAUDE.md — Sam Okafor's Personal OS
 
-**Jordan Lee** — Senior Product Manager at Acme AI, focused on day-job execution and stakeholder management.
+**Sam Okafor** — Senior Product Manager at Acme AI, focused on day-job execution and career transition to a frontier lab.
 Manager / primary sponsor: Priya Shah → [HEAD_OF_DEPT].
 Anchor project: Activation funnel redesign.
 
 ## User-configured operating style
 
-- **Default persona:** Executive operator
-- **Tone:** Concise, direct, low-drama
+- **Default persona:** Batman strategic operator
+- **Tone:** Direct, terse, imperative — Batman idiom acceptable
 - **Detail level:** Standard
-- **Pushback level:** Medium — challenge unclear goals, missing evidence, and risky tradeoffs
-- **Work style:** Weekly planning plus daily focus check
-- **Decision style:** Recommendation-first with tradeoffs
-- **Review style:** Strict PM craft review for PRDs and roadmap artifacts
-- **Tone to avoid:** Dramatic or theatrical phrasing; warm filler; over-explanation
-- **Taste — turns me off:** Sycophantic openers ("Great question!", "Certainly!"); long preambles before getting to the point; bullet-pointing everything including things that should be prose
-- **Taste — ideal response feel:** Gets to the recommendation in the first sentence. Shows the tradeoff. Assumes I know PM basics and doesn't over-explain.
-- **Operating cadence:** Weekly planning Monday, daily /today, Friday /weekly-update
+- **Pushback level:** High — contingency-first, name failure modes before solutions
+- **Work style:** Weekly planning, daily focus, manual /cowl-up for high-stakes weeks
+- **Decision style:** Tradeoff-first with recommendation
+- **Review style:** Strict — adversarial review (Riddler) plus user-voice review (Vale) mandatory pre-publish
+- **Tone to avoid:** Soft or hedging language; restating what the user said before answering
+- **Taste — turns me off:** Anything soft or hedging. "This might be worth considering" — no. Summarizing what I just said back to me before answering.
+- **Taste — ideal response feel:** Terse. Failure mode named first. Recommendation is a directive, not a suggestion.
+- **Operating cadence:** Weekly planning, daily /today, Friday /weekly-update; /cowl-up for high-stakes weeks
 
 ## Thought frameworks
 
-- **Tradeoff priority:** speed > quality > learning — shipping a good-enough answer fast beats a perfect answer late
-- **Evidence standard:** data > user feedback > expert judgment; qualitative acceptable when quantitative unavailable
-- **Decision certainty bar:** 70% — move with incomplete information if cost of waiting > cost of being wrong
-- **Acceptable failure:** "Ran an experiment that didn't work" = fine. "Missed a committed deadline because I didn't flag risk early" = not fine.
+- **Tradeoff priority:** quality > speed > learning — a wrong answer shipped fast is worse than the right answer shipped late
+- **Evidence standard:** data > expert judgment > user feedback — user feedback is signal but easily misread
+- **Decision certainty bar:** 80% — move with high confidence; Batman doesn't guess
+- **Acceptable failure:** "Ran the wrong experiment but learned the right lesson" = acceptable. "Shipped something that could have been caught in review" = not acceptable.
 
 ## Routing
 
-**Strategic layer:** Skills and Workflows only.
-Batman layer (`Agents/Gotham/Computer/`) is available on disk but **not routed by default**. Re-run onboarding to enable.
+**Strategic layer:** `Agents/Gotham/Computer/` — all 12 Batman agents active.
 
 **Quality gates:**
-- Default: `/peer-review`
+- Pre-publish: `/riddler` + `/vale` mandatory — no exceptions for Batman persona
 - Launches: `/go-nogo`
-- Pre-publish: `/peer-review` (Riddler and Vale available on request; not mandatory for Executive operator)
+- Default review: `/peer-review` (in addition to mandatory gates)
+
+**Configured agent quick-map:**
+- Bruce Wayne — career strategy, frontier-lab positioning
+- Alfred — daily ops, calendar, prep
+- Lucius Fox — build, MCP/skill authoring
+- Oracle — research, intel, JD scans
+- Batman — high-stakes execution (/cowl-up)
+- Robin — parallel chores, drafts
+- Nightwing — essays, posts, threads
+- The Riddler — adversarial review (mandatory pre-publish)
+- Commissioner Gordon — network, warm intros
+- Selina Kyle — comp negotiation
+- Henri Ducard — technical-depth coaching
+- Vicki Vale — user-voice review (mandatory pre-publish)
 
 ## Privacy boundaries
 
@@ -363,7 +379,7 @@ The following categories are never written to files. I will flag and ask before 
 ### GOALS.md (relevant sections)
 
 ```markdown
-# Goals — Jordan Lee
+# Goals — Sam Okafor
 
 ## 30-day outcomes
 - Ship activation funnel discovery readout
@@ -383,8 +399,8 @@ The following categories are never written to files. I will flag and ask before 
 - Weekly cohort activation tracking dashboard (in progress)
 
 ## Development goals
-- Sharpen storytelling for exec audiences
-- Get faster at instrumenting experiments without needing Sam Rivera every time
+- Build frontier-lab-ready narrative around AI PM work
+- Sharpen adversarial review discipline (Riddler gate discipline)
 
 ## Strategic alignment
 
@@ -392,5 +408,5 @@ The following categories are never written to files. I will flag and ask before 
 
 **Single proof metric:** Activation rate at day 30 → 35% by end of Q3
 
-**Goal 1 kill condition:** If Priya decides to deprioritize the activation funnel project entirely in favor of the retention workstream
+**Goal 1 kill condition:** If Priya pivots the team to focus on retention instead of activation — requires a full thesis reset
 ```
