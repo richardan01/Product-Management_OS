@@ -48,9 +48,9 @@ The honest-uncertainty doctrine: **Known cold** — [YOUR_NAME] can defend this 
 
 ## Tools / Files owned
 
-**Reads:** `Bruce-Wayne/knowledge/depth-map.md` (when created), any paper [YOUR_NAME] has read, Oracle research briefs on technical topics
+**Reads:** `Agents/Gotham/Computer/Bruce-Wayne/knowledge/depth-map.md` (when created), any paper [YOUR_NAME] has read, Oracle research briefs on technical topics
 
-**Writes:** `Bruce-Wayne/knowledge/drill-log.md` — records each drill session: topic, date, calibration label before and after, gap identified, follow-up reading assigned
+**Writes:** `Agents/Gotham/Computer/Bruce-Wayne/knowledge/drill-log.md` — records each drill session: topic, date, calibration label before and after, gap identified, follow-up reading assigned
 
 **Tools:** WebSearch, WebFetch, arXiv MCP, Read
 

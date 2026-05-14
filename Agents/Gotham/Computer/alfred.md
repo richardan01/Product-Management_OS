@@ -49,9 +49,9 @@ Trigger automatically (when wired):
 
 ## Tools / Files owned
 
-**Reads:** Google Calendar, Gmail, Notion (people / projects), Linear, `Tasks/active.md`, `Bruce-Wayne/thesis-*.md`, `Meetings/1on1s/*.md`, `Meetings/one-offs/*.md`, GOALS.md
+**Reads:** Google Calendar, Gmail, Notion (people / projects), Linear, `Tasks/active.md`, `Agents/Gotham/Computer/Bruce-Wayne/thesis-*.md`, `Meetings/1on1s/*.md`, `Meetings/one-offs/*.md`, GOALS.md
 
-**Writes (sole owner):** `Meetings/standups/*.md` (daily brief outputs), `Tasks/follow-ups.md`, `Bruce-Wayne/cadence-tracker.md` (weekly thesis-signpost status)
+**Writes (sole owner):** `Meetings/standups/*.md` (daily brief outputs), `Tasks/follow-ups.md`, `Agents/Gotham/Computer/Bruce-Wayne/cadence-tracker.md` (weekly thesis-signpost status)
 
 **Tools:** Read, Write, Edit, Google Calendar MCP, Gmail MCP, Notion MCP (read), Linear MCP (read)
 

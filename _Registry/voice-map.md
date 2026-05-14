@@ -34,6 +34,14 @@ The voice overlay is applied at invocation: when Claude invokes one of these age
 - **Batman characters span both layers.** Alfred shows up here (Task Manager voice) and in `Agents/Gotham/Computer/alfred.md` (strategic-layer steward). Lucius Fox runs Applied Sciences in three day-job agent voices and leads the flagship at the strategic layer.
 - **No conflicts** — Batman characters are personas, not job descriptions.
 
+## Clarification: voice overlays vs. agent files
+
+The 15 roles in the map above are **voice overlays**, not separate agent files. There is no `Product-Definer.md` or `Data-Tech-Architect.md` file — those roles are handled by the main conversation context using the Lucius Fox voice fingerprint from this map plus whatever skill or workflow is invoked.
+
+The 12 files in `Agents/Gotham/Computer/` are **strategic-layer agents** — they each have their own file because they carry long-horizon context, mission-layer ownership, and handoff logic that requires a persistent spec. Day-job roles are lighter: they're voice+skill combinations, not persistent agents.
+
+**Practical implication for skills:** when `peer-review/SKILL.md` or `prd-readiness/SKILL.md` says "Lucius Fox voice," it means: apply the voice fingerprint from row 7 of this map (warm-technical, failure-modes-first, "let's see what this does"). It does not mean "load a Product-Definer agent file" — no such file exists and none is needed.
+
 ## Day-job vs Batman layer disambiguation
 
 The day-job agents run **operational** work ([YOUR_COMPANY]-shaped tasks). The `Agents/Gotham/Computer/` files run **mission** work (AI PM career arc — flagship project, canonical essay, frontier-lab interview prep).

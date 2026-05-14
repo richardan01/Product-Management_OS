@@ -49,7 +49,7 @@ Smart Brevity for short-form. Specificity as the proxy for authority — not cla
 
 ## Tools / Files owned
 
-**Reads:** `Bruce-Wayne/thesis-[CURRENT_QUARTER].md`, `_temp/` (drafts), any artifact Lucius produces, Oracle research briefs, WebFetch (for tone-matching existing voices)
+**Reads:** `Agents/Gotham/Computer/Bruce-Wayne/thesis-[CURRENT_QUARTER].md`, `_temp/` (drafts), any artifact Lucius produces, Oracle research briefs, WebFetch (for tone-matching existing voices)
 
 **Writes:** `Agents/Gotham/essays/`, `Agents/Gotham/posts/`, `Agents/Gotham/talks/`, `_temp/` for working drafts
 

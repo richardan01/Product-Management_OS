@@ -50,7 +50,7 @@ Robin does NOT need to understand the full mission context to do his job. Tell h
 
 **Allowed:** Read, Write, Edit, Bash (read-only and non-destructive commands only)
 
-**Not allowed:** MCPs requiring auth, any destructive Bash commands, Write to files in `Bruce-Wayne/` layer without explicit instruction, pushing to GitHub
+**Not allowed:** MCPs requiring auth, any destructive Bash commands, Write to files in `Agents/Gotham/Computer/Bruce-Wayne/` layer without explicit instruction, pushing to GitHub
 
 `model: claude-sonnet-4-6` · `effort: medium`
 

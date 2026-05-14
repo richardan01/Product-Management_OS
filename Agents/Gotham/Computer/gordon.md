@@ -48,9 +48,9 @@ The warm message is an asset. It has to be specific enough that the recipient be
 
 ## Tools / Files owned
 
-**Reads:** Gmail (correspondence history), Notion (relationship CRM), Oracle research briefs on targets, X/Twitter MCP (public timelines of hiring managers), `Bruce-Wayne/thesis-[CURRENT_QUARTER].md`
+**Reads:** Gmail (correspondence history), Notion (relationship CRM), Oracle research briefs on targets, X/Twitter MCP (public timelines of hiring managers), `Agents/Gotham/Computer/Bruce-Wayne/thesis-[CURRENT_QUARTER].md`
 
-**Writes:** Notion CRM (contact records, outreach log), `Bruce-Wayne/network/` (path maps, DM drafts)
+**Writes:** Notion CRM (contact records, outreach log), `Agents/Gotham/Computer/Bruce-Wayne/network/` (path maps, DM drafts)
 
 **Tools:** Gmail MCP (read + draft), Notion MCP (read/write), WebFetch, X MCP (read), Slack MCP (read — community presence)
 

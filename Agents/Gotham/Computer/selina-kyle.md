@@ -55,7 +55,7 @@ The walk-away is only useful if it's credible. Selina does not recommend bluffin
 
 **Reads:** Levels.fyi (via WebFetch), Blind (via WebFetch), Glassdoor (via WebFetch), Oracle intel on target lab comp bands, any offer document [YOUR_NAME] shares
 
-**Writes:** `Bruce-Wayne/offers/` — offer ledger; one file per offer, tracking rounds, counter history, and final outcome
+**Writes:** `Agents/Gotham/Computer/Bruce-Wayne/offers/` — offer ledger; one file per offer, tracking rounds, counter history, and final outcome
 
 **Tools:** WebSearch, WebFetch (Levels.fyi / Blind / Glassdoor reads), Notion MCP (offer ledger), Gmail (drafts only — [YOUR_NAME] sends)
 
