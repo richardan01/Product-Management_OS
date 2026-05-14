@@ -12,7 +12,11 @@ Run this gate before handing off a PRD to engineering, before `/spec-handoff`, o
    - The relevant agent file — quality checks section
    - `Projects/[YOUR_ANCHOR_PROJECT]/brief.md` — project context for alignment check
 
-2. **Score each gate:**
+2. **Detect PRD type:**
+   - If the PRD uses `Templates/prd-ai-feature.md` structure OR contains a "Model Design" or "Eval Criteria" section, apply **both** the standard gates (8) and the AI-specific gates (4) below.
+   - Otherwise apply the standard gates only.
+
+3. **Score standard gates (all PRDs):**
 
 | Gate | Criteria | Status | Notes |
 |------|----------|--------|-------|
@@ -25,19 +29,32 @@ Run this gate before handing off a PRD to engineering, before `/spec-handoff`, o
 | Priority tags | Requirements tagged must/should/nice-to-have | Pass/Fail | |
 | Feasibility input | Data & Tech Architect has reviewed (or flagged as needed) | Pass/Fail | |
 
-3. **Final decision:**
-   - All pass → **READY** — safe to hand off or extract tasks
+4. **Score AI-specific gates (AI-feature PRDs only):**
+
+| Gate | Criteria | Status | Notes |
+|------|----------|--------|-------|
+| Model choice justified | Model selected with rationale, OR decision criteria + timeline documented | Pass/Fail | |
+| Eval criteria defined | Success metrics table present with measurement method, baseline, target, and ship/no-ship threshold | Pass/Fail | |
+| Failure modes named | At least 3 failure modes listed with mitigation or guardrail for each | Pass/Fail | |
+| Fallback paths specified | At least one fallback path per critical failure trigger | Pass/Fail | |
+
+5. **Final decision:**
+   - All applicable gates pass → **READY** — safe to hand off or extract tasks
    - Any fail → **NOT READY** — list gaps with specific fix actions
    - Most pass, minor gaps → **CONDITIONAL** — list conditions, safe to proceed if flagged
 
-4. **Output:**
+6. **Output:**
 
 ```
 **PRD Readiness — [filename] — [Date]**
 
-**Score:** [n] / 8 gates passed
+**PRD type:** Standard | AI-feature
+**Score:** [n] / [8 or 12] gates passed
 
-**Gate Results:**
+**Standard Gate Results:**
+[table]
+
+**AI Gate Results (if applicable):**
 [table]
 
 **Decision: READY / NOT READY / CONDITIONAL**
@@ -54,6 +71,7 @@ Run this gate before handing off a PRD to engineering, before `/spec-handoff`, o
 - PRD is READY → `spec-handoff [project]` to package for engineering
 - PRD is NOT READY → fix gaps, then re-run `prd-readiness`
 - Need feasibility input → `tech-feasibility [feature]` before re-checking
+- AI PRD missing eval criteria → build `Evals/[feature-name]/` suite first, then re-run
 
 ---
 

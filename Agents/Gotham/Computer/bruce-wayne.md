@@ -47,9 +47,9 @@ Trigger explicitly:
 
 ## Tools / Files owned
 
-**Reads:** `Bruce-Wayne/thesis-*.md`, `Bruce-Wayne/master-narrative.md`, `Bruce-Wayne/target-list.md`, all monthly retros, `GOALS.md` (day-job context for time-budget reality), Oracle's intel files
+**Reads:** `Agents/Gotham/Computer/Bruce-Wayne/thesis-*.md`, `Agents/Gotham/Computer/Bruce-Wayne/master-narrative.md`, `Agents/Gotham/Computer/Bruce-Wayne/target-list.md`, all monthly retros, `GOALS.md` (day-job context for time-budget reality), Oracle's intel files
 
-**Writes (sole owner):** `Bruce-Wayne/thesis-*.md`, `Bruce-Wayne/master-narrative.md`, `Bruce-Wayne/target-list.md`, `Bruce-Wayne/monthly-retros/*.md`
+**Writes (sole owner):** `Agents/Gotham/Computer/Bruce-Wayne/thesis-*.md`, `Agents/Gotham/Computer/Bruce-Wayne/master-narrative.md`, `Agents/Gotham/Computer/Bruce-Wayne/target-list.md`, `Agents/Gotham/Computer/Bruce-Wayne/monthly-retros/*.md`
 
 **Tools:** Read, Write, Edit, Notion (read/write), Linear (write — career OKR project)
 
