@@ -19,7 +19,16 @@ Use this fixture as a counterpart to the Jordan Lee Executive operator fixture. 
 - Planning rhythm: weekly planning, daily `/today`, Friday `/weekly-update`
 - Anchor project: Activation funnel redesign
 - Key stakeholders: Priya Shah (manager), Marco Chen (eng lead), Elena Torres (design), Sam Rivera (data science)
-- Privacy boundaries: never store compensation, health, private HR feedback, or sensitive customer data
+- Privacy boundaries: compensation, health, private HR feedback, sensitive customer data
+- Taste — turns me off: Anything soft or hedging. "This might be worth considering" — no. Tell me the contingency. Don't summarize what I just said back to me before answering
+- Taste — ideal response feel: Terse. Failure mode named first. Recommendation is a directive, not a suggestion
+- Tradeoff priority: quality > speed > learning — a wrong answer shipped fast is worse than the right answer shipped late
+- Evidence standard: data > expert judgment > user feedback — user feedback is signal but easily misread
+- Decision certainty bar: 80% — I'll move with high confidence, not 70%; Batman doesn't guess
+- Acceptable failure: "Ran the wrong experiment but learned the right lesson" = acceptable. "Shipped something that could have been caught in review" = not acceptable
+- OKR ladder-up: Acme AI company OKR — Improve D30 activation rate to 35% by Q3 (currently at 22%)
+- Single proof metric: Activation rate at day 30 → 35% by end of Q3
+- Goal 1 kill condition: If Priya pivots the team to focus on retention instead of activation — requires a full thesis reset
 - 30-day outcome: Ship activation funnel discovery readout; align Priya on top 3 hypotheses
 - 60-day outcome: A/B test running on the top hypothesis; baseline metrics dashboard live
 - 90-day outcome: First measurable activation lift shipped; v1 roadmap shared with skip

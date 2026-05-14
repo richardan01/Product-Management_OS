@@ -19,7 +19,16 @@ Use this fixture as a third lens on the workflow. Its job is to surface failures
 - Planning rhythm: daily `/today`, weekly check only
 - Anchor project: (none yet — explicitly deferred for now)
 - Key stakeholders: Jordan Singh (manager), one other peer (name deferred)
-- Privacy boundaries: no compensation, no HR, no customer PII, no calendar contents
+- Privacy boundaries: compensation, HR feedback, customer PII, calendar contents
+- Taste — turns me off: Long explanations. Just tell me the next action
+- Taste — ideal response feel: One sentence if possible. A checklist if it's a list. No preamble
+- Tradeoff priority: speed > quality > learning (will defer to "good enough, ship it")
+- Evidence standard: own synthesis > user feedback; I'm new, I trust my read of the room
+- Decision certainty bar: 70%
+- Acceptable failure: "Moved fast and got it mostly right" = fine. "Overcomplicated something simple" = not fine
+- OKR ladder-up: (deferred — not sure yet what team OKR this connects to)
+- Single proof metric: (deferred)
+- Goal 1 kill condition: If Jordan Singh moves me to a different product area before 90 days
 - 30-day outcome: Land in role, map current product surface, hold 4 listening 1:1s
 - 60-day outcome: First small shipped change with measurable improvement
 - 90-day outcome: Own 1 metric end-to-end; one cross-functional initiative scoped
