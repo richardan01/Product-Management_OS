@@ -11,7 +11,7 @@ This file is filled during interactive onboarding. If placeholders are still pre
 When the user says `Computer, onboard me into this OS`, `set up this template`, or similar:
 
 1. Run `Workflows/interactive-onboarding.md`.
-2. Ask the user to choose purpose, persona, cadence, current tasks, goals, stakeholders, and privacy boundaries.
+2. Ask the user to choose purpose, persona, cadence, current tasks, goals (with OKR alignment), thought frameworks, stakeholders, and privacy boundaries.
 3. Summarize proposed edits before changing files.
 4. Only write setup files after explicit confirmation.
 
@@ -37,6 +37,17 @@ Filled during interactive onboarding. If any field is still blank or placeholder
 - **Review style:** [light edit / strict PM craft review / adversarial review / user-voice review / custom]
 - **Operating cadence:** [daily / weekly / sprint / monthly / quarterly / ad hoc]
 - **Privacy boundaries:** [what never goes in files; what requires confirmation]
+- **Turn-offs:** [what immediately makes you tune out — e.g., "starts with 'Certainly!'", "over-explains", "bullet-everything"]
+- **Ideal response feel:** [what a great response looks and feels like to you]
+
+## Thought frameworks
+
+Filled during onboarding Phase 5B. Used to calibrate how the assistant frames decisions and evidence.
+
+- **Tradeoff priority:** [e.g., quality > speed > learning]
+- **Evidence standard:** [e.g., data > expert judgment > user feedback]
+- **Decision certainty bar:** [70% / 80% / 90%+]
+- **Acceptable failure:** [what's a learning vs. what's avoidable — distinguish the two]
 
 ## On Session Start
 1. If placeholders remain in `CLAUDE.md`, `GOALS.md`, or `Tasks/active.md`, offer to run interactive onboarding.

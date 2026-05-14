@@ -4,26 +4,33 @@ A downloadable multi-agent operating-system template for product managers. It co
 
 ---
 
-## Start here: first-run setup with Claude
+## Start here: first-run setup
 
-If you just downloaded, forked, or cloned this repo, do this first:
+The OS is harness-neutral. Onboarding works in **Claude Code**, **Codex CLI**, and **Gemini CLI** — each reads a different entry-point file at the repo root, but all three route to the same workflow and configuration surface.
 
-1. Open the repo folder in Claude Code or another Claude workspace that can read and edit these files.
-2. Paste this exact prompt:
+| Harness | Entry-point file | What you do |
+|---|---|---|
+| Claude Code | `CLAUDE.md` | Open the repo in Claude Code (CLI, desktop, or VS Code extension). |
+| Codex CLI | `AGENTS.md` | Run `codex` from the repo root. |
+| Gemini CLI | `GEMINI.md` | Run `gemini` from the repo root. |
+
+Then, in any of the three:
+
+1. Paste this exact prompt:
 
    ```text
    Computer, onboard me into this OS.
    ```
 
-3. Answer Claude's setup interview in short batches. You will choose your OS purpose, default tone, working style, goals, cadence, stakeholders, projects, and privacy boundaries.
-4. Review Claude's proposed file edits before approving. Claude should not write setup files until you explicitly confirm.
-5. After setup, start your first working session with:
+2. Answer the assistant's setup interview in short batches. You will choose your OS purpose, default tone, working style, goals, cadence, stakeholders, projects, and privacy boundaries.
+3. Review the assistant's proposed file edits before approving. The workflow enforces a per-phase read-back, a full Phase 8 summary before any writes, and per-file confirmation in Phase 9 — polite acknowledgements ("sounds good") do not count as approval.
+4. After setup, start your first working session with:
 
    ```text
    /today
    ```
 
-**Expected first-run outcome:** a personalized PM OS where `CLAUDE.md` stores how the assistant should behave, `GOALS.md` stores what you are optimizing for, task files store what needs to move now, and project / people files store the context Claude should reuse.
+**Expected first-run outcome:** a personalized PM OS where `CLAUDE.md` stores how the assistant should behave (read by all three harnesses — the filename is historical), `GOALS.md` stores what you are optimizing for, task files store what needs to move now, and project / people files store the context the assistant should reuse.
 
 ---
 
@@ -279,4 +286,4 @@ Four default principles, configurable during onboarding:
 
 ---
 
-Built on Claude Code and Codex. Designed as a configurable PM operating-system template.
+Built on Claude Code, Codex CLI, and Gemini CLI. Designed as a configurable, harness-neutral PM operating-system template.

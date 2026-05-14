@@ -2,6 +2,8 @@
 
 Use this workflow when a user first downloads, forks, or clones ProductManagement-OS and asks to set it up.
 
+This workflow is harness-neutral. It runs the same way in **Claude Code** (entry point: `CLAUDE.md`), **Codex CLI** (entry point: `AGENTS.md`), and **Gemini CLI** (entry point: `GEMINI.md`). Each entry-point file points back here. The configuration the workflow writes — persona, tone, routing, quality gates, privacy boundaries — lives in `CLAUDE.md` and is respected by all three harnesses regardless of which one ran the setup. The filename is historical; do not duplicate the file per harness.
+
 Trigger phrases:
 - `Computer, onboard me into this OS`
 - `Set up this template for me`
@@ -46,6 +48,14 @@ Maintain this working schema during the interview. Preserve placeholders or mark
 - Decision style:
 - Review style:
 - Tone to avoid:
+- Taste — turns me off:
+- Taste — ideal response feel:
+
+### Thought frameworks
+- Tradeoff priority:
+- Evidence standard:
+- Decision certainty bar:
+- Acceptable failure:
 
 ### Cadence
 - Planning rhythm:
@@ -66,6 +76,9 @@ Maintain this working schema during the interview. Preserve placeholders or mark
 - 90-day outcomes:
 - Metrics / evidence:
 - Development goals:
+- OKR ladder-up:
+- Single proof metric:
+- Goal 1 kill condition:
 
 ### Stakeholders and projects
 - Key people:
@@ -124,6 +137,11 @@ Ask:
    - Custom
 2. When should the assistant push back?
 3. What tone should it avoid?
+4. Two quick taste questions to calibrate how the assistant responds day-to-day:
+   - When an assistant responds, what's one thing that immediately makes you tune out or cringe? (e.g., "starts every reply with 'Certainly!'", "bullet-points everything", "over-explains obvious things", "skips the tradeoffs".)
+   - Describe your ideal response to a hard question — what makes it feel exactly right?
+
+Record the answers in the capture schema as `Taste — turns me off` and `Taste — ideal response feel`. These are free text, not dropdowns — use the user's exact words.
 
 Update `CLAUDE.md` and `_Registry/voice-map.md` only after the user confirms.
 
@@ -202,7 +220,28 @@ Ask:
 4. Which metrics or evidence will prove progress?
 5. What personal development goals should the OS reinforce?
 
-Propose updates to `GOALS.md`.
+Then ask three follow-up questions to capture strategic alignment:
+
+> "Three quick ones on strategy:
+> 1. What company or team OKR does your 90-day goal ladder up to? If you don't know or it's not set yet, say so — that's data too.
+> 2. If you had to name the ONE metric that, if it moves, proves your quarter was a success — what would it be?
+> 3. What specific thing would force you to abandon or pivot your top goal?"
+
+Record answers in the capture schema as `OKR ladder-up`, `Single proof metric`, and `Goal 1 kill condition`. "Unknown / not yet set" is a valid answer for OKR ladder-up — do not skip the question or invent a company OKR. The kill condition must be a specific event or trigger, not a category (e.g., "If Priya kills the activation funnel project" not just "stakeholder change").
+
+Propose updates to `GOALS.md` including the new "Strategic alignment" section.
+
+## Phase 5B — How you think
+
+Ask four questions about decision-making in one batch. The user may skip any question:
+
+> "Four quick questions about how you make decisions — skip any you want:
+> 1. **Tradeoff hierarchy:** When speed, quality, and learning are in tension, what's your default order? (e.g., quality > speed > learning)
+> 2. **Evidence standard:** What convinces you more — good data, expert judgment, direct user feedback, or your own synthesis?
+> 3. **Decision bar:** Can you move forward with 70% confidence, or do you typically need 90%+?
+> 4. **Acceptable failure:** What kind of failure is OK (it was a learning), vs. what kind is not OK (it was avoidable)?"
+
+Record answers in the capture schema under `Thought frameworks`. If the user skips a question, record it as `Not specified` — do not invent a default. These answers flow into `CLAUDE.md` → `Thought frameworks` section and will be used in every session to calibrate how tradeoffs, evidence, and risk are framed.
 
 ## Phase 6 — Capture stakeholders and projects
 
@@ -229,14 +268,26 @@ Then propose updates to:
 
 ## Phase 7 — Privacy and editing boundaries
 
-Ask:
+Start with a guided privacy scan instead of a single open question:
 
-1. What information should never be written into files?
+> "Quick privacy scan — tell me which of these you want kept out of all files (check all that apply):
+> - Compensation or equity details
+> - Health or family information
+> - Customer names or customer data
+> - Competitive intelligence (company strategy, M&A, pricing)
+> - HR feedback (performance reviews, 360s)
+> - Political beliefs or social stances
+> - Anything else specific to your situation?"
+
+Tell the user: "For anything you check, I'll flag when a response might touch that category and ask before writing."
+
+Then ask:
+
 2. Which files may the assistant edit without asking every time?
 3. Which files require confirmation before edits?
 4. Is this repo private, public, or intended to become a sanitized public template?
 
-Add the boundaries to `CLAUDE.md`.
+Record the checked categories as the user's `Privacy boundaries` in `CLAUDE.md`. Do not collapse the list into a generic note — name each category that the user flagged so future sessions can check against the actual list.
 
 ## Phase 8 — Confirmation summary
 
@@ -248,8 +299,17 @@ Before writing, show:
 ### Purpose
 - ...
 
-### Persona
-- ...
+### Persona and taste
+- Persona: ...
+- Tone: ...
+- Turn-offs: ...
+- Ideal response feel: ...
+
+### Thought frameworks
+- Tradeoff priority: ...
+- Evidence standard: ...
+- Decision certainty bar: ...
+- Acceptable failure: ...
 
 ### Cadence
 - ...
@@ -263,6 +323,11 @@ Before writing, show:
 - 30 days: ...
 - 60 days: ...
 - 90 days: ...
+
+### Strategic alignment
+- OKR ladder-up: ...
+- Single proof metric: ...
+- Goal 1 kill condition: ...
 
 ### Stakeholders
 - ...
@@ -281,8 +346,8 @@ Before writing, show:
 - Ask before editing: ...
 
 ### File-by-file edit plan
-- `CLAUDE.md`: identity, operating style, routing, cadence, privacy boundaries
-- `GOALS.md`: 30-60-90 outcomes, metrics, stakeholders, development goals
+- `CLAUDE.md`: identity, operating style (incl. taste), thought frameworks, routing, cadence, privacy boundaries
+- `GOALS.md`: 30-60-90 outcomes, strategic alignment (OKR, proof metric, kill condition), stakeholders, development goals
 - `Tasks/active.md`: P0/P1 work, blockers, near-term commitments
 - `Tasks/backlog.md`: P2 work and future candidates
 - `Tasks/follow-ups.md`: promised follow-ups and owners
@@ -386,7 +451,7 @@ The dry run passes only if the assistant:
 
 1. Starts from the trigger phrase without requiring the user to know internal file structure.
 2. Asks questions in small batches instead of dumping the full schema at once.
-3. Captures purpose, operating style, cadence, active work, goals, stakeholders, projects, and privacy boundaries.
+3. Captures purpose, operating style (including taste), thought frameworks, cadence, active work, goals (with OKR alignment), stakeholders, projects, and privacy boundaries.
 4. Preserves unknowns as placeholders or `Unknown` instead of inventing facts.
 5. Produces a Phase 8 confirmation summary with a file-by-file edit plan.
 6. Does not edit files until the user explicitly approves the proposed setup.
