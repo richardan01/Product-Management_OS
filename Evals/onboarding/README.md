@@ -28,15 +28,16 @@ This suite tests both:
 
 ## Test fixtures
 
-Three fixtures live in `inputs/` and cover three personas to surface bugs that only appear under each:
+Core fixtures live in `inputs/` and cover multiple personas to surface bugs that only appear under each. Targeted fixtures may add coverage for newer criteria such as custom persona or privacy-boundary behavior:
 
 | Fixture | Persona | What it stresses |
 |---|---|---|
 | `jordan-lee-profile.md` | Executive operator | Non-Batman routing, quality-gate downgrade, baseline interactivity |
 | `sam-okafor-batman-variant.md` | Batman strategic operator | Mandatory `/riddler` + `/vale` gates, Batman voice, full Gotham agent routing |
 | `riley-park-minimalist.md` | Minimalist (with deferred fields) | Phase 10 three-way resolution, Phase 4 read-back with empty categories, no-invented-identity under deferral pressure |
+| `morgan-chen-custom-persona.md` | Custom persona | Custom routing, explicit quality-gate selection, command surfacing, and sensitive-domain privacy boundaries |
 
-A single fixture is a data point, not a signal. Every eval must be graded across **all three fixtures**.
+A single fixture is a data point, not a signal. Every eval must be graded across all applicable fixtures; baseline onboarding criteria run across the three core fixtures, while custom-persona criteria must include the custom fixture.
 
 ## Anchored judgment criteria
 
@@ -48,11 +49,11 @@ The full run protocol is in `Evals/onboarding/protocol.md`. Key requirements (en
 
 1. **Author / grader separation.** The runner agent and grader agent must be different contexts.
 2. **Transcript capture.** Evals 02 and 07 grade temporal behavior — they require a captured transcript, not the runner's recollection.
-3. **All three fixtures.** No cherry-picking.
+3. **All applicable fixtures.** No cherry-picking; include targeted fixtures when a criterion requires them.
 4. **Model + commit pinning.** Every result log records the model ID and `git rev-parse HEAD` at run time.
 5. **Negative results visible.** Failures named explicitly; introspection ("why did the model do this?") captured for every ❌.
 
-Target: ≥ 8/10 pass per fixture on the current model. Onboarding is high-stakes (day-1 user experience), so the bar is strict.
+Target: ≥ 10/12 pass per fixture on the current model. Onboarding is high-stakes (day-1 user experience), so the bar is strict.
 
 ## Suite map
 
@@ -68,6 +69,8 @@ Target: ≥ 8/10 pass per fixture on the current model. Onboarding is high-stake
 | 08 | `okr-strategic-alignment-captured` | Phase 5 OKR follow-ups were skipped or `GOALS.md` strategic alignment section still has templated placeholders | — |
 | 09 | `thought-frameworks-captured` | Phase 5B was skipped, or all four `Thought frameworks` fields in `CLAUDE.md` are still bracketed defaults | — |
 | 10 | `taste-captured-not-invented` | Phase 2 taste questions were skipped, or assistant invented taste preferences instead of asking the user | — |
+| 11 | `privacy-boundaries-enforced` | Assistant records privacy preferences but later writes excluded sensitive information or fails to ask before writing boundary-touching content | — |
+| 12 | `custom-persona-captured` | Assistant forces predefined personas or leaves custom routing, gates, and commands ambiguous | — |
 
 ## Results
 
@@ -77,6 +80,6 @@ A suite that hasn't been run in 60 days is technical debt. Re-run on every model
 
 ## Not yet covered (parking lot)
 
-- Privacy-boundary enforcement under adversarial prompts (no fixture yet).
-- Custom-persona capture flow (no fixture yet).
+- Adversarial privacy-boundary fixtures beyond the baseline criteria.
+- Anchored sample-pass / sample-fail examples for the custom-persona criteria.
 - LLM-as-a-judge calibration with human labels (would let one grader scale to many runs — needs ≥ 100 human-labeled examples first).
