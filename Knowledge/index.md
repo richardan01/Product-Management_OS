@@ -13,6 +13,7 @@ This is the canonical catalog for the Knowledge wiki. Update this file on every 
 | Page | Summary | Last verified |
 |---|---|---|
 | `Knowledge/Reference/company.md` | Company context placeholder. | Unverified |
+| `Knowledge/Reference/ground-truth.md` | Personal quality bar and review criteria placeholder. | Unverified |
 
 ## Research
 
