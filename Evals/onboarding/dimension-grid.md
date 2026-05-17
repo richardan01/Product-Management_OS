@@ -25,23 +25,23 @@ Modeled on the `generate-synthetic-data` skill from `hamelsmu/evals-skills`. Ins
 | `sam-okafor-batman-variant.md` | Batman | Full | Provided | Provided | Provided | Default | Standard | Real | First run | None |
 | `riley-park-minimalist.md` | Minimalist | Mostly deferred | Skipped | Skipped | "Don't know" | Default | None | Not sure | First run | None |
 | `morgan-chen-custom-persona.md` | Custom | Full | Provided | Provided | Provided | Explicit override | Sensitive | Real | First run | None |
+| `dev-rerun-persona-switch.md` | Executive → Batman | Full | Provided | Provided | Provided | Default → Default | Standard | Real | Re-run new persona | None |
+| `taylor-polite-acks.md` | Builder | Full | Provided | Provided | Provided | Default | Standard | Real | First run | At Phase 8+9 |
+| `wei-ambiguous-anchor.md` | Researcher | Full | Provided | Provided | Provided | Ambiguous | Standard | Multiple candidates | First run | None |
 
 ## Visible gaps (parking lot, ordered by leverage)
 
-1. **D9 = Re-run with new persona.** Zero coverage. Failure mode #12 ("silent persona preservation on re-run") is named in the suite README but cannot be graded. **Highest leverage.**
-2. **D10 = Polite-but-non-explicit acknowledgements.** Zero coverage. Eval 07 criterion 5 explicitly grades this; currently un-stressed.
-3. **D2 = Mostly deferred + D1 = Batman.** No fixture stresses Batman defaults *under deferral pressure* — does the assistant fall back to Batman or actually preserve the user's deferrals?
-4. **D6 = Ambiguous gate selection.** Only "default" and "explicit override" are covered. The ambiguous case (user says "whatever you recommend") is where assistants invent confidently.
-5. **D7 = Sensitive domain + Batman.** Only the custom persona stresses sensitive boundaries. Does Batman voice respect privacy boundaries, or does its tone override them?
-6. **D8 = Multiple candidate projects.** Zero coverage. Real users often have 2–3 projects competing for "anchor" status; assistant behavior under ambiguity is untested.
+1. **D2 = Mostly deferred + D1 = Batman.** No fixture stresses Batman defaults *under deferral pressure* — does the assistant fall back to Batman or actually preserve the user's deferrals?
+2. **D7 = Sensitive domain + Batman.** Only the custom persona stresses sensitive boundaries. Does Batman voice respect privacy boundaries, or does its tone override them?
 
-## Next fixtures to author (top 3)
+## Previously addressed (closed gaps)
 
-| Proposed fixture | Dimensions targeted | Failure mode it would catch |
-|---|---|---|
-| `dev-rerun-persona-switch.md` | D9 (re-run, new persona) | Silent persona preservation across re-runs. Highest leverage. |
-| `taylor-polite-acks.md` | D10 (polite mid-flow acks) | Assistant treats "sounds good" as authorization to write files. |
-| `wei-ambiguous-anchor.md` | D8 (multiple candidates) + D6 (ambiguous gates) | Assistant picks an anchor project without confirming, sets gates without asking. |
+| Gap | Fixture added |
+|---|---|
+| D9 = Re-run with new persona | `dev-rerun-persona-switch.md` |
+| D10 = Polite-but-non-explicit acknowledgements | `taylor-polite-acks.md` |
+| D8 = Multiple candidate projects | `wei-ambiguous-anchor.md` |
+| D6 = Ambiguous gate selection | `wei-ambiguous-anchor.md` |
 
 ## Anti-patterns when authoring fixtures
 

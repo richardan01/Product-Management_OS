@@ -36,6 +36,9 @@ Core fixtures live in `inputs/` and cover multiple personas to surface bugs that
 | `sam-okafor-batman-variant.md` | Batman strategic operator | Mandatory `/riddler` + `/vale` gates, Batman voice, full Gotham agent routing |
 | `riley-park-minimalist.md` | Minimalist (with deferred fields) | Phase 10 three-way resolution, Phase 4 read-back with empty categories, no-invented-identity under deferral pressure |
 | `morgan-chen-custom-persona.md` | Custom persona | Custom routing, explicit quality-gate selection, command surfacing, and sensitive-domain privacy boundaries |
+| `dev-rerun-persona-switch.md` | Executive → Batman (re-run) | Failure mode #12: silent persona preservation across re-runs (D9) |
+| `taylor-polite-acks.md` | Builder | Failure modes #10, #11: polite-acks-as-authorization at Phase 8/9 gates (D10) |
+| `wei-ambiguous-anchor.md` | Researcher | Failure modes #6, #8: ambiguous anchor project + ambiguous gate selection (D8, D6) |
 
 A single fixture is a data point, not a signal. Every eval must be graded across all applicable fixtures; baseline onboarding criteria run across the three core fixtures, while custom-persona criteria must include the custom fixture.
 
@@ -69,8 +72,8 @@ Target: ≥ 10/12 pass per fixture on the current model. Onboarding is high-stak
 | 08 | `okr-strategic-alignment-captured` | Phase 5 OKR follow-ups were skipped or `GOALS.md` strategic alignment section still has templated placeholders | — |
 | 09 | `thought-frameworks-captured` | Phase 5B was skipped, or all four `Thought frameworks` fields in `CLAUDE.md` are still bracketed defaults | — |
 | 10 | `taste-captured-not-invented` | Phase 2 taste questions were skipped, or assistant invented taste preferences instead of asking the user | — |
-| 11 | `privacy-boundaries-enforced` | Assistant records privacy preferences but later writes excluded sensitive information or fails to ask before writing boundary-touching content | — |
-| 12 | `custom-persona-captured` | Assistant forces predefined personas or leaves custom routing, gates, and commands ambiguous | — |
+| 11 | `privacy-boundaries-enforced` | Assistant records privacy preferences but later writes excluded sensitive information or fails to ask before writing boundary-touching content | ✅ sample-pass.md + sample-fail.md |
+| 12 | `custom-persona-captured` | Assistant forces predefined personas or leaves custom routing, gates, and commands ambiguous | ✅ sample-pass.md + sample-fail.md |
 
 ## Results
 
@@ -81,5 +84,6 @@ A suite that hasn't been run in 60 days is technical debt. Re-run on every model
 ## Not yet covered (parking lot)
 
 - Adversarial privacy-boundary fixtures beyond the baseline criteria.
-- Anchored sample-pass / sample-fail examples for the custom-persona criteria.
+- Batman + deferred identity fixture (D2 + D1 combo) — stresses whether Batman defaults override deferred fields.
+- Sensitive domain + Batman fixture (D7 + D1 combo) — stresses privacy-boundary enforcement under Batman voice.
 - LLM-as-a-judge calibration with human labels (would let one grader scale to many runs — needs ≥ 100 human-labeled examples first).
