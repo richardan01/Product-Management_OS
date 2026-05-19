@@ -14,6 +14,8 @@ The OS is harness-neutral. Onboarding works in **Claude Code**, **Codex CLI**, a
 | Codex CLI | `AGENTS.md` | Run `codex` from the repo root. |
 | Gemini CLI | `GEMINI.md` | Run `gemini` from the repo root. |
 
+**These three files are intentional harness-neutral mirrors of the same OS.** You only need to maintain the one that matches your harness — onboarding writes to all three entry points automatically, so they stay in sync. Do not edit `AGENTS.md` or `GEMINI.md` directly if you use Claude Code.
+
 Then, in any of the three:
 
 1. Paste this exact prompt:
@@ -45,6 +47,8 @@ A single AI assistant with one long prompt can't handle this well. It conflates 
 - Agents coordinate through a shared file system (not direct calls)
 - Orchestration patterns govern how they compose into workflows
 - A configurable persona layer keeps voice, standards, and focus consistent
+
+For a full walkthrough of the 3-layer model (Skills → Agents → Knowledge) and how a typical PM week runs through the system, see `HOW-IT-WORKS.md`.
 
 ---
 
@@ -145,6 +149,23 @@ The `Evals/onboarding/` suite tests these properties against a non-Batman fixtur
 ### Layer 2: PM operations layer
 
 Used for the user's day-to-day product work. It is implemented through shared tasks, knowledge files, templates, workflows, and PM skills. Add dedicated agents only when a workflow becomes common enough to deserve its own owner.
+
+---
+
+## Eval system
+
+The `Evals/` directory contains **offline audit suites** — not real-time response graders. There are no inline graders that automatically evaluate Claude's output as it's produced. This is intentional: grading in the same context window as authoring violates author/grader separation, which the eval protocol enforces as a hard requirement.
+
+**Two suites ship with the OS:**
+
+| Suite | Criteria | What it catches |
+|---|---|---|
+| `Evals/onboarding/` | 12 | Placeholder residue, persona-routing bugs, batch-write violations, invented identity |
+| `Evals/research-synthesis/` | 7 | Invented quotes, generic synthesis, missing conflicting signals |
+
+**When to run:** after a model upgrade, after changing the onboarding workflow, or on a 60-day cadence. Target: ≥ 10/12 pass per fixture.
+
+**How to run:** use `/evals` to design or execute a suite. Use `/eval-review` to audit eval methodology (author/grader separation, gold-set integrity, metric appropriateness). The grader must run in a fresh context — never the same session that produced the output being graded.
 
 ---
 
@@ -254,12 +275,27 @@ ProductManagement-OS/
 │   └── voice-map.md             ← Persona/voice assignments per agent
 │
 ├── .claude/
-│   ├── skills/                  ← Claude skill commands (/today, /weekly-update, etc.)
-│   └── agents/                  ← Claude sub-agent workers
+│   ├── skills/                  ← 27 Claude slash commands (see skill reference below)
+│   └── agents/                  ← 10 Claude sub-agent workers (spawned by skills)
 │
 └── .codex/
     └── agents/                  ← Codex sub-agent worker specs
 ```
+
+### Skill reference
+
+27 slash commands ship with the OS. Onboarding surfaces the most relevant ones for your chosen mode; the full set is available immediately after setup.
+
+| Category | Skills |
+|---|---|
+| **Daily ops** | `/today`, `/weekly-update`, `/meeting-prep`, `/retro`, `/risk-register` |
+| **Quality gates** | `/peer-review`, `/prd-readiness`, `/research-sufficiency`, `/build-review`, `/eval-review`, `/go-nogo`, `/voice-conformance` |
+| **Planning** | `/quarterly-planning`, `/roadmap-review`, `/launch-plan` |
+| **Writing & review** | `/riddler`, `/vale`, `/career-narrative`, `/training-plan`, `/test-plan` |
+| **Research & knowledge** | `/synthesize-research`, `/wiki-ingest`, `/wiki-query`, `/wiki-maintain`, `/wiki-lint` |
+| **Specialty** | `/evals`, `/eval-review`, `/frontier-lab-interview-prep` |
+
+All skills live in `.claude/skills/`. Each skill's `SKILL.md` file contains the full orchestration logic, sub-agent spawning, and output format.
 
 ---
 
@@ -277,6 +313,8 @@ Every public artifact goes through two mandatory gates before shipping:
 2. **Vicki Vale review** (`/vale <artifact>`) — user-voice review; finds where the reader stops reading
 
 Both must pass. No exceptions. This is enforced by the operating contract in `CLAUDE.md`.
+
+These two gates are **complementary, not redundant.** Riddler attacks argument strength and unsupported claims. Vicki Vale finds where a real reader stops reading — a piece can be logically sound and still lose the reader by line 3. Run them in sequence: Riddler first, then Vicki Vale after the argument is tight. For high-stakes artifacts, add `/peer-review` before the two gates to catch structural PM craft issues first.
 
 ---
 
