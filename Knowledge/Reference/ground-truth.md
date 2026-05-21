@@ -82,6 +82,19 @@ Regardless of document type, a peer review should flag:
 
 ---
 
+## Contradiction preservation rule
+
+**Never merge conflicting evidence into false consensus.** When two sources say opposite things:
+
+1. Preserve both claims with their respective provenance tags (see `Knowledge/Reference/provenance-tags.md`).
+2. Label them explicitly: `[CONTRADICTION — see also: [other source]]`
+3. Surface in the next `/wiki-maintain` weekly sweep for PM judgment.
+4. The dissenting interview, the contrarian metric — these are signal, not noise. The majority view is usually obvious. The minority view is where insight lives.
+
+A `/peer-review` should flag any document that resolves a known contradiction without explicit rationale.
+
+---
+
 ## How to update this file
 
 Update any criterion when you notice `/peer-review` consistently missing things that matter to you or flagging things that don't. This file is the calibration surface for Layer 2 peer review. Treat it as a living document, not a one-time onboarding artifact.

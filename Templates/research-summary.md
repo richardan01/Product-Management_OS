@@ -38,31 +38,39 @@
 
 ## Key Findings
 
+*Each evidence item carries a provenance tag. See `Knowledge/Reference/provenance-tags.md` for the hierarchy.*
+
 ### Finding 1: [Title]
 
 **Evidence:**
-- [Quote or data point]
-- [Quote or data point]
+- [Quote or data point] `[doc-research]` — [source, date]
+- [Quote or data point] `[verbal-stake]` — [name, date]
 
 **Confidence:** High / Medium / Low — *[Why?]*
+
+**Minority signal:** [Any contradicting data point — do not omit] `[tag]`
 
 ---
 
 ### Finding 2: [Title]
 
 **Evidence:**
-- [Quote or data point]
+- [Quote or data point] `[tag]` — [source, date]
 
 **Confidence:** High / Medium / Low
+
+**Minority signal:** —
 
 ---
 
 ### Finding 3: [Title]
 
 **Evidence:**
-- [Quote or data point]
+- [Quote or data point] `[tag]` — [source, date]
 
 **Confidence:** High / Medium / Low
+
+**Minority signal:** —
 
 ---
 

@@ -23,7 +23,20 @@
 
 ## Notes
 
-*[Live notes during the meeting]*
+*[Live notes during the meeting. Tag each claim with a provenance tag — see `Knowledge/Reference/provenance-tags.md`.]*
+
+- [Note] `[verbal-stake]`
+- [Note] `[doc-decision]` *(if a decision was made in the meeting)*
+
+---
+
+## Signals to log in Knowledge/People/
+
+*Anything that reveals their position, priority, or constraint — log to their People profile after the meeting.*
+
+| Signal | Tag | Log to |
+|---|---|---|
+| [what they said] | `[verbal-stake]` | `Knowledge/People/[name].md` |
 
 ---
 

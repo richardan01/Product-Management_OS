@@ -87,6 +87,23 @@ If two could fit, prefer the more specialized.
 - Verify memory against current files before citing — memories drift
 - **Canonicality:** auto-memory holds *cross-project* facts (identity, durable preferences, recurring patterns). `Knowledge/People/` and `Knowledge/Reference/` hold *project-bound* canonical facts (stakeholder profiles, company context, anchor project). On conflict, the workspace file wins; auto-memory updates to match.
 
+## Knowledge layers (evidence hierarchy)
+
+Every claim in `Knowledge/` carries a provenance tag. Tags prevent weak evidence from masquerading as verified truth. Hierarchy, highest to lowest:
+
+`[doc-decision]` → `[doc-research]` → `[verbal-stake]` → `[pm-intuition]` → `[assumption]`
+
+See `Knowledge/Reference/provenance-tags.md` for decay windows and rules.
+
+**Layer structure:**
+- `Knowledge/Hypotheses/` — testable beliefs: candidate → proposed → confirmed / rejected
+- `Knowledge/Decisions/` — formal decisions: pending → active → archived (with reasoning + reversal conditions)
+- `Knowledge/Ingestion/` — staging area for raw artifacts before promotion (agent proposes; PM decides)
+- `Knowledge/Source/` — immutable copies of original artifacts (never edit)
+- `Knowledge/Maintenance/` — weekly sweep logs
+
+**Contradiction rule:** When two claims conflict, preserve both with their tags. Never merge into false consensus. Surface in `/wiki-maintain` weekly sweep.
+
 ## Quality gates
 - After PRD / business case / research → `/peer-review [file]`
 - Before engineering handoff → `/prd-readiness [file]`
