@@ -109,3 +109,17 @@
 ## Links & Resources
 
 -
+
+---
+
+## Project brain
+
+*This section links to the per-project knowledge layers. Populate as the project matures.*
+
+| Layer | Location | Status |
+|---|---|---|
+| Strategy & non-goals | *(embed here or link to `Knowledge/Reference/`)* | — |
+| Active hypotheses | `Knowledge/Hypotheses/proposed/` — filter by this project | — |
+| Active decisions | `Knowledge/Decisions/active/` — filter by this project | — |
+| Stakeholders | `Knowledge/People/` — relevant contacts | — |
+| Source artifacts | `Knowledge/Source/` — transcripts, briefs, screenshots | — |

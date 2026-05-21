@@ -53,6 +53,30 @@
 
 ---
 
+## Cadence & continuity
+
+**Last contact:** [YYYY-MM-DD]
+**Contact cadence target:** [weekly / biweekly / monthly]
+**Last contact channel:** [1:1 / Slack / email / meeting]
+
+**Open questions for next conversation:**
+- [question]
+
+**Recent signal:**
+> "[Most recent notable thing they said or signaled]" — [YYYY-MM-DD] `[verbal-stake]`
+
+---
+
+## Documented positions
+
+*What they have explicitly stated on decisions or priorities. Carry provenance tags.*
+
+| Topic | Position | Tag | Date |
+|---|---|---|---|
+| [topic] | [what they believe/want] | `[verbal-stake]` | YYYY-MM-DD |
+
+---
+
 ## Meeting history
 
 *See `Meetings/1on1s/[YOUR_MANAGER].md` for chronological log.*
