@@ -432,51 +432,16 @@ Then propose updates to:
 - `Projects/[YOUR_ANCHOR_PROJECT]/brief.md`
 - `Tasks/active.md`
 
-## Phase 7 — Privacy and editing boundaries
+## Phase 7 — Editing boundaries
 
-**Step 7a — Privacy scan (use `AskUserQuestion`):**
+Ask conversationally:
 
-> **Tool:** Call `AskUserQuestion` with the configuration below. Set `multiSelect: true`. Tell the user: "For anything you select, I'll flag when a response might touch that category and ask before writing."
+1. "Which files or folders may I edit freely without asking each time? (e.g., `Tasks/`, `GOALS.md`)"
+2. "Which files require explicit confirmation before I touch them? (e.g., `CLAUDE.md`, `Knowledge/People/`)"
 
-```
-question: "Which of these should be kept out of all files? (Select all that apply)"
-header: "Privacy scan"
-multiSelect: true
-options:
-  - label: "Compensation or equity"
-    description: "Salary, bonus, equity, offers, or counter-offers"
-  - label: "Health or family"
-    description: "Personal health, medical, or family situation"
-  - label: "Customer names or data"
-    description: "Specific customer names, contracts, usage data, or PII"
-  - label: "Competitive intelligence"
-    description: "Company strategy, M&A activity, pricing, or unreleased plans"
-```
+If the user is unsure, apply the safe default: freely edit `Tasks/` and `GOALS.md`; require confirmation for `CLAUDE.md`, `Knowledge/People/`, and `Projects/`.
 
-> **Note:** The tool auto-adds an "Other" option — use it for **HR feedback** (performance reviews, 360s, PIPs), **political or social stances**, or any other category the user names. Record each flagged category verbatim; do not collapse into a generic note.
-
-**Step 7b — Editing permissions (use `AskUserQuestion` + conversational):**
-
-> **Tool:** Call `AskUserQuestion` for the repo visibility question.
-
-```
-question: "What is the visibility of this repository?"
-header: "Repo visibility"
-multiSelect: false
-options:
-  - label: "Private"
-    description: "Only I (and invited collaborators) can see this repo"
-  - label: "Public"
-    description: "Anyone can view this repo — I'm careful about what gets committed"
-  - label: "Sanitized public template"
-    description: "I intend to publish this as a template, so all personal data must be replaced with placeholders before committing"
-```
-
-Then ask conversationally:
-1. "Which files or folders may I edit freely without asking each time? (e.g., Tasks/, GOALS.md)"
-2. "Which files require explicit confirmation before I touch them? (e.g., CLAUDE.md, Knowledge/People/)"
-
-Record the checked categories as the user's `Privacy boundaries` in `CLAUDE.md`. Do not collapse the list into a generic note — name each category that the user flagged so future sessions can check against the actual list.
+Record answers in `CLAUDE.md` → `May edit without asking` and `Requires confirmation`.
 
 ## Phase 8 — Confirmation summary
 
@@ -531,12 +496,8 @@ Before writing, show:
 - `Knowledge/People/...`
 - `Projects/.../brief.md`
 
-### Boundaries
-- Never write: ...
-- Ask before editing: ...
-
 ### File-by-file edit plan
-- `CLAUDE.md`: identity, OS mode, operating style (incl. taste), thought frameworks, routing, cadence, privacy boundaries
+- `CLAUDE.md`: identity, OS mode, operating style (incl. taste), thought frameworks, routing, cadence, editing boundaries
 - `GOALS.md`: 30-60-90 outcomes, strategic alignment (OKR, proof metric, kill condition), stakeholders, development goals
 - `Tasks/active.md`: P0/P1 work, blockers, near-term commitments
 - `Tasks/backlog.md`: P2 work and future candidates
@@ -564,6 +525,22 @@ Only proceed after the user replies with an explicit "yes." Polite acknowledgeme
 Only after every file in the plan is written:
 
 1. Show a concise change summary listing every file written.
+
+**Post-write eval scan.** Before recommending next commands, run an automated review of all files written during this session:
+
+1. Read each written file in full.
+2. Scan for patterns that commonly indicate sensitive content:
+   - Compensation or equity figures (dollar amounts, percentages, vesting)
+   - Full customer or account names outside of placeholder brackets
+   - Health, medical, or family information
+   - Competitive intelligence (M&A, unreleased roadmap, pricing)
+   - HR feedback (PIPs, performance ratings, 360 quotes)
+3. Report findings as a short checklist:
+   - `✅ No sensitive content detected in [filename]`
+   - `⚠️ Possible sensitive content in [filename]: "[excerpt]"`
+4. For each `⚠️` item, ask: "Do you want to (a) redact this, (b) replace it with a placeholder, or (c) keep it intentionally?"
+5. Wait for a response on each `⚠️` before proceeding. Only after all flags are resolved:
+
 2. Recommend the first three commands:
    - `/today`
    - `/meeting-prep [person]`
@@ -582,7 +559,6 @@ Run this check before declaring onboarding finished. If any item fails, ask the 
 | **30-60-90 outcomes are specific** | Each phase in `GOALS.md` has at least 2 outcomes that name a deliverable, decision, or evidence — not just a theme. | Re-run Phase 5. |
 | **Active tasks present** | `Tasks/active.md` has ≥1 P0 or P1 item that is not a template placeholder. | Re-run Phase 4. |
 | **At least one stakeholder profile started** | `Knowledge/People/` contains at least one non-template file, or the user has explicitly said they will fill it later. | Re-run Phase 6 or capture the deferral. |
-| **Privacy boundaries recorded** | `CLAUDE.md` → `Privacy boundaries` is not a bracketed list. | Re-run Phase 7. |
 | **Anchor project brief exists or skipped intentionally** | `Projects/[YOUR_ANCHOR_PROJECT]/brief.md` exists with non-template content, OR the user has said no anchor project yet. | Re-run Phase 6. |
 
 Report verification results as a short checklist (✅ / ❌ per row) to the user.
@@ -632,7 +608,6 @@ Run the workflow with this fake user profile:
 - Planning rhythm: weekly planning, daily `/today`, Friday `/weekly-update`
 - Anchor project: Activation funnel redesign
 - Key stakeholders: Priya Shah, Marco Chen, Elena Torres, Sam Rivera
-- Privacy boundaries: never store compensation, health, private HR feedback, or sensitive customer data
 ```
 
 ### Pass criteria
@@ -641,13 +616,14 @@ The dry run passes only if the assistant:
 
 1. Starts from the trigger phrase without requiring the user to know internal file structure.
 2. Asks questions in small batches instead of dumping the full schema at once.
-3. Uses `AskUserQuestion` for all enumerable-choice questions: OS context (Phase 0), OS mode (Phase 1a), primary purpose (Phase 1b), persona (Phase 2a), pushback level (Phase 2b), cadence (Phase 3a), week-start day (Phase 3b), evidence standard (Phase 5B), decision bar (Phase 5B), privacy scan (Phase 7a), and repo visibility (Phase 7b).
-4. Asks taste, tone-to-avoid, goals, task descriptions, tradeoff hierarchy, acceptable failure, and stakeholder details **conversationally** — not as dropdowns.
-5. Captures purpose, operating style (including taste), thought frameworks, cadence, active work, goals (with OKR alignment), stakeholders, projects, and privacy boundaries.
+3. Uses `AskUserQuestion` for all enumerable-choice questions: OS context (Phase 0), OS mode (Phase 1a), primary purpose (Phase 1b), persona (Phase 2a), pushback level (Phase 2b), cadence (Phase 3a), week-start day (Phase 3b), evidence standard (Phase 5B), and decision bar (Phase 5B).
+4. Asks taste, tone-to-avoid, goals, task descriptions, tradeoff hierarchy, acceptable failure, editing boundaries, and stakeholder details **conversationally** — not as dropdowns.
+5. Captures purpose, operating style (including taste), thought frameworks, cadence, active work, goals (with OKR alignment), stakeholders, and projects.
 6. Preserves unknowns as placeholders or `Unknown` instead of inventing facts.
 7. Produces a Phase 8 confirmation summary with a file-by-file edit plan.
 8. Does not edit files until the user explicitly approves the proposed setup.
-9. Recommends `/today`, `/meeting-prep [person]`, and `/weekly-update` after confirmed setup.
+9. Runs a post-write eval scan after Phase 9 and resolves any `⚠️` flags before recommending next commands.
+10. Recommends `/today`, `/meeting-prep [person]`, and `/weekly-update` after confirmed setup.
 
 ### Fail signals
 
@@ -659,5 +635,6 @@ Tighten this workflow before merging if the assistant:
 - Produces generic goals that do not reflect the user's stated purpose.
 - Proposes new top-level folders or unrelated architecture changes during onboarding.
 - Skips the first-week usefulness question.
-- Presents enumerable choices (OS mode, persona, cadence, privacy scan, etc.) as plain-text lists instead of using `AskUserQuestion`.
-- Uses `AskUserQuestion` for free-text questions (taste, tone-to-avoid, goal descriptions, acceptable failure) — these must stay conversational.
+- Presents enumerable choices (OS mode, persona, cadence, etc.) as plain-text lists instead of using `AskUserQuestion`.
+- Uses `AskUserQuestion` for free-text questions (taste, tone-to-avoid, goal descriptions, acceptable failure, editing boundaries) — these must stay conversational.
+- Skips the post-write eval scan or declares onboarding complete before all `⚠️` flags are resolved.
