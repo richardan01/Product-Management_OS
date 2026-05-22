@@ -116,9 +116,9 @@ options:
     description: "Founder work, personal product, or AI prototype"
   - label: "Research or writing"
     description: "Discovery, synthesis, evidence quality, long-form thinking"
-  - label: "Learning / personal development"
-    description: "Skill-building, PM craft, or AI PM expertise"
 ```
+
+> **Note:** The tool auto-adds an "Other" option — users who select it for **learning / personal development** or a mix not covered above should describe it in the follow-up text. Record their answer verbatim.
 
 **Step 0b — Identity and placeholders (ask conversationally):**
 
@@ -281,13 +281,11 @@ options:
     description: "End-of-week stakeholder summary and progress snapshot"
   - label: "Sprint planning and retro"
     description: "Two-week sprints with structured planning and retrospective"
-  - label: "Monthly strategy review"
-    description: "Monthly check on goals, risks, and roadmap direction"
-  - label: "Quarterly planning"
-    description: "OKR-level planning, goal-setting, and portfolio review"
-  - label: "Ad hoc only"
-    description: "No fixed cadence — use the OS reactively as needed"
+  - label: "Monthly / quarterly planning"
+    description: "OKR-level goal-setting, strategy reviews, and portfolio check-ins"
 ```
+
+> **Note:** The tool auto-adds an "Other" option — users who work **ad hoc only** or have a non-standard cadence should select it and describe their rhythm. Record their answer verbatim.
 
 **Step 3b — Week anchor and meetings (use `AskUserQuestion` + conversational):**
 
@@ -453,13 +451,9 @@ options:
     description: "Specific customer names, contracts, usage data, or PII"
   - label: "Competitive intelligence"
     description: "Company strategy, M&A activity, pricing, or unreleased plans"
-  - label: "HR feedback"
-    description: "Performance reviews, 360 feedback, PIPs, or HR conversations"
-  - label: "Political or social stances"
-    description: "Personal political views, religious beliefs, or social positions"
 ```
 
-> The "Other" option lets the user name any category not listed. Record it verbatim.
+> **Note:** The tool auto-adds an "Other" option — use it for **HR feedback** (performance reviews, 360s, PIPs), **political or social stances**, or any other category the user names. Record each flagged category verbatim; do not collapse into a generic note.
 
 **Step 7b — Editing permissions (use `AskUserQuestion` + conversational):**
 
