@@ -99,11 +99,32 @@ Use the schema to generate the Phase 8 confirmation summary and the file-by-file
 
 ## Phase 0 — Confirm first-run context
 
-Ask:
+**Step 0a — OS context (use `AskUserQuestion`):**
 
-1. Is this OS for your day job, career work, a side project, learning, or a mix?
-2. What name, role, company / organization, and team should the OS use?
-3. Are there any placeholders you want to preserve for now instead of filling in?
+> **Tool:** Call `AskUserQuestion` with the configuration below. Set `multiSelect: true` so the user can pick more than one if their situation spans multiple contexts.
+
+```
+question: "What is this OS primarily for? (Select all that apply)"
+header: "OS context"
+multiSelect: true
+options:
+  - label: "Day job"
+    description: "Current role — product execution, stakeholder updates, roadmap hygiene"
+  - label: "Career work"
+    description: "Positioning, interviews, frontier-lab prep, or narrative building"
+  - label: "Side project / build"
+    description: "Founder work, personal product, or AI prototype"
+  - label: "Research or writing"
+    description: "Discovery, synthesis, evidence quality, long-form thinking"
+  - label: "Learning / personal development"
+    description: "Skill-building, PM craft, or AI PM expertise"
+```
+
+**Step 0b — Identity and placeholders (ask conversationally):**
+
+Ask in one message:
+1. "What name, role, company / organization, and team should the OS use?"
+2. "Are there any placeholders you'd prefer to leave blank for now rather than fill in?"
 
 Record identity details in the setup capture. If the user prefers not to store company or people names, preserve placeholders and reflect that boundary in `CLAUDE.md`.
 
@@ -120,39 +141,101 @@ Start by offering the user a practical **OS mode**. Explain that this is a custo
 | **Minimalist** | The user wants low ceremony and few default commands | `/today`, `/weekly-update`, light `/peer-review` |
 | **Custom** | The user wants to mix surfaces manually | User-chosen commands, quality gates, persona, and routing |
 
-Ask:
+**Step 1a — OS mode (use `AskUserQuestion`):**
 
-1. Which OS mode should we start from: Day-job PM, AI Builder PM, Research PM, Career transition, Minimalist, or Custom?
-2. What is the primary purpose of this OS?
-   - Day-job execution
-   - Career transition
-   - Founder / product build
-   - Research and writing
-   - Learning / personal development
-   - Mixed setup
-   - Custom
-3. What should this OS help you do every week?
-4. What would make this OS feel useful within the first 7 days?
+> **Tool:** Call `AskUserQuestion` with the configuration below. Remind the user this is not a permanent choice — they can override commands, gates, persona, and routing before any files are written.
+
+```
+question: "Which OS mode should we start from?"
+header: "OS mode"
+multiSelect: false
+options:
+  - label: "Day-job PM"
+    description: "Current role execution: stakeholder updates, roadmap hygiene. Surfaces /today, /weekly-update, /meeting-prep, /peer-review"
+  - label: "AI Builder PM"
+    description: "Building AI/LLM products or developing AI PM craft: evals, model-risk, prompt/tool design. Surfaces /evals, /eval-review, /build-review, /test-plan"
+  - label: "Research PM"
+    description: "Discovery, synthesis, evidence quality, decision readiness. Surfaces /synthesize-research, /research-sufficiency, /wiki-ingest, /wiki-query"
+  - label: "Career transition"
+    description: "Positioning for roles, interviews, or frontier-lab research. Surfaces /career-narrative, /frontier-lab-interview-prep, optional Gotham layer"
+```
+
+> If the user needs **Minimalist** or **Custom**, they will select "Other" and describe their preference. Record it accordingly.
+
+**Step 1b — Primary purpose (use `AskUserQuestion`):**
+
+> **Tool:** Call `AskUserQuestion` with the configuration below.
+
+```
+question: "What is the primary purpose of this OS?"
+header: "Primary purpose"
+multiSelect: false
+options:
+  - label: "Day-job execution"
+    description: "Ship the roadmap, manage stakeholders, run the product cadence"
+  - label: "Career transition"
+    description: "Position for a new role, prep for interviews, build narrative"
+  - label: "Founder / product build"
+    description: "Validate ideas, build prototypes, make fast decisions with limited data"
+  - label: "Research and writing"
+    description: "Synthesize evidence, produce high-quality artifacts, build knowledge"
+```
+
+> For **Learning / personal development** or **Mixed setup**, the user will select "Other." Record their free-text answer as-is.
+
+**Step 1c — Weekly jobs and first-week usefulness (ask conversationally):**
+
+Ask in one message:
+1. "What should this OS help you do every week?"
+2. "What would make this OS feel useful within the first 7 days?"
 
 Record the OS mode and operating purpose in `CLAUDE.md`, and reflect the goal framing in `GOALS.md`. If the user picks **AI Builder PM**, prefer `Templates/prd-ai-feature.md` for AI/LLM product work unless they explicitly request the generic PRD template.
 
 ## Phase 2 — Choose persona and voice
 
-Ask:
+**Step 2a — Default persona (use `AskUserQuestion`):**
 
-1. What persona should the assistant use by default?
-   - Batman strategic operator — direct, contingency-first, high standards
-   - Executive operator — concise, outcome-driven, low drama
-   - Research partner — careful, evidence-first, source-aware
-   - Product coach — reflective, developmental, asks good questions
-   - Builder / AI PM — pragmatic, eval-first, model-aware — for PMs building AI-augmented products or developing AI PM expertise (eval discipline, agentic workflows, model upgrade hygiene)
-   - Minimalist — terse, checklist-first, low ceremony
-   - Custom
-2. When should the assistant push back?
-3. What tone should it avoid?
-4. Two quick taste questions to calibrate how the assistant responds day-to-day:
-   - When an assistant responds, what's one thing that immediately makes you tune out or cringe? (e.g., "starts every reply with 'Certainly!'", "bullet-points everything", "over-explains obvious things", "skips the tradeoffs".)
-   - Describe your ideal response to a hard question — what makes it feel exactly right?
+> **Tool:** Call `AskUserQuestion` with the configuration below. Tell the user: "Each persona turns on a different set of quality gates, routing, and slash commands — see the effects matrix below the question."
+
+```
+question: "What persona should the assistant use by default?"
+header: "Persona"
+multiSelect: false
+options:
+  - label: "Batman strategic operator"
+    description: "Direct, terse, contingency-first, high standards. Gates: /riddler + /vale mandatory pre-publish. Routes all 12 Gotham agents."
+  - label: "Executive operator"
+    description: "Concise, outcome-driven, low drama. Gates: /peer-review default, /go-nogo for launches. Batman layer available but not routed."
+  - label: "Research partner"
+    description: "Evidence-first, careful, citation-aware. Gates: /research-sufficiency + /peer-review. Routes Oracle patterns."
+  - label: "Product coach"
+    description: "Reflective, asks good questions, developmental. Gates: /peer-review light edit."
+```
+
+> For **Builder / AI PM**, **Minimalist**, or **Custom**, the user selects "Other." Record their free-text answer and map it to the closest effects-matrix row or ask for clarification.
+
+**Step 2b — Pushback level (use `AskUserQuestion`):**
+
+> **Tool:** Call `AskUserQuestion` with the configuration below.
+
+```
+question: "When should the assistant push back on your thinking?"
+header: "Pushback"
+multiSelect: false
+options:
+  - label: "Low — mostly execute, flag only serious issues"
+    description: "Challenge only when something is clearly wrong or risky; otherwise run with the request"
+  - label: "Medium — challenge unclear goals and missing evidence"
+    description: "Push back when goals are vague, evidence is weak, or tradeoffs are hidden"
+  - label: "High — adversarial review is the default"
+    description: "Actively stress-test every plan, decision, and claim; assume the user wants to be challenged"
+```
+
+**Step 2c — Tone and taste (ask conversationally):**
+
+Ask in one message:
+1. "What tone should the assistant avoid? (e.g., 'Never start with Certainly!', 'Don't bullet-point everything')"
+2. "When an assistant gives a great response to a hard question — what does that feel like? Describe it in your own words."
 
 Record the answers in the capture schema as `Taste — turns me off` and `Taste — ideal response feel`. These are free text, not dropdowns — use the user's exact words.
 
@@ -183,22 +266,50 @@ Confirm the persona and the routed agent set with the user before writing.
 
 ## Phase 3 — Define operating cadence
 
-Ask which cadence the user wants:
+**Step 3a — Operating cadence (use `AskUserQuestion`):**
 
-- Daily brief via `/today`
-- Weekly update via `/weekly-update`
-- Sprint planning and retro
-- Monthly strategy review
-- Quarterly planning
-- Ad hoc only
+> **Tool:** Call `AskUserQuestion` with the configuration below. Set `multiSelect: true` — the user may use more than one cadence.
 
-Then ask:
+```
+question: "Which cadences do you want the OS to support? (Select all that apply)"
+header: "Cadence"
+multiSelect: true
+options:
+  - label: "Daily brief via /today"
+    description: "Start each day with a priority check, calendar prep, and follow-up scan"
+  - label: "Weekly update via /weekly-update"
+    description: "End-of-week stakeholder summary and progress snapshot"
+  - label: "Sprint planning and retro"
+    description: "Two-week sprints with structured planning and retrospective"
+  - label: "Monthly strategy review"
+    description: "Monthly check on goals, risks, and roadmap direction"
+  - label: "Quarterly planning"
+    description: "OKR-level planning, goal-setting, and portfolio review"
+  - label: "Ad hoc only"
+    description: "No fixed cadence — use the OS reactively as needed"
+```
 
-1. What day does the week start?
-2. What cadence do you use for planning: weekly, sprint, monthly, quarterly, or custom?
-3. Which meetings or reviews should the OS prepare you for?
+**Step 3b — Week anchor and meetings (use `AskUserQuestion` + conversational):**
 
-Reflect the answer in `CLAUDE.md`, `Tasks/active.md`, and recurring workflow suggestions.
+> **Tool:** Call `AskUserQuestion` for the week-start question.
+
+```
+question: "What day does your work week start?"
+header: "Week start"
+multiSelect: false
+options:
+  - label: "Monday"
+    description: "Standard Mon–Fri week"
+  - label: "Sunday"
+    description: "Sun–Sat week"
+  - label: "Tuesday"
+    description: "Rolling or shift-based week"
+```
+
+Then ask conversationally:
+- "Which recurring meetings or reviews should the OS help you prepare for? (e.g., weekly team sync, monthly business review, quarterly planning)"
+
+Reflect the answers in `CLAUDE.md`, `Tasks/active.md`, and recurring workflow suggestions.
 
 ## Phase 4 — Capture current tasks
 
@@ -246,13 +357,57 @@ Propose updates to `GOALS.md` including the new "Strategic alignment" section.
 
 ## Phase 5B — How you think
 
-Ask four questions about decision-making in one batch. The user may skip any question:
+Open with: "Four quick questions about how you make decisions — skip any you want."
 
-> "Four quick questions about how you make decisions — skip any you want:
-> 1. **Tradeoff hierarchy:** When speed, quality, and learning are in tension, what's your default order? (e.g., quality > speed > learning)
-> 2. **Evidence standard:** What convinces you more — good data, expert judgment, direct user feedback, or your own synthesis?
-> 3. **Decision bar:** Can you move forward with 70% confidence, or do you typically need 90%+?
-> 4. **Acceptable failure:** What kind of failure is OK (it was a learning), vs. what kind is not OK (it was avoidable)?"
+**Question 1 — Tradeoff hierarchy (ask conversationally):**
+
+Ask: "When speed, quality, and learning are in tension, what's your default order? (e.g., quality > speed > learning)"
+
+This is free text — the user defines their own order. Do not offer a dropdown.
+
+**Question 2 — Evidence standard (use `AskUserQuestion`):**
+
+> **Tool:** Call `AskUserQuestion` with the configuration below.
+
+```
+question: "What convinces you most when making a decision?"
+header: "Evidence"
+multiSelect: false
+options:
+  - label: "Good quantitative data"
+    description: "Metrics, experiment results, analytics — numbers move me"
+  - label: "Expert judgment"
+    description: "I weight domain expertise and trusted advisors heavily"
+  - label: "Direct user feedback"
+    description: "What users say in research, support, or interviews carries most weight"
+  - label: "My own synthesis"
+    description: "I integrate multiple signals and trust my pattern-matching"
+```
+
+**Question 3 — Decision bar (use `AskUserQuestion`):**
+
+> **Tool:** Call `AskUserQuestion` with the configuration below.
+
+```
+question: "What confidence level do you need before committing to a significant decision?"
+header: "Decision bar"
+multiSelect: false
+options:
+  - label: "~70% — good enough to move"
+    description: "Speed matters; I'd rather iterate than wait for certainty"
+  - label: "~80% — reasonable confidence"
+    description: "I want a solid majority of signals pointing the same way"
+  - label: "90%+ — high certainty required"
+    description: "I don't commit until most unknowns are resolved"
+```
+
+**Question 4 — Acceptable failure (ask conversationally):**
+
+Ask: "What kind of failure is OK — a learning you'd accept — versus what kind is not OK because it was avoidable? Give me a concrete example of each if you can."
+
+This is free text — the kill condition must be a specific pattern, not a category.
+
+---
 
 Record answers in the capture schema under `Thought frameworks`. If the user skips a question, record it as `Not specified` — do not invent a default. These answers flow into `CLAUDE.md` → `Thought frameworks` section and will be used in every session to calibrate how tradeoffs, evidence, and risk are framed.
 
@@ -281,24 +436,51 @@ Then propose updates to:
 
 ## Phase 7 — Privacy and editing boundaries
 
-Start with a guided privacy scan instead of a single open question:
+**Step 7a — Privacy scan (use `AskUserQuestion`):**
 
-> "Quick privacy scan — tell me which of these you want kept out of all files (check all that apply):
-> - Compensation or equity details
-> - Health or family information
-> - Customer names or customer data
-> - Competitive intelligence (company strategy, M&A, pricing)
-> - HR feedback (performance reviews, 360s)
-> - Political beliefs or social stances
-> - Anything else specific to your situation?"
+> **Tool:** Call `AskUserQuestion` with the configuration below. Set `multiSelect: true`. Tell the user: "For anything you select, I'll flag when a response might touch that category and ask before writing."
 
-Tell the user: "For anything you check, I'll flag when a response might touch that category and ask before writing."
+```
+question: "Which of these should be kept out of all files? (Select all that apply)"
+header: "Privacy scan"
+multiSelect: true
+options:
+  - label: "Compensation or equity"
+    description: "Salary, bonus, equity, offers, or counter-offers"
+  - label: "Health or family"
+    description: "Personal health, medical, or family situation"
+  - label: "Customer names or data"
+    description: "Specific customer names, contracts, usage data, or PII"
+  - label: "Competitive intelligence"
+    description: "Company strategy, M&A activity, pricing, or unreleased plans"
+  - label: "HR feedback"
+    description: "Performance reviews, 360 feedback, PIPs, or HR conversations"
+  - label: "Political or social stances"
+    description: "Personal political views, religious beliefs, or social positions"
+```
 
-Then ask:
+> The "Other" option lets the user name any category not listed. Record it verbatim.
 
-2. Which files may the assistant edit without asking every time?
-3. Which files require confirmation before edits?
-4. Is this repo private, public, or intended to become a sanitized public template?
+**Step 7b — Editing permissions (use `AskUserQuestion` + conversational):**
+
+> **Tool:** Call `AskUserQuestion` for the repo visibility question.
+
+```
+question: "What is the visibility of this repository?"
+header: "Repo visibility"
+multiSelect: false
+options:
+  - label: "Private"
+    description: "Only I (and invited collaborators) can see this repo"
+  - label: "Public"
+    description: "Anyone can view this repo — I'm careful about what gets committed"
+  - label: "Sanitized public template"
+    description: "I intend to publish this as a template, so all personal data must be replaced with placeholders before committing"
+```
+
+Then ask conversationally:
+1. "Which files or folders may I edit freely without asking each time? (e.g., Tasks/, GOALS.md)"
+2. "Which files require explicit confirmation before I touch them? (e.g., CLAUDE.md, Knowledge/People/)"
 
 Record the checked categories as the user's `Privacy boundaries` in `CLAUDE.md`. Do not collapse the list into a generic note — name each category that the user flagged so future sessions can check against the actual list.
 
@@ -465,11 +647,13 @@ The dry run passes only if the assistant:
 
 1. Starts from the trigger phrase without requiring the user to know internal file structure.
 2. Asks questions in small batches instead of dumping the full schema at once.
-3. Captures purpose, operating style (including taste), thought frameworks, cadence, active work, goals (with OKR alignment), stakeholders, projects, and privacy boundaries.
-4. Preserves unknowns as placeholders or `Unknown` instead of inventing facts.
-5. Produces a Phase 8 confirmation summary with a file-by-file edit plan.
-6. Does not edit files until the user explicitly approves the proposed setup.
-7. Recommends `/today`, `/meeting-prep [person]`, and `/weekly-update` after confirmed setup.
+3. Uses `AskUserQuestion` for all enumerable-choice questions: OS context (Phase 0), OS mode (Phase 1a), primary purpose (Phase 1b), persona (Phase 2a), pushback level (Phase 2b), cadence (Phase 3a), week-start day (Phase 3b), evidence standard (Phase 5B), decision bar (Phase 5B), privacy scan (Phase 7a), and repo visibility (Phase 7b).
+4. Asks taste, tone-to-avoid, goals, task descriptions, tradeoff hierarchy, acceptable failure, and stakeholder details **conversationally** — not as dropdowns.
+5. Captures purpose, operating style (including taste), thought frameworks, cadence, active work, goals (with OKR alignment), stakeholders, projects, and privacy boundaries.
+6. Preserves unknowns as placeholders or `Unknown` instead of inventing facts.
+7. Produces a Phase 8 confirmation summary with a file-by-file edit plan.
+8. Does not edit files until the user explicitly approves the proposed setup.
+9. Recommends `/today`, `/meeting-prep [person]`, and `/weekly-update` after confirmed setup.
 
 ### Fail signals
 
@@ -481,3 +665,5 @@ Tighten this workflow before merging if the assistant:
 - Produces generic goals that do not reflect the user's stated purpose.
 - Proposes new top-level folders or unrelated architecture changes during onboarding.
 - Skips the first-week usefulness question.
+- Presents enumerable choices (OS mode, persona, cadence, privacy scan, etc.) as plain-text lists instead of using `AskUserQuestion`.
+- Uses `AskUserQuestion` for free-text questions (taste, tone-to-avoid, goal descriptions, acceptable failure) — these must stay conversational.
