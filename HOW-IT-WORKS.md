@@ -73,6 +73,19 @@ What's left for the user? **The judgment.** Reviewing drafts, deciding the call,
 
 ---
 
+## Core daily loop
+
+The core loop is intentionally simple:
+
+1. `/today` starts the day with priorities and blockers from your active context.
+2. Work happens (meetings, drafting, decisions, execution).
+3. `/eod` closes the day by updating what moved, what is blocked, and what carries forward.
+4. `/weekly-update` summarizes progress and decisions for stakeholders.
+
+When task files are stale, the OS gets weaker. Fresh `Tasks/active.md` context is the highest-leverage habit in this system.
+
+---
+
 ## How agents compose
 
 Skills don't run in isolation. A single `/meeting-prep` triggers a chain:
