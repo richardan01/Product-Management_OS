@@ -1,6 +1,8 @@
 # ProductManagement-OS
 
-A downloadable multi-agent operating-system template for product managers. It combines PM templates, repeatable workflows, Claude/Codex skills, and a configurable persona layer so users can turn a fresh clone into a useful daily work system.
+A personal AI Product Management operating system for repeatable PM workflows, AI feature PRDs, evals, product reviews, stakeholder updates, and daily execution.
+
+It is designed to help PMs produce higher-quality artifacts with consistent operating rhythms, while keeping setup practical and lightweight in week one.
 
 ---
 
@@ -36,11 +38,50 @@ Then, in any of the three:
 
 ---
 
+## 10-minute demo
+
+If you are evaluating this repo as a recruiter, collaborator, or PM peer, use this quick path to see value immediately:
+
+1. Fork or clone this repository.
+2. Run onboarding with:
+
+   ```text
+   Computer, onboard me into this OS
+   ```
+
+3. Choose **AI Builder PM** when prompted.
+4. Create (or reuse) a demo project workspace.
+5. Run:
+
+   ```text
+   /today
+   ```
+
+6. Draft one AI feature PRD with `Templates/prd-ai-feature.md`.
+7. Review the draft with `/eval-review` and `/build-review`.
+8. Run `/go-nogo` for launch-readiness framing.
+
+This sequence shows the core promise: faster PM execution with stronger AI-product quality gates.
+
+## First 7 days playbook
+
+- **Day 1 — Onboard the OS:** run `Computer, onboard me into this OS` and confirm file updates.
+- **Day 2 — Set direction:** fill `GOALS.md` and `Tasks/active.md` with your real priorities.
+- **Day 3 — Add stakeholders:** create 3–5 key profiles in `Knowledge/People/`.
+- **Day 4 — Run daily ops:** use `/today` in the morning and `/meeting-prep` before key meetings.
+- **Day 5 — Produce one artifact:** draft one PRD (or research summary) from templates.
+- **Day 6 — Run review gates:** apply `/eval-review`, `/build-review`, and relevant quality checks.
+- **Day 7 — Close the week:** run `/weekly-update` and `/retro` to lock learning and next steps.
+
+The goal of week one is not full customization; it is proving the OS helps you ship better PM work immediately.
+
 ## What this is
 
 A PM's daily work is high-context, multi-domain, and interruptible. On any given day you're switching between sprint planning, stakeholder prep, solution selection, risk tracking, and writing PRDs — each requiring different data, different frameworks, and different output formats.
 
 A single AI assistant with one long prompt can't handle this well. It conflates domains, loses context, and produces generic output.
+
+The Gotham/Batman layer is intentionally optional: useful for users who like a strategic persona system, but not required for day-to-day AI PM execution.
 
 **This OS solves that.** It's a multi-agent architecture where:
 - Each agent owns a narrow domain
@@ -127,7 +168,7 @@ The `Evals/onboarding/` suite tests these properties against a non-Batman fixtur
 
 ## Two configurable layers
 
-### Layer 1: Strategic persona layer
+### Layer 1: Strategic persona layer (optional)
 
 12 named agents in `Agents/Gotham/Computer/`. These can run as the default if the user chooses the Batman persona during onboarding. Their job is to maintain long-horizon strategy, artifact quality, and ruthless focus.
 
@@ -288,7 +329,7 @@ ProductManagement-OS/
 
 | Category | Skills |
 |---|---|
-| **Daily ops** | `/today`, `/weekly-update`, `/meeting-prep`, `/retro`, `/risk-register` |
+| **Daily ops** | `/today`, `/eod`, `/weekly-update`, `/meeting-prep`, `/retro`, `/risk-register` |
 | **Quality gates** | `/peer-review`, `/prd-readiness`, `/research-sufficiency`, `/build-review`, `/eval-review`, `/go-nogo`, `/voice-conformance` |
 | **Planning** | `/quarterly-planning`, `/roadmap-review`, `/launch-plan` |
 | **Writing & review** | `/riddler`, `/vale`, `/career-narrative`, `/training-plan`, `/test-plan` |
