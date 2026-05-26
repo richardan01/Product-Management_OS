@@ -4,11 +4,12 @@
 **Sub-agents:** Spawn `task-analyzer` and `metrics-reader` in parallel to gather task progress and latest metrics.
 
 Read the following files to draft [YOUR_NAME]'s weekly update for [YOUR_MANAGER] and the [YOUR_TEAM]:
-1. `Tasks/active.md` — what was completed and what's in progress
-2. `GOALS.md` — check against 30-60-90 day targets
-3. `Projects/[YOUR_ANCHOR_PROJECT]/brief.md` — milestone status
-4. `Meetings/1on1s/[YOUR_MANAGER].md` (if exists) — any context from last 1:1
-5. Check `Meetings/` folder for any relevant meeting notes from this week
+1. **`Tasks/weekly-updates/archive/`** — read the **last 2 sent updates** (most recent filenames). This is the most important step for tone continuity: match the voice, structure, and level of detail [YOUR_NAME] has already established. If the folder is empty, fall back to `Templates/weekly-update.md` for structure only.
+2. `Tasks/active.md` — what was completed and what's in progress
+3. `GOALS.md` — check against 30-60-90 day targets
+4. `Projects/[YOUR_ANCHOR_PROJECT]/brief.md` — milestone status
+5. `Meetings/1on1s/[YOUR_MANAGER].md` (if exists) — any context from last 1:1
+6. Check `Meetings/` folder for any relevant meeting notes from this week
 
 Then draft a weekly update using `Templates/weekly-update.md`. Keep it:
 - Under 300 words
@@ -29,6 +30,8 @@ After drafting, show it to [YOUR_NAME] and ask:
 Revise based on feedback.
 
 Also pull latest metrics from `Knowledge/Reference/metrics/latest.md` if it exists, and include key numbers in the update.
+
+**After [YOUR_NAME] confirms and sends the update:** save the final version to `Tasks/weekly-updates/archive/YYYY-MM-DD.md` so the next run can read it for tone continuity.
 
 ---
 
