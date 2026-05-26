@@ -35,6 +35,7 @@ Maintain this working schema during the interview. Preserve placeholders or mark
 - Manager or primary sponsor:
 
 ### OS purpose
+- OS mode:
 - Primary purpose:
 - Weekly jobs-to-be-done:
 - Useful within 7 days if:
@@ -106,11 +107,23 @@ Ask:
 
 Record identity details in the setup capture. If the user prefers not to store company or people names, preserve placeholders and reflect that boundary in `CLAUDE.md`.
 
-## Phase 1 — Choose purpose
+## Phase 1 — Choose purpose and OS mode
+
+Start by offering the user a practical **OS mode**. Explain that this is a customizable starting package — not a permanent choice — and that the user can override commands, gates, persona, and routing before any files are written.
+
+| OS mode | Use when | Default surface |
+|---|---|---|
+| **Day-job PM** | The main job is current product execution, stakeholder updates, and roadmap hygiene | `/today`, `/weekly-update`, `/meeting-prep`, `/peer-review` |
+| **AI Builder PM** | The user builds AI/LLM products or wants AI PM craft: evals, model-risk reviews, prompt/tool design, launch gates | `Templates/prd-ai-feature.md`, `/evals`, `/eval-review`, `/build-review`, `/test-plan` |
+| **Research PM** | The user needs discovery, synthesis, evidence quality, and decision readiness | `/synthesize-research`, `/research-sufficiency`, `/wiki-ingest`, `/wiki-query` |
+| **Career transition** | The user is positioning for roles, interviews, or frontier-lab research | `/career-narrative`, `/frontier-lab-interview-prep`, optional Gotham strategic layer |
+| **Minimalist** | The user wants low ceremony and few default commands | `/today`, `/weekly-update`, light `/peer-review` |
+| **Custom** | The user wants to mix surfaces manually | User-chosen commands, quality gates, persona, and routing |
 
 Ask:
 
-1. What is the primary purpose of this OS?
+1. Which OS mode should we start from: Day-job PM, AI Builder PM, Research PM, Career transition, Minimalist, or Custom?
+2. What is the primary purpose of this OS?
    - Day-job execution
    - Career transition
    - Founder / product build
@@ -118,10 +131,10 @@ Ask:
    - Learning / personal development
    - Mixed setup
    - Custom
-2. What should this OS help you do every week?
-3. What would make this OS feel useful within the first 7 days?
+3. What should this OS help you do every week?
+4. What would make this OS feel useful within the first 7 days?
 
-Record the answer as the user's operating purpose in `CLAUDE.md` and goal framing in `GOALS.md`.
+Record the OS mode and operating purpose in `CLAUDE.md`, and reflect the goal framing in `GOALS.md`. If the user picks **AI Builder PM**, prefer `Templates/prd-ai-feature.md` for AI/LLM product work unless they explicitly request the generic PRD template.
 
 ## Phase 2 — Choose persona and voice
 
@@ -297,7 +310,8 @@ Before writing, show:
 ## Proposed setup
 
 ### Purpose
-- ...
+- OS mode: ...
+- Primary purpose: ...
 
 ### Persona and taste
 - Persona: ...
@@ -346,7 +360,7 @@ Before writing, show:
 - Ask before editing: ...
 
 ### File-by-file edit plan
-- `CLAUDE.md`: identity, operating style (incl. taste), thought frameworks, routing, cadence, privacy boundaries
+- `CLAUDE.md`: identity, OS mode, operating style (incl. taste), thought frameworks, routing, cadence, privacy boundaries
 - `GOALS.md`: 30-60-90 outcomes, strategic alignment (OKR, proof metric, kill condition), stakeholders, development goals
 - `Tasks/active.md`: P0/P1 work, blockers, near-term commitments
 - `Tasks/backlog.md`: P2 work and future candidates

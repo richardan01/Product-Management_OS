@@ -68,7 +68,18 @@ The assistant should run `Workflows/interactive-onboarding.md` and collect the u
 
 ### Onboarding choices
 
-The onboarding interview lets the user choose:
+The onboarding interview starts with an **OS mode chooser** so users can customize the template without reading every agent file first. The mode is a starting package, not a lock-in; the user can override persona, quality gates, surfaced commands, and privacy boundaries before any files are written.
+
+| OS mode | Best for | Default commands and gates |
+|---|---|---|
+| **Day-job PM** | Sprint execution, stakeholder updates, roadmap hygiene | `/today`, `/weekly-update`, `/meeting-prep`, `/peer-review` |
+| **AI Builder PM** | AI/LLM features, evals, model-risk reviews, launch gates | `Templates/prd-ai-feature.md`, `/evals`, `/eval-review`, `/build-review`, `/test-plan` |
+| **Research PM** | Discovery, synthesis, evidence quality, decision readiness | `/synthesize-research`, `/research-sufficiency`, `/wiki-ingest`, `/wiki-query` |
+| **Career transition** | Positioning, interview prep, target-company research | `/career-narrative`, `/frontier-lab-interview-prep`, optional Gotham strategic layer |
+| **Minimalist** | Low-ceremony daily execution | `/today`, `/weekly-update`, light `/peer-review` |
+| **Custom** | Any mixed setup | User chooses commands, quality gates, persona, and routing |
+
+The onboarding interview then lets the user choose or override:
 
 1. **Purpose** — day-job execution, career transition, founder/product build, research/writing, learning system, or a mixed setup.
 2. **Persona** — Batman default, executive operator, researcher, coach, builder, minimalist, or a custom persona.
@@ -97,7 +108,7 @@ The persona choice in onboarding is not cosmetic — it changes which agents are
 - **Batman** — all 12 Gotham agents active, `/riddler` + `/vale` mandatory pre-publish.
 - **Executive operator** — skills + workflows only, `/peer-review` default gate, Batman agents preserved but not routed.
 - **Research partner** — research-oriented commands surfaced first (`/synthesize-research`, `/wiki-ingest`), `/research-sufficiency` gate.
-- **Builder** — `/build-review`, `/eval-review`, `/test-plan` surfaced first.
+- **Builder / AI PM** — `Templates/prd-ai-feature.md`, `/build-review`, `/eval-review`, `/test-plan` surfaced first.
 - **Minimalist** — skills only, low-ceremony.
 
 Non-Batman personas keep `Agents/Gotham/Computer/` on disk so the user can opt back in by re-running onboarding.
@@ -221,8 +232,7 @@ ProductManagement-OS/
 │   └── follow-ups.md            ← Commitments from meetings and reviews
 │
 ├── Projects/
-│   └── YOUR_ANCHOR_PROJECT/
-│       └── brief.md             ← Project brief template
+│   └── .gitkeep                 ← Anchor project folders are created during onboarding
 │
 ├── Knowledge/
 │   ├── People/
