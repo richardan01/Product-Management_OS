@@ -22,6 +22,13 @@ Help me think, write, review, and improve PM artifacts for AI product management
 
 **AI product management** in this OS means three things: (1) building products powered by AI / LLMs, (2) using AI as a tool in your own PM workflow (evals, synthesis, automation), and (3) reasoning about AI / model risks, tradeoffs, and brittleness. This OS supports all three modes, and is designed for PMs who already do generalist PM work and want to develop AI PM expertise.
 
+## Core daily loop
+- `/today` — morning brief from `Tasks/active.md` + `GOALS.md`.
+- `/eod` — end-of-day update to `Tasks/active.md`, follow-ups, and (when triggered) the `CLAUDE.md` Current Context block.
+- `/weekly-update` and `/retro` — close the week.
+
+Stale task files weaken the OS. Running `/eod` daily is the highest-leverage habit.
+
 ## Core principles
 - Make the OS useful daily, not theoretically perfect.
 - Optimize for clarity, repeatability, and decision quality.

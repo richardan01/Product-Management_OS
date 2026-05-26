@@ -38,9 +38,9 @@ Then, in any of the three:
 
 ---
 
-## 10-minute demo
+## First session walkthrough
 
-If you are evaluating this repo as a recruiter, collaborator, or PM peer, use this quick path to see value immediately:
+If you are evaluating this repo as a recruiter, collaborator, or PM peer, this is the shortest path to seeing what the OS actually does. Plan for ~30–45 minutes including onboarding. For a no-onboarding skim, browse `examples/ai-builder-pm-demo/`.
 
 1. Fork or clone this repository.
 2. Run onboarding with:
@@ -70,8 +70,12 @@ This sequence shows the core promise: faster PM execution with stronger AI-produ
 - **Day 3 — Add stakeholders:** create 3–5 key profiles in `Knowledge/People/`.
 - **Day 4 — Run daily ops:** use `/today` in the morning and `/meeting-prep` before key meetings.
 - **Day 5 — Produce one artifact:** draft one PRD (or research summary) from templates.
-- **Day 6 — Run review gates:** apply `/eval-review`, `/build-review`, and relevant quality checks.
-- **Day 7 — Close the week:** run `/weekly-update` and `/retro` to lock learning and next steps.
+- **Day 6 — Run review gates (mode-conditional):**
+  - AI Builder PM → `/eval-review` + `/build-review`
+  - Day-job PM → `/peer-review` + `/prd-readiness`
+  - Research PM → `/research-sufficiency` + `/peer-review`
+  - Minimalist / Career transition → `/peer-review`
+- **Day 7 — Close the week:** run `/eod` (each evening to keep task state fresh), then `/weekly-update` and `/retro` to lock learning and next steps.
 
 The goal of week one is not full customization; it is proving the OS helps you ship better PM work immediately.
 
@@ -316,7 +320,7 @@ ProductManagement-OS/
 │   └── voice-map.md             ← Persona/voice assignments per agent
 │
 ├── .claude/
-│   ├── skills/                  ← 27 Claude slash commands (see skill reference below)
+│   ├── skills/                  ← 28 Claude slash commands (see skill reference below)
 │   └── agents/                  ← 10 Claude sub-agent workers (spawned by skills)
 │
 └── .codex/
@@ -325,7 +329,7 @@ ProductManagement-OS/
 
 ### Skill reference
 
-27 slash commands ship with the OS. Onboarding surfaces the most relevant ones for your chosen mode; the full set is available immediately after setup.
+28 slash commands ship with the OS. Onboarding surfaces the most relevant ones for your chosen mode; the full set is available immediately after setup.
 
 | Category | Skills |
 |---|---|
@@ -348,14 +352,18 @@ This template is safe to use as a private working OS. If you publish, share, or 
 
 ## Quality gates (pre-publish)
 
-Every public artifact goes through two mandatory gates before shipping:
+The pre-publish gate depends on the persona chosen during onboarding.
+
+**Batman-persona setups** — two mandatory gates before any public artifact ships:
 
 1. **Riddler review** (`/riddler <artifact>`) — adversarial review; finds the weakest claim
 2. **Vicki Vale review** (`/vale <artifact>`) — user-voice review; finds where the reader stops reading
 
-Both must pass. No exceptions. This is enforced by the operating contract in `CLAUDE.md`.
+Both must pass. These gates are **complementary, not redundant.** Riddler attacks argument strength and unsupported claims. Vicki Vale finds where a real reader stops reading. Run in sequence: Riddler first, then Vicki Vale after the argument is tight.
 
-These two gates are **complementary, not redundant.** Riddler attacks argument strength and unsupported claims. Vicki Vale finds where a real reader stops reading — a piece can be logically sound and still lose the reader by line 3. Run them in sequence: Riddler first, then Vicki Vale after the argument is tight. For high-stakes artifacts, add `/peer-review` before the two gates to catch structural PM craft issues first.
+**Non-Batman setups (Executive operator, Researcher, Coach, Builder, Minimalist)** — `/peer-review` is the default pre-publish gate. `/riddler` and `/vale` remain available and can be opted in during onboarding (Phase 2 persona-effects matrix). For high-stakes artifacts in any persona, add `/peer-review` before adversarial / user-voice gates to catch structural PM craft issues first.
+
+The active gate set is recorded in `CLAUDE.md` and enforced by the operating contract.
 
 ---
 

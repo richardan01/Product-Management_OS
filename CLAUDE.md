@@ -65,6 +65,14 @@ Pinned live-state block. More resilient than depending on `Tasks/active.md` bein
 4. `GOALS.md` — 30-60-90 goals, metrics, and development focus.
 5. For project work: `Projects/[YOUR_ANCHOR_PROJECT]/brief.md`.
 
+## Core daily loop
+1. **Morning** — `/today` reads `Tasks/active.md` + `GOALS.md` and surfaces priorities, blockers, and the standup draft.
+2. **Workday** — meetings, drafting, decisions, execution.
+3. **End of day** — `/eod` updates `Tasks/active.md`, captures follow-ups, and refreshes the **Current context** block above when one of these triggers fires: active P0 changed, new live risk or blocker, or a key date/deadline shifted.
+4. **End of week** — `/weekly-update` and `/retro`.
+
+Stale task files weaken the OS. Running `/eod` daily is the highest-leverage habit.
+
 ## Routing — which layer answers
 
 **Configured strategic layer** — Purpose, persona, career, writing, research, learning, build, and long-horizon strategy work → use the agent or workflow that matches the purpose selected during onboarding. If the user selected Batman mode, use `Agents/Gotham/Computer/` as the strategic layer.
