@@ -61,6 +61,7 @@ Below is what a week looks like when the OS is set up. Each row shows: the momen
 | **Wed 10am** — solution question came up | Use `Templates/research-summary.md` + `/synthesize-research` | Builds a comparison matrix across sources with fit-for-use-case scoring |
 | **Wed 4pm** — quick PRD needed | Use `Templates/prd.md` + `/prd-readiness [file]` | Drafts from the template, then checks readiness before handoff |
 | **Thu 9am** — daily check | `/today` | Sees what changed, retros what slipped, updates priorities |
+| **Every evening** — close the day | `/eod` | Asks what moved, captures blockers and follow-ups, proposes carry-forward edits to `Tasks/active.md` and the `CLAUDE.md` Current Context block |
 | **Thu 3pm** — risk review | `/risk-register` | Logs risks, scores probability/impact, suggests mitigation, drafts an escalation message if needed |
 | **Fri 11am** — manager wants an update | `/weekly-update` | Reads what got done this week from `Tasks/active.md`, drafts a concise update covering completed, in progress, blockers, decisions needed |
 | **Fri 4pm** — end of sprint | `/retro` | Runs a structured retro: what worked / what didn't / one change |

@@ -1,7 +1,7 @@
 ---
 name: eod
 description: End-of-day closing loop for task hygiene, blockers, and tomorrow priority planning.
-allowed-tools: Read, Glob, Grep
+allowed-tools: Read, Glob, Grep, Edit, Write
 ---
 
 # /eod
@@ -10,8 +10,9 @@ Use this skill to close the daily loop so `/today` remains reliable.
 
 ## Required reads
 1. `Tasks/active.md`
-2. `GOALS.md`
-3. `CLAUDE.md` (Current Context block only, if update is needed)
+2. `Tasks/dayjob-active.md` (only if the user maintains a separate day-job lane)
+3. `GOALS.md`
+4. `CLAUDE.md` (Current Context block only, if update is needed)
 
 ## Interaction flow
 1. Ask the user what was completed today.
@@ -25,7 +26,7 @@ Use this skill to close the daily loop so `/today` remains reliable.
 - Carry unfinished P0/P1 work forward in `Tasks/active.md`.
 - Add new blockers to the blocker section in `Tasks/active.md`.
 - Add new follow-ups to `Tasks/follow-ups.md` when relevant.
-- Update the **Current Context** block in `CLAUDE.md` only if today's outcomes materially changed priorities.
+- Update the **Current Context** block in `CLAUDE.md` only when one of these triggers fires: active P0 changed, new live risk or blocker, or a key date/deadline shifted.
 
 ## Hard rule
 Do **not** edit any file until the user gives explicit confirmation.
