@@ -7,6 +7,8 @@ Read the following files to prepare [YOUR_NAME]'s daily to-do list:
 2. `GOALS.md` — 30-60-90 day goals and current focus areas
 3. Check `Meetings/` for any meetings today (if accessible)
 
+> **MCP fallback:** If no calendar MCP is connected, skip the meetings section and note `[Calendar not connected — add meetings manually]` under "On my radar".
+
 Then output a daily to-do list in this format:
 
 ---

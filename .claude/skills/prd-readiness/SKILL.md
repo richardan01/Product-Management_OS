@@ -1,6 +1,7 @@
 # PRD Readiness
 
 **Agent:** Product Definer (Lucius Fox voice) — see `Agents/README.md` voice map.
+**Methodology:** Dan Olsen's Lean Product Process — gap analysis vs. target conditions
 **Pattern:** Evaluator/Gate — applied before a PRD is shared with engineering or used for task extraction.
 
 Run this gate before handing off a PRD to engineering, before `/spec-handoff`, or before `/add-task` extracts implementation work from a PRD.

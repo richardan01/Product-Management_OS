@@ -1,6 +1,7 @@
 # Quarterly Planning
 
 **Agent:** Bruce Wayne → Strategy & Roadmap — see `Agents/Gotham/Computer/bruce-wayne.md` for full context.
+**Methodology:** OKR framework — Doerr, *Measure What Matters*
 **Sub-agents:** Spawn `task-analyzer` (velocity/shipped items) and `project-scanner` (milestone status) in parallel.
 
 Usage: "quarterly planning" — run at the start of each quarter to define OKRs and deliverables.
@@ -58,3 +59,11 @@ Framework:
 - Vague KRs ("improve retention") → every KR needs a number and date
 - OKRs set without [YOUR_MANAGER] → always align before finalizing
 - Ignoring dependencies → map in project brief before committing
+
+---
+
+**What to run next:**
+- OKRs finalized → `roadmap-review` to align the roadmap to new quarterly targets
+- Roadmap has feature-heavy items → `outcome-roadmap [project]` to reframe as outcomes
+- Ready to communicate the plan → `weekly-update` to draft the stakeholder announcement
+- Risks identified during planning → `risk-register` to log and track them

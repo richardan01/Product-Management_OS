@@ -52,3 +52,11 @@ Run this gate before using research output in `/business-case`, `/prioritize`, `
 ## Verdict file (per `_Registry/reviewer-verdict-schema.md`)
 
 On SUFFICIENT (or SUFFICIENT-WITH-GAPS), write `<research-path>.research-sufficiency-passed` with the byte-exact header + scorecard.
+
+---
+
+**What to run next:**
+- Research is SUFFICIENT → `synthesize-research` to extract patterns and recommendations
+- Research has gaps → `opportunity-solution-tree` to identify what unknowns matter most before more research
+- Ready to write → `prd-readiness` after the PRD draft is complete
+- Need more interviews → `user-personas` to sharpen who you're researching before going back to the field

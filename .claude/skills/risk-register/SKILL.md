@@ -1,6 +1,7 @@
 # Risk Register
 
 **Agent:** Risk & Dependency Tracker (Riddler voice) — see `Agents/README.md` voice map.
+**Methodology:** Pre-mortem discipline — Gary Klein; risk taxonomy: tigers, paper tigers, elephants
 
 View and update the unified risk register across all active projects. Run this weekly alongside `roadmap review`.
 
@@ -56,7 +57,8 @@ View and update the unified risk register across all active projects. Run this w
 
 ---
 
-**Next Steps:**
+**What to run next:**
+- `pre-mortem [project]` — run a structured pre-mortem to surface tigers, paper tigers, and elephants the register may be missing
 - `dependency-check` — deep-dive on external dependencies separately
 - `escalation-draft [risk-id]` — draft a [YOUR_MANAGER] message for any blocked 🔴 risk
 - `roadmap review` — always review risks alongside milestone status

@@ -1,6 +1,7 @@
 # Synthesize Research
 
 **Agent:** Oracle (Research Analyst voice) — see `Agents/Gotham/Computer/oracle.md` for full context.
+**Methodology:** JTBD-based interview synthesis + grounded theory clustering — Griffin & Hauser
 
 Usage: "synthesize research" — run after completing a round of user research or discovery interviews.
 
@@ -36,3 +37,11 @@ Pattern extraction table:
 8. **Update knowledge base:**
    - Offer to update `Knowledge/Reference/[YOUR_ANCHOR_PROJECT].md` use case table with findings
    - Offer to update `Projects/[YOUR_ANCHOR_PROJECT]/brief.md` open questions based on what was learned
+
+---
+
+**What to run next:**
+- Strong findings with clear opportunity space → `opportunity-solution-tree` to map findings to solutions and experiments
+- Ready to spec the solution → `prd-readiness` to check an existing PRD, or start a new one with `Templates/prd.md`
+- Research gaps remain → `research-sufficiency` to gate whether findings are strong enough to act on
+- Need to present findings to stakeholders → `peer-review` before sharing externally

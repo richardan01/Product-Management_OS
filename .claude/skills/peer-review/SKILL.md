@@ -131,3 +131,11 @@ If verdict is NEEDS REVISION or CONDITIONAL, produce a corrected version applyin
 ## Verdict file (per `_Registry/reviewer-verdict-schema.md`)
 
 On PASS (or CONDITIONAL-PASS), write `<doc-path>.peer-review-passed` with the byte-exact 4-line header + scorecard.
+
+---
+
+**What to run next:**
+- Verdict is NEEDS REVISION → apply fixes, then re-run `peer-review` before sharing
+- Document is a PRD → `prd-readiness` for engineering-handoff gate
+- Document is a research synthesis → `research-sufficiency` for decision-readiness gate
+- Document is a public artifact → `/riddler` (adversarial) + `/vale` (reader-voice) before publishing

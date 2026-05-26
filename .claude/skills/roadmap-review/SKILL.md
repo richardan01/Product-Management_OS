@@ -1,6 +1,7 @@
 # Roadmap Review
 
 **Agent:** Strategy & Roadmap (Bruce Wayne voice) — see `Agents/README.md` voice map.
+**Methodology:** Outcome-based roadmap — Melissa Perri, *Escaping the Build Trap*
 **Sub-agent:** Spawn `project-scanner` to assess milestone status across projects.
 
 Usage: "roadmap review" — weekly check-in on roadmap progress and deliverable status. Best run Monday or Friday.
@@ -71,7 +72,9 @@ Usage: "roadmap review" — weekly check-in on roadmap progress and deliverable 
 After review, offer:
 - "Update `Tasks/active.md` with these changes?"
 
-**Next Steps (run one of these now):**
+**What to run next:**
 - `weekly update` — draft your [YOUR_MANAGER] update based on this review
+- `outcome-roadmap [project]` — if the roadmap is feature-heavy, convert it to outcome-focused
 - `[YOUR_ANCHOR_PROJECT]-status` — drill into project detail if any milestone is 🟡 or 🔴
 - `meeting prep [YOUR_MANAGER]` — prep your 1:1 if happening this week
+- `go-nogo [project]` — if launch is imminent and all milestones are green
