@@ -49,11 +49,21 @@ Filled during onboarding Phase 5B. Used to calibrate how the assistant frames de
 - **Decision certainty bar:** [70% / 80% / 90%+]
 - **Acceptable failure:** [what's a learning vs. what's avoidable — distinguish the two]
 
+## Current context (update each session)
+
+Pinned live-state block. More resilient than depending on `Tasks/active.md` being current — update by hand at session start or end.
+
+- **Active priority:** [one sentence — what's the single most important thing in flight]
+- **Live risk or tension:** [one sentence — what could derail this week]
+- **Key date / deadline:** [date + what's due]
+- **Last updated:** [YYYY-MM-DD]
+
 ## On Session Start
 1. If placeholders remain in `CLAUDE.md`, `GOALS.md`, or `Tasks/active.md`, offer to run interactive onboarding.
-2. `Tasks/active.md` — current sprint focus.
-3. `GOALS.md` — 30-60-90 goals, metrics, and development focus.
-4. For project work: `Projects/[YOUR_ANCHOR_PROJECT]/brief.md`.
+2. Read the **Current context** block above — it's the live snapshot. If `Last updated` is stale (>7 days), offer to refresh it.
+3. `Tasks/active.md` — current sprint focus.
+4. `GOALS.md` — 30-60-90 goals, metrics, and development focus.
+5. For project work: `Projects/[YOUR_ANCHOR_PROJECT]/brief.md`.
 
 ## Routing — which layer answers
 
