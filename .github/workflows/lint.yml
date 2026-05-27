@@ -24,59 +24,50 @@ jobs:
       - name: Check for [YOUR_NAME] / [YOUR_COMPANY] outside intentional template files
         shell: bash
         run: |
-          # Directories that intentionally use [YOUR_NAME] / [YOUR_COMPANY]:
-          #   - Agents/           agent definition files use [YOUR_NAME] as a runtime variable
-          #   - _Registry/        voice-map and schema files reference [YOUR_NAME] as a variable
-          #   - Evals/            eval criteria, fixtures, and transcripts reference placeholders as test data
-          #   - Reviews/          review templates use [YOUR_NAME] as scaffolding
-          #   - Templates/        all PM templates are scaffolded with placeholders by design
-          #   - Workflows/        onboarding workflow uses placeholders as instructional examples
-          #   - Projects/         project brief templates are scaffolded
-          #   - Knowledge/        stakeholder profile templates are scaffolded
-          #   - .claude/          skill and agent files may reference [YOUR_NAME] as a variable
-          #   - .codex/           Codex agent specs may reference [YOUR_NAME] as a variable
+          # Use find to explicitly list only the files we want to check, then grep those.
+          # This is more reliable than grep --exclude-dir across different grep versions.
           #
-          # Root-level files that are intentional template entry points:
-          #   GOALS.md, CLAUDE.md, AGENTS.md, GEMINI.md, README.md, HOW-IT-WORKS.md
+          # Excluded (intentionally use [YOUR_NAME]/[YOUR_COMPANY] as variables or scaffolding):
+          #   Agents/, _Registry/, Evals/, Reviews/, Templates/, Workflows/, Projects/,
+          #   Knowledge/, .claude/, .codex/, examples/, _temp/
+          #   Root files: GOALS.md, CLAUDE.md, AGENTS.md, GEMINI.md, README.md,
+          #               HOW-IT-WORKS.md, CHANGELOG.md
           #
-          # The check targets: Tasks/, Meetings/, and any ad-hoc files at the root —
-          # places where a user's personal context should have replaced placeholders after onboarding.
-
-          EXCLUDE_DIR_FLAGS=(
-            --exclude-dir=".git"
-            --exclude-dir="node_modules"
-            --exclude-dir="Agents"
-            --exclude-dir="_Registry"
-            --exclude-dir="Evals"
-            --exclude-dir="Reviews"
-            --exclude-dir="Templates"
-            --exclude-dir="Workflows"
-            --exclude-dir="Projects"
-            --exclude-dir="Knowledge"
-            --exclude-dir=".claude"
-            --exclude-dir=".codex"
-            --exclude-dir="examples"
-            --exclude-dir="_temp"
-          )
-
-          EXCLUDE_FILE_FLAGS=(
-            --exclude="GOALS.md"
-            --exclude="CLAUDE.md"
-            --exclude="AGENTS.md"
-            --exclude="GEMINI.md"
-            --exclude="README.md"
-            --exclude="HOW-IT-WORKS.md"
-            --exclude="CHANGELOG.md"
-          )
+          # Checked (user-context files where residue indicates incomplete onboarding):
+          #   Tasks/, Meetings/, and any other .md files not in the above exclusions.
 
           echo "Scanning for [YOUR_NAME] or [YOUR_COMPANY] in user-context .md files..."
 
-          MATCHES=$(grep -rn \
-            "${EXCLUDE_DIR_FLAGS[@]}" \
-            "${EXCLUDE_FILE_FLAGS[@]}" \
-            -e '\[YOUR_NAME\]' -e '\[YOUR_COMPANY\]' \
-            --include="*.md" \
-            . || true)
+          FILES=$(find . -name "*.md" \
+            -not -path "./.git/*" \
+            -not -path "./node_modules/*" \
+            -not -path "./Agents/*" \
+            -not -path "./_Registry/*" \
+            -not -path "./Evals/*" \
+            -not -path "./Reviews/*" \
+            -not -path "./Templates/*" \
+            -not -path "./Workflows/*" \
+            -not -path "./Projects/*" \
+            -not -path "./Knowledge/*" \
+            -not -path "./.claude/*" \
+            -not -path "./.codex/*" \
+            -not -path "./examples/*" \
+            -not -path "./_temp/*" \
+            -not -name "GOALS.md" \
+            -not -name "CLAUDE.md" \
+            -not -name "AGENTS.md" \
+            -not -name "GEMINI.md" \
+            -not -name "README.md" \
+            -not -name "HOW-IT-WORKS.md" \
+            -not -name "CHANGELOG.md" \
+          )
+
+          if [ -z "$FILES" ]; then
+            echo "✅ No user-context .md files found to check."
+            exit 0
+          fi
+
+          MATCHES=$(echo "$FILES" | xargs grep -n '\[YOUR_NAME\]\|\[YOUR_COMPANY\]' 2>/dev/null || true)
 
           if [ -n "$MATCHES" ]; then
             echo "❌ Template placeholder residue found in user-context files:"
