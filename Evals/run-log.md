@@ -68,4 +68,37 @@ Append new entries below. Do not edit past runs — they are the historical reco
 
 ---
 
-*Next scheduled run: 2025-03-15 (60-day cadence) or on next model upgrade, whichever comes first.*
+### 2026-05-27 — gate-group — opus-4-7 / sonnet-4-6
+
+| Field | Value |
+|---|---|
+| Date | 2026-05-27 |
+| Suite | gate-group |
+| Model | Riddler/Ducard `claude-opus-4-7`, Vale `claude-sonnet-4-6` |
+| Commit SHA | `cd25485` + remediation |
+| Runner | Dispatcher session (executed `gate-dispatch` per fixture, captured responses) |
+| Grader | Separate agent context (responses + criteria only) |
+| Fixture(s) | F1–F5 (`gate-group/fixtures.md`) |
+| Score | 6 / 8 first pass → **8 / 8 after remediation** |
+| Status | ✅ pass (post-fix); C2 + C4 mandatory both passed first pass |
+
+**Failures (first pass):**
+
+- `C5 verdict-axis adherence` ⚠ and `C7 schema conformance` ⚠ — both traced to one root cause: `depth_gap_flag` (a Riddler-only escalation signal) was emitted by Vicki Vale and Henri Ducard on the F4 escalation path.
+
+**Introspection:**
+
+> The schema said Vale/Ducard "always return `false`" for `depth_gap_flag`, which kept the field on their responses. Under the live run the agents filled it `true`, leaking a signal they don't own. Harmless to the merge (the merger reads it only from Riddler), but a schema-hygiene defect. The fix is to remove the field from their contract entirely, not to set it false.
+
+**Remediation:**
+
+- `depth_gap_flag` redefined as Riddler-only and **omitted** on Vale/Ducard responses; validation rule added (`present ⟹ agent == "riddler"`). `verdict_file: null` documented as valid for additive agents.
+- Re-validated the F4 escalation path with the corrected contract: both Vale and Ducard omitted the field → C5 + C7 resolved → 8/8.
+
+**Findings carried forward:** No clean SHIP observed across 5 fixtures (Riddler caught a legitimate issue in every one) — author a deliberately airtight fixture next run to confirm the SHIP path.
+
+**Result file:** `gate-group/results/2026-05-27_validation.md`
+
+---
+
+*Next scheduled runs: onboarding — on next model upgrade; gate-group — after any dispatcher/merger/agent-I/O edit, or on the 60-day cadence.*

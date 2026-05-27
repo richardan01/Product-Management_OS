@@ -23,6 +23,8 @@ This is the **in-flight JSON** contract between a gate agent and the dispatcher.
 }
 ```
 
+> **`depth_gap_flag` is a Riddler-only field.** It appears in the response **only when `agent == "riddler"`**. Vicki Vale and Henri Ducard **omit it entirely** — they do not own the escalation signal, so they must not carry it (not even as `false`). Validation rule: `depth_gap_flag` present ⟹ `agent == "riddler"`. The dispatcher and merger read it solely from Riddler's response.
+
 ## Verdict vocabulary by agent
 
 Each agent uses its own verdict axis. The merger (`Workflows/gate-merge.md`) maps these to the overall SHIP / REVISE / BLOCK.
@@ -40,8 +42,8 @@ Each agent uses its own verdict axis. The merger (`Workflows/gate-merge.md`) map
 | `agent` | Identifies the returning agent. One response per spawned agent. |
 | `verdict` | One value from that agent's axis above. |
 | `issues[]` | Every issue must have a **specific, actionable `fix`**. "This section is weak" is invalid; "the claim in para 4 needs the eval name + dataset + TPR or remove it" is valid. Vicki Vale's bounce issue names the **exact stop-sentence**. |
-| `depth_gap_flag` | **Riddler only sets this `true`** — and only when a BLOCK is driven by a technical-depth gap. It is the sole trigger that spawns Henri Ducard. Vicki Vale and Ducard always return `false`. |
-| `verdict_file` | Path to the persisted sibling verdict file the agent wrote. `null` for agents that don't persist (Vicki Vale may inline; Ducard logs to `drill-log.md` but returns `null` here). |
+| `depth_gap_flag` | **Riddler-only field.** Present only when `agent == "riddler"`; set `true` only when a BLOCK is driven by a technical-depth gap (the sole trigger that spawns Henri Ducard). Vicki Vale and Ducard **omit the field entirely** — they do not own the escalation signal. |
+| `verdict_file` | Path to the persisted sibling verdict file the agent wrote. Explicitly `null` for additive agents that don't persist a gate sibling: Vicki Vale may inline her verdict, and Henri Ducard logs to `drill-log.md` rather than a gate file. `null` is a valid, documented value for these agents — not a malformed response. |
 
 ## depth_gap_flag — the escalation trigger
 

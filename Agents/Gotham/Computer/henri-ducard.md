@@ -80,8 +80,8 @@ When that fires, the dispatcher spawns him **after** Riddler returns — never s
     - `cleared` — the gap is a quick re-drill; the author can likely close it and resubmit fast
     - `drill-required` — real study needed before resubmission; not cosmetic
   - `issues[]` — the specific topics to drill and the reading/closing action for each (`fix`)
-  - `depth_gap_flag: false`
-  - `verdict_file: null` — Ducard logs the drill to `Bruce-Wayne/knowledge/drill-log.md` as usual, not a gate sibling file
+  - **No `depth_gap_flag`** — Ducard omits this field entirely. It is a Riddler-only escalation signal; Ducard is the result of the escalation, not a source of it.
+  - `verdict_file: null` — Ducard logs the drill to `Bruce-Wayne/knowledge/drill-log.md` as usual, not a gate sibling file. `null` here is correct and documented, not a malformed response.
 
 **His verdict is additive.** At the point he runs, Riddler has already returned BLOCK, so the overall verdict is already BLOCK. Ducard never upgrades or downgrades it — `cleared` vs `drill-required` only sets WHAT-TO-FIX priority in the merge.
 

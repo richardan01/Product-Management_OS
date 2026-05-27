@@ -75,8 +75,8 @@ When invoked inside the gate group via `Workflows/gate-dispatch.md`, Vicki Vale 
   - `agent: "vicki-vale"`
   - `verdict: read | skim | bounce`
   - `issues[]` — on `skim`/`bounce`, the first issue's `location` is the **exact sentence she stopped at**, and `fix` is the concrete rewrite (e.g. a replacement opener), never "tighten the intro"
-  - `depth_gap_flag: false` — **always**. Technical depth is not Vicki's axis; she never triggers the Ducard escalation.
-  - `verdict_file` — `.vicki-passed` (on read) or `.vicki-bounced` (on skim/bounce); may be `null` if the verdict is returned inline only
+  - **No `depth_gap_flag`** — Vicki omits this field entirely. It is a Riddler-only escalation signal; technical depth is not her axis and she never triggers the Ducard escalation.
+  - `verdict_file` — `.vicki-passed` (on read) or `.vicki-bounced` (on skim/bounce); `null` if the verdict is returned inline only
 
 Her verdict goes to the merger **alongside** Riddler's, never after. Both verdicts surface side-by-side — if she bounces while Riddler passes, the merge shows REVISE with her stop-sentence as the first fix.
 
