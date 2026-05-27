@@ -24,52 +24,69 @@ jobs:
       - name: Check for [YOUR_NAME] / [YOUR_COMPANY] outside intentional template files
         shell: bash
         run: |
-          # Files that intentionally contain [YOUR_NAME] or [YOUR_COMPANY] as scaffolding
-          INTENTIONAL=(
-            "GOALS.md"
-            "CLAUDE.md"
-            "AGENTS.md"
-            "GEMINI.md"
-            "README.md"
-            "HOW-IT-WORKS.md"
-          )
+          # Directories that intentionally use [YOUR_NAME] / [YOUR_COMPANY]:
+          #   - Agents/           agent definition files use [YOUR_NAME] as a runtime variable
+          #   - _Registry/        voice-map and schema files reference [YOUR_NAME] as a variable
+          #   - Evals/            eval criteria, fixtures, and transcripts reference placeholders as test data
+          #   - Reviews/          review templates use [YOUR_NAME] as scaffolding
+          #   - Templates/        all PM templates are scaffolded with placeholders by design
+          #   - Workflows/        onboarding workflow uses placeholders as instructional examples
+          #   - Projects/         project brief templates are scaffolded
+          #   - Knowledge/        stakeholder profile templates are scaffolded
+          #   - .claude/          skill and agent files may reference [YOUR_NAME] as a variable
+          #   - .codex/           Codex agent specs may reference [YOUR_NAME] as a variable
+          #
+          # Root-level files that are intentional template entry points:
+          #   GOALS.md, CLAUDE.md, AGENTS.md, GEMINI.md, README.md, HOW-IT-WORKS.md
+          #
+          # The check targets: Tasks/, Meetings/, and any ad-hoc files at the root —
+          # places where a user's personal context should have replaced placeholders after onboarding.
 
-          # Build grep exclusion flags
-          EXCLUDE_FLAGS=()
-          for f in "${INTENTIONAL[@]}"; do
-            EXCLUDE_FLAGS+=(--exclude="$f")
-          done
-
-          # Also exclude entire directories that are intentionally scaffolded
           EXCLUDE_DIR_FLAGS=(
             --exclude-dir=".git"
             --exclude-dir="node_modules"
+            --exclude-dir="Agents"
+            --exclude-dir="_Registry"
+            --exclude-dir="Evals"
+            --exclude-dir="Reviews"
             --exclude-dir="Templates"
             --exclude-dir="Workflows"
             --exclude-dir="Projects"
             --exclude-dir="Knowledge"
             --exclude-dir=".claude"
             --exclude-dir=".codex"
+            --exclude-dir="examples"
+            --exclude-dir="_temp"
           )
 
-          echo "Scanning for [YOUR_NAME] or [YOUR_COMPANY] in non-template .md files..."
+          EXCLUDE_FILE_FLAGS=(
+            --exclude="GOALS.md"
+            --exclude="CLAUDE.md"
+            --exclude="AGENTS.md"
+            --exclude="GEMINI.md"
+            --exclude="README.md"
+            --exclude="HOW-IT-WORKS.md"
+            --exclude="CHANGELOG.md"
+          )
+
+          echo "Scanning for [YOUR_NAME] or [YOUR_COMPANY] in user-context .md files..."
 
           MATCHES=$(grep -rn \
-            "${EXCLUDE_FLAGS[@]}" \
             "${EXCLUDE_DIR_FLAGS[@]}" \
+            "${EXCLUDE_FILE_FLAGS[@]}" \
             -e '\[YOUR_NAME\]' -e '\[YOUR_COMPANY\]' \
             --include="*.md" \
             . || true)
 
           if [ -n "$MATCHES" ]; then
-            echo "❌ Template placeholder residue found outside intentional template files:"
+            echo "❌ Template placeholder residue found in user-context files:"
             echo ""
             echo "$MATCHES"
             echo ""
             echo "These files contain [YOUR_NAME] or [YOUR_COMPANY] and are not in the exclusion list."
-            echo "Either run onboarding to replace placeholders, or add the file to the exclusion list"
-            echo "in .github/workflows/lint.yml if it is intentionally a template."
+            echo "Either run onboarding to replace placeholders, or add the file/directory to the"
+            echo "exclusion list in .github/workflows/lint.yml if it is intentionally a template."
             exit 1
           else
-            echo "✅ No placeholder residue found outside intentional template files."
+            echo "✅ No placeholder residue found in user-context files."
           fi
