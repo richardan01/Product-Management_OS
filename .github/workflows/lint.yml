@@ -1,0 +1,75 @@
+name: Markdown Lint & Template Hygiene
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  markdownlint:
+    name: Markdownlint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run markdownlint
+        run: npx --yes markdownlint-cli@0.39.0 "**/*.md" --ignore node_modules
+
+  placeholder-check:
+    name: Placeholder residue check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check for [YOUR_NAME] / [YOUR_COMPANY] outside intentional template files
+        shell: bash
+        run: |
+          # Files that intentionally contain [YOUR_NAME] or [YOUR_COMPANY] as scaffolding
+          INTENTIONAL=(
+            "GOALS.md"
+            "CLAUDE.md"
+            "AGENTS.md"
+            "GEMINI.md"
+            "README.md"
+            "HOW-IT-WORKS.md"
+          )
+
+          # Build grep exclusion flags
+          EXCLUDE_FLAGS=()
+          for f in "${INTENTIONAL[@]}"; do
+            EXCLUDE_FLAGS+=(--exclude="$f")
+          done
+
+          # Also exclude entire directories that are intentionally scaffolded
+          EXCLUDE_DIR_FLAGS=(
+            --exclude-dir=".git"
+            --exclude-dir="node_modules"
+            --exclude-dir="Templates"
+            --exclude-dir="Workflows"
+            --exclude-dir="Projects"
+            --exclude-dir="Knowledge"
+            --exclude-dir=".claude"
+            --exclude-dir=".codex"
+          )
+
+          echo "Scanning for [YOUR_NAME] or [YOUR_COMPANY] in non-template .md files..."
+
+          MATCHES=$(grep -rn \
+            "${EXCLUDE_FLAGS[@]}" \
+            "${EXCLUDE_DIR_FLAGS[@]}" \
+            -e '\[YOUR_NAME\]' -e '\[YOUR_COMPANY\]' \
+            --include="*.md" \
+            . || true)
+
+          if [ -n "$MATCHES" ]; then
+            echo "❌ Template placeholder residue found outside intentional template files:"
+            echo ""
+            echo "$MATCHES"
+            echo ""
+            echo "These files contain [YOUR_NAME] or [YOUR_COMPANY] and are not in the exclusion list."
+            echo "Either run onboarding to replace placeholders, or add the file to the exclusion list"
+            echo "in .github/workflows/lint.yml if it is intentionally a template."
+            exit 1
+          else
+            echo "✅ No placeholder residue found outside intentional template files."
+          fi
