@@ -6,6 +6,12 @@ It is designed to help PMs produce higher-quality artifacts with consistent oper
 
 ---
 
+## If you're evaluating this repo
+
+This is a personal AI PM operating system — a harness-neutral template that a PM configures once during onboarding and then runs daily for execution, research, and quality review. It is not a demo app; it is a working system designed to be forked, personalized, and used. Three things demonstrate AI PM craft here: **(1) multi-agent architecture** with clear domain separation (12 named agents, each owning a narrow domain, coordinated through a shared file system); **(2) offline eval suites** in `Evals/` with author/grader separation enforced as a hard protocol requirement; **(3) a quality gate framework** with pre-publish review gates that vary by persona and artifact type. The fastest path to seeing output without running onboarding is `examples/ai-builder-pm-demo/`. This is a harness-neutral template. The author's personal context lives in a private fork.
+
+---
+
 ## Start here: first-run setup
 
 The OS is harness-neutral. Onboarding works in **Claude Code**, **Codex CLI**, and **Gemini CLI** — each reads a different entry-point file at the repo root, but all three route to the same workflow and configuration surface.
@@ -102,6 +108,19 @@ For a full walkthrough of the 3-layer model (Skills → Agents → Knowledge) an
 This repository is meant to be downloaded, forked, or cloned as the user's own working OS. Keep personal context inside the downloaded copy and keep it private unless the user intentionally publishes a sanitized version.
 
 **Template rule:** replace placeholders such as `[YOUR_NAME]`, `[YOUR_COMPANY]`, `[YOUR_ANCHOR_PROJECT]`, and `[TARGET_COMPANIES]` during onboarding. Do not hard-code the original template author's personal setup into the repo.
+
+---
+
+## See it in action
+
+The repo ships as a template: every file uses `[PLACEHOLDER]` scaffolding that onboarding replaces with your real context. A live personal instance looks nothing like the template — goals have real metrics, stakeholder profiles have real people, and quality gates are tuned to the PM's chosen persona.
+
+Two reference points show what a filled instance looks like without requiring you to run onboarding:
+
+- **`GOALS.md` → Demo Instance section** — Alex Chen, Senior PM at a fictional frontier AI lab, with real 30-60-90 goals, activation metrics, and a stakeholder table. This is what the file looks like the day after onboarding.
+- **`examples/ai-builder-pm-demo/`** — A complete AI Builder PM workflow: onboarding → PRD draft → eval/review loop → go/no-go framing. Browse this to see the OS in motion.
+
+Clone → run `Computer, onboard me into this OS` → your instance. The placeholders become your context.
 
 ---
 
@@ -307,15 +326,10 @@ ProductManagement-OS/
 │   └── Reference/
 │       └── company.md           ← Company context
 │
-├── Meetings/
-│   └── 1on1s/                   ← 1:1 meeting notes
-│
 ├── Reviews/                     ← OS health reviews
 ├── Evals/                       ← Eval suites
 ├── Workflows/                   ← Repeatable operating workflows
 ├── Templates/                   ← Reusable PM document templates
-├── _temp/                       ← Working drafts (not durable)
-│
 ├── _Registry/
 │   └── voice-map.md             ← Persona/voice assignments per agent
 │
