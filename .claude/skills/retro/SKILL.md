@@ -1,6 +1,7 @@
 # Sprint Retro
 
 **Agent:** Retro & Learning Coach (Bruce Wayne voice) — see `Agents/README.md` voice map.
+**Methodology:** Four Ls (Liked / Learned / Lacked / Longed For); Sailboat variant
 
 Run an end-of-sprint retrospective. Keep it focused — aim to complete in under 15 minutes.
 
@@ -58,7 +59,9 @@ Run an end-of-sprint retrospective. Keep it focused — aim to complete in under
 
 ---
 
-**Next Steps:**
+**What to run next:**
 - `today` — start the new sprint with updated priorities from the retro
+- `risk-register` — capture any new risks or blockers surfaced during the retro
+- `quarterly-planning` — if this is the last sprint of the quarter, plan the next quarter now
 - `lessons` — review the full cumulative log if you want broader patterns
 - `growth-check` — run at your 30, 60, and 90 day marks to assess personal progress

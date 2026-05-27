@@ -31,6 +31,8 @@ Revise based on feedback.
 
 Also pull latest metrics from `Knowledge/Reference/metrics/latest.md` if it exists, and include key numbers in the update.
 
+> **MCP fallback:** If no metrics MCP is connected and `metrics/latest.md` doesn't exist, leave a `[METRICS: add manually]` placeholder in the update rather than omitting the section.
+
 **After [YOUR_NAME] confirms and sends the update:** save the final version to `Tasks/weekly-updates/archive/YYYY-MM-DD.md` so the next run can read it for tone continuity.
 
 ---

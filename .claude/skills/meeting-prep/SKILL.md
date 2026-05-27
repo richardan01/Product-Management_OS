@@ -7,7 +7,7 @@ Usage: "meeting prep [name]" (e.g., "meeting prep [YOUR_MANAGER]", "meeting prep
 
 Steps:
 
-1. **Find the person** in `Knowledge/People/` based on the name argument
+1. **Find the person** in `Knowledge/People/` based on the name argument. If no profile exists: ask conversationally — "What's their role and what do they care about?" — then offer to create `Knowledge/People/[name].md` after the meeting.
 2. **Pull meeting history** from `Meetings/1on1s/[name].md` if it exists
 3. **Read current context** from `Tasks/active.md` and `GOALS.md`
 4. **Read project context** from `Projects/[YOUR_ANCHOR_PROJECT]/brief.md` if relevant

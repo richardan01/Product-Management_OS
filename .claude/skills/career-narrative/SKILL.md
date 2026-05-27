@@ -52,3 +52,10 @@ Compose the three pillars based on the audience. Reorder by what's most relevant
 - → **Nightwing** for specific surface rewrites (LinkedIn, bio, opener)
 - → **Gordon** when drafting a specific networking message
 - → **Riddler** before any narrative artifact ships publicly
+
+---
+
+**What to run next:**
+- Narrative is draft-ready → `/riddler` + `/vale` before any public artifact ships
+- Targeting a specific role → `frontier-lab-interview-prep` to pressure-test the narrative in a mock interview
+- Sending outreach → `meeting-prep [person]` to tailor the message to the recipient
