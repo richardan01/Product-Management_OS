@@ -1,3 +1,7 @@
+# Eval run logs — kept local, not uploaded to the public template
+Evals/gate-group/results/*
+!Evals/gate-group/results/README.md
+
 # Local telemetry / generated data
 .telemetry/
 

@@ -39,4 +39,4 @@ Follows the shared protocol in `Evals/README.md` — author/grader separation is
 
 ## Results
 
-Run logs live in `results/YYYY-MM-DD_<label>.md`. The first validation run (2026-05-27) caught a real schema-hygiene defect (`depth_gap_flag` leaking onto non-Riddler agents), which was remediated and re-validated in the same session — see `results/2026-05-27_validation.md`.
+Run logs live in `results/YYYY-MM-DD_<label>.md` and are **kept local — not committed to this public template** (gitignored; see `results/README.md`). Record each run's scorecard, the observed verdict matrix, and any remediation in your private working copy.
