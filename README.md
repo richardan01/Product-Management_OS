@@ -326,15 +326,10 @@ ProductManagement-OS/
 │   └── Reference/
 │       └── company.md           ← Company context
 │
-├── Meetings/
-│   └── 1on1s/                   ← 1:1 meeting notes
-│
 ├── Reviews/                     ← OS health reviews
 ├── Evals/                       ← Eval suites
 ├── Workflows/                   ← Repeatable operating workflows
 ├── Templates/                   ← Reusable PM document templates
-├── _temp/                       ← Working drafts (not durable)
-│
 ├── _Registry/
 │   └── voice-map.md             ← Persona/voice assignments per agent
 │
