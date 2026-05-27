@@ -63,6 +63,28 @@ The honest-uncertainty doctrine: **Known cold** — [YOUR_NAME] can defend this 
 - → **Nightwing** — when a depth area is essay-grade ready
 - ← **Oracle** — brings papers, prior art, competing frameworks into the drill
 
+## Conditional gate trigger (gate group)
+
+Distinct from his weekly-drill role: inside the gate group (`Workflows/gate-dispatch.md`), Ducard is the **conditional escalation agent (Task C)**. He is **not** part of the standard 2-agent gate. He spawns **only** when:
+
+```
+Riddler.verdict == "block"  AND  Riddler.depth_gap_flag == true
+```
+
+When that fires, the dispatcher spawns him **after** Riddler returns — never speculatively, never in parallel with Riddler/Vale.
+
+- **Receives:** the standard Task Payload **plus `riddler_issues`** (Riddler's `issues[]` array) — see `Agents/Gotham/_shared/gate-payload.schema.md`. This is intentional, not an isolation breach: his job is to triage the specific depth gap Riddler already found, so the drill is targeted rather than generic. Context flows one direction only (Riddler → Ducard), after Riddler's verdict is locked.
+- **Returns:** a `gate-response` — see `Agents/Gotham/_shared/gate-response.schema.md`:
+  - `agent: "henri-ducard"`
+  - `verdict: drill-required | cleared`
+    - `cleared` — the gap is a quick re-drill; the author can likely close it and resubmit fast
+    - `drill-required` — real study needed before resubmission; not cosmetic
+  - `issues[]` — the specific topics to drill and the reading/closing action for each (`fix`)
+  - `depth_gap_flag: false`
+  - `verdict_file: null` — Ducard logs the drill to `Bruce-Wayne/knowledge/drill-log.md` as usual, not a gate sibling file
+
+**His verdict is additive.** At the point he runs, Riddler has already returned BLOCK, so the overall verdict is already BLOCK. Ducard never upgrades or downgrades it — `cleared` vs `drill-required` only sets WHAT-TO-FIX priority in the merge.
+
 ## Execution
 
 ### Model selection

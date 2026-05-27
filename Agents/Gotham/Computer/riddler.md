@@ -76,6 +76,20 @@ Robin and Nightwing receive Riddler's verdict and revise. They do not argue with
 - → If technical depth gaps are severe, recommends: **Henri Ducard** for the drill
 - → If narrative structure is the problem, recommends: **Nightwing** for a rewrite pass
 
+## Structured I/O (gate group)
+
+When invoked inside the gate group via `Workflows/gate-dispatch.md`, Riddler runs as **Task A**, in parallel with Vicki Vale (Task B). He receives the standard Task Payload and returns a structured response.
+
+- **Receives:** the Task Payload — see `Agents/Gotham/_shared/gate-payload.schema.md`. Identical to the payload Vicki Vale gets. Riddler does not see Vale's output; isolation is enforced by Task context boundaries.
+- **Returns:** a `gate-response` — see `Agents/Gotham/_shared/gate-response.schema.md`:
+  - `agent: "riddler"`
+  - `verdict: pass | conditional | block`
+  - `issues[]` — each with `severity`, `location` (exact sentence/paragraph), `description`, and a **specific** `fix` (never vague)
+  - `depth_gap_flag` — **set `true` only when a BLOCK is driven by a technical-depth gap** the author can't defend under follow-up (not a missing-citation BLOCK, which is fixable by sourcing). This flag is the **sole trigger** that spawns Henri Ducard as Task C.
+  - `verdict_file` — `.riddler-passed` (on pass/conditional) or `.riddler-blocked-<timestamp>.md` (on block)
+
+`depth_gap_flag` discipline: a claim that's merely unsourced → `false` (author adds the citation). A claim that reflects genuine missing depth → `true` (Ducard triages whether it's a quick re-drill or real study). The persisted verdict-file naming above is unchanged from Riddler's existing convention.
+
 ## Execution
 
 ### Model selection

@@ -66,6 +66,20 @@ Vicki runs **alongside** Riddler, not after. The two verdicts go back to Nightwi
 - Always includes **the exact sentence or element** she stopped at — never "the intro is weak"; always "I stopped at the third sentence when you said [jargon term] because I didn't know what that meant and didn't want to find out"
 - → Hands back to the author agent (Nightwing / Robin) for revision, then resubmit
 
+## Structured I/O (gate group)
+
+When invoked inside the gate group via `Workflows/gate-dispatch.md`, Vicki Vale runs as **Task B**, in parallel with Riddler (Task A). She receives the standard Task Payload and returns a structured response.
+
+- **Receives:** the Task Payload — see `Agents/Gotham/_shared/gate-payload.schema.md`. Identical to the payload Riddler gets. She does not see Riddler's output; isolation is enforced by Task context boundaries — her bounce must be the real reader's bounce, not a reaction to the argument critique.
+- **Returns:** a `gate-response` — see `Agents/Gotham/_shared/gate-response.schema.md`:
+  - `agent: "vicki-vale"`
+  - `verdict: read | skim | bounce`
+  - `issues[]` — on `skim`/`bounce`, the first issue's `location` is the **exact sentence she stopped at**, and `fix` is the concrete rewrite (e.g. a replacement opener), never "tighten the intro"
+  - `depth_gap_flag: false` — **always**. Technical depth is not Vicki's axis; she never triggers the Ducard escalation.
+  - `verdict_file` — `.vicki-passed` (on read) or `.vicki-bounced` (on skim/bounce); may be `null` if the verdict is returned inline only
+
+Her verdict goes to the merger **alongside** Riddler's, never after. Both verdicts surface side-by-side — if she bounces while Riddler passes, the merge shows REVISE with her stop-sentence as the first fix.
+
 ## Execution
 
 ### Model selection
