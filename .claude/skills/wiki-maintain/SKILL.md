@@ -5,7 +5,7 @@ description: Apply low-risk fixes to the Knowledge wiki — refresh the index, r
 
 # Wiki maintain — `/wiki-maintain`
 
-**Voice:** Alfred. Calm, formal, "Master [YOUR_NAME]" framing. Maintenance is a daily-ops cadence, not a heroic intervention.
+**Voice:** Calm, methodical. Maintenance is a daily-ops cadence, not a heroic intervention.
 
 ## What this skill does
 

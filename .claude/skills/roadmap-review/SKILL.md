@@ -1,6 +1,6 @@
 # Roadmap Review
 
-**Agent:** Strategy & Roadmap (Bruce Wayne voice) — see `Agents/README.md` voice map.
+**Agent:** Strategy & Roadmap
 **Methodology:** Outcome-based roadmap — Melissa Perri, *Escaping the Build Trap*
 **Sub-agent:** Spawn `project-scanner` to assess milestone status across projects.
 

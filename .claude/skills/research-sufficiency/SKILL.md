@@ -1,6 +1,6 @@
 # Research Sufficiency
 
-**Agent:** Oracle (Research Analyst voice) — see `Agents/Gotham/Computer/oracle.md` for full context.
+**Agent:** Research Analyst
 **Pattern:** Evaluator/Gate — checks whether research is sufficient to inform a decision, before it feeds into strategy, PRDs, or business cases.
 
 Run this gate before using research output in `/business-case`, `/prioritize`, `/prd`, or any decision doc.

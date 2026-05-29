@@ -1,6 +1,6 @@
 # Meeting Prep
 
-**Agent:** Alfred → Oracle — see `Agents/Gotham/Computer/alfred.md` for full context.
+**Agent:** Meeting Prep & Stakeholder Context
 **Sub-agent:** Spawn `stakeholder-profiler` to build rich person context in parallel if preparing for a complex meeting.
 
 Usage: "meeting prep [name]" (e.g., "meeting prep [YOUR_MANAGER]", "meeting prep [STAKEHOLDER_1]")

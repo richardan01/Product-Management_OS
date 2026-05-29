@@ -1,6 +1,6 @@
 # Test Plan
 
-**Agent:** QA & Acceptance Tester (Riddler voice) — see `Agents/README.md` voice map.
+**Agent:** QA & Acceptance Tester
 
 Build a structured test plan from the acceptance criteria in [feature]'s PRD.
 

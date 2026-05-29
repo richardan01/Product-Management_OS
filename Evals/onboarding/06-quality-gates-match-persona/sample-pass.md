@@ -1,6 +1,6 @@
 # Sample passing output — eval 06 (quality gates match persona)
 
-Shows both the Executive operator (Jordan Lee) and Batman (Sam Okafor) configurations side by side. Graders use this to verify the two runs produce different gate configs.
+Shows both the Executive operator (Jordan Lee) and Builder / AI PM (Sam Okafor) configurations side by side. Graders use this to verify the two runs produce different gate configs.
 
 ---
 
@@ -14,16 +14,15 @@ Shows both the Executive operator (Jordan Lee) and Batman (Sam Okafor) configura
 - Before decision from research → `/research-sufficiency [file]`
 - Before launch → `/go-nogo [project]`
 - **Before any public artifact ships → `/peer-review` (default gate)**
-- `/riddler` and `/vale` available as optional add-ons; not mandatory for this persona
 ```
 
 **Why C1 passes:** `/peer-review` is the explicit default pre-publish gate.
-**Why C2 passes:** `/riddler` and `/vale` are listed as optional, not mandatory.
+**Why C2 passes:** the Builder/AI PM gates are not present as mandatory.
 **Why C4 passes:** standard PM gates (`/prd-readiness`, `/research-sufficiency`, `/go-nogo`) are all present.
 
 ---
 
-## Batman — CLAUDE.md quality gates section (Sam Okafor)
+## Builder / AI PM — CLAUDE.md quality gates section (Sam Okafor)
 
 ```markdown
 ## Quality gates
@@ -32,9 +31,9 @@ Shows both the Executive operator (Jordan Lee) and Batman (Sam Okafor) configura
 - Before engineering handoff → `/prd-readiness [file]`
 - Before decision from research → `/research-sufficiency [file]`
 - Before launch → `/go-nogo [project]`
-- **Before any public artifact ships → `/riddler` + `/vale` (mandatory — no exceptions)**
+- **Before any AI/LLM feature deploys → `/eval-review` + `/build-review` + `/test-plan` (mandatory — no exceptions)**
 ```
 
-**Why C3 passes:** `/riddler` + `/vale` are explicitly mandatory.
+**Why C3 passes:** `/eval-review` + `/build-review` + `/test-plan` are explicitly mandatory pre-deployment.
 **Why C4 passes:** same standard PM gates present.
-**Why C5 passes:** Batman section does not list `/riddler` + `/vale` as optional — it lists them as mandatory. Executive operator section lists them as optional. The two sections are different.
+**Why C5 passes:** the Builder/AI PM section adds mandatory pre-deployment gates the Executive operator section does not. The two sections are different.

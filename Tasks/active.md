@@ -42,4 +42,3 @@
 
 ## Area Tags
 Set during onboarding. Default: `#strategy` · `#project` · `#research` · `#stakeholders` · `#[your-domain-1]` · `#[your-domain-2]`.
-Batman-persona users may also use: `#flagship` · `#bruce-wayne` · `#ai-pm`.

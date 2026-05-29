@@ -2,6 +2,11 @@
 
 Append new entries below. Do not edit past runs — they are the historical record. For full result files and transcripts, see `<suite>/results/`.
 
+> **Public template note**
+> Run result files and transcripts are intentionally gitignored (`Evals/*/results/*`).
+> The public repo stores suite structure and protocol only.
+> Private working copies should track the latest run evidence in Notion STATE or local result files.
+
 ---
 
 ## Entry format
@@ -68,4 +73,4 @@ Append new entries below. Do not edit past runs — they are the historical reco
 
 ---
 
-*Next scheduled run: 2025-03-15 (60-day cadence) or on next model upgrade, whichever comes first.*
+*The entry above is a worked sample, not the latest run. In a private working copy, the next run fires on the 60-day cadence or the next model upgrade, whichever comes first; current run evidence is tracked locally / in Notion STATE per the public template note above.*

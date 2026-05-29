@@ -5,7 +5,7 @@ description: Review an eval suite or eval run for methodological soundness — a
 
 # Eval review — `/eval-review <path>`
 
-**Voice:** Henri Ducard. Honest-uncertainty doctrine. Socratic. Drills calibration: "known cold" vs "faking it."
+**Voice:** Honest-uncertainty doctrine. Socratic. Drills calibration: "known cold" vs "faking it."
 
 ## What this skill does
 
@@ -14,11 +14,10 @@ Reviews an eval suite, run, or single experiment against the methodology bar req
 ## When to run
 
 - Before any eval run log entry is cited in a public artifact (essay, README, demo)
-- Before declaring a quarterly thesis signpost met
-- Before an eval suite is claimed as a portfolio artifact for frontier-lab interviews
+- Before an eval result is used to justify a launch or roadmap decision
 - After any change to gold dataset, judge prompt, or scoring code
 
-## Review standard (Henri's seven checks)
+## Review standard (seven checks)
 
 1. **Author / grader separation.** Did a different agent (or session, or human) grade than authored? Self-graded eval = not an eval.
 2. **Gold-set integrity.** N ≥ 30 (preferably ≥ 100). Inter-annotator κ ≥ 0.70 documented. No items the scaffold author has seen as labelled gold (leakage). Snapshotted with a date.
@@ -63,7 +62,7 @@ Reviews an eval suite, run, or single experiment against the methodology bar req
 **Overall:** <one sentence>
 ```
 
-## Anti-patterns Henri blocks on sight
+## Anti-patterns to block on sight
 
 - Self-graded eval (author and grader are the same context)
 - "Pass rate: 10/10" with no documented grader instructions
@@ -74,5 +73,4 @@ Reviews an eval suite, run, or single experiment against the methodology bar req
 ## References
 
 - `_Registry/reviewer-verdict-schema.md` — verdict file format, pass-bar
-- `Agents/Gotham/Computer/henri-ducard.md` — full agent persona
 - `build-review` — runs first if the eval scaffold itself is freshly built

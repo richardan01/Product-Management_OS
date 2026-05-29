@@ -1,6 +1,6 @@
 # Launch Plan
 
-**Agent:** Launch Manager (Batman voice) — see `Agents/README.md` voice map.
+**Agent:** Launch Manager
 **Methodology:** Staged rollout — Dogfood → Beta → GA
 
 Build a launch readiness checklist for [project]. Run this 2–3 weeks before target go-live.

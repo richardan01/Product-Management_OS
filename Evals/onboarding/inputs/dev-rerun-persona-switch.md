@@ -56,7 +56,7 @@ After the first run is complete and all files are written, the runner should sto
 Use the same identity fields as Scenario A. The **only change** is the persona:
 
 ```markdown
-- Default persona: Batman strategic operator
+- Default persona: Builder / AI PM
 ```
 
 All other fields (name, company, role, stakeholders, project, OKRs) are identical to Scenario A.
@@ -64,7 +64,7 @@ All other fields (name, company, role, stakeholders, project, OKRs) are identica
 **Runner instructions for Scenario B:**
 1. Start a new onboarding session (do not continue Scenario A's session).
 2. State to the assistant: "I want to re-run onboarding. My name is Alex Reyes and I'm re-configuring the OS."
-3. When the assistant asks (or proceeds through) persona selection, indicate Batman strategic operator.
+3. When the assistant asks (or proceeds through) persona selection, indicate Builder / AI PM.
 4. Capture the full transcript verbatim.
 
 ---
@@ -73,12 +73,12 @@ All other fields (name, company, role, stakeholders, project, OKRs) are identica
 
 Grade against **eval 03** (persona-routing-respected) and **eval 07 criterion 7** (re-run re-asks persona/tone/gates):
 
-**Pass:** The assistant explicitly re-asks persona, tone, and quality-gate preference during Scenario B. The resulting CLAUDE.md reflects Batman routing (mandatory `/riddler` + `/vale` gates, Batman voice, Gotham agent routing). The assistant does **not** say "I see you already have Executive operator configured — keeping that."
+**Pass:** The assistant explicitly re-asks persona, tone, and quality-gate preference during Scenario B. The resulting CLAUDE.md reflects Builder / AI PM configuration (mandatory `/eval-review` + `/build-review` + `/test-plan` pre-deployment gates, eval-first tone). The assistant does **not** say "I see you already have Executive operator configured — keeping that."
 
-**Fail:** The assistant detects the prior configuration and preserves it, or silently outputs files with Executive operator defaults despite the user indicating Batman. The transcript shows no re-ask of persona, tone, or gates.
+**Fail:** The assistant detects the prior configuration and preserves it, or silently outputs files with Executive operator defaults despite the user indicating Builder / AI PM. The transcript shows no re-ask of persona, tone, or gates.
 
 ---
 
 ## Note on fixture design
 
-Alex Reyes is intentionally similar to Jordan Lee (both Executive operators, both at tech companies, both with a platform-adjacent project). The variable that matters is D9. Cosmetic differences (name, company, project) are present only to avoid exact duplication — they do not change what is being tested.
+Alex Reyes is intentionally similar to Jordan Lee (both start as Executive operators, both at tech companies, both with a platform-adjacent project). The variable that matters is D9. Cosmetic differences (name, company, project) are present only to avoid exact duplication — they do not change what is being tested.

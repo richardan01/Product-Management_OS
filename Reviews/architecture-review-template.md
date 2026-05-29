@@ -1,6 +1,6 @@
 # OS Architecture Review — [YYYY-MM]
 
-**Reviewer:** [YOUR_NAME] (+ Lucius Fox strategic layer)
+**Reviewer:** [YOUR_NAME]
 **Date:** YYYY-MM-DD
 **Cadence:** Monthly
 **Scope:** Full OS — structure, agents, skills, workflows, evals, knowledge, templates
@@ -101,7 +101,7 @@ For each proposed change, confirm it passes all four acceptance criteria above b
 
 - Current top-level folder count: ___
 - Current skill count: ___
-- Current agent file count (Agents/Gotham/Computer/): ___
+- Current sub-agent file count (`.claude/agents/`): ___
 - Current template count: ___
 
 **Any surface area that earns its cost?** _(name anything that felt like overhead this month)_

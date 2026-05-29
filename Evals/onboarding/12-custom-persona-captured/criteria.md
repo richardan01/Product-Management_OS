@@ -9,7 +9,7 @@
 | 1 | The assistant accepts a custom persona name and captures the user's own tone/behavior words without rewriting them into a canned persona. |
 | 2 | The assistant asks which quality gates should apply to the custom persona, or proposes options and gets confirmation. |
 | 3 | The assistant asks which commands should be surfaced first for the custom persona. |
-| 4 | `CLAUDE.md` output records custom routing clearly, including which Batman/Gotham agents are routed by default versus only available on request. |
+| 4 | `CLAUDE.md` output records the custom persona's gates and surfaced commands clearly — which gates are mandatory, under what conditions, and which commands come first. |
 
 ## Grading notes
 

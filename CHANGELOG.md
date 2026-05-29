@@ -8,10 +8,21 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ## [Unreleased]
 
+### Removed
+- **Batman / Gotham strategic layer** — deleted `Agents/Gotham/` (12 named persona agents, `Bruce-Wayne/` files, gate schemas) and `Agents/README.md` to make this a pure day-to-day PM OS
+- Career tooling — `career-narrative` and `frontier-lab-interview-prep` skills; "Career transition" OS mode and "Batman strategic operator" persona removed from onboarding
+- Adversarial gate machinery — `riddler`, `vale`, `voice-conformance` skills and `Workflows/gate-dispatch.md` + `gate-merge.md`; `/peer-review` is now the default pre-publish gate for every persona
+- `_Registry/voice-map.md`, `Tasks/dayjob-active.md`, and the `examples/` demo workspaces
+- `Evals/gate-group/` suite (tested the removed gate-dispatch workflow)
+
+### Changed
+- Stripped Gotham persona/voice references from all skill `SKILL.md` files, `CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, `README.md`, and `HOW-IT-WORKS.md`; skills now use neutral PM role labels
+- `Evals/onboarding/` suite re-pointed from the Batman persona contrast to a Builder / AI PM contrast (`sam-okafor-builder-variant.md` replaces the Batman fixture)
+
 ### Added
 - `GOALS.md` Demo Instance section (Alex Chen, AI Builder PM) showing a filled example alongside the template scaffolding
 - `## If you're evaluating this repo` section in README — evaluator-facing orientation under 10 lines
-- `## See it in action` section in README — points to demo instance and `examples/ai-builder-pm-demo/`
+- `## See it in action` section in README — points to the `GOALS.md` demo instance
 - `Evals/README.md` — eval system overview: suites, run protocol, scoring thresholds, cadence, sample log format
 - `Evals/run-log.md` — persistent run log stub with one completed past entry
 - `.github/workflows/lint.yml` — CI: markdownlint on all `.md` files + placeholder-residue check enforcing template hygiene

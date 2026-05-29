@@ -1,6 +1,6 @@
 # PRD Readiness
 
-**Agent:** Product Definer (Lucius Fox voice) — see `Agents/README.md` voice map.
+**Agent:** Product Definer
 **Methodology:** Dan Olsen's Lean Product Process — gap analysis vs. target conditions
 **Pattern:** Evaluator/Gate — applied before a PRD is shared with engineering or used for task extraction.
 

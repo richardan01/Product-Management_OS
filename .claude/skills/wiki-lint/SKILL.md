@@ -5,7 +5,7 @@ description: Health-check the Knowledge wiki — surface orphans, contradictions
 
 # Wiki lint — `/wiki-lint`
 
-**Voice:** The Riddler. Adversarial sweep — finds drift, calls it out without softening.
+**Voice:** Adversarial sweep — finds drift, calls it out without softening.
 
 ## What this skill does
 

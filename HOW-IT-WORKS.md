@@ -30,9 +30,9 @@ The onboarding workflow lets the user choose purpose, persona, cadence, tasks, g
 └─────────────────────────────────────────────────────┘
                        ↑
 ┌─────────────────────────────────────────────────────┐
-│  Layer 2 — AGENTS  (Agents/)                        │
-│  PM-domain specialists. Each owns a set of          │
-│  skills and reads/writes specific files.            │
+│  Layer 2 — SUB-AGENTS  (.claude/agents/)            │
+│  PM-domain workers spawned by skills to handle      │
+│  parallel/isolated reads and drafting.              │
 └─────────────────────────────────────────────────────┘
                        ↑
 ┌─────────────────────────────────────────────────────┐
@@ -95,7 +95,7 @@ Skills don't run in isolation. A single `/meeting-prep` triggers a chain:
 /meeting-prep your-manager
        │
        ▼
-Alfred / meeting-prep skill
+meeting-prep skill
        │
        ├──► reads Knowledge/People/your-manager.md      (Knowledge layer)
        ├──► reads Meetings/1on1s/your-manager.md        (history)
@@ -108,7 +108,7 @@ Alfred / meeting-prep skill
        └──► drafts prep doc (agenda, updates to give, asks to make)
 ```
 
-This is the pattern across the board. **Skills** are the trigger surface. **Named agents** provide voice and domain judgment. **Sub-agents** in `.claude/agents/` or `.codex/agents/` handle parallel/isolated work.
+This is the pattern across the board. **Skills** are the trigger surface and carry the domain judgment. **Sub-agents** in `.claude/agents/` or `.codex/agents/` handle parallel/isolated work.
 
 ---
 

@@ -1,6 +1,6 @@
 # Test profile — Morgan Chen (Custom persona)
 
-Use this fixture to test the custom-persona path. The assistant must not force Morgan into Batman, Executive operator, Research partner, Product coach, Builder, or Minimalist defaults. It should capture the custom behavior, ask which gates and commands should apply, and preserve privacy boundaries.
+Use this fixture to test the custom-persona path. The assistant must not force Morgan into Executive operator, Research partner, Product coach, Builder, or Minimalist defaults. It should capture the custom behavior, ask which gates and commands should apply, and preserve privacy boundaries.
 
 ```markdown
 - Name: Morgan Chen
@@ -19,7 +19,6 @@ Use this fixture to test the custom-persona path. The assistant must not force M
 - Review style: strict PM craft review plus safety/risk review for AI features
 - Commands to surface first: `/today`, `/weekly-update`, `/meeting-prep`, `/prd-readiness`, `/eval-review`, `/risk-register`
 - Quality gates requested: `/peer-review` for normal artifacts; `/eval-review` + `/risk-register` before AI clinical workflow decisions
-- Batman/Gotham routing: Do not route by default. Keep Lucius Fox and Oracle available only on explicit request for AI build/research support
 - Planning rhythm: Monday planning, daily `/today`, Friday `/weekly-update`, monthly risk review
 - Anchor project: Clinical triage assistant pilot
 - Key stakeholders: Dana Patel (manager), Luis Romero (clinical ops), Asha Green (privacy counsel), Maya Singh (ML lead)

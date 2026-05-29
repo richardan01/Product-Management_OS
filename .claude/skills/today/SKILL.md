@@ -1,6 +1,6 @@
 # Today
 
-**Agent:** Alfred — see `Agents/Gotham/Computer/alfred.md` for full context.
+**Agent:** Daily Brief & Ops
 
 Read the following files to prepare [YOUR_NAME]'s daily to-do list:
 1. `Tasks/active.md` — current sprint tasks, blockers, and completed items

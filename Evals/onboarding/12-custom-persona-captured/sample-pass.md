@@ -49,11 +49,11 @@ The routing section in the resulting CLAUDE.md:
 ```markdown
 ## Routing
 
-**Default layer:** PM operations layer for day-job execution, tracking, meetings, roadmap.
-
-**Batman/Gotham routing:** Disabled by default. Lucius Fox (build support) and Oracle (research) available on explicit `/lucius` or `/oracle` request only. Batman (`/cowl-up`) available manually. No auto-routing to Gotham agents.
+**Default layer:** PM operations — day-job execution, tracking, meetings, roadmap.
 
 **Custom gates:** `/peer-review` for normal artifacts. `/eval-review` + `/risk-register` mandatory before any AI clinical workflow decision or pilot go/no-go.
+
+**Surfaced first:** `/today`, `/weekly-update`, `/meeting-prep`, `/prd-readiness`, `/eval-review`, `/risk-register`.
 ```
 
-The routing is specific: which agents are available, how to invoke them, and under what conditions the elevated gates apply. "Default routing applies" or "Batman routing applies where relevant" would fail this criterion. **C4 passes.**
+The routing is specific: which gates are mandatory, under what conditions, and which commands come first. "Default routing applies" would fail this criterion. **C4 passes.**

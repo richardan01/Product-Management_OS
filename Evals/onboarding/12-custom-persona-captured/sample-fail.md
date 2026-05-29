@@ -22,17 +22,17 @@ Morgan's label never appears. The assistant interpreted the description, conclud
 
 ---
 
-## C2 fails — Assistant sets Batman defaults without confirming
+## C2 fails — Assistant sets heavier gates without confirming
 
-Morgan said the persona is "calm operator with clinical-safety rigor" — nothing in this description maps to Batman, Gotham routing, or mandatory Riddler + Vale gates.
+Morgan said the persona is "calm operator with clinical-safety rigor" — nothing in this description implies a Builder/AI PM workflow or mandatory build/test gates.
 
 The resulting CLAUDE.md quality-gates section:
 
 ```markdown
-**Quality gates:** Before any public artifact ships → `/riddler` + `/vale` (mandatory). For PRDs: `/prd-readiness`. Before launch: `/go-nogo`.
+**Quality gates:** Before any artifact ships → `/eval-review` + `/build-review` + `/test-plan` (mandatory). For PRDs: `/prd-readiness`. Before launch: `/go-nogo`.
 ```
 
-The assistant applied the Batman persona's mandatory gate set. Morgan did not request Riddler or Vale, and the persona description does not imply adversarial review or user-voice review. The assistant inferred rather than asked. **C2 fails.**
+The assistant applied a heavier persona's mandatory gate set. Morgan did not request build or test gates, and the persona description does not imply them. The assistant inferred rather than asked. **C2 fails.**
 
 ---
 
@@ -55,7 +55,7 @@ The routing section:
 ```markdown
 ## Routing
 
-**Default routing applies.** For Batman persona features, see `Agents/Gotham/Computer/`.
+**Default routing applies.**
 ```
 
-Morgan chose a custom persona specifically to avoid Batman routing. The section does not say which agents are available, which are disabled, or what triggers the elevated gates. A future session reading this CLAUDE.md would have no actionable routing rules — "default routing applies" is undefined for a custom persona. **C4 fails.**
+Morgan chose a custom persona. The section does not say which gates are mandatory, under what conditions, or which commands are surfaced first. A future session reading this CLAUDE.md would have no actionable routing rules — "default routing applies" is undefined for a custom persona. **C4 fails.**

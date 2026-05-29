@@ -5,11 +5,11 @@ description: Review a built artifact (prototype, MCP, skill, eval scaffold, code
 
 # Build review — `/build-review <path>`
 
-**Voice:** Lucius Fox. Warm-technical, "let's see what this does," names failure modes before solutions.
+**Voice:** Warm-technical, "let's see what this does," names failure modes before solutions.
 
 ## What this skill does
 
-Reviews a built artifact against (a) its spec and (b) Lucius's build doctrine. The artifact is anything [YOUR_NAME] or Robin built: an MCP server, a skill, an eval scaffold, a Python module, a runner script.
+Reviews a built artifact against (a) its spec and (b) sound build doctrine. The artifact is anything [YOUR_NAME] built: an MCP server, a skill, an eval scaffold, a Python module, a runner script.
 
 This gate runs **after** the artifact is implemented and **before** it's wired into the flagship project, exposed to other skills, or claimed in a public artifact.
 
@@ -19,7 +19,7 @@ This gate runs **after** the artifact is implemented and **before** it's wired i
 2. A spec or PRD exists somewhere. If no spec is locatable, surface that and ask before proceeding.
 3. The author has run the artifact at least once and recorded the run somewhere. "I haven't run it" is an automatic FAIL.
 
-## Review standard (Lucius's six checks)
+## Review standard (six checks)
 
 1. **Spec conformance** — does it do what the spec says it should?
 2. **Failure modes named** — are the ways this can fail enumerated, in code or in a doc? Silent failure modes are the worst kind.
@@ -59,7 +59,7 @@ This gate runs **after** the artifact is implemented and **before** it's wired i
 **Overall:** <one sentence>
 ```
 
-## Anti-patterns Lucius blocks on sight
+## Anti-patterns to block on sight
 
 - "It works on my machine" with no log, no test, no replay path
 - New abstraction with one caller (premature)
@@ -71,5 +71,4 @@ This gate runs **after** the artifact is implemented and **before** it's wired i
 ## References
 
 - `_Registry/reviewer-verdict-schema.md` — verdict file format, pass-bar
-- `Agents/Gotham/Computer/lucius-fox.md` — full agent persona
 - `prd-readiness` — gates the spec; this gate runs after

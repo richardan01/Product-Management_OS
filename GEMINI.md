@@ -49,4 +49,4 @@ Once `CLAUDE.md` is filled, treat it as the source of truth for how to respond â
 
 Stale task files weaken the OS. Running `/eod` daily is the highest-leverage habit.
 
-Full routing table: `Agents/README.md`.
+Full skill catalog: `.claude/skills/`.
