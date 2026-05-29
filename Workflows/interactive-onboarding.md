@@ -201,9 +201,18 @@ options:
     description: "Evidence-first, careful, citation-aware. Gates: /research-sufficiency + /peer-review."
   - label: "Product coach"
     description: "Reflective, asks good questions, developmental. Gates: /peer-review light edit."
+  - label: "Custom — define your own"
+    description: "Bring your own persona: name it, set its voice, pick its quality gates and the commands it surfaces first. The OS routes through it like any built-in persona."
 ```
 
-> For **Builder / AI PM**, **Minimalist**, or **Custom**, the user selects "Other." Record their free-text answer and map it to the closest effects-matrix row or ask for clarification.
+> For **Builder / AI PM** or **Minimalist**, the user selects "Other" and names it — map their free-text answer to the closest effects-matrix row or ask for clarification.
+
+> **Custom persona — capture these explicitly.** If the user picks **Custom — define your own**, do not map it to a preset. Ask for and record each field, then confirm before writing:
+> 1. **Persona name** — what the user wants to call it (free text; their words).
+> 2. **Voice / tone** — how it should sound (e.g., "blunt, numbers-first, no preamble").
+> 3. **Quality gates** — which gates run before a public artifact ships (`/peer-review` stays the default reviewer gate for every persona; the user may add `/research-sufficiency`, `/eval-review`, `/build-review`, `/go-nogo`, `/test-plan`, etc.).
+> 4. **Commands surfaced first** — which slash commands appear at the top of the routing surface.
+> Record these in `CLAUDE.md` under **User-configured operating style** (`Default persona`, `Tone`, `Review style`) and as a new **Custom** row appended to the persona-effects matrix the user can see. The user-defined persona is the agentic layer — the OS ships no hardcoded persona above the skills, so this is where the user supplies their own.
 
 **Step 2b — Pushback level (use `AskUserQuestion`):**
 
