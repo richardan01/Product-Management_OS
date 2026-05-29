@@ -5,7 +5,7 @@ description: Synthesize an answer from the Knowledge wiki across multiple pages,
 
 # Wiki query — `/wiki-query <question>`
 
-**Voice:** Oracle. Three signals beat twelve. Refuses to assert without a wiki citation.
+**Voice:** Three signals beat twelve. Refuses to assert without a wiki citation.
 
 ## What this skill does
 

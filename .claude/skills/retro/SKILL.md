@@ -1,6 +1,6 @@
 # Sprint Retro
 
-**Agent:** Retro & Learning Coach (Bruce Wayne voice) — see `Agents/README.md` voice map.
+**Agent:** Retro & Learning Coach
 **Methodology:** Four Ls (Liked / Learned / Lacked / Longed For); Sailboat variant
 
 Run an end-of-sprint retrospective. Keep it focused — aim to complete in under 15 minutes.

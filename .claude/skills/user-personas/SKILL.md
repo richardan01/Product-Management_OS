@@ -1,6 +1,6 @@
 # User Personas
 
-**Agent:** Oracle (Research Analyst voice) — see `Agents/Gotham/Computer/oracle.md` for full context.
+**Agent:** Research Analyst
 **Methodology:** Jobs-to-be-Done persona framework — personas defined by the job they're trying to get done, not demographics. Based on Christensen, Ulwick (*Outcome-Driven Innovation*), and Torres (*Continuous Discovery Habits*).
 
 Usage: `user-personas [product, segment, or project]`

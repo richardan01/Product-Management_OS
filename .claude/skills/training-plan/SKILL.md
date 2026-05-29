@@ -1,6 +1,6 @@
 # Training Plan
 
-**Agent:** Enablement & Change Manager (Robin voice) — see `Agents/README.md` voice map.
+**Agent:** Enablement & Change Manager
 
 Build a role-specific training plan for [feature] launch. Run this at least 1 week before the launch date.
 

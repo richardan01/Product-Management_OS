@@ -110,8 +110,6 @@ multiSelect: true
 options:
   - label: "Day job"
     description: "Current role — product execution, stakeholder updates, roadmap hygiene"
-  - label: "Career work"
-    description: "Positioning, interviews, frontier-lab prep, or narrative building"
   - label: "Side project / build"
     description: "Founder work, personal product, or AI prototype"
   - label: "Research or writing"
@@ -137,7 +135,6 @@ Start by offering the user a practical **OS mode**. Explain that this is a custo
 | **Day-job PM** | The main job is current product execution, stakeholder updates, and roadmap hygiene | `/today`, `/weekly-update`, `/meeting-prep`, `/peer-review` |
 | **AI Builder PM** | The user builds AI/LLM products or wants AI PM craft: evals, model-risk reviews, prompt/tool design, launch gates | `Templates/prd-ai-feature.md`, `/evals`, `/eval-review`, `/build-review`, `/test-plan` |
 | **Research PM** | The user needs discovery, synthesis, evidence quality, and decision readiness | `/synthesize-research`, `/research-sufficiency`, `/wiki-ingest`, `/wiki-query` |
-| **Career transition** | The user is positioning for roles, interviews, or frontier-lab research | `/career-narrative`, `/frontier-lab-interview-prep`, optional Gotham strategic layer |
 | **Minimalist** | The user wants low ceremony and few default commands | `/today`, `/weekly-update`, light `/peer-review` |
 | **Custom** | The user wants to mix surfaces manually | User-chosen commands, quality gates, persona, and routing |
 
@@ -156,8 +153,6 @@ options:
     description: "Building AI/LLM products or developing AI PM craft: evals, model-risk, prompt/tool design. Surfaces /evals, /eval-review, /build-review, /test-plan"
   - label: "Research PM"
     description: "Discovery, synthesis, evidence quality, decision readiness. Surfaces /synthesize-research, /research-sufficiency, /wiki-ingest, /wiki-query"
-  - label: "Career transition"
-    description: "Positioning for roles, interviews, or frontier-lab research. Surfaces /career-narrative, /frontier-lab-interview-prep, optional Gotham layer"
 ```
 
 > If the user needs **Minimalist** or **Custom**, they will select "Other" and describe their preference. Record it accordingly.
@@ -173,8 +168,6 @@ multiSelect: false
 options:
   - label: "Day-job execution"
     description: "Ship the roadmap, manage stakeholders, run the product cadence"
-  - label: "Career transition"
-    description: "Position for a new role, prep for interviews, build narrative"
   - label: "Founder / product build"
     description: "Validate ideas, build prototypes, make fast decisions with limited data"
   - label: "Research and writing"
@@ -195,19 +188,17 @@ Record the OS mode and operating purpose in `CLAUDE.md`, and reflect the goal fr
 
 **Step 2a — Default persona (use `AskUserQuestion`):**
 
-> **Tool:** Call `AskUserQuestion` with the configuration below. Tell the user: "Each persona turns on a different set of quality gates, routing, and slash commands — see the effects matrix below the question."
+> **Tool:** Call `AskUserQuestion` with the configuration below. Tell the user: "Each persona turns on a different set of quality gates and surfaces a different set of slash commands first — see the effects matrix below the question."
 
 ```
 question: "What persona should the assistant use by default?"
 header: "Persona"
 multiSelect: false
 options:
-  - label: "Batman strategic operator"
-    description: "Direct, terse, contingency-first, high standards. Gates: /riddler + /vale mandatory pre-publish. Routes all 12 Gotham agents."
   - label: "Executive operator"
-    description: "Concise, outcome-driven, low drama. Gates: /peer-review default, /go-nogo for launches. Batman layer available but not routed."
+    description: "Concise, outcome-driven, low drama. Gates: /peer-review default, /go-nogo for launches."
   - label: "Research partner"
-    description: "Evidence-first, careful, citation-aware. Gates: /research-sufficiency + /peer-review. Routes Oracle patterns."
+    description: "Evidence-first, careful, citation-aware. Gates: /research-sufficiency + /peer-review."
   - label: "Product coach"
     description: "Reflective, asks good questions, developmental. Gates: /peer-review light edit."
 ```
@@ -239,30 +230,27 @@ Ask in one message:
 
 Record the answers in the capture schema as `Taste — turns me off` and `Taste — ideal response feel`. These are free text, not dropdowns — use the user's exact words.
 
-Update `CLAUDE.md` and `_Registry/voice-map.md` only after the user confirms.
+Update `CLAUDE.md` only after the user confirms.
 
 ### Persona effects matrix
 
 Tell the user explicitly which parts of the OS each persona turns on or off. This is what they are actually configuring.
 
-| Persona | Default tone | Strategic layer | Quality gates | Slash commands surfaced first | Agents pruned from routing |
-|---|---|---|---|---|---|
-| **Batman strategic operator** | Direct, terse, imperative | `Agents/Gotham/Computer/` (all 12) | `/riddler` + `/vale` mandatory pre-publish | `/today`, `/cowl-up`, `/riddler`, `/vale` | None |
-| **Executive operator** | Concise, outcome-driven | Skills + Workflows only | `/peer-review` default; `/go-nogo` for launches | `/today`, `/weekly-update`, `/meeting-prep`, `/peer-review` | All Batman agents (kept as optional reference, not routed by default) |
-| **Research partner** | Evidence-first, careful, citation-aware | Skills + `Oracle` reference patterns | `/research-sufficiency` + `/peer-review` | `/synthesize-research`, `/research-sufficiency`, `/wiki-ingest`, `/wiki-query` | Batman, Selina Kyle, Henri Ducard, Nightwing |
-| **Product coach** | Reflective, asks good questions | Skills + Workflows | `/peer-review` light edit | `/today`, `/retro`, `/meeting-prep` | Batman, Selina Kyle, Robin |
-| **Builder / AI PM** | Pragmatic, eval-first, model-aware | Skills + `Lucius Fox` + `Oracle` reference (build + research) | `/eval-review` + `/build-review` + `/test-plan` mandatory pre-deployment | `/today`, `/evals`, `/eval-review`, `/build-review`, `/test-plan`, `/synthesize-research` | Batman, Selina Kyle, Bruce Wayne (career) |
-| **Minimalist** | Terse, checklist-only | Skills only | `/peer-review` light edit | `/today`, `/weekly-update` | All Batman agents |
-| **Custom** | User-defined | User-chosen | User-chosen | User-chosen | User-chosen |
+| Persona | Default tone | Quality gates | Slash commands surfaced first |
+|---|---|---|---|
+| **Executive operator** | Concise, outcome-driven | `/peer-review` default; `/go-nogo` for launches | `/today`, `/weekly-update`, `/meeting-prep`, `/peer-review` |
+| **Research partner** | Evidence-first, careful, citation-aware | `/research-sufficiency` + `/peer-review` | `/synthesize-research`, `/research-sufficiency`, `/wiki-ingest`, `/wiki-query` |
+| **Product coach** | Reflective, asks good questions | `/peer-review` light edit | `/today`, `/retro`, `/meeting-prep` |
+| **Builder / AI PM** | Pragmatic, eval-first, model-aware | `/eval-review` + `/build-review` + `/test-plan` mandatory pre-deployment | `/today`, `/evals`, `/eval-review`, `/build-review`, `/test-plan`, `/synthesize-research` |
+| **Minimalist** | Terse, checklist-only | `/peer-review` light edit | `/today`, `/weekly-update` |
+| **Custom** | User-defined | User-chosen | User-chosen |
 
-When the user selects a non-Batman persona:
+After the user selects a persona:
 
 1. Record the persona in `CLAUDE.md` → `Default persona`.
-2. Note in `CLAUDE.md` → `Routing` that the Batman layer is **available but not routed by default**.
-3. Do **not** delete `Agents/Gotham/Computer/` — preserve the files so the user can opt back in later by re-running onboarding.
-4. Set the quality-gate defaults in `CLAUDE.md` to match the persona's row above.
+2. Set the quality-gate defaults in `CLAUDE.md` to match the persona's row above.
 
-Confirm the persona and the routed agent set with the user before writing.
+Confirm the persona and the quality-gate set with the user before writing.
 
 ## Phase 3 — Define operating cadence
 
@@ -629,7 +617,7 @@ The dry run passes only if the assistant:
 
 Tighten this workflow before merging if the assistant:
 
-- Assumes Batman mode when the user chose another persona.
+- Assumes a persona the user did not choose.
 - Writes files before confirmation.
 - Stores private information the user excluded.
 - Produces generic goals that do not reflect the user's stated purpose.

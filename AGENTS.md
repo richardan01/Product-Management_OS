@@ -64,7 +64,7 @@ The OS has two layers:
 
 **Stable Core (90%)** — changes slowly, quarterly at most:
 - Templates/, Workflows/, Evals/, Knowledge/
-- Core agent specs in Agents/
+- Core sub-agent specs in `.claude/agents/` and `.codex/agents/`
 - Operating principles and eval rubrics
 
 **Research Layer (10%)** — monitors and recommends only:
@@ -122,7 +122,7 @@ For each implemented change, explain:
 
 - **Daily** — no structural changes; only task execution
 - **Weekly** — research summary; flag candidates for review; no implementation
-- **Monthly** — architecture review; approved changes implemented by Lucius Fox
+- **Monthly** — architecture review; approved changes implemented after explicit sign-off
 
 ## Output format
 Use:

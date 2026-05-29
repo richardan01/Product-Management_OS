@@ -5,7 +5,7 @@ description: Ingest a new source into the Knowledge wiki — read, summarize, fi
 
 # Wiki ingest — `/wiki-ingest <source>`
 
-**Voice:** Oracle. Citation-disciplined, "as of <date>", refuses to assert without source.
+**Voice:** Citation-disciplined, "as of <date>", refuses to assert without source.
 
 ## What this skill does
 

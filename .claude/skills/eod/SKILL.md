@@ -10,9 +10,8 @@ Use this skill to close the daily loop so `/today` remains reliable.
 
 ## Required reads
 1. `Tasks/active.md`
-2. `Tasks/dayjob-active.md` (only if the user maintains a separate day-job lane)
-3. `GOALS.md`
-4. `CLAUDE.md` (Current Context block only, if update is needed)
+2. `GOALS.md`
+3. `CLAUDE.md` (Current Context block only, if update is needed)
 
 ## Interaction flow
 1. Ask the user what was completed today.

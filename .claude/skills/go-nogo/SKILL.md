@@ -1,6 +1,6 @@
 # Go / No-Go
 
-**Agent:** Launch Manager (Batman voice) — see `Agents/README.md` voice map.
+**Agent:** Launch Manager
 
 Run a structured go/no-go decision for [project]. Use this 24–48 hours before planned launch.
 

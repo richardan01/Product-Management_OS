@@ -1,6 +1,6 @@
 # Pre-mortem
 
-**Agent:** Risk & Dependency Tracker (Riddler voice) — see `Agents/README.md` voice map.
+**Agent:** Risk & Dependency Tracker
 **Methodology:** Gary Klein's pre-mortem method — imagine the project has failed, then work backwards to find causes. Risk taxonomy: **Tigers** (real threats), **Paper Tigers** (perceived threats that aren't real), **Elephants** (uncomfortable truths the team is avoiding).
 
 Usage: `pre-mortem [project or initiative]`

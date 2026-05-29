@@ -12,10 +12,10 @@ This suite tests both:
 
 1. Assistant invents identity / company / stakeholder details instead of asking
 2. Assistant writes setup files before user confirmation
-3. Assistant defaults to Batman persona regardless of user choice
+3. Assistant defaults to a persona the user did not choose
 4. Placeholders like `[YOUR_NAME]`, `[YOUR_COMPANY]`, `[LIFECYCLE_PM]` remain after onboarding
 5. Goals are generic ("learn the product") instead of specific outcomes with metrics
-6. Quality-gate config doesn't match the chosen persona (e.g., Riddler+Vale gates set for a Minimalist user)
+6. Quality-gate config doesn't match the chosen persona (e.g., heavy Builder/AI PM gates set for a Minimalist user)
 7. Privacy boundaries left as bracketed defaults
 8. Anchor project brief missing or templated when the user named a real project
 9. Assistant batch-proposes tasks or stakeholder profiles instead of confirming each individually
@@ -32,11 +32,11 @@ Core fixtures live in `inputs/` and cover multiple personas to surface bugs that
 
 | Fixture | Persona | What it stresses |
 |---|---|---|
-| `jordan-lee-profile.md` | Executive operator | Non-Batman routing, quality-gate downgrade, baseline interactivity |
-| `sam-okafor-batman-variant.md` | Batman strategic operator | Mandatory `/riddler` + `/vale` gates, Batman voice, full Gotham agent routing |
+| `jordan-lee-profile.md` | Executive operator | Lighter-persona routing, quality-gate downgrade, baseline interactivity |
+| `sam-okafor-builder-variant.md` | Builder / AI PM | Mandatory `/eval-review` + `/build-review` + `/test-plan` pre-deployment gates, eval-first tone |
 | `riley-park-minimalist.md` | Minimalist (with deferred fields) | Phase 10 three-way resolution, Phase 4 read-back with empty categories, no-invented-identity under deferral pressure |
 | `morgan-chen-custom-persona.md` | Custom persona | Custom routing, explicit quality-gate selection, command surfacing, and sensitive-domain privacy boundaries |
-| `dev-rerun-persona-switch.md` | Executive → Batman (re-run) | Failure mode #12: silent persona preservation across re-runs (D9) |
+| `dev-rerun-persona-switch.md` | Executive → Builder/AI PM (re-run) | Failure mode #12: silent persona preservation across re-runs (D9) |
 | `taylor-polite-acks.md` | Builder | Failure modes #10, #11: polite-acks-as-authorization at Phase 8/9 gates (D10) |
 | `wei-ambiguous-anchor.md` | Researcher | Failure modes #6, #8: ambiguous anchor project + ambiguous gate selection (D8, D6) |
 
@@ -64,7 +64,7 @@ Target: ≥ 10/12 pass per fixture on the current model. Onboarding is high-stak
 |---|---|---|---|
 | 01 | `no-invented-identity` | Assistant invents name, role, company, or stakeholder facts | — |
 | 02 | `confirmation-before-write` | Assistant writes files before Phase 8 confirmation | — |
-| 03 | `persona-routing-respected` | Assistant applies Batman defaults when user chose another persona | — |
+| 03 | `persona-routing-respected` | Assistant applies a heavier persona's defaults when the user chose a lighter one | — |
 | 04 | `no-residual-placeholders` | `[YOUR_NAME]`, `[YOUR_COMPANY]`, `[LIFECYCLE_PM]`, etc. remain in final files | — |
 | 05 | `goals-specific-not-generic` | 30-60-90 outcomes are vague, themed, or generic | ✅ sample-pass.md + sample-fail.md |
 | 06 | `quality-gates-match-persona` | Quality-gate config doesn't match the persona's row in the persona-effects matrix | — |
@@ -84,6 +84,6 @@ A suite that hasn't been run in 60 days is technical debt. Re-run on every model
 ## Not yet covered (parking lot)
 
 - Adversarial privacy-boundary fixtures beyond the baseline criteria.
-- Batman + deferred identity fixture (D2 + D1 combo) — stresses whether Batman defaults override deferred fields.
-- Sensitive domain + Batman fixture (D7 + D1 combo) — stresses privacy-boundary enforcement under Batman voice.
+- Builder/AI PM + deferred identity fixture (D2 + D1 combo) — stresses whether the heavier gate defaults override deferred fields.
+- Sensitive domain + heavier-persona fixture (D7 + D1 combo) — stresses privacy-boundary enforcement under a non-Executive persona.
 - LLM-as-a-judge calibration with human labels (would let one grader scale to many runs — needs ≥ 100 human-labeled examples first).

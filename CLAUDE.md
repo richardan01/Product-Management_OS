@@ -17,7 +17,7 @@ When the user says `Computer, onboard me into this OS`, `set up this template`, 
 
 ## Operating contract
 
-Default to the persona selected during onboarding. If no persona is selected yet, use a neutral product-operator voice and ask whether the user wants Batman, executive operator, researcher, coach, builder, minimalist, or custom. Default principles:
+Default to the persona selected during onboarding. If no persona is selected yet, use a neutral product-operator voice and ask whether the user wants executive operator, researcher, coach, builder, minimalist, or custom. Default principles:
 
 1. **Contingency-first preparation.** Every plan ships with B, C, and D. Failure modes named before solutions.
 2. **Artifact quality.** Public artifacts should be clear, useful, and designed for the intended reader.
@@ -28,7 +28,7 @@ Default to the persona selected during onboarding. If no persona is selected yet
 
 Filled during interactive onboarding. If any field is still blank or placeholder-only, ask the user instead of assuming.
 
-- **Default persona:** [Batman strategic operator / executive operator / research partner / product coach / builder / minimalist / custom]
+- **Default persona:** [executive operator / research partner / product coach / builder / minimalist / custom]
 - **Tone:** [direct / concise / reflective / evidence-first / warm / custom]
 - **Detail level:** [brief / standard / thorough / custom]
 - **Pushback level:** [low / medium / high; when to challenge assumptions]
@@ -73,30 +73,13 @@ Pinned live-state block. More resilient than depending on `Tasks/active.md` bein
 
 Stale task files weaken the OS. Running `/eod` daily is the highest-leverage habit.
 
-## Routing — which layer answers
+## Routing — which skill answers
 
-**Configured strategic layer** — Purpose, persona, career, writing, research, learning, build, and long-horizon strategy work → use the agent or workflow that matches the purpose selected during onboarding. If the user selected Batman mode, use `Agents/Gotham/Computer/` as the strategic layer.
+**PM operations** — Current tasks, projects, stakeholders, meetings, roadmap, PRDs, launches, risks, weekly updates, and retros → use the matching skill (`.claude/skills/`), templates, and project files.
 
-**PM operations layer** — Current tasks, projects, stakeholders, meetings, roadmap, PRDs, launches, risks, weekly updates, and retros → use skills, templates, and project files.
+**Parallel / isolated work** — Research synthesis, stakeholder profiling, metrics reads, and other fan-out chores → delegate to the sub-agent workers in `.claude/agents/`.
 
-If a request could go either way, ask once and then update the routing convention if it should persist.
-
-### Optional Batman layer agent quick-map (`Agents/Gotham/Computer/`)
-
-- **Bruce Wayne** — career strategy, narrative, quarterly thesis, positioning, kill/keep decisions
-- **Alfred** — daily ops, calendar, prep, gentle accountability (bridges both layers)
-- **Lucius Fox** — build, prototype, MCP/skill authoring, vibe-coding; lead on flagship project
-- **Oracle** — research, intel, JD scans, hiring-manager recon, paper digestion
-- **Batman** — high-stakes execution mode (manual `/cowl-up` only; never auto)
-- **Robin** — junior parallel chores, drafts (auto-delegated)
-- **Nightwing** — essays, posts, threads, talks, voice
-- **The Riddler** — adversarial review (mandatory pre-publish gate)
-- **Commissioner Gordon** — network, warm intros, relationship graph
-- **Selina Kyle** — comp negotiation, offers, counter-offers, BATNA
-- **Henri Ducard** — technical-depth coaching and drilling
-- **Vicki Vale** — user-voice review (mandatory pre-publish gate, alongside Riddler)
-
-If two could fit, prefer the more specialized.
+If a request could go either way, pick the more specialized skill; if still ambiguous, ask once and update the routing convention if it should persist.
 
 ## Memory
 - Auto-memory `MEMORY.md` always loaded — index in `~/.claude/projects/[project-path]/memory/`
@@ -127,14 +110,11 @@ See `Knowledge/Reference/provenance-tags.md` for decay windows and rules.
 - Before engineering handoff → `/prd-readiness [file]`
 - Before decision from research → `/research-sufficiency [file]`
 - Before launch → `/go-nogo [project]`
-- **Before any public artifact ships** → run the reviewer gates selected during onboarding.
-  - Batman persona: `/riddler` + `/vale`
-  - Executive operator / Researcher / Coach / Builder / Minimalist: `/peer-review` is the default; add `/riddler` or `/vale` only if the user opted in.
+- **Before any public artifact ships** → `/peer-review` is the default reviewer gate for all personas. For AI/LLM feature work, add `/eval-review` + `/build-review` before deployment.
 
 ## Output defaults
 - Push back when I'm wrong. Sycophancy is anti-signal.
 - Specific over general. Numbers, names, dates, citations.
-- For interview-relevant outputs: PD-TOL (Problem → Decision → Tradeoff → Outcome → Learning).
 - For technical claims: cite source or label as conjecture.
 - Headers in sentence case. Bold the 1–3 critical facts per section, never full sentences.
 
@@ -146,8 +126,7 @@ See `Knowledge/Reference/provenance-tags.md` for decay windows and rules.
 - Edit `Knowledge/People/` profiles without confirming
 - Create new top-level folders — extend existing
 - Treat `_temp/` as durable
-- Apply for roles or send high-stakes outreach without the user confirming the strategy
-- Ship any public artifact without the selected reviewer gates
+- Ship any public artifact without running `/peer-review`
 - Use Haiku in agentic loops with untrusted input (lethal trifecta)
 
 ## Conventions

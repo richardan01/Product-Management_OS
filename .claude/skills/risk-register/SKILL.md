@@ -1,6 +1,6 @@
 # Risk Register
 
-**Agent:** Risk & Dependency Tracker (Riddler voice) — see `Agents/README.md` voice map.
+**Agent:** Risk & Dependency Tracker
 **Methodology:** Pre-mortem discipline — Gary Klein; risk taxonomy: tigers, paper tigers, elephants
 
 View and update the unified risk register across all active projects. Run this weekly alongside `roadmap review`.

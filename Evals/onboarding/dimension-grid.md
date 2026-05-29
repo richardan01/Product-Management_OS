@@ -6,7 +6,7 @@ Modeled on the `generate-synthetic-data` skill from `hamelsmu/evals-skills`. Ins
 
 | # | Dimension | Values | Why it matters |
 |---|---|---|---|
-| D1 | Persona | Batman / Executive operator / Researcher / Coach / Builder / Minimalist / Custom | Different routing, different quality gates, different default tones. The single biggest behavior-changing input. |
+| D1 | Persona | Executive operator / Researcher / Coach / Builder / AI PM / Minimalist / Custom | Different quality gates, different surfaced commands, different default tones. The single biggest behavior-changing input. |
 | D2 | Identity completeness | Fully provided / Some deferred / Mostly deferred | Stresses "no invented identity" (eval 01) and "deferred fields annotated" (eval 04 C5). |
 | D3 | OKR alignment provided | Provided / Skipped by user / User unsure | Stresses Phase 5 (eval 08). |
 | D4 | Thought-framework answers | Provided / Skipped / Partial | Stresses Phase 5B (eval 09). |
@@ -22,17 +22,17 @@ Modeled on the `generate-synthetic-data` skill from `hamelsmu/evals-skills`. Ins
 | Fixture | D1 | D2 | D3 | D4 | D5 | D6 | D7 | D8 | D9 | D10 |
 |---|---|---|---|---|---|---|---|---|---|---|
 | `jordan-lee-profile.md` | Executive | Full | Provided | Provided | Provided | Default | None | Real | First run | None |
-| `sam-okafor-batman-variant.md` | Batman | Full | Provided | Provided | Provided | Default | Standard | Real | First run | None |
+| `sam-okafor-builder-variant.md` | Builder / AI PM | Full | Provided | Provided | Provided | Default | Standard | Real | First run | None |
 | `riley-park-minimalist.md` | Minimalist | Mostly deferred | Skipped | Skipped | "Don't know" | Default | None | Not sure | First run | None |
 | `morgan-chen-custom-persona.md` | Custom | Full | Provided | Provided | Provided | Explicit override | Sensitive | Real | First run | None |
-| `dev-rerun-persona-switch.md` | Executive → Batman | Full | Provided | Provided | Provided | Default → Default | Standard | Real | Re-run new persona | None |
+| `dev-rerun-persona-switch.md` | Executive → Builder/AI PM | Full | Provided | Provided | Provided | Default → Default | Standard | Real | Re-run new persona | None |
 | `taylor-polite-acks.md` | Builder | Full | Provided | Provided | Provided | Default | Standard | Real | First run | At Phase 8+9 |
 | `wei-ambiguous-anchor.md` | Researcher | Full | Provided | Provided | Provided | Ambiguous | Standard | Multiple candidates | First run | None |
 
 ## Visible gaps (parking lot, ordered by leverage)
 
-1. **D2 = Mostly deferred + D1 = Batman.** No fixture stresses Batman defaults *under deferral pressure* — does the assistant fall back to Batman or actually preserve the user's deferrals?
-2. **D7 = Sensitive domain + Batman.** Only the custom persona stresses sensitive boundaries. Does Batman voice respect privacy boundaries, or does its tone override them?
+1. **D2 = Mostly deferred + D1 = Builder / AI PM.** No fixture stresses the heavier Builder/AI PM gate defaults *under deferral pressure* — does the assistant fall back to heavy gates or actually preserve the user's deferrals?
+2. **D7 = Sensitive domain + non-Executive persona.** Only the custom persona stresses sensitive boundaries. Does a heavier persona's tone override the privacy boundaries, or respect them?
 
 ## Previously addressed (closed gaps)
 
@@ -55,4 +55,4 @@ When the matrix grows large, do not exhaustively enumerate. Sample by:
 
 1. Always cover **every value of D1** (persona) at least once — it's the dominant variable.
 2. Cover **every named failure mode** in the suite README with at least one fixture that targets it.
-3. Beyond that, prefer **tuples that combine two adversarial dimensions** (e.g., Batman + deferred fields; Custom + sensitive privacy). Single-dimension fixtures usually grade only the dimension they target.
+3. Beyond that, prefer **tuples that combine two adversarial dimensions** (e.g., Builder/AI PM + deferred fields; Custom + sensitive privacy). Single-dimension fixtures usually grade only the dimension they target.

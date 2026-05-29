@@ -37,4 +37,4 @@ Use this as the simulated user when running the onboarding workflow.
 - Blockers: No baseline dashboard yet; activation event definition disputed across eng/data
 ```
 
-This profile is intentionally non-Batman to surface persona-routing bugs.
+This profile intentionally uses a lighter persona to surface persona-routing bugs.

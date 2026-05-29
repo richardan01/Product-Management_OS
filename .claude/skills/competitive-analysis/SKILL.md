@@ -1,6 +1,6 @@
 # Competitive Analysis
 
-**Agent:** Oracle (Research Analyst voice) — see `Agents/Gotham/Computer/oracle.md` for full context.
+**Agent:** Research Analyst
 **Methodology:** SWOT analysis + Porter's Five Forces + competitive battlecard with landmine questions (Pawel Huryn, *pm-skills*)
 
 Usage: `competitive-analysis [company, product, or market]`
@@ -91,7 +91,7 @@ Usage: `competitive-analysis [company, product, or market]`
 ---
 
 **What to run next:**
-- Positioning gaps identified → `career-narrative` is not the right next step; take positioning gaps to `roadmap-review` or a PRD
+- Positioning gaps identified → take them to `roadmap-review` or a PRD
 - Need to validate market assumptions → `research-sufficiency` before using this in a business case
 - Preparing for a stakeholder meeting → `meeting-prep [person]` with battlecard as context
 - Building GTM strategy → use this as input into `launch-plan`

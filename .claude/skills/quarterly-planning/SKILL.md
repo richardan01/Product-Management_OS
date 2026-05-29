@@ -1,6 +1,6 @@
 # Quarterly Planning
 
-**Agent:** Bruce Wayne → Strategy & Roadmap — see `Agents/Gotham/Computer/bruce-wayne.md` for full context.
+**Agent:** Strategy & Roadmap
 **Methodology:** OKR framework — Doerr, *Measure What Matters*
 **Sub-agents:** Spawn `task-analyzer` (velocity/shipped items) and `project-scanner` (milestone status) in parallel.
 

@@ -1,6 +1,6 @@
 # Opportunity Solution Tree
 
-**Agent:** Oracle → Lucius Fox — Oracle maps the opportunity space; Lucius Fox evaluates solution feasibility.
+**Agent:** Discovery & Solution Analyst — maps the opportunity space, then evaluates solution feasibility.
 **Methodology:** Teresa Torres, *Continuous Discovery Habits* — OST maps a desired outcome to the opportunity space, then branches into solutions and experiments.
 
 Usage: `opportunity-solution-tree [outcome or project]`

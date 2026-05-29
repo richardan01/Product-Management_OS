@@ -8,7 +8,7 @@ It is designed to help PMs produce higher-quality artifacts with consistent oper
 
 ## If you're evaluating this repo
 
-This is a personal AI PM operating system — a harness-neutral template that a PM configures once during onboarding and then runs daily for execution, research, and quality review. It is not a demo app; it is a working system designed to be forked, personalized, and used. Three things demonstrate AI PM craft here: **(1) multi-agent architecture** with clear domain separation (12 named agents, each owning a narrow domain, coordinated through a shared file system); **(2) offline eval suites** in `Evals/` with author/grader separation enforced as a hard protocol requirement; **(3) a quality gate framework** with pre-publish review gates that vary by persona and artifact type. The fastest path to seeing output without running onboarding is `examples/ai-builder-pm-demo/`. This is a harness-neutral template. The author's personal context lives in a private fork.
+This is a personal AI PM operating system — a harness-neutral template that a PM configures once during onboarding and then runs daily for execution, research, and quality review. It is not a demo app; it is a working system designed to be forked, personalized, and used. Three things demonstrate AI PM craft here: **(1) a multi-skill architecture** with clear domain separation (each skill owns a narrow PM job, coordinated through a shared file system, with sub-agents for parallel work); **(2) offline eval suites** in `Evals/` with author/grader separation enforced as a hard protocol requirement; **(3) a quality gate framework** with pre-publish review gates (`/peer-review`, `/prd-readiness`) by artifact type. This is a harness-neutral template. The author's personal context lives in a private fork.
 
 ---
 
@@ -46,7 +46,7 @@ Then, in any of the three:
 
 ## First session walkthrough
 
-If you are evaluating this repo as a recruiter, collaborator, or PM peer, this is the shortest path to seeing what the OS actually does. Plan for ~30–45 minutes including onboarding. For a no-onboarding skim, browse `examples/ai-builder-pm-demo/`.
+If you are evaluating this repo as a recruiter, collaborator, or PM peer, this is the shortest path to seeing what the OS actually does. Plan for ~30–45 minutes including onboarding.
 
 1. Fork or clone this repository.
 2. Run onboarding with:
@@ -80,7 +80,7 @@ This sequence shows the core promise: faster PM execution with stronger AI-produ
   - AI Builder PM → `/eval-review` + `/build-review`
   - Day-job PM → `/peer-review` + `/prd-readiness`
   - Research PM → `/research-sufficiency` + `/peer-review`
-  - Minimalist / Career transition → `/peer-review`
+  - Minimalist → `/peer-review`
 - **Day 7 — Close the week:** run `/eod` (each evening to keep task state fresh), then `/weekly-update` and `/retro` to lock learning and next steps.
 
 The goal of week one is not full customization; it is proving the OS helps you ship better PM work immediately.
@@ -91,15 +91,13 @@ A PM's daily work is high-context, multi-domain, and interruptible. On any given
 
 A single AI assistant with one long prompt can't handle this well. It conflates domains, loses context, and produces generic output.
 
-The Gotham/Batman layer is intentionally optional: useful for users who like a strategic persona system, but not required for day-to-day AI PM execution.
+**This OS solves that.** It's a multi-skill architecture where:
+- Each skill owns a narrow PM job
+- Skills coordinate through a shared file system (not direct calls)
+- Sub-agents handle parallel/isolated work
+- A configurable persona keeps voice, standards, and focus consistent
 
-**This OS solves that.** It's a multi-agent architecture where:
-- Each agent owns a narrow domain
-- Agents coordinate through a shared file system (not direct calls)
-- Orchestration patterns govern how they compose into workflows
-- A configurable persona layer keeps voice, standards, and focus consistent
-
-For a full walkthrough of the 3-layer model (Skills → Agents → Knowledge) and how a typical PM week runs through the system, see `HOW-IT-WORKS.md`.
+For a full walkthrough of the 3-layer model (Skills → Sub-agents → Knowledge) and how a typical PM week runs through the system, see `HOW-IT-WORKS.md`.
 
 ---
 
@@ -115,10 +113,9 @@ This repository is meant to be downloaded, forked, or cloned as the user's own w
 
 The repo ships as a template: every file uses `[PLACEHOLDER]` scaffolding that onboarding replaces with your real context. A live personal instance looks nothing like the template — goals have real metrics, stakeholder profiles have real people, and quality gates are tuned to the PM's chosen persona.
 
-Two reference points show what a filled instance looks like without requiring you to run onboarding:
+One reference point shows what a filled instance looks like without requiring you to run onboarding:
 
 - **`GOALS.md` → Demo Instance section** — Alex Chen, Senior PM at a fictional frontier AI lab, with real 30-60-90 goals, activation metrics, and a stakeholder table. This is what the file looks like the day after onboarding.
-- **`examples/ai-builder-pm-demo/`** — A complete AI Builder PM workflow: onboarding → PRD draft → eval/review loop → go/no-go framing. Browse this to see the OS in motion.
 
 Clone → run `Computer, onboard me into this OS` → your instance. The placeholders become your context.
 
@@ -143,14 +140,13 @@ The onboarding interview starts with an **OS mode chooser** so users can customi
 | **Day-job PM** | Sprint execution, stakeholder updates, roadmap hygiene | `/today`, `/weekly-update`, `/meeting-prep`, `/peer-review` |
 | **AI Builder PM** | AI/LLM features, evals, model-risk reviews, launch gates | `Templates/prd-ai-feature.md`, `/evals`, `/eval-review`, `/build-review`, `/test-plan` |
 | **Research PM** | Discovery, synthesis, evidence quality, decision readiness | `/synthesize-research`, `/research-sufficiency`, `/wiki-ingest`, `/wiki-query` |
-| **Career transition** | Positioning, interview prep, target-company research | `/career-narrative`, `/frontier-lab-interview-prep`, optional Gotham strategic layer |
 | **Minimalist** | Low-ceremony daily execution | `/today`, `/weekly-update`, light `/peer-review` |
 | **Custom** | Any mixed setup | User chooses commands, quality gates, persona, and routing |
 
 The onboarding interview then lets the user choose or override:
 
 1. **Purpose** — day-job execution, career transition, founder/product build, research/writing, learning system, or a mixed setup.
-2. **Persona** — Batman default, executive operator, researcher, coach, builder, minimalist, or a custom persona.
+2. **Persona** — executive operator, researcher, coach, builder, minimalist, or a custom persona.
 3. **Operating cadence** — daily brief, weekly review, sprint planning, monthly strategy review, quarterly reset.
 4. **Core tasks** — current sprint tasks, recurring meetings, projects, decisions, risks, and follow-ups.
 5. **Goals** — 30-60-90 outcomes, key metrics, target companies or markets, and personal development goals.
@@ -171,48 +167,24 @@ The assistant should summarize the proposed edits first and only write files aft
 
 ### What each persona changes
 
-The persona choice in onboarding is not cosmetic — it changes which agents are routed, which quality gates run pre-publish, and which slash commands are surfaced first. See the **persona-effects matrix** in `Workflows/interactive-onboarding.md` (Phase 2) for the full table. Highlights:
+The persona choice in onboarding is not cosmetic — it changes which quality gates run pre-publish and which slash commands are surfaced first. See the **persona-effects matrix** in `Workflows/interactive-onboarding.md` (Phase 2) for the full table. Highlights:
 
-- **Batman** — all 12 Gotham agents active, `/riddler` + `/vale` mandatory pre-publish.
-- **Executive operator** — skills + workflows only, `/peer-review` default gate, Batman agents preserved but not routed.
+- **Executive operator** — `/peer-review` default gate; `/today`, `/weekly-update`, `/meeting-prep` surfaced first.
 - **Research partner** — research-oriented commands surfaced first (`/synthesize-research`, `/wiki-ingest`), `/research-sufficiency` gate.
 - **Builder / AI PM** — `Templates/prd-ai-feature.md`, `/build-review`, `/eval-review`, `/test-plan` surfaced first.
-- **Minimalist** — skills only, low-ceremony.
-
-Non-Batman personas keep `Agents/Gotham/Computer/` on disk so the user can opt back in by re-running onboarding.
+- **Minimalist** — low-ceremony, `/today` + `/weekly-update`.
 
 ### Verifying onboarding completed cleanly
 
 Phase 10 of the onboarding workflow runs a verification checklist (placeholders filled, persona set, quality gates match persona, goals specific, active tasks present, privacy boundaries recorded). The assistant reports a ✅ / ❌ checklist; anything ❌ must be resolved before treating onboarding as done.
 
-The `Evals/onboarding/` suite tests these properties against a non-Batman fixture (Jordan Lee, Executive operator) to catch persona-routing and placeholder-residue bugs across model upgrades.
+The `Evals/onboarding/` suite tests these properties against a fixture (Jordan Lee, Executive operator) to catch persona-routing and placeholder-residue bugs across model upgrades.
 
 ---
 
-## Two configurable layers
+## How the OS is structured
 
-### Layer 1: Strategic persona layer (optional)
-
-12 named agents in `Agents/Gotham/Computer/`. These can run as the default if the user chooses the Batman persona during onboarding. Their job is to maintain long-horizon strategy, artifact quality, and ruthless focus.
-
-| Agent | Domain |
-|-------|--------|
-| **Alfred** | Daily ops, calendar, prep, accountability |
-| **Bruce Wayne** | Career strategy, quarterly thesis, positioning |
-| **Oracle** | Research, intel, JD scans, hiring-manager recon |
-| **Lucius Fox** | Build, prototype, MCP/skill authoring |
-| **Batman** | High-stakes execution (manual `/cowl-up` only) |
-| **Robin** | Junior parallel chores, draft-zero |
-| **Nightwing** | Essays, posts, threads, talks, public voice |
-| **The Riddler** | Adversarial review (mandatory pre-publish gate) |
-| **Vicki Vale** | User-voice review (mandatory pre-publish gate) |
-| **Commissioner Gordon** | Network, warm intros, relationship graph |
-| **Selina Kyle** | Comp negotiation, offers, counter-offers |
-| **Henri Ducard** | Technical-depth coaching and drilling |
-
-### Layer 2: PM operations layer
-
-Used for the user's day-to-day product work. It is implemented through shared tasks, knowledge files, templates, workflows, and PM skills. Add dedicated agents only when a workflow becomes common enough to deserve its own owner.
+The OS is built for day-to-day product work and implemented through shared tasks, knowledge files, templates, workflows, and PM skills (`.claude/skills/`). Skills carry the domain judgment; when a job needs parallel or isolated work, a skill spawns a sub-agent worker from `.claude/agents/` (or `.codex/agents/` under Codex). Add dedicated agents only when a workflow becomes common enough to deserve its own owner.
 
 ---
 
@@ -237,17 +209,16 @@ The `Evals/` directory contains **offline audit suites** — not real-time respo
 
 **Say: "Computer, [task]"**
 
-This routes to the right agent automatically. Examples:
+This routes to the right skill automatically. Examples:
 
 - `Computer, onboard me into this OS` → interactive onboarding workflow
-- `Computer, what should I focus on today?` → Alfred
-- `Computer, scan for [TARGET_COMPANIES] PM roles` → Oracle
-- `Computer, what's our quarterly thesis?` → Bruce Wayne
-- `Computer, prototype the eval harness` → Lucius Fox
-- `Computer, review this essay before I ship it` → Riddler + Vicki Vale
-- `Computer, who should see the flagship repo?` → Gordon
+- `Computer, what should I focus on today?` → `/today`
+- `Computer, prep me for my 1:1` → `/meeting-prep [person]`
+- `Computer, synthesize these interviews` → `/synthesize-research`
+- `Computer, review this PRD before handoff` → `/peer-review` + `/prd-readiness`
+- `Computer, log this risk` → `/risk-register`
 
-→ Full routing table: `Agents/README.md`
+→ Full skill catalog: `.claude/skills/`
 
 ---
 
@@ -275,15 +246,15 @@ Do not blindly accept generated setup. Review the proposed updates to `CLAUDE.md
 /today
 ```
 
-Alfred will read your active tasks and goals and give you a morning brief.
+`/today` will read your active tasks and goals and give you a morning brief.
 
-### Step 5: Set up the strategic thesis
+### Step 5: Plan the quarter
 
 ```text
-Computer, what should my quarterly thesis be?
+/quarterly-planning
 ```
 
-The strategic layer will help you set a quarterly arc for the purpose you selected during onboarding.
+Scores last quarter's OKRs and drafts next quarter's objectives aligned to `GOALS.md`.
 
 ---
 
@@ -294,25 +265,8 @@ ProductManagement-OS/
 ├── CLAUDE.md                    ← Identity, routing, persona, operating contract
 ├── GOALS.md                     ← 30-60-90 goals, stakeholders, metrics
 │
-├── Agents/
-│   ├── README.md                ← Architecture overview, routing table
-│   └── Gotham/Computer/         ← 12 optional Batman-layer agents
-│       ├── alfred.md
-│       ├── bruce-wayne.md
-│       ├── batman.md
-│       ├── oracle.md
-│       ├── lucius-fox.md
-│       ├── nightwing.md
-│       ├── riddler.md
-│       ├── robin.md
-│       ├── gordon.md
-│       ├── selina-kyle.md
-│       ├── henri-ducard.md
-│       └── vicki-vale.md
-│
 ├── Tasks/
 │   ├── active.md                ← Current sprint (#p0/#p1/#p2)
-│   ├── dayjob-active.md         ← Optional separate day-job task lane
 │   ├── backlog.md               ← Prioritized backlog
 │   └── follow-ups.md            ← Commitments from meetings and reviews
 │
@@ -331,11 +285,11 @@ ProductManagement-OS/
 ├── Workflows/                   ← Repeatable operating workflows
 ├── Templates/                   ← Reusable PM document templates
 ├── _Registry/
-│   └── voice-map.md             ← Persona/voice assignments per agent
+│   └── reviewer-verdict-schema.md  ← Canonical verdict format for review gates
 │
 ├── .claude/
-│   ├── skills/                  ← 28 Claude slash commands (see skill reference below)
-│   └── agents/                  ← 10 Claude sub-agent workers (spawned by skills)
+│   ├── skills/                  ← 27 Claude slash commands (see skill reference below)
+│   └── agents/                  ← 11 Claude sub-agent workers (spawned by skills)
 │
 └── .codex/
     └── agents/                  ← Codex sub-agent worker specs
@@ -343,16 +297,16 @@ ProductManagement-OS/
 
 ### Skill reference
 
-28 slash commands ship with the OS. Onboarding surfaces the most relevant ones for your chosen mode; the full set is available immediately after setup.
+27 slash commands ship with the OS. Onboarding surfaces the most relevant ones for your chosen mode; the full set is available immediately after setup.
 
 | Category | Skills |
 |---|---|
 | **Daily ops** | `/today`, `/eod`, `/weekly-update`, `/meeting-prep`, `/retro`, `/risk-register` |
-| **Quality gates** | `/peer-review`, `/prd-readiness`, `/research-sufficiency`, `/build-review`, `/eval-review`, `/go-nogo`, `/voice-conformance` |
+| **Quality gates** | `/peer-review`, `/prd-readiness`, `/research-sufficiency`, `/build-review`, `/eval-review`, `/go-nogo` |
 | **Planning** | `/quarterly-planning`, `/roadmap-review`, `/launch-plan` |
-| **Writing & review** | `/riddler`, `/vale`, `/career-narrative`, `/training-plan`, `/test-plan` |
+| **Product craft** | `/user-personas`, `/opportunity-solution-tree`, `/competitive-analysis`, `/pre-mortem`, `/test-plan`, `/training-plan` |
 | **Research & knowledge** | `/synthesize-research`, `/wiki-ingest`, `/wiki-query`, `/wiki-maintain`, `/wiki-lint` |
-| **Specialty** | `/evals`, `/eval-review`, `/frontier-lab-interview-prep` |
+| **Specialty** | `/evals` |
 
 All skills live in `.claude/skills/`. Each skill's `SKILL.md` file contains the full orchestration logic, sub-agent spawning, and output format.
 
@@ -366,16 +320,14 @@ This template is safe to use as a private working OS. If you publish, share, or 
 
 ## Quality gates (pre-publish)
 
-The pre-publish gate depends on the persona chosen during onboarding.
+`/peer-review` is the default pre-publish gate for every persona — it catches structural PM craft issues (weak claims, missing evidence, unclear decision, reader drop-off) before an artifact ships.
 
-**Batman-persona setups** — two mandatory gates before any public artifact ships:
+Artifact-specific gates layer on top:
 
-1. **Riddler review** (`/riddler <artifact>`) — adversarial review; finds the weakest claim
-2. **Vicki Vale review** (`/vale <artifact>`) — user-voice review; finds where the reader stops reading
-
-Both must pass. These gates are **complementary, not redundant.** Riddler attacks argument strength and unsupported claims. Vicki Vale finds where a real reader stops reading. Run in sequence: Riddler first, then Vicki Vale after the argument is tight.
-
-**Non-Batman setups (Executive operator, Researcher, Coach, Builder, Minimalist)** — `/peer-review` is the default pre-publish gate. `/riddler` and `/vale` remain available and can be opted in during onboarding (Phase 2 persona-effects matrix). For high-stakes artifacts in any persona, add `/peer-review` before adversarial / user-voice gates to catch structural PM craft issues first.
+- **PRDs** → `/prd-readiness` before engineering handoff
+- **Research syntheses** → `/research-sufficiency` before a decision is made from them
+- **AI/LLM features** → `/eval-review` + `/build-review` before deployment
+- **Launches** → `/go-nogo`
 
 The active gate set is recorded in `CLAUDE.md` and enforced by the operating contract.
 
@@ -389,12 +341,6 @@ Four default principles, configurable during onboarding:
 2. **Artifact quality.** Public artifacts are designed for impact. Opening lines land.
 3. **Focus mode.** When a priority is active, the system narrows to one objective.
 4. **Long-horizon compounding.** Patient execution beats reactive context switching.
-
----
-
-## Agent routing table
-
-→ `Agents/README.md`
 
 ---
 

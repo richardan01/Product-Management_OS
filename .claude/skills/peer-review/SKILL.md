@@ -1,6 +1,6 @@
 # Peer Review
 
-**Agent:** Orchestrator (Alfred voice) — see `Agents/README.md` voice map.
+**Agent:** Review Orchestrator
 
 Evaluate any agent's output file against **two layers of quality standards**:
 1. **Agent-specific checks** — the quality gates defined in the producing agent's agent file
@@ -138,4 +138,3 @@ On PASS (or CONDITIONAL-PASS), write `<doc-path>.peer-review-passed` with the by
 - Verdict is NEEDS REVISION → apply fixes, then re-run `peer-review` before sharing
 - Document is a PRD → `prd-readiness` for engineering-handoff gate
 - Document is a research synthesis → `research-sufficiency` for decision-readiness gate
-- Document is a public artifact → `/riddler` (adversarial) + `/vale` (reader-voice) before publishing

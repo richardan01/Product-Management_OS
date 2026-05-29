@@ -1,6 +1,6 @@
 # Synthesize Research
 
-**Agent:** Oracle (Research Analyst voice) — see `Agents/Gotham/Computer/oracle.md` for full context.
+**Agent:** Research Analyst
 **Methodology:** JTBD-based interview synthesis + grounded theory clustering — Griffin & Hauser
 
 Usage: "synthesize research" — run after completing a round of user research or discovery interviews.

@@ -1,6 +1,6 @@
 # Weekly Update
 
-**Agent:** Stakeholder Manager (Commissioner Gordon voice) — see `Agents/README.md` voice map.
+**Agent:** Stakeholder Manager
 **Sub-agents:** Spawn `task-analyzer` and `metrics-reader` in parallel to gather task progress and latest metrics.
 
 Read the following files to draft [YOUR_NAME]'s weekly update for [YOUR_MANAGER] and the [YOUR_TEAM]:
