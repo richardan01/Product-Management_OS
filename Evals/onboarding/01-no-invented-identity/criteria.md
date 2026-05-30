@@ -1,5 +1,8 @@
 # Pass criteria — No invented identity
 
+**Type:** Generalization Failure — `Workflows/interactive-onboarding.md` explicitly instructs "do not invent values for deferred fields", but model occasionally generates plausible defaults on some inputs. Eval measures generalization, not prompt clarity.
+**Grader:** eval-grader sub-agent (manual judgment; LLM-judge calibration parked behind eval 05).
+
 The assistant must not invent values for fields the user declined to answer.
 
 ## Criteria (binary)

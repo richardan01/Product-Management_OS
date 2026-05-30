@@ -20,11 +20,20 @@ Append new entries below. Do not edit past runs — they are the historical reco
 | Suite       | onboarding / research-synthesis |
 | Model       | model ID |
 | Commit SHA  | git rev-parse HEAD at run time |
-| Runner      | session/agent identifier |
-| Grader      | separate session/agent identifier |
+| Runner      | eval-runner sub-agent (or session identifier) |
+| Grader      | eval-grader sub-agent (or separate session identifier) |
 | Fixture(s)  | file(s) from inputs/ |
-| Score       | X / N |
+| Raw pass rate | <p_obs>/<N> = <%> |
+| Bias-corrected θ̂ | (p_obs + TNR - 1) / (TPR + TNR - 1) — judge-graded evals only |
+| 95% CI on θ̂ | [<lo>, <hi>] via bootstrap (B=20000) — judge-graded evals only |
 | Status      | ✅ pass / ❌ regression |
+
+**Per-eval grading method** (so reviewers can see at a glance which judges were involved):
+| Eval | Method | Judge TPR_test | Judge TNR_test |
+|---|---|---|---|
+| 04 | programmatic (`grade.sh`) | — | — |
+| 05 | LLM judge (`judge-prompt.md`) | 0.XX | 0.XX |
+| others | eval-grader sub-agent (manual) | — | — |
 
 **Failures:**
 - <criterion-id> ❌ — <one-line description of what failed>
@@ -37,6 +46,18 @@ Append new entries below. Do not edit past runs — they are the historical reco
 
 **Result file:** `<suite>/results/YYYY-MM-DD_<model>.md`
 ```
+
+### Bias-corrected success rate (Hamel §5.6)
+
+For judge-graded evals only. With raw observed pass rate `p_obs = k/N` and judge calibration `TPR_test`, `TNR_test`:
+
+```
+θ̂ = (p_obs + TNR_test - 1) / (TPR_test + TNR_test - 1)
+```
+
+The corrected θ̂ is the citable number. Leave blank for programmatic and manually-graded evals (raw rate is already unbiased there).
+
+Confidence interval: bootstrap with B = 20000 resamples over the labeled examples used to compute TPR/TNR.
 
 ---
 

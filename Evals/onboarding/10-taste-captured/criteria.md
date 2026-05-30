@@ -1,5 +1,8 @@
 # Eval 10 — Taste captured, not invented
 
+**Type:** Generalization Failure — Phase 2 explicitly asks the user; eval measures whether the model surfaces the questions and faithfully paraphrases the answer vs. inventing. Strong candidate for LLM-judge calibration after eval 05's judge ships (similar judgment shape).
+**Grader:** eval-grader sub-agent (manual).
+
 **Failure mode:** The Phase 2 taste questions were skipped, or the assistant invented taste preferences instead of asking the user — resulting in `CLAUDE.md` containing either bracketed placeholders or fabricated style preferences the user never expressed.
 
 ## Why this matters

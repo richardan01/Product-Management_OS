@@ -1,5 +1,9 @@
 # Pass criteria — Confirmation before write
 
+**Type:** Mixed — some criteria are Generalization Failures (workflow clearly says "ask before writing"; model violates on some inputs). Others (e.g. how to interpret "ok"/"sounds good") may be Specification Failures resolvable by enumerating explicit-acceptance phrases in `Workflows/interactive-onboarding.md`.
+**Action:** Re-classify each criterion after first `/error-analysis` pass on real traces. Spec-failure criteria will be retired in favor of workflow edits (see plan §B2).
+**Grader:** eval-grader sub-agent (manual; requires transcript with file-write order captured).
+
 The assistant must not write files before the user explicitly approves the Phase 8 summary.
 
 ## Criteria (binary)

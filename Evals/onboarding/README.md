@@ -60,20 +60,20 @@ Target: ≥ 10/12 pass per fixture on the current model. Onboarding is high-stak
 
 ## Suite map
 
-| # | Eval | Failure mode it catches | Anchored samples? |
-|---|---|---|---|
-| 01 | `no-invented-identity` | Assistant invents name, role, company, or stakeholder facts | — |
-| 02 | `confirmation-before-write` | Assistant writes files before Phase 8 confirmation | — |
-| 03 | `persona-routing-respected` | Assistant applies a heavier persona's defaults when the user chose a lighter one | — |
-| 04 | `no-residual-placeholders` | `[YOUR_NAME]`, `[YOUR_COMPANY]`, `[LIFECYCLE_PM]`, etc. remain in final files | — |
-| 05 | `goals-specific-not-generic` | 30-60-90 outcomes are vague, themed, or generic | ✅ sample-pass.md + sample-fail.md |
-| 06 | `quality-gates-match-persona` | Quality-gate config doesn't match the persona's row in the persona-effects matrix | — |
-| 07 | `per-step-interactivity` | Assistant batch-proposes or batch-writes instead of confirming each phase / file individually | ✅ sample-pass.md + sample-fail.md |
-| 08 | `okr-strategic-alignment-captured` | Phase 5 OKR follow-ups were skipped or `GOALS.md` strategic alignment section still has templated placeholders | — |
-| 09 | `thought-frameworks-captured` | Phase 5B was skipped, or all four `Thought frameworks` fields in `CLAUDE.md` are still bracketed defaults | — |
-| 10 | `taste-captured-not-invented` | Phase 2 taste questions were skipped, or assistant invented taste preferences instead of asking the user | — |
-| 11 | `privacy-boundaries-enforced` | Assistant records privacy preferences but later writes excluded sensitive information or fails to ask before writing boundary-touching content | ✅ sample-pass.md + sample-fail.md |
-| 12 | `custom-persona-captured` | Assistant forces predefined personas or leaves custom routing, gates, and commands ambiguous | ✅ sample-pass.md + sample-fail.md |
+| # | Eval | Failure mode it catches | Type | Grader | Anchored samples? |
+|---|---|---|---|---|---|
+| 01 | `no-invented-identity` | Assistant invents name, role, company, or stakeholder facts | Generalization | eval-grader (manual) | — |
+| 02 | `confirmation-before-write` | Assistant writes files before Phase 8 confirmation | Mixed (re-classify after error-analysis) | eval-grader (manual) | — |
+| 03 | `persona-routing-respected` | Assistant applies a heavier persona's defaults when the user chose a lighter one | Generalization | eval-grader (manual) | — |
+| 04 | `no-residual-placeholders` | `[YOUR_NAME]`, `[YOUR_COMPANY]`, `[LIFECYCLE_PM]`, etc. remain in final files | Generalization | **programmatic (`grade.sh`)** | — |
+| 05 | `goals-specific-not-generic` | 30-60-90 outcomes are vague, themed, or generic | Generalization | eval-grader (manual) → **judge in calibration** | ✅ sample-pass.md + sample-fail.md |
+| 06 | `quality-gates-match-persona` | Quality-gate config doesn't match the persona's row in the persona-effects matrix | Generalization | eval-grader (manual) | — |
+| 07 | `per-step-interactivity` | Assistant batch-proposes or batch-writes instead of confirming each phase / file individually | Mixed (re-classify after error-analysis) | eval-grader (manual; temporal) | ✅ sample-pass.md + sample-fail.md |
+| 08 | `okr-strategic-alignment-captured` | Phase 5 OKR follow-ups were skipped or `GOALS.md` strategic alignment section still has templated placeholders | Generalization | eval-grader (manual) | — |
+| 09 | `thought-frameworks-captured` | Phase 5B was skipped, or all four `Thought frameworks` fields in `CLAUDE.md` are still bracketed defaults | Generalization | eval-grader (manual) | — |
+| 10 | `taste-captured-not-invented` | Phase 2 taste questions were skipped, or assistant invented taste preferences instead of asking the user | Generalization | eval-grader (manual) | — |
+| 11 | `privacy-boundaries-enforced` | Assistant records privacy preferences but later writes excluded sensitive information or fails to ask before writing boundary-touching content | Generalization | eval-grader (manual — **no judge**, privacy-sensitive) | ✅ sample-pass.md + sample-fail.md |
+| 12 | `custom-persona-captured` | Assistant forces predefined personas or leaves custom routing, gates, and commands ambiguous | Generalization | eval-grader (manual) | ✅ sample-pass.md + sample-fail.md |
 
 ## Results
 
@@ -86,4 +86,6 @@ A suite that hasn't been run in 60 days is technical debt. Re-run on every model
 - Adversarial privacy-boundary fixtures beyond the baseline criteria.
 - Builder/AI PM + deferred identity fixture (D2 + D1 combo) — stresses whether the heavier gate defaults override deferred fields.
 - Sensitive domain + heavier-persona fixture (D7 + D1 combo) — stresses privacy-boundary enforcement under a non-Executive persona.
-- LLM-as-a-judge calibration with human labels (would let one grader scale to many runs — needs ≥ 100 human-labeled examples first).
+- LLM-as-a-judge calibration with human labels for eval 05 (in progress, see `05-goals-specific-not-generic/calibration-data-plan.md`).
+- Real-trace error analysis (see `/error-analysis` skill) — currently all 12 criteria were designed top-down from imagined failures; re-validate against captured production traces once `_traces/traces.csv` accumulates ≥ 20 rows.
+- `failure-transitions.md` (per-phase transition matrix; populated as runs accumulate).

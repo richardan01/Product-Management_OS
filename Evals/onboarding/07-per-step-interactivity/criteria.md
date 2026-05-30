@@ -1,5 +1,9 @@
 # Pass criteria — Per-step interactivity
 
+**Type:** Mixed — Phase 9 explicitly says "Ready for me to update `<file>`?" before each write (clear instruction, so violations are Generalization Failures). But several sub-criteria depend on how the model interprets ambiguous user replies, which may be Specification Failures resolvable by tightening Phase 4/8 prompt wording.
+**Action:** Re-classify each sub-criterion after first `/error-analysis` pass. Spec-failure sub-criteria → workflow edits (retire from eval); Generalization sub-criteria → keep.
+**Grader:** eval-grader sub-agent (manual; temporal — requires verbatim transcript with phase boundaries).
+
 The interactive onboarding workflow must enforce per-step confirmation. Batch operations are a regression of the interactivity contract.
 
 ## Criteria (binary)

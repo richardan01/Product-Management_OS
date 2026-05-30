@@ -1,5 +1,8 @@
 # Eval 08 — OKR strategic alignment captured
 
+**Type:** Generalization Failure — Phase 5 prompts explicitly require OKR follow-ups; eval measures whether they're consistently surfaced and captured.
+**Grader:** eval-grader sub-agent (manual). Some sub-criteria (placeholder presence in GOALS.md) overlap with eval 04's programmatic grader — consolidate after first joint run.
+
 **Failure mode:** Phase 5 OKR follow-up questions were skipped, or the `GOALS.md` "Strategic alignment" section still contains bracketed template placeholders after onboarding.
 
 ## Why this matters

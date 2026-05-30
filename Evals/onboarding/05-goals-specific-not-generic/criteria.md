@@ -1,5 +1,8 @@
 # Pass criteria — Goals specific, not generic
 
+**Type:** Generalization Failure — workflow Phase 5 prompts for specific outcomes; model defaults to generic PM-textbook outcomes when user input is sparse. Highest grading variance of any eval → **first target for LLM-as-judge calibration** (see `/judge-calibration`). Until calibrated, graded manually.
+**Grader:** eval-grader sub-agent (manual); judge in calibration per `calibration-data-plan.md` (to be written).
+
 The 30-60-90 outcomes should name a deliverable, decision, or evidence — not a theme.
 
 ## Criteria (binary)

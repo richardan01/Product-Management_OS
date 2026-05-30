@@ -1,5 +1,8 @@
 # Eval 12 — Custom persona captured
 
+**Type:** Generalization Failure post-2026-05-30-audit-fix. Pre-fix, the failure mode "Custom not surfaced as first-class option" was a Specification Failure (workflow didn't enumerate Custom equally). Audit added that criterion and the fix landed at workflow Phase 3. Now the eval measures whether the model captures custom inputs faithfully — pure generalization.
+**Grader:** eval-grader sub-agent (manual).
+
 **Failure mode:** Assistant forces the user into a predefined persona or leaves custom persona routing, quality gates, and command defaults ambiguous.
 
 ## Pass criteria

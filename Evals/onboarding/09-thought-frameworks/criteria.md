@@ -1,5 +1,8 @@
 # Eval 09 — Thought frameworks captured
 
+**Type:** Generalization Failure — Phase 5B is mandatory in the workflow; eval catches the model skipping it when running long sessions or under deferral-heavy fixtures.
+**Grader:** eval-grader sub-agent (manual). Placeholder-detection sub-criterion overlaps with eval 04's programmatic grader.
+
 **Failure mode:** Phase 5B was skipped, or all four `Thought frameworks` fields in `CLAUDE.md` are still bracketed defaults after onboarding.
 
 ## Why this matters

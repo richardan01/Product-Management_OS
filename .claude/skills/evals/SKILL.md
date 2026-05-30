@@ -261,22 +261,68 @@ drift across model releases.
 
 ## Run Protocol
 
-When asked to run an eval suite, follow this sequence:
+When asked to run an eval suite, this skill orchestrates **two dedicated sub-agents** to enforce author/grader separation architecturally rather than by convention:
 
-1. **Read the suite README** for context (use case, last run date, last pass rate)
-2. **Run each eval individually** — for each one:
-   - Read `input.md`, `criteria.md`, and any referenced input fixture
-   - Run the underlying skill (e.g., `synthesize-research`, `prd-readiness`) on the input
-   - Grade the output against each criterion (✅ / ❌ / ⚠️ partial)
-   - Note which failure modes (if any) were caught
-3. **Tally pass rate** — N / 10. Note partials separately.
-4. **Run introspection on failures** — for each ❌, ask the underlying model
-   *why* it produced what it did. Capture the answer; that's your harness bug report.
-5. **Log the run** in `results/YYYY-MM-DD_<model>.md` with:
-   - Pass rate
-   - Per-eval result
-   - Introspection findings
-   - Recommended skill/harness changes
+- **`eval-runner`** sub-agent — runs each fixture through the workflow, captures verbatim transcripts. Never reads the criteria. Blocks (synchronous) so transcripts are visible before grading starts.
+- **`eval-grader`** sub-agent — reads only (transcript + criteria + sample-pass/fail). Returns structured JSON verdict per eval. Runs in the background, one per (transcript × eval) pair.
+
+### Orchestration sequence
+
+1. **Read the suite README** for context (use case, last run date, last pass rate).
+2. **Pin the run inputs** — model ID, `git rev-parse HEAD` for commit SHA, list of fixtures to use, list of evals in the suite.
+3. **Fan-out runner agents** — one `eval-runner` per fixture, **blocking**. Each writes its transcript to `Evals/<suite>/results/transcripts/<date>_<fixture>_<model>.md` and returns the path. Wait for all transcripts before grading.
+4. **Fan-out grader agents** — for each (transcript, eval) pair, launch an `eval-grader` sub-agent with `run_in_background: true`. Each grader returns structured JSON when it finishes. Do NOT poll — wait for completion notifications.
+5. **Aggregate** — once all graders return, collect per-eval ✅/❌/⚠ verdicts across fixtures. For each judge-graded eval, look up the judge's `tpr_test` and `tnr_test` from `judge-prompt.md` and compute bias-corrected θ̂.
+6. **Introspection on failures** — for each ❌, ask the original runner's model *why* it produced what it did. Capture the answer.
+7. **Log the run** in `results/YYYY-MM-DD_<model>.md` with the schema below.
+8. **Update `Evals/run-log.md`** with the summary row.
+9. **Clear pending re-runs** — call `/eval-ci clear <suite>` to mark any pending rows resolved by this run.
+
+### Result file schema (extended)
+
+`Evals/<suite>/results/YYYY-MM-DD_<model>.md`:
+```markdown
+# Eval run — <suite> — <date>
+
+| Field | Value |
+|---|---|
+| Date | YYYY-MM-DD |
+| Suite | <suite> |
+| Model | <model> |
+| Commit SHA | <sha> |
+| Runner | eval-runner sub-agent |
+| Grader | eval-grader sub-agent |
+| Fixtures | <list> |
+
+## Per-eval results
+
+| Eval | Fixture A | Fixture B | Fixture C | Raw pass | TPR_test | TNR_test | θ̂ (corrected) | 95% CI |
+|---|---|---|---|---|---|---|---|---|
+| 01 | ✅ | ✅ | ❌ | 2/3 | — | — | — (manual-graded) | — |
+| 04 | ✅ | ✅ | ✅ | 3/3 | — | — | — (programmatic) | — |
+| 05 | ✅ | ❌ | ⚠ | 1/3 | 0.92 | 0.88 | (0.33 + 0.88 - 1) / (0.92 + 0.88 - 1) = 0.26 | [..., ...] |
+
+## Introspection findings
+- Eval 05 / fixture B ❌: model said "I assumed 30-day outcome was a placeholder, so I generated a typical activation-PM outcome." → harness fix: tighten Phase 5 prompt to forbid generation when user input is "I don't know yet."
+
+## Recommended harness changes
+- ...
+```
+
+### Bias-corrected success rate (Hamel §5.6)
+
+For any eval graded by an LLM judge:
+```
+θ̂ = (p_obs + TNR_test - 1) / (TPR_test + TNR_test - 1)
+```
+Where `p_obs` is the raw judge pass rate (k passes out of N graded), and TPR/TNR come from the judge's most recent `_calibration/<date>_final.md`. Report θ̂ alongside the raw rate. The corrected rate is the citable number for judge-graded evals.
+
+For manually-graded evals (no judge): the raw rate IS the unbiased estimate. Leave the TPR/TNR/θ̂ cells blank.
+
+For programmatic (code-based) evals: same — raw rate is unbiased.
+
+### Hybrid execution rationale
+Runner blocks because the transcript is needed for grading and the user wants immediate visibility into what the workflow actually did. Grader is parallelized in the background because it's read-only and many can run at once — a 12-eval × 3-fixture suite produces 36 grader calls.
 
 ---
 
@@ -452,10 +498,21 @@ When sharing eval results outside the AI PM context (e.g., to [STAKEHOLDER_1], [
 
 | Suite | Use Case | Status |
 |-------|----------|--------|
-| `onboarding` | Interactive onboarding workflow → coherent per-persona config | **Built 2026-05-11** — 6 evals committed at `Evals/onboarding/` |
+| `onboarding` | Interactive onboarding workflow → coherent per-persona config | **12 evals at `Evals/onboarding/`** — never run on current model; first baseline run pending |
+| `research-synthesis` | Interview corpus → synthesis doc | **7 evals at `Evals/research-synthesis/`** — never run on current model |
 | `feature-readiness` (illustrative, planned) | Discovery output → ship/no-ship readiness check | TBD |
-| `research-synthesis-quality` (illustrative, planned) | Interview corpus → synthesis doc | TBD |
 | `prioritization-framework` (illustrative, planned) | Backlog input → ranked output with rationale | TBD |
+
+## Related skills and agents
+
+| When | Use |
+|---|---|
+| Before writing evals from scratch | `/error-analysis` — open code real traces first (Hamel Ch. 3) |
+| To capture real traces | `trace-collector` sub-agent (wired into `/eod`) |
+| To run an eval suite | This skill — orchestrates `eval-runner` + `eval-grader` sub-agents |
+| To validate an LLM judge | `/judge-calibration` — TPR/TNR ≥ 0.9 on held-out test |
+| When editing a mapped workflow/skill | `/eval-ci` — registers a pending re-run; blocks stale citations |
+| Before citing a result publicly | `/eval-review` — methodology gate, P0/P1/P2 audit |
 
 ---
 
