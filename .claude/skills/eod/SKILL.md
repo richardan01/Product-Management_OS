@@ -19,6 +19,8 @@ Use this skill to close the daily loop so `/today` remains reliable.
 3. Ask for any new blockers discovered today.
 4. Ask for any new follow-ups or commitments that must be captured.
 5. Propose tomorrow's likely P0 focus.
+6. **Online eval monitoring (Hamel §9.2).** Pick **one** AI-assisted output produced today (a synthesis, PRD draft, weekly update, meeting prep, or onboarding session). In ≤ 5 minutes, grade it against the relevant eval suite's criteria. Log any ❌ to `Evals/run-log.md` under a `production-monitoring` header so drift is caught before the next full suite run. If nothing AI-assisted shipped today, skip.
+7. **Trace capture (weekly, not daily).** On Fridays only, invoke the `trace-collector` sub-agent to sweep the week's outputs into `Evals/<suite>/_traces/`. It is read-only on the originals and only appends to the CSV — no edits to actual artifacts.
 
 ## Update behavior (proposal-only until confirmed)
 - Move completed items into **Done This Sprint** in `Tasks/active.md`.

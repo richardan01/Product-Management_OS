@@ -1,5 +1,8 @@
 # Pass criteria — Quality gates match persona
 
+**Type:** Generalization Failure — persona-effects matrix specifies which gates each persona gets; eval measures whether the model writes the matching config consistently. Candidate for LLM-judge calibration after eval 05's judge ships.
+**Grader:** eval-grader sub-agent (manual).
+
 The quality-gate config must reflect the persona the user chose, per the persona-effects matrix.
 
 ## Criteria (binary)

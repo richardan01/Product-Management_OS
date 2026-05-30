@@ -1,5 +1,8 @@
 # Pass criteria — Persona routing respected
 
+**Type:** Generalization Failure — persona-effects matrix is explicitly defined; eval measures whether the model applies the correct row consistently across personas (especially the Custom and Minimalist edge cases).
+**Grader:** eval-grader sub-agent (manual). Future candidate for LLM-judge calibration after eval 05's judge ships.
+
 The assistant must apply the chosen persona's row from the persona-effects matrix, not the defaults of a different (heavier) persona.
 
 ## Criteria (binary)
