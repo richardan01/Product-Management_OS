@@ -82,11 +82,13 @@ Stale task files weaken the OS. Running `/eod` daily is the highest-leverage hab
 If a request could go either way, pick the more specialized skill; if still ambiguous, ask once and update the routing convention if it should persist.
 
 ## Memory
-- Auto-memory `MEMORY.md` always loaded — index in `~/.claude/projects/[project-path]/memory/`
-- Write when: decision, preference, stakeholder fact, recurring pattern
-- Skip: task state, dates, drafts (those go in `Tasks/active.md`)
-- Verify memory against current files before citing — memories drift
-- **Canonicality:** auto-memory holds *cross-project* facts (identity, durable preferences, recurring patterns). `Knowledge/People/` and `Knowledge/Reference/` hold *project-bound* canonical facts (stakeholder profiles, company context, anchor project). On conflict, the workspace file wins; auto-memory updates to match.
+Memory is **repo-native and harness-neutral.** The canonical durable memory lives in `Memory/` and is read on session start by every runtime (Claude Code, Codex CLI, Gemini CLI, and other compatible runtimes). Runtime memory (e.g. a runtime's own `MEMORY.md` / auto-memory) is only a **lightweight pointer/cache** — it stores compact durable preferences and environment facts, never the canonical record.
+- **Read on session start:** `Memory/USER.md`, `Memory/OPERATING_CONTEXT.md`, and `Memory/MEMORY_POLICY.md`.
+- **Write when:** durable decision, preference, recurring pattern, or operating-context fact — into the matching `Memory/` file. Follow the 5-question write-gate in `Memory/MEMORY_POLICY.md` first.
+- **Skip:** task state, dates, drafts → `Tasks/`. Validated reference facts → `Knowledge/`. Project context → `Projects/`. Credentials, customer data, sensitive company data → never.
+- **Source of truth:** `Tasks/active.md` for current tasks, `Projects/` for project context, `Knowledge/` for validated reference facts. `Memory/` holds durable preferences/patterns/decisions/operating context only.
+- **On conflict, repo files win over runtime memory** — refresh the runtime cache to match.
+- **Sensitive stakeholder/company/customer facts require explicit approval before writing.** Public-template users keep private context in a private fork or local copy.
 
 ## Knowledge layers (evidence hierarchy)
 

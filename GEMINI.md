@@ -8,6 +8,7 @@ This file is the entry point for **Gemini CLI**. The OS is harness-neutral — C
 - **`AGENTS.md`** — agent behavior contract (change management, review dimensions, output format). Read this too.
 - **`GOALS.md`** — 30-60-90 outcomes and metrics.
 - **`Tasks/active.md`** — current sprint focus.
+- **`Memory/`** — canonical durable memory (preferences, patterns, decisions, operating context). Read `Memory/USER.md`, `Memory/OPERATING_CONTEXT.md`, and `Memory/MEMORY_POLICY.md` on session start. This repo folder is the source of truth; Gemini's runtime memory is only a lightweight pointer/cache. On conflict, repo files win.
 - **`Workflows/`** — repeatable interactive workflows.
 - **`Templates/`** — document templates.
 - **`Knowledge/People/`** — stakeholder profiles.
@@ -34,6 +35,7 @@ Once `CLAUDE.md` is filled, treat it as the source of truth for how to respond �
 - Write setup files during onboarding before the user confirms the Phase 8 summary.
 - Replace placeholders (`[YOUR_NAME]`, `[YOUR_COMPANY]`, etc.) with invented values — ask the user.
 - Create new top-level folders — extend existing structure.
+- Store task state, project context, validated reference facts, credentials, or sensitive customer/company data in `Memory/` — those belong in `Tasks/`, `Projects/`, `Knowledge/`, or nowhere. Sensitive people/company facts require explicit approval; keep private context in a private fork.
 - Ship any public artifact without the reviewer gates selected during onboarding.
 
 ## Trigger phrases
