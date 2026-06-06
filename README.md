@@ -186,6 +186,12 @@ The `Evals/onboarding/` suite tests these properties against a fixture (Jordan L
 
 The OS is built for day-to-day product work and implemented through shared tasks, knowledge files, templates, workflows, and PM skills (`.claude/skills/`). Skills carry the domain judgment; when a job needs parallel or isolated work, a skill spawns a sub-agent worker from `.claude/agents/` (or `.codex/agents/` under Codex). Add dedicated agents only when a workflow becomes common enough to deserve its own owner.
 
+### Memory layer
+
+`Memory/` is the OS's **canonical durable memory**, and it is harness-neutral: Claude Code, Codex CLI, Gemini CLI, and other compatible runtimes all read it on session start. The repository is the source of truth; each runtime's own memory feature is only a lightweight pointer/cache for compact durable preferences and environment facts. Because memory lives in the repo, it persists across runtimes and survives a fresh clone — on conflict, the repo files win.
+
+Memory is for durable preferences, patterns, decisions, and operating context — **not** task state (`Tasks/`), project context (`Projects/`), validated reference facts (`Knowledge/`), credentials, drafts, or sensitive customer/company data. See `Memory/MEMORY_POLICY.md` for the write-gate and sensitivity rules.
+
 ---
 
 ## Eval system
@@ -279,6 +285,16 @@ ProductManagement-OS/
 │   │   └── [YOUR_MANAGER].md    ← Manager/stakeholder profile template
 │   └── Reference/
 │       └── company.md           ← Company context
+│
+├── Memory/                      ← Canonical durable memory (repo = source of truth)
+│   ├── README.md                ← What the layer is + file map
+│   ├── USER.md                  ← Durable identity & preferences
+│   ├── OPERATING_CONTEXT.md     ← Durable cadence / environment facts
+│   ├── DECISIONS.md             ← Durable operating decisions
+│   ├── PATTERNS.md              ← Recurring patterns to reuse
+│   ├── STAKEHOLDER_MEMORY.md    ← Compact stakeholder pointers (approval-gated)
+│   ├── SESSION_LOG.md           ← Append-only durable takeaways
+│   └── MEMORY_POLICY.md         ← Write-gate + conflict + sensitivity rules
 │
 ├── Reviews/                     ← OS health reviews
 ├── Evals/                       ← Eval suites

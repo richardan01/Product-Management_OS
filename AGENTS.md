@@ -29,6 +29,15 @@ Help me think, write, review, and improve PM artifacts for AI product management
 
 Stale task files weaken the OS. Running `/eod` daily is the highest-leverage habit.
 
+## Memory
+
+Memory is repo-native. The canonical durable memory lives in `Memory/` — read it on session start; do **not** rely only on Codex's runtime memory. Runtime memory is a lightweight pointer/cache for compact durable preferences and environment facts; the repo is the source of truth.
+
+- **Read on session start:** `Memory/USER.md`, `Memory/OPERATING_CONTEXT.md`, `Memory/MEMORY_POLICY.md`.
+- **Write durable** decisions, preferences, patterns, and operating context into the matching `Memory/` file — after passing the 5-question gate in `Memory/MEMORY_POLICY.md`.
+- **Do not put in Memory:** task state (→ `Tasks/`), project context (→ `Projects/`), validated reference facts (→ `Knowledge/`), or credentials / customer / sensitive company data (→ never).
+- **On conflict, repo files win over runtime memory.** Sensitive stakeholder/company/customer facts require explicit approval before writing; public-template users keep private context in a private fork.
+
 ## Core principles
 - Make the OS useful daily, not theoretically perfect.
 - Optimize for clarity, repeatability, and decision quality.

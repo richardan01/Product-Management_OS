@@ -492,6 +492,8 @@ Before writing, show:
 - `Tasks/follow-ups.md`
 - `Knowledge/People/...`
 - `Projects/.../brief.md`
+- `Memory/USER.md`
+- `Memory/OPERATING_CONTEXT.md`
 
 ### File-by-file edit plan
 - `CLAUDE.md`: identity, OS mode, operating style (incl. taste), thought frameworks, routing, cadence, editing boundaries
@@ -501,6 +503,8 @@ Before writing, show:
 - `Tasks/follow-ups.md`: promised follow-ups and owners
 - `Knowledge/People/...`: confirmed stakeholder profiles only
 - `Projects/.../brief.md`: anchor project context, open decisions, risks
+- `Memory/USER.md`: durable identity + operating-style preferences (the canonical copy the runtime cache mirrors) — no sensitive data
+- `Memory/OPERATING_CONTEXT.md`: durable cadence, week anchor, recurring meetings, and anchor-project pointer (not task state)
 ```
 
 **Mandatory display rule.** You must display the Phase 8 summary in the exact format shown above, including the file-by-file edit plan, **before** asking for approval. Do not ask "Ready to onboard?" or any short-form approval question without first showing the full summary. If the user asks for changes, revise the summary and re-display the full block before re-asking.
@@ -543,6 +547,8 @@ Only after every file in the plan is written:
    - `/meeting-prep [person]`
    - `/weekly-update`
 3. Ask whether the user wants to run `/today` immediately.
+
+**Durable memory write rule.** When writing `Memory/USER.md` and `Memory/OPERATING_CONTEXT.md`, store only durable preferences and operating-context facts — never task state, credentials, or sensitive customer/company data. Sensitive stakeholder/company facts require explicit approval (see `Memory/MEMORY_POLICY.md`). Public-template users should keep private context in a private fork or local copy. The repo `Memory/` files are canonical; the runtime memory cache mirrors them.
 
 ## Phase 10 — Verify onboarding completed cleanly
 

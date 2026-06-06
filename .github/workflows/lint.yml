@@ -29,7 +29,7 @@ jobs:
           #
           # Excluded (intentionally use [YOUR_NAME]/[YOUR_COMPANY] as variables or scaffolding):
           #   Agents/, _Registry/, Evals/, Reviews/, Templates/, Workflows/, Projects/,
-          #   Knowledge/, .claude/, .codex/, examples/, _temp/
+          #   Knowledge/, Memory/, .claude/, .codex/, examples/, _temp/
           #   Root files: GOALS.md, CLAUDE.md, AGENTS.md, GEMINI.md, README.md,
           #               HOW-IT-WORKS.md, CHANGELOG.md
           #
@@ -49,6 +49,7 @@ jobs:
             -not -path "./Workflows/*" \
             -not -path "./Projects/*" \
             -not -path "./Knowledge/*" \
+            -not -path "./Memory/*" \
             -not -path "./.claude/*" \
             -not -path "./.codex/*" \
             -not -path "./examples/*" \
