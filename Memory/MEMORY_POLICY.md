@@ -11,6 +11,22 @@ conflicts and sensitive data are handled.
 - **On conflict, repo files win over runtime memory.** Update the runtime cache
   to match the repo, not the other way around.
 
+## Precedence between repo files (CLAUDE.md vs Memory/)
+
+Two repo files can describe the user's behavior preferences. To avoid drift:
+
+- `CLAUDE.md` is the **live behavior contract** the runtimes apply each turn
+  (persona, tone, pushback, quality gates). For any behavior field, **`CLAUDE.md`
+  wins** and `Memory/USER.md` is a **derived mirror** of it — written by
+  onboarding, re-synced when `CLAUDE.md` changes, never hand-edited into
+  divergence.
+- `Memory/` is **canonical for durable history that has no `CLAUDE.md`
+  equivalent** — `SESSION_LOG.md`, `PATTERNS.md`, `DECISIONS.md`,
+  `OPERATING_CONTEXT.md`, `STAKEHOLDER_MEMORY.md`. Nothing in `CLAUDE.md`
+  overrides these.
+- Precedence chain, highest first: **`CLAUDE.md` (behavior) → `Memory/` (durable
+  history) → runtime cache.**
+
 ## Source-of-truth boundaries
 
 | Layer | Source of truth for |

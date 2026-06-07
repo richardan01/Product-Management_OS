@@ -2,7 +2,7 @@
 # Programmatic grader for eval 04 — no-residual-placeholders
 # Usage: grade.sh <repo-root> [--strict]
 #
-# Exits 0 if all 5 criteria pass; non-zero if any fail.
+# Exits 0 if all criteria pass; non-zero if any fail.
 # Prints one line per criterion in the form:
 #   C<N>: PASS|FAIL — <one-line reason>
 # followed by a JSON summary.
@@ -18,6 +18,8 @@ STRICT="${2:-}"
 CLAUDE_MD="$ROOT/CLAUDE.md"
 GOALS_MD="$ROOT/GOALS.md"
 TASKS_MD="$ROOT/Tasks/active.md"
+MEM_USER_MD="$ROOT/Memory/USER.md"
+MEM_OPCTX_MD="$ROOT/Memory/OPERATING_CONTEXT.md"
 
 # Allowlist: bracketed strings that are NOT placeholders even though they
 # match the broader pattern (e.g. annotated deferrals, the literal
@@ -104,6 +106,33 @@ else
   PASS_ALL=1
 fi
 
+# C6 — Memory/USER.md written, no [YOUR_*] identity residue
+# Scoped to [YOUR_*] only: other bracketed strings in the Memory files are
+# intentional option-text the user picks from, not identity placeholders.
+PATTERN_MEM='\[YOUR_[A-Z_]+\]'
+C6=$(count_placeholders "$MEM_USER_MD" "$PATTERN_MEM")
+if [ "$C6" = "MISSING" ]; then
+  echo "C6: FAIL — Memory/USER.md not found (onboarding did not write it)"
+  PASS_ALL=1
+elif [ "$C6" -eq 0 ]; then
+  echo "C6: PASS — Memory/USER.md written, identity placeholders absent"
+else
+  echo "C6: FAIL — $C6 [YOUR_*] placeholder(s) remain in Memory/USER.md"
+  PASS_ALL=1
+fi
+
+# C7 — Memory/OPERATING_CONTEXT.md written, no [YOUR_*] identity residue
+C7=$(count_placeholders "$MEM_OPCTX_MD" "$PATTERN_MEM")
+if [ "$C7" = "MISSING" ]; then
+  echo "C7: FAIL — Memory/OPERATING_CONTEXT.md not found (onboarding did not write it)"
+  PASS_ALL=1
+elif [ "$C7" -eq 0 ]; then
+  echo "C7: PASS — Memory/OPERATING_CONTEXT.md written, identity placeholders absent"
+else
+  echo "C7: FAIL — $C7 [YOUR_*] placeholder(s) remain in Memory/OPERATING_CONTEXT.md"
+  PASS_ALL=1
+fi
+
 # JSON summary
 cat <<EOF
 ---JSON---
@@ -115,7 +144,9 @@ cat <<EOF
     {"criterion_id": "C2", "verdict": $([ "$C2" = "0" ] && echo '"pass"' || echo '"fail"'), "count": "${C2}"},
     {"criterion_id": "C3", "verdict": $([ "$C3" = "0" ] && echo '"pass"' || echo '"fail"'), "count": "${C3}"},
     {"criterion_id": "C4", "verdict": $([ "$C4" = "0" ] && echo '"pass"' || echo '"fail"'), "count": "${C4}"},
-    {"criterion_id": "C5", "verdict": $([ "$TOTAL_REMAIN" = "0" ] && echo '"pass"' || echo '"fail"'), "count": "${TOTAL_REMAIN}"}
+    {"criterion_id": "C5", "verdict": $([ "$TOTAL_REMAIN" = "0" ] && echo '"pass"' || echo '"fail"'), "count": "${TOTAL_REMAIN}"},
+    {"criterion_id": "C6", "verdict": $([ "$C6" = "0" ] && echo '"pass"' || echo '"fail"'), "count": "${C6}"},
+    {"criterion_id": "C7", "verdict": $([ "$C7" = "0" ] && echo '"pass"' || echo '"fail"'), "count": "${C7}"}
   ],
   "overall": "$([ "$PASS_ALL" = "0" ] && echo "pass" || echo "fail")"
 }
