@@ -1,8 +1,11 @@
 # User — durable identity & preferences
 
-Canonical durable copy of who the user is and how the assistant should behave.
-The runtime memory cache mirrors a compact subset of this file. On conflict,
-this file wins.
+Durable, harness-neutral mirror of who the user is and how the assistant should
+behave. The runtime memory cache mirrors a compact subset of this file, and **on
+conflict this file wins over the runtime cache.** For behavior fields, however,
+`CLAUDE.md` is the live contract and wins over this file — see the precedence
+rule in `MEMORY_POLICY.md`. Update `CLAUDE.md`, then re-sync this mirror; don't
+hand-edit one into divergence from the other.
 
 > Filled during interactive onboarding. Keep placeholders until the user
 > confirms. No sensitive data here — see `MEMORY_POLICY.md`.

@@ -5,7 +5,8 @@
 Read the following files to prepare [YOUR_NAME]'s daily to-do list:
 1. `Tasks/active.md` — current sprint tasks, blockers, and completed items
 2. `GOALS.md` — 30-60-90 day goals and current focus areas
-3. Check `Meetings/` for any meetings today (if accessible)
+3. `Memory/USER.md` + `Memory/PATTERNS.md` — durable preferences and working patterns, so the brief reflects what `/eod` and `/retro` have captured (closes the read→write→read memory loop)
+4. Check `Meetings/` for any meetings today (if accessible)
 
 > **MCP fallback:** If no calendar MCP is connected, skip the meetings section and note `[Calendar not connected — add meetings manually]` under "On my radar".
 

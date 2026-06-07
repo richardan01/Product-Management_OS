@@ -55,7 +55,10 @@ Run an end-of-sprint retrospective. Keep it focused — aim to complete in under
 ```
 
 6. **Save to** `Tasks/archive/retro-[date].md`
-7. **Update** `Knowledge/Reference/lessons-learned.md` with any durable insight
+7. **Distill the memory loop (proposal-only).** Read `Memory/SESSION_LOG.md` — the daily takeaways `/eod` staged this sprint. For any that **recurred** or proved durable:
+   - A repeated *working/behavior* pattern → propose promoting it to `Memory/PATTERNS.md`.
+   - A settled *operating decision* (with its reasoning) → propose promoting it to `Memory/DECISIONS.md`.
+   Then propose pruning the promoted lines from `Memory/SESSION_LOG.md` so it stays a short staging area, not an archive. Apply the 5-question write-gate in `Memory/MEMORY_POLICY.md` to each promotion. Product/process learnings that aren't durable *operating* facts stay in this retro's archive entry, not in `Memory/`. Do not edit any `Memory/` file until the user confirms.
 
 ---
 
