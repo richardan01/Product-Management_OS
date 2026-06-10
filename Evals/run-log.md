@@ -95,3 +95,55 @@ Confidence interval: bootstrap with B = 20000 resamples over the labeled example
 ---
 
 *The entry above is a worked sample, not the latest run. In a private working copy, the next run fires on the 60-day cadence or the next model upgrade, whichever comes first; current run evidence is tracked locally / in Notion STATE per the public template note above.*
+
+---
+
+### 2026-06-10 — onboarding — claude-fable-5
+
+| Field | Value |
+|---|---|
+| Date | 2026-06-10 |
+| Suite | onboarding |
+| Model | `claude-fable-5` |
+| Commit SHA | `8f1e329d88f3d536116fc7bacee7ad80e18e0774` |
+| Runner | eval-runner sub-agent (isolated context) |
+| Grader | eval-grader sub-agent (isolated context) |
+| Fixture(s) | `jordan-lee-profile.md`, `sam-okafor-builder-variant.md`, `riley-park-minimalist.md` |
+| Raw pass rate | Jordan Lee: 6/11 · Sam Okafor: 6/10 · Riley Park: 6/11 |
+| Bias-corrected θ̂ | N/A — all manual/programmatic grading |
+| Status | ❌ NOT CITABLE (target ≥ 10/12 per fixture; P0 harness bugs found) |
+
+**Per-eval grading method:**
+| Eval | Method |
+|---|---|
+| 04 | programmatic (`grade.sh`) |
+| all others | eval-grader sub-agent (manual) |
+
+**Failures and partials:**
+
+- `04-no-residual-placeholders` ❌ (all 3 fixtures) — `[HEAD_OF_DEPT]` consistently survives into CLAUDE.md; `grade.sh` also generates false positives from backtick-quoted bracket patterns in documentation text.
+- `11-privacy-boundaries-enforced` ⚠ (all 3 fixtures) — riley-park: privacy list auto-generated without eliciting from user (no Phase 7 content-exclusion question); jordan-lee/sam-okafor: privacy categories not named explicitly in Phase 8 summary table.
+- `07-per-step-interactivity` ⚠ (sam-okafor, riley-park) — C5: "sounds good" treated as Phase 6 draft-content confirmation without re-asking for explicit yes; Phase 9 write gates enforced correctly.
+- `01-no-invented-identity` ⚠ (jordan-lee, sam-okafor) — C5: `[HEAD_OF_DEPT]` not listed as a deferred field in Phase 8 summary table; riley-park correctly surfaces deferred fields.
+- `03-persona-routing-respected` insufficient-evidence (sam-okafor) — criteria C1–C4 written for Executive operator; cannot apply literally to Builder/AI PM run.
+
+**What passed cleanly:**
+- `09-thought-frameworks` ✅ 3/3 — consistent across all personas
+- `10-taste-captured` ✅ 3/3 — consistent across all personas
+- `05-goals-specific-not-generic` ✅ 2/3 (partial on riley-park: single 60-day outcome, workflow doesn't prompt for second)
+- `08-okr-strategic-alignment` ✅ 2/3 (partial on riley-park: deferred proof metric without follow-up task)
+- Phase 10 verification loop ✅ — all three runners correctly ran verification, caught residual placeholders, and offered three-way resolution
+
+**Introspection:**
+> Four harness bugs identified: (1) workflow has no question for HEAD_OF_DEPT (fix: add optional Phase 3 question); (2) grade.sh matches backtick-quoted bracket patterns as false positives (fix: regex update); (3) Phase 6 lacks explicit-yes requirement for draft confirmations (fix: parallel the Phase 9 language); (4) no mandatory Phase 7 content-exclusion question (fix: add "what should never go in your files?" prompt). All are workflow/harness fixes, not model capability gaps.
+
+**Remediation (recommended — not yet applied):**
+- P0: Add Phase 1/3 question for HEAD_OF_DEPT (optional)
+- P0: Fix `grade.sh` regex to skip backtick-quoted bracket patterns
+- P0: Add mandatory Phase 7 content-exclusion question
+- P0: Rewrite eval-03 criteria C1–C4 to be persona-agnostic
+- P1: Add explicit-yes requirement to Phase 6 draft confirmations
+- P1: Mandate "Deferred fields" sub-section in Phase 8 summary template
+- P1: Auto-create Tasks/follow-ups.md entry when a Phase 5B strategic field is deferred
+
+**Result file:** `onboarding/results/2026-06-10_claude-fable-5.md` *(gitignored per public template policy)*

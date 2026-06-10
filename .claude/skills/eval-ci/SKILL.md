@@ -9,7 +9,7 @@ allowed-tools: Read, Glob, Grep, Edit, Write, Bash
 A real CI pipeline runs evals automatically on every change. The PM OS has no build server. This skill is the next best thing: a markdown ledger that tracks which suites are out of date and a contract that gates whose results are citable.
 
 ## When to run
-- After editing a workflow or skill that maps to an eval suite (manual trigger; later: hook into the Edit tool flow)
+- After editing a workflow or skill that maps to an eval suite (manual trigger; see "Automating registration with a hook" below to make this mechanical)
 - Before running `/peer-review` on any artifact that cites an eval result
 - Before running `/go-nogo` on any decision that depends on an eval pass rate
 - On demand: "what suites are stale?"
@@ -100,6 +100,29 @@ For each eval result cited in the artifact, invoke /eval-ci check <suite>.
 If any returns BLOCK, return Conditional Pass with required fix:
 "Re-run <suite> via /evals before this artifact can ship."
 ```
+
+## Automating registration with a hook (manual install)
+
+Registration currently relies on remembering to run `register` after editing a mapped file. To make it mechanical, install a `PostToolUse` hook on `Edit|Write` that checks the edited path against `Evals/_ci-map.md` and appends the pending row itself. **Install this yourself, deliberately** — hooks execute on every edit, so review the code before wiring it.
+
+In `.claude/settings.json`:
+
+```json
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          { "type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/eval-ci-register.py\"" }
+        ]
+      }
+    ]
+  }
+}
+```
+
+The script at `.claude/hooks/eval-ci-register.py` should: read the hook JSON from stdin, take `tool_input.file_path` relative to the project dir, match it against the `Source file` column of `Evals/_ci-map.md`, and on a match append a `pending` row (suite, path, `git rev-parse HEAD`, today, `pending`) to `Evals/_pending-reruns.md` — deduping if an uncleared `pending` row for the same (suite, file) pair already exists — then emit `hookSpecificOutput.additionalContext` announcing the registration. It must exit 0 on every path so a hook bug can never block normal editing.
 
 ## Hard rules
 - Do not modify any file outside `Evals/_pending-reruns.md`, `Evals/_ci-map.md`, and the source files for cleared rows.

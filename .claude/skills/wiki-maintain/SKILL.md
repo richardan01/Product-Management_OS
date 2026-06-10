@@ -12,7 +12,7 @@ description: Apply low-risk fixes to the Knowledge wiki — refresh the index, r
 Two modes:
 
 1. **Structural fixes** — fixes the low-risk issues `/wiki-lint` surfaces (index drift, back-links, stale drafts).
-2. **Weekly sweep** — runs the 8-check PM Brain health report. Run every Friday. If skipped once, momentum breaks.
+2. **Weekly sweep** — runs the 9-check PM Brain health report. Run every Friday. If skipped once, momentum breaks.
 
 ## Preconditions
 
@@ -43,7 +43,7 @@ Two modes:
 
 When two claims in the wiki conflict, **both must remain visible** with their respective provenance tags. The weekly sweep surfaces the conflict for the PM to resolve. Flattening contradictions into false consensus is the primary way a brain loses signal — never do it.
 
-## The 8-check weekly sweep
+## The 9-check weekly sweep
 
 Run every Friday. Output a `Knowledge/Maintenance/YYYY-MM-DD-sweep.md` report. Flag items by severity (🔴 action needed / 🟡 watch / ✅ clean).
 
@@ -86,6 +86,16 @@ Scan `Knowledge/` for:
 Count total files in `Knowledge/Ingestion/`. If > 10 unprocessed items → 🔴 ingestion backlog.
 Check `Knowledge/Source/` growth — it should grow linearly (fine). Check durable layers (`Hypotheses/confirmed/`, `Decisions/active/`) — should grow logarithmically. If durable layers growing faster than source layer, flag as compression failure.
 
+### Check 9 — Decision outcome & reversal-condition audit
+Decisions logged but never revisited are the OS's named failure mode #6 ("knowledge accumulates but never compounds"). Scan every `active` decision in `Knowledge/Decisions/`:
+- **Reversal condition check:** Read the `Reversal condition` field and compare it against current context (`Knowledge/Reference/company.md`, active risks, recent signals). Plausibly triggered → 🔴 surface for the PM to confirm — do not flip `Triggered` yourself. Bump `Last checked` to today after each review.
+- **Reversal condition unchecked 30+ days** (stale `Last checked`) → 🟡
+- **Outcome check overdue:** `Expected outcome` check date (+30 or +90) has passed and the matching `Actual outcome` field is empty → 🔴 prompt the PM to fill it (also surfaced by `/retro`)
+- **No expected outcome at all** on an active decision → 🟡 decision was logged without a falsifiable expectation; propose adding one
+- **Verdict filled as "Did not hold"** with no `Delta lesson` → 🔴 the loop is open exactly where it matters most
+
+This check closes the decision loop: reversal conditions get read, expected vs. actual gets compared, and the delta becomes a lesson instead of silence.
+
 ## Step-by-step (structural fixes mode)
 
 1. **Read the most recent `/wiki-lint` output.** If none exists, run lint first.
@@ -96,7 +106,7 @@ Check `Knowledge/Source/` growth — it should grow linearly (fine). Check durab
 
 ## Step-by-step (weekly sweep mode)
 
-1. Run all 8 checks.
+1. Run all 9 checks.
 2. Write report to `Knowledge/Maintenance/YYYY-MM-DD-sweep.md`.
 3. Surface a prioritized action list: all 🔴 items first.
 4. Do not auto-fix; present for PM review.

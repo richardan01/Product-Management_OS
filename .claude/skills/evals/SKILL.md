@@ -498,8 +498,9 @@ When sharing eval results outside the AI PM context (e.g., to [STAKEHOLDER_1], [
 
 | Suite | Use Case | Status |
 |-------|----------|--------|
-| `onboarding` | Interactive onboarding workflow → coherent per-persona config | **12 evals at `Evals/onboarding/`** — never run on current model; first baseline run pending |
+| `onboarding` | Interactive onboarding workflow → coherent per-persona config | **12 evals at `Evals/onboarding/`** — first run 2026-06-10 on `claude-fable-5`; NOT CITABLE (P0 harness bugs found); see `Evals/run-log.md` |
 | `research-synthesis` | Interview corpus → synthesis doc | **7 evals at `Evals/research-synthesis/`** — never run on current model |
+| `peer-review` | Meta-eval: does the reviewer gate catch planted flaws? | **5 evals at `Evals/peer-review/`** — first decision-quality suite; grades reviewer judgment (recall, precision, verdict consistency) against answer keys |
 | `feature-readiness` (illustrative, planned) | Discovery output → ship/no-ship readiness check | TBD |
 | `prioritization-framework` (illustrative, planned) | Backlog input → ranked output with rationale | TBD |
 
