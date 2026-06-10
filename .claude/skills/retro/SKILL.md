@@ -31,6 +31,12 @@ Run an end-of-sprint retrospective. Keep it focused — aim to complete in under
    - Was the one change from last sprint implemented? Yes / No / Partial
    - If No — carry it forward or explicitly decide to drop it (with reason)
 
+3b. **Decision outcome check (close one loop per sprint):**
+   - Scan `Knowledge/Decisions/` for active decisions whose +30/+90 day outcome check date has passed with an empty `Actual outcome` field. Pick **one** (the most consequential).
+   - Compare expected vs. actual outcome with the user, fill the `Actual outcome` field, set the verdict (Held / Partially held / Did not hold), and write the one-sentence `Delta lesson`.
+   - If the lesson is durable, it is a candidate for `Memory/PATTERNS.md` promotion in step 7.
+   - One decision per retro is the floor, not the ceiling — but never zero if any are overdue. Graded expected-vs-actual pairs also seed the gold-label corpus for future decision-quality evals.
+
 4. **Velocity:**
    - Tasks completed vs planned: [n]/[n] ([%])
    - Flag if consistently <70% — likely an estimation or priority problem

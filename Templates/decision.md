@@ -50,6 +50,28 @@
 > [e.g., "If Android-first competitors reach feature parity with our iOS offering by Q3 2026, revisit."]
 
 **Triggered:** Yes / No — *(update if triggered)*
+**Last checked:** YYYY-MM-DD — *(bumped by `/wiki-maintain` Check 9; a decision unchecked for 30+ days is flagged)*
+
+---
+
+## Expected outcome
+
+*Fill when moving to active. What do you expect to be true if this decision was right? Make it falsifiable.*
+
+> [e.g., "iOS-only focus lets us ship activation redesign by Q3 without Android maintenance drag; D30 activation reaches 30%+."]
+
+**Check at:** +30 days (YYYY-MM-DD) and +90 days (YYYY-MM-DD)
+
+---
+
+## Actual outcome
+
+*Filled at the +30/+90 day checks (prompted by `/retro` and `/wiki-maintain` Check 9). Compare against Expected outcome — the delta is the lesson.*
+
+**+30 days:** [what actually happened — or "too early to tell, recheck at +90"]
+**+90 days:** [what actually happened]
+**Verdict:** Held / Partially held / Did not hold
+**Delta lesson:** [one sentence — what the gap between expected and actual teaches]
 
 ---
 

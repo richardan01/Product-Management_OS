@@ -11,6 +11,9 @@ Extend this table as new suites are added.
 | Evals/onboarding/04-no-residual-placeholders/grade.sh | onboarding |
 | .claude/skills/synthesize-research/SKILL.md | research-synthesis |
 | Templates/synthesis.md | research-synthesis |
+| .claude/skills/peer-review/SKILL.md | peer-review |
+| _Registry/reviewer-verdict-schema.md | peer-review |
+| Knowledge/Reference/ground-truth.md | peer-review |
 
 ## Notes
 

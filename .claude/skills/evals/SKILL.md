@@ -500,6 +500,7 @@ When sharing eval results outside the AI PM context (e.g., to [STAKEHOLDER_1], [
 |-------|----------|--------|
 | `onboarding` | Interactive onboarding workflow → coherent per-persona config | **12 evals at `Evals/onboarding/`** — never run on current model; first baseline run pending |
 | `research-synthesis` | Interview corpus → synthesis doc | **7 evals at `Evals/research-synthesis/`** — never run on current model |
+| `peer-review` | Meta-eval: does the reviewer gate catch planted flaws? | **5 evals at `Evals/peer-review/`** — first decision-quality suite; grades reviewer judgment (recall, precision, verdict consistency) against answer keys |
 | `feature-readiness` (illustrative, planned) | Discovery output → ship/no-ship readiness check | TBD |
 | `prioritization-framework` (illustrative, planned) | Backlog input → ranked output with rationale | TBD |
 
