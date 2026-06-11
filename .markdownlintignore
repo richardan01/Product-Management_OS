@@ -1,0 +1,4 @@
+node_modules/
+# Eval run evidence is verbatim capture — transcripts embed the reviewed
+# documents (including their own H1s), so prose lint rules don't apply.
+Evals/*/results/
