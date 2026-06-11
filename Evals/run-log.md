@@ -147,3 +147,46 @@ Confidence interval: bootstrap with B = 20000 resamples over the labeled example
 - P1: Auto-create Tasks/follow-ups.md entry when a Phase 5B strategic field is deferred
 
 **Result file:** `onboarding/results/2026-06-10_claude-fable-5.md` *(gitignored per public template policy)*
+
+---
+
+### 2026-06-11 — peer-review — claude-sonnet-4-6
+
+| Field | Value |
+|---|---|
+| Date | 2026-06-11 |
+| Suite | peer-review (meta-eval — first decision-quality suite; grades the reviewer gate) |
+| Model | `claude-sonnet-4-6` |
+| Commit SHA | `fab4e2342c3574c4202ba41cd0e0a9fc9f656774` |
+| Runner | eval-runner sub-agent (isolated; attested no `_answer-keys/` access) |
+| Grader | eval-grader sub-agent (isolated; transcript + fixture + answer key + criteria only) |
+| Fixture(s) | `prd-activation-checkout.md`, `synthesis-support-tickets.md`, `weekly-update-clean.md` (clean control) |
+| Raw pass rate | PRD: 2/4 · Synthesis: 3/4 · Clean control: **0/3** |
+| Bias-corrected θ̂ | N/A — all manual grading |
+| Status | ❌ FAIL — P0: clean control flunked (gate generates noise) |
+
+**Per-eval grading method:**
+| Eval | Method |
+|---|---|
+| all (01–05) | eval-grader sub-agent (manual, against `_answer-keys/`) |
+
+**Failures:**
+
+- `04-clean-artifact-not-flunked` ❌ — reviewer returned NEEDS REVISION + 2 Must Fix on the false-positive control, demanding "Blocked"/"Decisions needed" section headers on a document that communicates both in substance. Template pedantry, the exact failure mode the eval was built to catch.
+- `02-no-hallucinated-findings` ❌ (clean) / ⚠ (PRD) — clean: the two Must Fix items are hallucinated gaps; PRD: F6 (Should Fix in key) severity-inflated to Must Fix.
+- `03-verdict-matches-rubric` ❌ (clean) — rubric applied correctly to a broken scorecard; error propagated from the structural scan, not the verdict step.
+- `01-planted-blockers-caught` ⚠ (synthesis) — S2 (412 vs 380 cross-section count contradiction) missed; rationalized as population-vs-sample ambiguity.
+- `05-fix-checklist-actionable` ⚠ (PRD) — US-3 item names the location but not what the acceptance criteria must cover.
+
+**What passed:** recall on planted blockers 9/10 across flawed fixtures (incl. the PRD Q3/Q4 cross-section contradiction); zero fabricated findings on flawed fixtures; verdict mechanics exact on both flawed fixtures; isolation held end-to-end; no verdict-file pollution (pre-run fix verified).
+
+**Introspection:**
+> Root cause of the P0: `ground-truth.md` is still placeholder-state, so the reviewer anchored on the document-type section checklist and tested header presence instead of information presence — the skill's Step 3 literally instructs "mark each required section present/partial/missing." Harness bug, not model capability. Recall is strong; precision is the failure axis.
+
+**Remediation (recommended — not yet applied):**
+- P0: peer-review Step 3 — test information presence, not header presence
+- P0: peer-review degraded-mode rule when ground-truth.md is unfilled (cap structural findings at Should Fix)
+- P1: severity guidance (Must Fix = blocks stated purpose) + explicit cross-section quantity-consistency pass
+- P2: checklist items state what added content must contain
+
+**Result file:** `peer-review/results/2026-06-11_claude-sonnet-4-6.md` *(committed despite results gitignore — run evidence, private working copy)*
