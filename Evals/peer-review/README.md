@@ -34,7 +34,8 @@ One fixture is deliberately **clean** (no planted flaws). It exists to measure f
 
 ## Pass-rate target
 
-≥ 4/5 applicable evals per fixture. Eval 04 failing is a P0 finding on its own — it means the gate generates noise.
+- **Flawed fixtures** (4 applicable evals: 01, 02, 03, 05): ≥ 3 of 4 pass, and no ❌ on eval 01 — a reviewer that misses planted blockers fails the suite regardless of other scores.
+- **Clean fixture** (3 applicable evals: 02, 03, 04): all 3 pass. Eval 04 failing is a P0 finding on its own — it means the gate generates noise.
 
 ## Run protocol
 

@@ -147,3 +147,96 @@ Confidence interval: bootstrap with B = 20000 resamples over the labeled example
 - P1: Auto-create Tasks/follow-ups.md entry when a Phase 5B strategic field is deferred
 
 **Result file:** `onboarding/results/2026-06-10_claude-fable-5.md` *(gitignored per public template policy)*
+
+---
+
+### 2026-06-11 — peer-review — claude-sonnet-4-6
+
+| Field | Value |
+|---|---|
+| Date | 2026-06-11 |
+| Suite | peer-review (meta-eval — first decision-quality suite; grades the reviewer gate) |
+| Model | `claude-sonnet-4-6` |
+| Commit SHA | `fab4e2342c3574c4202ba41cd0e0a9fc9f656774` |
+| Runner | eval-runner sub-agent (isolated; attested no `_answer-keys/` access) |
+| Grader | eval-grader sub-agent (isolated; transcript + fixture + answer key + criteria only) |
+| Fixture(s) | `prd-activation-checkout.md`, `synthesis-support-tickets.md`, `weekly-update-clean.md` (clean control) |
+| Raw pass rate | PRD: 2/4 · Synthesis: 3/4 · Clean control: **0/3** |
+| Bias-corrected θ̂ | N/A — all manual grading |
+| Status | ❌ FAIL — P0: clean control flunked (gate generates noise) |
+
+**Per-eval grading method:**
+| Eval | Method |
+|---|---|
+| all (01–05) | eval-grader sub-agent (manual, against `_answer-keys/`) |
+
+**Failures:**
+
+- `04-clean-artifact-not-flunked` ❌ — reviewer returned NEEDS REVISION + 2 Must Fix on the false-positive control, demanding "Blocked"/"Decisions needed" section headers on a document that communicates both in substance. Template pedantry, the exact failure mode the eval was built to catch.
+- `02-no-hallucinated-findings` ❌ (clean) / ⚠ (PRD) — clean: the two Must Fix items are hallucinated gaps; PRD: F6 (Should Fix in key) severity-inflated to Must Fix.
+- `03-verdict-matches-rubric` ❌ (clean) — rubric applied correctly to a broken scorecard; error propagated from the structural scan, not the verdict step.
+- `01-planted-blockers-caught` ⚠ (synthesis) — S2 (412 vs 380 cross-section count contradiction) missed; rationalized as population-vs-sample ambiguity.
+- `05-fix-checklist-actionable` ⚠ (PRD) — US-3 item names the location but not what the acceptance criteria must cover.
+
+**What passed:** recall on planted blockers 9/10 across flawed fixtures (incl. the PRD Q3/Q4 cross-section contradiction); zero fabricated findings on flawed fixtures; verdict mechanics exact on both flawed fixtures; isolation held end-to-end; no verdict-file pollution (pre-run fix verified).
+
+**Introspection:**
+> Root cause of the P0: `ground-truth.md` is still placeholder-state, so the reviewer anchored on the document-type section checklist and tested header presence instead of information presence — the skill's Step 3 literally instructs "mark each required section present/partial/missing." Harness bug, not model capability. Recall is strong; precision is the failure axis.
+
+**Remediation (recommended — not yet applied):**
+- P0: peer-review Step 3 — test information presence, not header presence
+- P0: peer-review degraded-mode rule when ground-truth.md is unfilled (cap structural findings at Should Fix)
+- P1: severity guidance (Must Fix = blocks stated purpose) + explicit cross-section quantity-consistency pass
+- P2: checklist items state what added content must contain
+
+**Result file:** `peer-review/results/2026-06-11_claude-sonnet-4-6.md` *(committed despite results gitignore — run evidence, private working copy)*
+
+---
+
+### 2026-06-12 — peer-review — claude-sonnet-4-6 (r2, post P0+P1 fixes)
+
+| Field | Value |
+|---|---|
+| Date | 2026-06-12 |
+| Suite | peer-review |
+| Model | `claude-sonnet-4-6` |
+| Commit SHA | `622767eaf51a2c1e3c707e7cd1d7fc27ec7c003c` *(transcripts stamped `30c1ba6` — pre-amend, tree-identical)* |
+| Runner | eval-runner sub-agents (3 parallel; isolated context) |
+| Grader | eval-grader sub-agents (3 parallel; isolated context) |
+| Fixture(s) | `prd-activation-checkout.md`, `synthesis-support-tickets.md`, `weekly-update-clean.md` |
+| Raw pass rate | PRD: 2/4 · Synthesis: 4/4 · Clean: 1+2⚠/3 |
+| Bias-corrected θ̂ | N/A — all manual grading |
+| Status | ⚠️ PARTIAL — P0 fixed; synthesis PASS; PRD eval 01 ❌ (recall regression) |
+
+**Per-eval grading method:**
+| Eval | Method |
+|---|---|
+| all (01–05) | eval-grader sub-agents (manual, against `_answer-keys/`) |
+
+**P0+P1 fixes confirmed working:**
+
+- `04-clean-artifact-not-flunked` r1 ❌ → r2 ⚠️ — P0 fixed: CONDITIONAL (not NEEDS REVISION), zero Must Fix on clean control. Degraded-mode cap and information-presence check working.
+- `01-planted-blockers-caught` synthesis r1 ⚠ (S2 missed) → r2 ✅ (S2 caught) — Pass 1b cross-section consistency check caught 412 vs 380 contradiction.
+- `02-no-hallucinated-findings` PRD r1 ⚠ (severity inflation) → r2 ✅ — severity bar fix working.
+
+**New failures:**
+
+- `01-planted-blockers-caught` PRD r2 ❌ — F1 (US-3: no acceptance criteria) and F5 (no rollback/failure plan for payments flow) both missed. F1: runner scanned for user-story section presence, marked "US-1, US-2, US-3 with acceptance criteria ✅" without verifying US-3 content. F5: degraded-mode cap suppressed the rollback-plan finding (treated as template gap, capped to Should Fix sub-bullet of Launch Plan).
+
+**What passed:**
+
+- Synthesis: 4/4 ✅ — first full PASS on any flawed fixture.
+- PRD eval 02 ✅, eval 03 ✅.
+- Clean: eval 03 ✅, eval 04 P0 not triggered (CONDITIONAL ≠ NEEDS REVISION).
+- Isolation held end-to-end on all 3 runners; no `_answer-keys/` access confirmed.
+
+**Introspection:**
+> F1 regression: the information-presence instruction changed the structural scan from header-checking to surface content-checking, but didn't add per-element depth (checking each user story for its own ACs). The fix improved precision at the cost of recall depth. F5 regression: the degraded-mode cap is over-broad — "purely structural/template findings" should not include risk/safety content that happens to coincide with a missing section (rollback plan for held-funds payments is substantive regardless of degraded mode).
+
+**Remediation (recommended — not yet applied):**
+- P0: Per-user-story AC check — explicit instruction: "for each user story, verify that story's ACs are present"
+- P0: Narrow degraded-mode cap — "substantive safety/risk/compliance content keeps full severity regardless of degraded mode"
+- P1: Clean-fixture threshold — extend information-presence principle to Should Fix (information present under different heading = Nice to Fix, not Should Fix)
+- P2: Flag unsourced quantified claims ("78% of X" with no data source)
+
+**Result file:** `peer-review/results/2026-06-12_claude-sonnet-4-6_r2.md` *(committed per private working copy policy)*

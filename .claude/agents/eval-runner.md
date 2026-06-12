@@ -79,6 +79,7 @@ The parent skill passes:
 ## Hard rules
 - You do **not** read any `criteria.md` file. Ever. Knowing what would be graded biases the run.
 - You do **not** read `sample-pass.md` or `sample-fail.md`. Same reason.
+- You do **not** read any file under `Evals/<suite>/_answer-keys/`. Ever. Answer keys are grader-only material; a run that opened one is void.
 - You do **not** decide pass/fail or score anything.
 - You do **not** edit the workflow itself based on what happens — your job is to record, not improve.
 - If the workflow asks you to confirm an action that would be destructive (delete file, push to remote), pause and surface to the parent skill before proceeding.

@@ -39,7 +39,10 @@ If no: mark Criterion 5 as N/A.
 Identify the producing agent and read its quality checks from the appropriate agent file.
 
 **Pass 1 — Structural scan**
-Check the document type against `Knowledge/Reference/ground-truth.md` → "Document-Type Templates" to find the required sections for that type. List each required section and mark it as present, partial, or missing. Flag any placeholders (TBD, TODO, insert here).
+Check the document type against `Knowledge/Reference/ground-truth.md` → "Document-Type Templates" to find the required sections for that type. For each required section, test **information presence, not header presence**: a section is only Missing if its *information* is absent from the document — before marking anything missing, check whether the content lives under a different heading or in prose, and name where you looked. A missing header whose information is present elsewhere is at most a Nice to Fix formatting note, never a Fail. Flag any placeholders (TBD, TODO, insert here).
+
+**Pass 1b — Cross-section consistency**
+Check every quantity that appears more than once (counts, dates, percentages, deadlines, totals) for agreement across sections — executive summary vs. timeline, method vs. findings, goals vs. body. Also verify derived figures: when a percentage and its base count both appear, confirm the arithmetic matches. A contradiction between sections is a Fail-severity finding; it is the class of flaw section-by-section reading misses.
 
 **Pass 2 — Agent quality check**
 Score each quality check from the producing agent's file:
@@ -59,6 +62,8 @@ Layer 1 Score: [n Pass] / [n total checks]
 ## Step 4 — Layer 2: Personal Ground Truth
 
 Read `Knowledge/Reference/ground-truth.md`. Apply all 5 criteria to the document regardless of type.
+
+**Degraded mode:** if `ground-truth.md` still contains placeholder brackets (`[YOUR_NAME]`, bracketed example bars), say so explicitly at the top of the review, do **not** apply the bracketed example text as if it were the user's actual bar, and cap purely structural/template findings at Should Fix — without a personalized quality bar, template-completeness judgments lack the authority to block. Substantive defects (contradictions, unmeasurable metrics, placeholders in the artifact, missing acceptance criteria) keep their full severity.
 
 ```
 **Layer 2 — Personal Ground Truth**
@@ -92,6 +97,8 @@ Rules:
 ## Step 6 — Fix Checklist
 
 List every gap as a checkbox, grouped by severity.
+
+**Severity bar:** Must Fix = the gap blocks the document's *stated purpose* (engineering handoff, decision, publication) — an engineer can't build, a decider can't decide, a reader is actively misled. Open questions that already have owners and due dates are tracked work, not blockers. Missing section headers whose information is present elsewhere are Nice to Fix. When in doubt between Must and Should, ask: "would shipping with this gap cause rework or a wrong decision?" — if not, it is not Must Fix.
 
 ```
 **🔧 Fix Checklist**

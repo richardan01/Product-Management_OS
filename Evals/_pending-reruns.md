@@ -18,5 +18,6 @@ Each row was registered when a mapped source file changed. A row is cleared only
 | Suite | Source file changed | Source commit SHA | Registered date | Status | Cleared by run |
 |---|---|---|---|---|---|
 | onboarding | Evals/onboarding/04-no-residual-placeholders/grade.sh | 101a4e5e88fc28924b6ab3cd16b248c1fd71b2eb | 2026-06-07 | cleared | onboarding/results/2026-06-10_claude-fable-5.md |
+| peer-review | .claude/skills/peer-review/SKILL.md | 14a45ec59af781ab41f53f36139476d4b853ed44 | 2026-06-11 | cleared | peer-review/results/2026-06-12_claude-sonnet-4-6_r2.md |
 
 (append-only; no row deletion; status `pending` → `cleared` only)
