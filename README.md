@@ -1,244 +1,146 @@
 # Product Management OS 🧠
 
-![Status](https://img.shields.io/badge/status-active-brightgreen)
-![Focus](https://img.shields.io/badge/focus-AI%20Product%20Management-blue)
-![Evals](https://img.shields.io/badge/includes-LLM%20Evals-purple)
-![Workflow](https://img.shields.io/badge/workflow-Agentic%20PM-orange)
+A lightweight AI Product Management operating system for PMs who want a more structured way to manage daily execution, PRDs, stakeholder updates, product reviews, evals, and launch readiness.
 
-A personal AI Product Management operating system for repeatable PM workflows, AI feature PRDs, evals, product reviews, stakeholder updates, and daily execution.
-
-It is designed to help PMs move from **idea → artifact → eval → decision → launch readiness** with a practical, lightweight operating system.
+This repo is designed to help a Product Manager work with AI more intentionally — not just by prompting randomly, but by creating repeatable workflows, reusable context, and quality gates.
 
 ---
 
-## ⚡ 60-second scan
+## What this is
 
-This repo is my flagship AI Product Management project.
+Product work is messy.
 
-It shows how I think about AI PM execution: not just writing PRDs, but building a repeatable system for product workflows, evals, quality gates, stakeholder updates, and launch readiness.
+On any given day, a PM may need to:
 
-**What this demonstrates:**
+* Clarify priorities
+* Prepare for stakeholder meetings
+* Write or review a PRD
+* Synthesize research
+* Track risks
+* Review launch readiness
+* Follow up on open decisions
+* Keep context across multiple projects
 
-* 🧠 AI PM workflow design
-* 🧪 LLM eval and quality-gate thinking
-* 📝 PRD and product artifact generation
-* 🤖 Agentic PM workflow orchestration
-* 📊 Product operating rhythm and execution
-* 🔐 Privacy-aware personal knowledge management
+A single long AI prompt is usually not enough.
 
-**Why it matters:**
-
-AI PMs need to move from idea → artifact → eval → decision → launch.
-This repo is my attempt to make that workflow repeatable.
-
----
-
-## 🎯 Portfolio signal
-
-This project is designed to show AI PM craft in three areas:
-
-1. **System thinking** — turning messy PM work into repeatable workflows.
-2. **Evaluation thinking** — using evals, rubrics, and quality gates before publishing product artifacts.
-3. **Execution thinking** — helping a PM run daily planning, stakeholder prep, PRD reviews, and weekly updates through one operating system.
-
-This is not meant to be a polished SaaS product.
-It is a working AI PM operating system and portfolio artifact.
+**Product Management OS** gives the PM a simple structure for turning that messy work into repeatable AI-supported workflows.
 
 ---
 
-## 🧱 How it works
+## Who this is for
+
+This OS is for Product Managers who want to:
+
+* 🧭 Run daily and weekly product execution more clearly
+* 📝 Draft and review stronger PRDs
+* 🧪 Add eval and quality-gate thinking to AI product work
+* 🤝 Prepare better stakeholder updates
+* 🔍 Synthesize research without losing context
+* ✅ Review launch readiness before shipping
+* 🧠 Keep reusable product context in one place
+* 🤖 Work across tools like Claude Code, Codex CLI, or Gemini CLI
+
+You do not need to be an engineer to use this.
+You just need to be comfortable working with files, markdown, and AI assistants.
+
+---
+
+## How the OS works
 
 ```text
-User / PM
+PM asks for help
    ↓
 "Computer, [task]"
    ↓
-Routing Layer
+The OS routes the task
    ↓
-Skills + Workflows
+Relevant workflow / skill is used
    ↓
-Templates + Knowledge + Memory
+Context is pulled from project files, goals, tasks, and knowledge
    ↓
-PM Artifact
+A product artifact is created or reviewed
    ↓
-Review Gate / Eval
-   ↓
-Decision-ready Output
+Quality gate checks the output
 ```
 
-The core idea is simple:
-
-> A PM should not rely on one long generic prompt.
-> A PM needs a repeatable operating system with workflows, context, templates, evals, and review gates.
+The goal is to make AI useful for real PM work, not just one-off content generation.
 
 ---
 
-## 💙 Why I’m proud of this project
+## Core idea
 
-I built this because I wanted a more serious way to use AI in product management.
+Instead of asking AI random questions every day, the PM builds a small operating system around their work.
 
-Most AI PM workflows stop at “generate a PRD.”
-This project goes further: it connects daily execution, stakeholder context, product artifacts, evals, and launch quality gates into one repeatable operating system.
+That means:
 
-It reflects the type of AI PM I am trying to become: someone who can combine product judgment, data systems, AI workflows, and evaluation discipline.
+* Goals live in `GOALS.md`
+* Active work lives in `Tasks/`
+* Project context lives in `Projects/`
+* Stakeholder context lives in `Knowledge/People/`
+* Templates live in `Templates/`
+* Repeatable workflows live in `Workflows/`
+* Evals and checks live in `Evals/`
+* Durable preferences live in `Memory/`
 
----
-
-## 🚀 What this OS helps with
-
-* 📝 Drafting AI feature PRDs
-* 🧪 Reviewing eval plans and quality gates
-* 📊 Preparing stakeholder updates
-* 🧭 Running daily and weekly PM execution
-* 🔍 Synthesizing research
-* ✅ Checking PRD readiness
-* ⚠️ Capturing risks and launch concerns
-* 🤖 Supporting Claude Code, Codex CLI, and Gemini CLI workflows
+The assistant becomes more useful because it has a clear place to look, a clear workflow to follow, and a clear quality standard to apply.
 
 ---
 
-## 🧪 Sample artifacts
+## What you can use it for
 
-This repo includes example PM artifacts to show how the OS can support AI product execution.
+### 🧭 Daily execution
+
+Use the OS to decide what matters today, what is blocked, and what needs follow-up.
 
 ```text
-Examples/
-├── sample-ai-feature-prd.md
-├── sample-eval-review.md
-└── sample-launch-gate.md
-```
-
-**Examples included:**
-
-* 📝 `sample-ai-feature-prd.md` — sample AI feature PRD for a finance assistant
-* 🧪 `sample-eval-review.md` — sample eval review covering quality, risk, and failure modes
-* ✅ `sample-launch-gate.md` — sample launch gate for go / no-go product decision-making
-
-These examples are intentionally lightweight.
-They are designed to show product thinking, not production code.
-
----
-
-## 🧠 Operating model
-
-The OS is built around three layers:
-
-```text
-Skills
-   ↓
-Workflows
-   ↓
-Knowledge + Memory
-```
-
-### 1. Skills
-
-Skills handle specific PM jobs such as PRD review, research synthesis, meeting prep, eval review, and daily planning.
-
-### 2. Workflows
-
-Workflows define repeatable PM actions such as onboarding, weekly updates, product reviews, and launch checks.
-
-### 3. Knowledge + Memory
-
-Knowledge and memory help the OS reuse durable context while respecting privacy boundaries.
-
----
-
-## 🛠️ Supported AI coding/workflow tools
-
-This repo is designed to be harness-neutral.
-
-| Tool        | Entry file  | Use case                                    |
-| ----------- | ----------- | ------------------------------------------- |
-| Claude Code | `CLAUDE.md` | AI PM workflow execution                    |
-| Codex CLI   | `AGENTS.md` | Agentic coding and product workflow support |
-| Gemini CLI  | `GEMINI.md` | Alternative AI workflow runtime             |
-
-The goal is not to lock into one tool.
-The goal is to make the PM operating system portable across AI work environments.
-
----
-
-## 🧭 Core command pattern
-
-Use the invocation pattern:
-
-```text
-Computer, [task]
-```
-
-Examples:
-
-```text
-Computer, onboard me into this OS
 Computer, what should I focus on today?
-Computer, draft an AI feature PRD
-Computer, review this PRD for launch readiness
-Computer, run an eval review
-Computer, prepare my stakeholder update
 ```
 
----
+### 🤝 Meeting preparation
 
-## 🏁 Quick start
-
-### Step 1 — Fork or clone this repo
-
-```bash
-git clone https://github.com/richardan01/Product-Management_OS.git
-```
-
-### Step 2 — Open it in your preferred AI workflow tool
-
-Use Claude Code, Codex CLI, Gemini CLI, or another compatible workflow environment.
-
-### Step 3 — Start onboarding
+Prepare for stakeholder meetings using project context, open risks, and previous decisions.
 
 ```text
-Computer, onboard me into this OS.
+Computer, prep me for my 1:1 with [stakeholder].
 ```
 
-The assistant should ask about your:
+### 📝 PRD drafting and review
 
-* Purpose
-* PM persona
-* Operating cadence
-* Current goals
-* Active tasks
-* Stakeholders
-* Privacy boundaries
-
-### Step 4 — Start daily execution
+Draft or review PRDs using structured templates and readiness checks.
 
 ```text
-/today
+Computer, help me draft an AI feature PRD.
+Computer, review this PRD before I share it.
+```
+
+### 🧪 Eval and quality review
+
+Use eval thinking to check whether an AI feature, output, or product artifact is good enough.
+
+```text
+Computer, review this eval plan.
+Computer, identify failure modes before launch.
+```
+
+### 📊 Stakeholder updates
+
+Turn messy progress notes into clear weekly updates.
+
+```text
+Computer, draft my weekly product update.
+```
+
+### ✅ Launch readiness
+
+Check whether a product, feature, or AI workflow is ready to move forward.
+
+```text
+Computer, run a launch readiness review.
 ```
 
 ---
 
-## 🧪 Eval system
-
-The repo includes offline eval thinking for PM workflows.
-
-The eval approach is based on one principle:
-
-> The same context that creates an artifact should not grade the artifact.
-
-That means eval review should use author / grader separation, fresh context, and explicit criteria.
-
-Eval areas include:
-
-* 🧪 Output quality
-* 📏 Rubric clarity
-* 🔍 Failure modes
-* ⚠️ Risk detection
-* ✅ Launch readiness
-* 👀 Human review requirements
-
----
-
-## 📦 Suggested repo structure
+## Repository structure
 
 ```text
 Product-Management_OS/
@@ -256,32 +158,150 @@ Product-Management_OS/
 └── Examples/
 ```
 
----
+### Key folders
 
-## 🔐 Privacy note
-
-This public repo is a template and portfolio artifact.
-
-Personal context, real stakeholder details, company-sensitive information, credentials, and private work artifacts should live only in a private fork or local copy.
-
-Do not publish sensitive company or customer information into this repo.
-
----
-
-## 🧩 Roadmap
-
-Planned improvements:
-
-* 🧪 Add more sample eval rubrics
-* 📝 Add more AI feature PRD examples
-* ✅ Add stronger launch-readiness templates
-* 📊 Add sample PM metric trees
-* 🤖 Add more agentic workflow examples
-* 🔍 Add before / after examples of product artifacts
-* 🧠 Add more AI PM case studies
+| Folder       | Purpose                                                     |
+| ------------ | ----------------------------------------------------------- |
+| `Tasks/`     | Current work, backlog, blockers, and follow-ups             |
+| `Projects/`  | Product/project context that the assistant can reuse        |
+| `Knowledge/` | Stakeholder notes, reference material, and reusable context |
+| `Memory/`    | Durable working preferences and operating rules             |
+| `Templates/` | PRDs, updates, reviews, and product artifact templates      |
+| `Workflows/` | Step-by-step PM workflows                                   |
+| `Evals/`     | Eval suites, rubrics, and quality checks                    |
+| `Examples/`  | Sample outputs to show how the OS can be used               |
 
 ---
 
-## ⚡ One-liner
+## Supported AI tools
 
-A practical AI PM operating system for turning messy product work into repeatable workflows, stronger artifacts, eval-aware reviews, and decision-ready outputs.
+This OS is designed to be harness-neutral.
+
+| Tool        | Entry file  | How it is used                             |
+| ----------- | ----------- | ------------------------------------------ |
+| Claude Code | `CLAUDE.md` | Main PM workflow assistant                 |
+| Codex CLI   | `AGENTS.md` | Agentic workflow and code-adjacent support |
+| Gemini CLI  | `GEMINI.md` | Alternative AI assistant runtime           |
+
+The same operating system can be used across different AI tools.
+The entry files simply tell each tool how to behave inside this repo.
+
+---
+
+## Quick start
+
+### 1. Fork or clone the repo
+
+```bash
+git clone https://github.com/richardan01/Product-Management_OS.git
+```
+
+### 2. Open the repo in your AI tool
+
+Use Claude Code, Codex CLI, Gemini CLI, or another assistant that can read local repo files.
+
+### 3. Start onboarding
+
+```text
+Computer, onboard me into this OS.
+```
+
+The assistant should ask about your:
+
+* Product role
+* Current goals
+* Active projects
+* Stakeholders
+* Work style
+* Operating cadence
+* Privacy boundaries
+
+### 4. Start your first working session
+
+```text
+Computer, what should I focus on today?
+```
+
+---
+
+## First 7 days
+
+| Day   | What to do                                 |
+| ----- | ------------------------------------------ |
+| Day 1 | Run onboarding and set up your goals       |
+| Day 2 | Add active tasks and current blockers      |
+| Day 3 | Add one project brief                      |
+| Day 4 | Add key stakeholder notes                  |
+| Day 5 | Use it for meeting prep or a weekly update |
+| Day 6 | Draft or review one PRD                    |
+| Day 7 | Run a weekly review and improve the OS     |
+
+The goal is not to make it perfect.
+The goal is to make it useful within one week.
+
+---
+
+## Example workflow
+
+```text
+You have a new AI feature idea
+   ↓
+Add project context in Projects/
+   ↓
+Use Templates/prd-ai-feature.md
+   ↓
+Ask the OS to draft the PRD
+   ↓
+Run PRD readiness review
+   ↓
+Run eval / failure-mode review
+   ↓
+Prepare stakeholder update
+   ↓
+Decide next action
+```
+
+---
+
+## Sample artifacts
+
+The `Examples/` folder can be used to show what good output looks like.
+
+Suggested examples:
+
+```text
+Examples/
+├── sample-ai-feature-prd.md
+├── sample-eval-review.md
+└── sample-launch-gate.md
+```
+
+These examples help new users understand how to work with the OS.
+
+---
+
+## Privacy note
+
+This repo is meant to be forked or copied.
+
+Keep personal context, company-sensitive details, customer information, credentials, and private documents out of the public repo.
+
+Use a private fork or local copy for real work.
+
+---
+
+## Design principles
+
+* Keep the system lightweight
+* Store context in simple markdown files
+* Make workflows repeatable
+* Make quality checks explicit
+* Separate drafting from reviewing
+* Keep private context private
+* Let the PM stay in control
+
+---
+
+## One-liner
+
+A practical AI Product Management OS for turning messy PM work into clearer workflows, stronger artifacts, better reviews, and more reliable execution.
