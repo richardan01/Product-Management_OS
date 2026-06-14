@@ -14,13 +14,13 @@ Instead of using AI through random prompts, this repo gives Product Managers a s
 
 ## What this helps with
 
-* 🧭 Daily and weekly PM execution
-* 📝 PRD drafting and review
-* 🧪 LLM evals and quality gates
-* 🤝 Stakeholder updates and meeting prep
-* 🔍 Research synthesis
-* ✅ Launch readiness review
-* 🧠 Reusable project and stakeholder context
+- 🧭 Daily and weekly PM execution
+- 📝 PRD drafting and review
+- 🧪 LLM evals and quality gates
+- 🤝 Stakeholder updates and meeting prep
+- 🔍 Research synthesis
+- ✅ Launch readiness review
+- 🧠 Reusable project and stakeholder context
 
 ---
 
@@ -83,6 +83,95 @@ You just need to be comfortable working with markdown files and AI assistants.
 
 ---
 
+## Quick start
+
+### 1. Fork or clone this repo
+
+Fork it if you want your own GitHub copy, or clone it locally:
+
+```bash
+git clone https://github.com/richardan01/Product-Management_OS.git
+cd Product-Management_OS
+```
+
+### 2. Open the repo in your AI tool
+
+Use the entry file that matches your tool:
+
+| Tool        | Entry file  | How to use it                      |
+| ----------- | ----------- | ---------------------------------- |
+| Claude Code | `CLAUDE.md` | Main PM workflow assistant         |
+| Codex CLI   | `AGENTS.md` | Codex-based PM and repo workflows  |
+| Gemini CLI  | `GEMINI.md` | Gemini-based PM workflow assistant |
+
+The repo is designed so the same OS can work across different AI tools.
+
+### 3. Run onboarding
+
+Ask your AI assistant:
+
+```text
+Computer, onboard me into this OS.
+```
+
+The assistant should help you set up:
+
+* Your PM role and working style
+* Current goals
+* Active projects
+* Tasks and blockers
+* Key stakeholders
+* Privacy boundaries
+* Preferred cadence for daily and weekly planning
+
+### 4. Add your working context
+
+Start with these files:
+
+```text
+GOALS.md
+Tasks/active.md
+Tasks/backlog.md
+Projects/[your-project]/brief.md
+Knowledge/People/[stakeholder-name].md
+```
+
+Do not add sensitive company, customer, credential, or private personal information into the public repo. Use a private fork or local copy for real work.
+
+### 5. Start your first PM workflow
+
+Try one of these:
+
+```text
+Computer, what should I focus on today?
+Computer, prep me for my next stakeholder meeting.
+Computer, help me draft a PRD for [feature].
+Computer, review this PRD for gaps and risks.
+Computer, run a launch readiness review.
+```
+
+### 6. Close the loop weekly
+
+At the end of the week, ask:
+
+```text
+Computer, summarize my week and update my priorities.
+```
+
+Use the output to update your goals, backlog, and active tasks.
+
+---
+
+## Sample artifacts
+
+The `Examples/` folder shows lightweight sample outputs from the OS.
+
+* [`sample-ai-feature-prd.md`](Examples/sample-ai-feature-prd.md)
+* [`sample-eval-review.md`](Examples/sample-eval-review.md)
+* [`sample-launch-gate.md`](Examples/sample-launch-gate.md)
+
+---
+
 ## Design principles
 
 * Keep it lightweight
@@ -92,20 +181,6 @@ You just need to be comfortable working with markdown files and AI assistants.
 * Make quality checks explicit
 * Keep private context private
 * Let the PM stay in control
-
----
-
-## Quick start
-
-```bash
-git clone https://github.com/richardan01/Product-Management_OS.git
-```
-
-Then open the repo in Claude Code, Codex CLI, or Gemini CLI and run:
-
-```text
-Computer, onboard me into this OS.
-```
 
 ---
 
