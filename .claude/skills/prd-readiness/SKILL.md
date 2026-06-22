@@ -23,7 +23,7 @@ Run this gate before handing off a PRD to engineering, before `/spec-handoff`, o
 |------|----------|--------|-------|
 | Problem statement | Clearly defines the user problem and business impact | Pass/Fail | |
 | User stories | All key user stories present with persona, action, outcome | Pass/Fail | |
-| Acceptance criteria | Every requirement has testable acceptance criteria | Pass/Fail | |
+| Acceptance criteria | Every requirement has testable acceptance criteria — check **each user story individually**; a single story with no ACs is a hard **Fail** even if its siblings are complete (do not soften to "pass-with-concern") | Pass/Fail | |
 | Data requirements | Data sources, schemas, and dependencies identified | Pass/Fail | |
 | Scope boundaries | Explicit in/out of scope section — no ambiguity | Pass/Fail | |
 | Dependencies | External dependencies listed with owners and ETAs | Pass/Fail | |

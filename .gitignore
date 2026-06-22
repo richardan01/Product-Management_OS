@@ -6,6 +6,9 @@ Evals/*/results/*
 # protocol, criteria, fixtures, answer keys, judge prompt, and data plan).
 Evals/**/_calibration/
 Evals/**/_labeled/
+# Weekly monitoring logs are run evidence; only the README (the loop spec) ships.
+Evals/monitoring/*
+!Evals/monitoring/README.md
 
 # Local telemetry / generated data
 .telemetry/
