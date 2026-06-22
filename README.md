@@ -187,3 +187,18 @@ The `Examples/` folder shows lightweight sample outputs from the OS.
 ## One-liner
 
 A practical AI PM OS for turning messy product work into clearer workflows, stronger artifacts, and better product decisions.
+
+---
+
+## Acknowledgments
+
+This OS started as a fork of [Carl Vellotti's Product OS](https://github.com/carlvellotti/carls-product-os) and has since been substantially extended into a harness-neutral template. Additions on top of the original:
+
+- **Harness-neutral operation** — one configuration surface working across Claude Code, Codex CLI, and Gemini CLI (`CLAUDE.md` / `AGENTS.md` / `GEMINI.md`)
+- **Offline eval suites** with author/grader separation, gold datasets, and run logs (`Evals/`)
+- **Repo-native memory layer** with an explicit write-gate policy (`Memory/`)
+- **Provenance-tagged knowledge layers** with a hypothesis/decision lifecycle (`Knowledge/`)
+- **Interactive onboarding workflow** with per-file confirmation gates (`Workflows/interactive-onboarding.md`)
+- **Quality gates** for PRDs, research sufficiency, launch readiness, and pre-publish review (`.claude/skills/`)
+
+Thanks to Carl for the original foundation.

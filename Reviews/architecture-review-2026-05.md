@@ -30,7 +30,7 @@ All changes below were assessed against the four acceptance criteria:
 | R4: Backfilled sample-pass/fail for 8 evals | 16 new files in `Evals/onboarding/` | Grader consistency risk on 8 of 10 evals |
 | R5: Created `Evals/research-synthesis/` suite | New suite (13 files) | Only meta-evals existed; no PM workflow evals |
 | R6: Disambiguated voice-map | `_Registry/voice-map.md` | 15 roles vs. 12 agent files was ambiguous |
-| R7: Moved `Bruce-Wayne/` to `Agents/Gotham/Computer/Bruce-Wayne/` | Directory move + 7 path fixes | Root-level Batman-specific folder cluttered template surface |
+| R7: Consolidated the persona-agent folders under a single persona directory | Directory move + 7 path fixes | Root-level persona-specific folder cluttered template surface |
 | R9 (this review): Created `Reviews/` template and first entry | 2 new files | Monthly review cadence documented but no files existed |
 
 ---
@@ -67,7 +67,7 @@ All changes below were assessed against the four acceptance criteria:
 
 ## 5. No-change decisions
 
-- **No new agents added.** OS already has 12 Gotham agents + 11 sub-agents.
+- **No new agents added.** OS already has 12 persona agents + 11 sub-agents.
 - **No new top-level folders.** All additions went into existing structure.
 - **No plugin/marketplace migration.** Harness-neutral design preserved.
 

@@ -133,7 +133,7 @@ decision — which aligns with the real question: is this good enough to ship?
   LLM Output → Likert Scale Judge → Score: 3/5
 
 ✅ Do this instead:
-  LLM Output → is_specific_to_kpay?   → Pass/Fail
+  LLM Output → is_specific_to_context? → Pass/Fail
              → fields_all_present?    → Pass/Fail
              → no_hallucinated_tools? → Pass/Fail
 ```
