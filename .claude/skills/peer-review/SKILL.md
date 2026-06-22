@@ -98,10 +98,12 @@ Layer 2 Score: [n Pass] / 5 criteria
 **Overall Verdict: CLEARED ✅ / CONDITIONAL ⚠️ / NEEDS REVISION ❌**
 ```
 
-Rules:
-- **CLEARED** — all Layer 1 checks pass AND all Layer 2 criteria are Pass or N/A
-- **CONDITIONAL** — 1–2 items are Partial across both layers, none are Fail
-- **NEEDS REVISION** — any item is Fail, or 3+ items are Partial across both layers
+Rules (driven by the `bad`/`sad` taxonomy in `Evals/severity-taxonomy.md`):
+- **CLEARED** — all Layer 1 checks pass AND all Layer 2 criteria are Pass or N/A (0 `bad`, 0 `sad`)
+- **CONDITIONAL** — 1–2 `sad` items (Partials) across both layers, no `bad`
+- **NEEDS REVISION** — any `bad` item (a Fail), **or** 3+ `sad` items across both layers (the stacking rule: stacked sads become bad)
+
+A `bad` finding (hallucinated content, missed Must-Fix blocker, unpreserved contradiction, safety/risk gap) blocks regardless of degraded mode.
 
 ---
 

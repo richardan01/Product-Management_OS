@@ -39,10 +39,12 @@ Run this gate before handing off a PRD to engineering, before `/spec-handoff`, o
 | Failure modes named | At least 3 failure modes listed with mitigation or guardrail for each | Pass/Fail | |
 | Fallback paths specified | At least one fallback path per critical failure trigger | Pass/Fail | |
 
-5. **Final decision:**
-   - All applicable gates pass → **READY** — safe to hand off or extract tasks
-   - Any fail → **NOT READY** — list gaps with specific fix actions
-   - Most pass, minor gaps → **CONDITIONAL** — list conditions, safe to proceed if flagged
+5. **Final decision** (drive the verdict with the `bad`/`sad` taxonomy in `Evals/severity-taxonomy.md`, not by counting headers):
+   - Any **`bad`** finding (a failed gate — missing acceptance criteria, undefined eval criteria, no fallback for a critical failure, etc.) → **NOT READY** — list gaps with specific fix actions
+   - 0 `bad` but **≥ 3 `sad`** findings (stacking rule) → **NOT READY**
+   - 0 `bad`, 1–2 `sad` → **CONDITIONAL** — list conditions, safe to proceed if flagged
+   - 0 `bad`, 0 `sad` → **READY** — safe to hand off or extract tasks
+   - A failed gate is `bad` regardless of how "structural" it looks — safety/eval/fallback gaps are never demoted.
 
 6. **Output:**
 
