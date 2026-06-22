@@ -8,6 +8,7 @@ Use this fixture as a third lens on the workflow. Its job is to surface failures
 - Company / organization: (declined — wants placeholder preserved)
 - Team / domain: (declined — wants placeholder preserved)
 - Manager or primary sponsor: Jordan Singh
+- Head of department / skip-level: (declined — not sure who Jordan reports to yet; defer)
 - Primary purpose: Day-job execution; lightweight checklist support
 - Default persona: Minimalist
 - Tone: terse, checklist-first, low ceremony

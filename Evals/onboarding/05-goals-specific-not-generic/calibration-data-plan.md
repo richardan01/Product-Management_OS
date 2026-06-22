@@ -19,14 +19,16 @@ This is the first eval in the PM OS to receive a calibrated LLM-as-judge. The cr
 
 | Class | Count | Source breakdown |
 |---|---|---|
-| Pass | 0 | — |
-| Fail | 0 | — |
+| Pass | 0 | — (corpus is generated in a working copy; kept local, gitignored) |
+| Fail | 0 | — (corpus is generated in a working copy; kept local, gitignored) |
+
+The labeled corpus lives under `_labeled/` in a working copy and is **gitignored** (run evidence, not template scaffolding). Run `/judge-calibration` to build/split it and produce the calibration report under `_calibration/` (also gitignored).
 
 ## Owner & timeline
 
 - **Owner:** [YOUR_NAME]
 - **Target completion:** end of Week 4 (per `/root/.claude/plans/on-evals-can-you-reactive-beaver.md`)
-- **Status:** `gathering` (will flip to `split` once corpus hits 60, then `calibrated` after `/judge-calibration` PASSes, then `deployed` once `judge-prompt.md` is promoted)
+- **Status:** `gathering` (flips to `split` once corpus hits 60, then `calibrated` after `/judge-calibration` PASSes, then `deployed` once `judge-prompt.md` is promoted — all tracked in the local working copy, not the public template)
 
 ## TPR/TNR targets
 

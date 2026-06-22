@@ -431,12 +431,23 @@ production users. Three deployment modes:
 
 **For [YOUR_COMPANY] AI PM workflows:**
 - **CI/CD**: Before pushing any skill update, run the full eval suite. A failed
-  eval blocks the skill from being deployed to production prompts.
-- **Online Monitoring**: After each skill deployment, sample real usage and
-  run LLM-judge async to catch new failure modes the curated suite missed.
-- **Guardrails**: For high-stakes outputs (vendor recommendations, user
-  segmentation, feature targeting), add a pre-response check that blocks
-  outputs with known critical failure signatures before they reach stakeholders.
+  eval blocks the skill from being deployed to production prompts. This is what
+  `/eval-ci` + `_pending-reruns.md` enforce — a mapped source-file edit blocks
+  `/peer-review` and `/go-nogo` from citing a stale suite until it re-runs.
+- **Online Monitoring** (operationalized — see `Evals/monitoring/README.md`):
+  a **weekly loop**, hooked off `/weekly-update`. `trace-collector` (wired into
+  `/eod`) samples 10–15 recent real artifacts → async `eval-grader` sub-agents
+  grade them against the relevant suite's criteria + answer key (and the
+  **deployed** eval-05 judge once calibrated), bucketing each finding `bad`/`sad`
+  per `Evals/severity-taxonomy.md`. The headline metric is the **bad-rate**
+  (fraction of samples with ≥1 `bad` finding) trended week over week — an
+  outcome metric, not a volume count. Recurring `bad` findings feed
+  `/error-analysis` and become new fixtures.
+- **Guardrails**: A true synchronous pre-response guardrail is not possible in a
+  markdown OS with no runtime. The practical equivalent is the **pre-ship gate**
+  (`/peer-review`, `/prd-readiness`, `/go-nogo`) made *graded* (its own meta-eval
+  suite) and *severity-aware* (any `bad` finding blocks; see the taxonomy). State
+  this honestly rather than claiming a real-time blocker.
 
 ---
 

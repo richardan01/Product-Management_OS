@@ -41,6 +41,8 @@ Identify the producing agent and read its quality checks from the appropriate ag
 **Pass 1 — Structural scan**
 Check the document type against `Knowledge/Reference/ground-truth.md` → "Document-Type Templates" to find the required sections for that type. For each required section, test **information presence, not header presence**: a section is only Missing if its *information* is absent from the document — before marking anything missing, check whether the content lives under a different heading or in prose, and name where you looked. A missing header whose information is present elsewhere is at most a Nice to Fix formatting note, never a Fail. Flag any placeholders (TBD, TODO, insert here).
 
+**Per-element completeness (do not grade a section by presence alone).** When a required section contains a list of repeated elements — user stories, requirements, milestones, API endpoints — check **each element individually**, not the section as a whole. For a PRD specifically: for *each* user story, verify that story has its own testable acceptance criteria. "US-1, US-2, US-3 present ✅" is not a valid finding if US-3 has no acceptance criteria — a single story missing its ACs is a Must Fix (not handoff-ready), even when its siblings are complete. Name the specific element that fails (e.g., "US-3 has no acceptance criteria").
+
 **Pass 1b — Cross-section consistency**
 Check every quantity that appears more than once (counts, dates, percentages, deadlines, totals) for agreement across sections — executive summary vs. timeline, method vs. findings, goals vs. body. Also verify derived figures: when a percentage and its base count both appear, confirm the arithmetic matches. A contradiction between sections is a Fail-severity finding; it is the class of flaw section-by-section reading misses.
 
@@ -63,7 +65,16 @@ Layer 1 Score: [n Pass] / [n total checks]
 
 Read `Knowledge/Reference/ground-truth.md`. Apply all 5 criteria to the document regardless of type.
 
-**Degraded mode:** if `ground-truth.md` still contains placeholder brackets (`[YOUR_NAME]`, bracketed example bars), say so explicitly at the top of the review, do **not** apply the bracketed example text as if it were the user's actual bar, and cap purely structural/template findings at Should Fix — without a personalized quality bar, template-completeness judgments lack the authority to block. Substantive defects (contradictions, unmeasurable metrics, placeholders in the artifact, missing acceptance criteria) keep their full severity.
+**Degraded mode:** if `ground-truth.md` still contains placeholder brackets (`[YOUR_NAME]`, bracketed example bars), say so explicitly at the top of the review, do **not** apply the bracketed example text as if it were the user's actual bar, and cap purely structural/template findings at Should Fix — without a personalized quality bar, template-completeness judgments lack the authority to block.
+
+The cap is **narrow**: it applies only to *purely* structural/template-completeness findings (a missing summary header, an absent "Background" section). It does **not** apply to substantive defects, which keep their full severity regardless of degraded mode:
+- contradictions and cross-section inconsistencies
+- unmeasurable metrics (no baseline/target)
+- placeholders (TBD/TODO) in the artifact
+- missing acceptance criteria on any user story
+- **safety, risk, compliance, or failure-handling content** — e.g., no rollback/failure plan for a payments or held-funds flow, missing data-loss handling, absent security/privacy treatment. A missing rollback plan in a payments PRD is a substantive Must Fix even though it coincides with a missing section; never demote it to a template gap.
+
+When unsure whether a finding is "purely structural" or substantive, treat it as substantive — the cap exists to suppress pedantry, not to hide risk.
 
 ```
 **Layer 2 — Personal Ground Truth**
@@ -87,10 +98,12 @@ Layer 2 Score: [n Pass] / 5 criteria
 **Overall Verdict: CLEARED ✅ / CONDITIONAL ⚠️ / NEEDS REVISION ❌**
 ```
 
-Rules:
-- **CLEARED** — all Layer 1 checks pass AND all Layer 2 criteria are Pass or N/A
-- **CONDITIONAL** — 1–2 items are Partial across both layers, none are Fail
-- **NEEDS REVISION** — any item is Fail, or 3+ items are Partial across both layers
+Rules (driven by the `bad`/`sad` taxonomy in `Evals/severity-taxonomy.md`):
+- **CLEARED** — all Layer 1 checks pass AND all Layer 2 criteria are Pass or N/A (0 `bad`, 0 `sad`)
+- **CONDITIONAL** — 1–2 `sad` items (Partials) across both layers, no `bad`
+- **NEEDS REVISION** — any `bad` item (a Fail), **or** 3+ `sad` items across both layers (the stacking rule: stacked sads become bad)
+
+A `bad` finding (hallucinated content, missed Must-Fix blocker, unpreserved contradiction, safety/risk gap) blocks regardless of degraded mode.
 
 ---
 

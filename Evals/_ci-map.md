@@ -14,6 +14,9 @@ Extend this table as new suites are added.
 | .claude/skills/peer-review/SKILL.md | peer-review |
 | _Registry/reviewer-verdict-schema.md | peer-review |
 | Knowledge/Reference/ground-truth.md | peer-review |
+| .claude/skills/prd-readiness/SKILL.md | prd-readiness |
+| Templates/prd.md | prd-readiness |
+| Templates/prd-ai-feature.md | prd-readiness |
 
 ## Notes
 

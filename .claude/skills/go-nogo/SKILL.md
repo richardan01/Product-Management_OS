@@ -23,10 +23,11 @@ Run a structured go/no-go decision for [project]. Use this 24–48 hours before 
 | Risk | No unmitigated 🔴 risks | 🟢/🟡/🔴 | Go/No-Go |
 | Rollback | Rollback plan documented and tested | 🟢/🟡/🔴 | Go/No-Go |
 
-3. **Final decision:**
+3. **Final decision** (map gate colors to the `bad`/`sad` taxonomy in `Evals/severity-taxonomy.md`: 🔴 = `bad`, 🟡 = `sad`):
+   - Any 🔴 (`bad`) → **NO-GO** — list blockers with owners and ETAs
+   - 0 🔴 but **≥ 3 🟡** (`sad` stacking rule) → **NO-GO** — too many open conditions to ship safely
+   - 0 🔴, 1–2 🟡 → **CONDITIONAL GO** — list conditions with hard deadlines
    - All green → **GO** — confirm launch date and send comms
-   - Any red → **NO-GO** — list blockers with owners and ETAs
-   - Yellow items → **CONDITIONAL GO** — list conditions with hard deadlines
 
 4. **Output:**
 
