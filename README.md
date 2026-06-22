@@ -116,13 +116,13 @@ Computer, onboard me into this OS.
 
 The assistant should help you set up:
 
-* Your PM role and working style
-* Current goals
-* Active projects
-* Tasks and blockers
-* Key stakeholders
-* Privacy boundaries
-* Preferred cadence for daily and weekly planning
+- Your PM role and working style
+- Current goals
+- Active projects
+- Tasks and blockers
+- Key stakeholders
+- Privacy boundaries
+- Preferred cadence for daily and weekly planning
 
 ### 4. Add your working context
 
@@ -166,21 +166,21 @@ Use the output to update your goals, backlog, and active tasks.
 
 The `Examples/` folder shows lightweight sample outputs from the OS.
 
-* [`sample-ai-feature-prd.md`](Examples/sample-ai-feature-prd.md)
-* [`sample-eval-review.md`](Examples/sample-eval-review.md)
-* [`sample-launch-gate.md`](Examples/sample-launch-gate.md)
+- [`sample-ai-feature-prd.md`](Examples/sample-ai-feature-prd.md)
+- [`sample-eval-review.md`](Examples/sample-eval-review.md)
+- [`sample-launch-gate.md`](Examples/sample-launch-gate.md)
 
 ---
 
 ## Design principles
 
-* Keep it lightweight
-* Make workflows repeatable
-* Store context in simple files
-* Separate drafting from reviewing
-* Make quality checks explicit
-* Keep private context private
-* Let the PM stay in control
+- Keep it lightweight
+- Make workflows repeatable
+- Store context in simple files
+- Separate drafting from reviewing
+- Make quality checks explicit
+- Keep private context private
+- Let the PM stay in control
 
 ---
 
