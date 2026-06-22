@@ -33,9 +33,17 @@ count_placeholders () {
     echo "MISSING"
     return
   fi
-  # Find matches not on lines containing the allowlist
-  grep -E -o "$pattern" "$file" 2>/dev/null \
+  # Count only REAL residual placeholders:
+  #   1. Strip inline-code spans (backtick-quoted) first, so placeholder-shaped
+  #      strings quoted as documentation/examples (e.g. `[YOUR_NAME]`, the
+  #      `[HEAD_OF_DEPT]` template token referenced in prose) are NOT counted.
+  #      This was the source of the false positives in the 2026-06-10 run.
+  #   2. Drop allowlisted annotated deferrals (line-level) — must run before the
+  #      `-o` extraction so the allowlist sees full lines, not bare matches.
+  #   3. Extract and count what remains.
+  sed -E 's/`[^`]*`//g' "$file" 2>/dev/null \
     | grep -v -E "$ALLOWLIST_RE" \
+    | grep -E -o "$pattern" 2>/dev/null \
     | wc -l \
     | tr -d ' '
 }

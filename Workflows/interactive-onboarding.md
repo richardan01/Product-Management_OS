@@ -33,6 +33,7 @@ Maintain this working schema during the interview. Preserve placeholders or mark
 - Company / organization:
 - Team / domain:
 - Manager or primary sponsor:
+- Head of department / skip-level:
 
 ### OS purpose
 - OS mode:
@@ -122,9 +123,10 @@ options:
 
 Ask in one message:
 1. "What name, role, company / organization, and team should the OS use?"
-2. "Are there any placeholders you'd prefer to leave blank for now rather than fill in?"
+2. "Who is your manager / primary sponsor, and who do they report to (your skip-level or head of department)? If you don't know the skip-level or prefer to leave it out, say so."
+3. "Are there any placeholders you'd prefer to leave blank for now rather than fill in?"
 
-Record identity details in the setup capture. If the user prefers not to store company or people names, preserve placeholders and reflect that boundary in `CLAUDE.md`.
+Record identity details in the setup capture, including `Manager or primary sponsor` and `Head of department / skip-level` (these fill the `CLAUDE.md` line `Manager / primary sponsor: [YOUR_MANAGER] → [HEAD_OF_DEPT]`). If the user does not know or chooses to omit the head-of-department / skip-level, do **not** invent one — mark it `Unknown / TBD` in the capture and carry it into the Phase 8 **Deferred fields** subsection so it is never silently left as a raw `[HEAD_OF_DEPT]` placeholder. If the user prefers not to store company or people names, preserve placeholders and reflect that boundary in `CLAUDE.md`.
 
 ## Phase 1 — Choose purpose and OS mode
 
@@ -424,14 +426,22 @@ Ask:
 
 Only after the user has confirmed those three fields for that person do you propose a `Knowledge/People/[name].md` draft. Confirm each person's draft before moving to the next.
 
+**Explicit-yes rule (parallels Phase 9).** Each per-stakeholder field confirmation and each draft confirmation requires an explicit "yes." Polite acknowledgements ("ok", "sounds good", "looks fine") do **not** count as confirmation — re-ask explicitly before drafting or advancing to the next person. The same rule applies to the Phase 4 task read-backs: a polite ack is not a category confirmation.
+
 Then propose updates to:
 
 - `Projects/[YOUR_ANCHOR_PROJECT]/brief.md`
 - `Tasks/active.md`
 
-## Phase 7 — Editing boundaries
+## Phase 7 — Privacy boundaries and editing boundaries
 
-Ask conversationally:
+**Step 7a — Content exclusion (mandatory; ask conversationally).** This question is required — do **not** skip it or auto-generate a privacy list without eliciting it from the user:
+
+1. "What kinds of content should **never** be written into these files? (e.g., compensation/equity figures, named customers/accounts, health or family details, unreleased roadmap or M&A, HR/performance feedback)"
+
+If the user is unsure, offer the safe default exclusion set above and ask them to confirm or amend it. Record the result in the capture schema as `Never write to files` — as **named content categories**, not file paths. These categories are surfaced explicitly in the Phase 8 summary (see the **Privacy boundaries** block) and written to `CLAUDE.md` → privacy boundaries so future sessions enforce them.
+
+**Step 7b — Editing boundaries (ask conversationally):**
 
 1. "Which files or folders may I edit freely without asking each time? (e.g., `Tasks/`, `GOALS.md`)"
 2. "Which files require explicit confirmation before I touch them? (e.g., `CLAUDE.md`, `Knowledge/People/`)"
@@ -483,6 +493,14 @@ Before writing, show:
 
 ### Stakeholders
 - ...
+
+### Privacy boundaries
+- Never write to files: ... (list each content category the user named in Phase 7a — e.g., compensation, named customers, health/family, unreleased roadmap, HR feedback)
+- May edit without asking: ...
+- Requires confirmation: ...
+
+### Deferred fields
+- List every field the user chose to leave blank or marked `Unknown / TBD` (e.g., `Head of department / skip-level`, `OKR ladder-up`). Each deferred field must appear here so it is never silently written as a raw `[PLACEHOLDER]`. If none, write "None."
 
 ### Files I propose to update
 - `CLAUDE.md`
