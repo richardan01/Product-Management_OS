@@ -37,6 +37,12 @@ Also pull latest metrics from `Knowledge/Reference/metrics/latest.md` if it exis
 
 ---
 
+## Weekly eval-monitoring hook
+
+Once per week (here is the natural place), run the online-monitoring loop in `Evals/monitoring/README.md`: sample 10–15 recent real artifacts, grade them async against the relevant suite + answer key (and the deployed eval-05 judge once calibrated), bucket findings `bad`/`sad` per `Evals/severity-taxonomy.md`, and log the **bad-rate** to `Evals/monitoring/<YYYY-Www>.md`. If the bad-rate rose or a new `bad` failure mode recurs, note it here for [YOUR_MANAGER] ("eval monitoring caught a hallucinated-metric trend — fixing the harness") and register any needed re-run via `/eval-ci`. This is the loop that makes "every response is evaluated" real without grading in the authoring context.
+
+---
+
 **After sending this update:**
 - `meeting prep [YOUR_MANAGER]` — prep for the alignment conversation if 1:1 is upcoming
 - `follow-ups` — scan for open action items from recent meetings
