@@ -240,3 +240,25 @@ Confidence interval: bootstrap with B = 20000 resamples over the labeled example
 - P2: Flag unsourced quantified claims ("78% of X" with no data source)
 
 **Result file:** `peer-review/results/2026-06-12_claude-sonnet-4-6_r2.md` *(committed per private working copy policy)*
+
+---
+
+### 2026-06-22 — onboarding eval-05 judge — DEPLOYED (first calibrated judge in the OS)
+
+| Field | Value |
+|---|---|
+| Date | 2026-06-22 |
+| Suite / eval | onboarding / 05-goals-specific-not-generic |
+| Judge model | isolated Claude sub-agent (general-purpose), blind grading |
+| Commit SHA | (this branch) |
+| Corpus | 30 Pass / 30 Fail labeled (synthetic + anchor-derived), `_labeled/` |
+| Split | 12 train / 24 dev / 24 test (seed 20260622), `_calibration/2026-06-22_split.json` |
+| Dev | TPR 1.00 / TNR 1.00 (N=12 each) — 0 iterations |
+| Test (unbiased) | TPR 1.00 / TNR 1.00 (95% Wilson CI [0.76, 1.00], N=12 each) |
+| Status | ✅ PASS — judge promoted to `judge-prompt.md` (status: deployed) |
+
+**What changed:** the OS's first LLM-as-judge moved from aspirational ("TPR/TNR ≥ 0.9" policy, 0/60 corpus) to **deployed and calibrated**. Bias-corrected θ̂ for future eval-05 runs: with TPR=TNR=1.00, θ̂ = p_obs (perfect judge → raw rate is unbiased; still populate the θ̂ column).
+
+**Honest caveat:** perfect separation reflects a synthetic corpus with fairly clear class boundaries and small per-class test N (CIs are wide). Harden with real `_traces/` and more borderline cases before treating the judge as bulletproof; re-validate by 2026-09-20.
+
+**Note on the green-suite re-runs (Phase 1 harness fixes):** the documented onboarding P0 bugs (HEAD_OF_DEPT never asked, grade.sh backtick false-positives, persona-locked eval-03, missing Phase-7 content-exclusion) and the peer-review F1/F5 regressions have been fixed in the harness (workflow + grade.sh + criteria + peer-review SKILL). A fresh runner/grader pass on the current model is the next step to flip onboarding and peer-review to CITABLE and to record the first prd-readiness run; run evidence lands in each suite's gitignored `results/`.
