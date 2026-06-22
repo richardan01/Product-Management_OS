@@ -41,8 +41,9 @@ The grader agent reads only:
 - The captured transcript
 - `Evals/onboarding/0N-<name>/criteria.md` for each eval
 - `Evals/onboarding/0N-<name>/sample-pass.md` and `sample-fail.md` when present
+- `Evals/onboarding/_answer-keys/<fixture>.md` — the ground-truth config for that fixture (expected persona routing, the user's stated 30-day outcome verbatim, named stakeholders, privacy exclusions, and which fields must be **deferred** vs. answered). Grade content evals (01, 03, 05, 08, 11) against this ground truth, not only the abstract criteria.
 
-The grader does **not** read the workflow, the runner's reasoning, or any other file from the OS. This isolation is what gives the grade methodological weight.
+The grader does **not** read the workflow, the runner's reasoning, or any other file from the OS. **Isolation rule:** the runner must never open `_answer-keys/`; a run where it did is void. This isolation is what gives the grade methodological weight.
 
 Grade each criterion as ✅ / ❌ / ⚠ partial. Partials are not rounded up.
 

@@ -8,6 +8,7 @@ Use this as the simulated user when running the onboarding workflow.
 - Company / organization: Acme AI
 - Team / domain: Growth Platform
 - Manager or primary sponsor: Priya Shah
+- Head of department / skip-level: Dana Whitfield (VP Product)
 - Primary purpose: Day-job execution plus stakeholder management
 - Default persona: Executive operator
 - Tone: concise, direct, low-drama

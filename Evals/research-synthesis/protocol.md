@@ -32,8 +32,9 @@ The grader reads only:
 - The captured transcript
 - `criteria.md` for each eval
 - The fixture file (to verify quote accuracy and evidence traceability)
+- The matching `_answer-keys/<fixture>.md` — the ground-truth themes, pain points, named contradictions, and (for the sparse corpus) the "insufficient signal" expectation. Grade the synthesis against this ground truth, not only against the abstract criteria.
 
-The grader does **not** read the skill file or the runner's notes.
+The grader does **not** read the skill file or the runner's notes. **Isolation rule:** the runner must never open `_answer-keys/`; a run where it did is void.
 
 Grade each criterion: ✅ / ❌ / ⚠ partial. Partials are not rounded up.
 

@@ -8,6 +8,7 @@ Use this fixture as a counterpart to the Jordan Lee Executive operator fixture. 
 - Company / organization: Acme AI
 - Team / domain: Growth Platform
 - Manager or primary sponsor: Priya Shah
+- Head of department / skip-level: Dana Whitfield (VP Product)
 - Primary purpose: Day-job execution plus developing AI PM craft (evals, model-risk, build review)
 - Default persona: Builder / AI PM
 - Tone: pragmatic, eval-first, model-aware
