@@ -262,3 +262,25 @@ Confidence interval: bootstrap with B = 20000 resamples over the labeled example
 **Honest caveat:** perfect separation reflects a synthetic corpus with fairly clear class boundaries and small per-class test N (CIs are wide). Harden with real `_traces/` and more borderline cases before treating the judge as bulletproof; re-validate by 2026-09-20.
 
 **Note on the green-suite re-runs (Phase 1 harness fixes):** the documented onboarding P0 bugs (HEAD_OF_DEPT never asked, grade.sh backtick false-positives, persona-locked eval-03, missing Phase-7 content-exclusion) and the peer-review F1/F5 regressions have been fixed in the harness (workflow + grade.sh + criteria + peer-review SKILL). A fresh runner/grader pass on the current model is the next step to flip onboarding and peer-review to CITABLE and to record the first prd-readiness run; run evidence lands in each suite's gitignored `results/`.
+
+---
+
+### 2026-06-22 — prd-readiness — first run (new meta-eval suite)
+
+| Field | Value |
+|---|---|
+| Date | 2026-06-22 |
+| Suite | prd-readiness (meta-eval — grades the readiness GATE) |
+| Model | isolated Claude sub-agent runner (no `_answer-keys/` access, attested) |
+| Runner | eval-runner sub-agent (isolated) |
+| Grader | orchestrator-against-keys (independent grader pass recommended for full citability) |
+| Fixtures | clean-ai-feature-prd.md, flawed-standard-prd.md, flawed-ai-feature-prd.md |
+
+**Per-fixture results (target: no ❌ on eval 01; clean passes eval 04):**
+- `clean-ai-feature-prd` → verdict READY (12/12). eval01 ✅ · eval02 ✅ (no fabricated gaps) · eval04 ✅ (clean control not flunked).
+- `flawed-standard-prd` → verdict NOT READY. eval01 ✅ · eval02 ✅ (caught G1 US-3 no AC, G2 missing scope boundaries, G3 dependency owner/ETA TBD; no fabrication) · eval03 ✅ (AI gates correctly NOT applied to a non-AI PRD).
+- `flawed-ai-feature-prd` → verdict NOT READY. eval01 ✅ · eval02 ✅ (caught A1 prose-only eval criteria, A2 <3 failure modes, A3 no fallback; model-choice correctly Pass) · eval03 ✅ (AI gates applied and A1–A3 failed).
+
+**Status:** ✅ PASS — suite green; the readiness gate correctly catches planted gaps, applies AI gates iff AI-feature, and does not flunk the clean control. Validates the Phase 1 per-user-story AC check and the Phase 5 bad/sad taxonomy wiring (the runner used both). A formal independent grader sub-agent pass is the remaining step for full CITABLE status.
+
+**Introspection:** no ❌ to introspect. Minor: on the AI fixture the runner scored the standard Acceptance-criteria gate as "Pass-with-concern" for US-2 rather than a hard Fail; the verdict was unaffected (already NOT READY on AI gates). Candidate harness tweak: make the per-story AC rule a hard Fail even when siblings pass (already stated in peer-review; mirror the wording into prd-readiness).
