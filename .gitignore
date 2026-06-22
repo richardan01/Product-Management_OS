@@ -1,6 +1,11 @@
-# Eval run logs — kept local, not uploaded to the public template
+# Eval run logs / run evidence — kept local, not uploaded to the public template
 Evals/*/results/*
 !Evals/*/results/README.md
+# Calibration run outputs and generated labeled corpora are run evidence, not
+# template scaffolding — keep them local (the suite ships the structure,
+# protocol, criteria, fixtures, answer keys, judge prompt, and data plan).
+Evals/**/_calibration/
+Evals/**/_labeled/
 
 # Local telemetry / generated data
 .telemetry/

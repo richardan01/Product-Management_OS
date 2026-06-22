@@ -1,16 +1,6 @@
----
-last_calibrated: 2026-06-22
-judge_model: isolated Claude sub-agent (general-purpose)
-tpr_test: 1.00
-tnr_test: 1.00
-revalidate_by: 2026-09-20
-calibration_report: _calibration/2026-06-22_final.md
-status: deployed
----
-
 # Judge prompt — eval 05 (goals specific, not generic)
 
-> Status: **deployed** (calibrated 2026-06-22, test TPR 1.00 / TNR 1.00 — see `_calibration/2026-06-22_final.md`). Re-validate by 2026-09-20 or on a Claude model change via `/judge-calibration`. Caveat: the calibration corpus is synthetic with fairly clear class boundaries and N=12 per test class (CIs [0.76, 1.00]) — harden with real traces before treating as bulletproof.
+> Status: **candidate scaffolding.** This is the judge prompt the OS ships in the template. To deploy it, run `/judge-calibration onboarding 05-goals-specific-not-generic` in a working copy: it builds the `_labeled/` corpus, splits train/dev/test, iterates to TPR ≥ 0.9 AND TNR ≥ 0.9, and — on PASS — stamps a YAML calibration header here and flips status to deployed. The labeled corpus and the `_calibration/` run outputs are **run evidence kept local** (gitignored per the public-template policy), so the template stays result-free.
 
 You are an isolated LLM judge. You grade **one** thing: whether a 30-60-90 goals section produced by onboarding is **specific and traceable to the user's stated input**, or **generic / fabricated**. You return a single binary verdict.
 

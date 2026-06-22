@@ -19,16 +19,16 @@ This is the first eval in the PM OS to receive a calibrated LLM-as-judge. The cr
 
 | Class | Count | Source breakdown |
 |---|---|---|
-| Pass | 30 | synthetic + anchor-derived (pass-0001..0030) |
-| Fail | 30 | synthetic + anchor-derived (fail-0001..0030), 6 failure modes distributed |
+| Pass | 0 | — (corpus is generated in a working copy; kept local, gitignored) |
+| Fail | 0 | — (corpus is generated in a working copy; kept local, gitignored) |
 
-**Deployed 2026-06-22.** `/judge-calibration` PASSED: dev TPR/TNR 1.00/1.00, test TPR/TNR 1.00/1.00 (read-once). Judge promoted to `judge-prompt.md`. See `_calibration/2026-06-22_final.md`. Next: harden corpus with real `_traces/` and more borderline cases (perfect separation suggests clear class boundaries), then re-calibrate.
+The labeled corpus lives under `_labeled/` in a working copy and is **gitignored** (run evidence, not template scaffolding). Run `/judge-calibration` to build/split it and produce the calibration report under `_calibration/` (also gitignored).
 
 ## Owner & timeline
 
 - **Owner:** [YOUR_NAME]
 - **Target completion:** end of Week 4 (per `/root/.claude/plans/on-evals-can-you-reactive-beaver.md`)
-- **Status:** `deployed` (2026-06-22) — corpus → split → calibrated → deployed all complete; first deployed judge in the OS.
+- **Status:** `gathering` (flips to `split` once corpus hits 60, then `calibrated` after `/judge-calibration` PASSes, then `deployed` once `judge-prompt.md` is promoted — all tracked in the local working copy, not the public template)
 
 ## TPR/TNR targets
 

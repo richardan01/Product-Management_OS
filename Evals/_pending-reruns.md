@@ -25,4 +25,4 @@ Each row was registered when a mapped source file changed. A row is cleared only
 <!-- 2026-06-22 eval-hardening batch -->
 | onboarding | Workflows/interactive-onboarding.md (HEAD_OF_DEPT, Phase 7 content-exclusion, Phase 6 explicit-yes, Phase 8 deferred/privacy) + grade.sh + eval-03 criteria | 2026-06-22 | pending | — |
 | peer-review | .claude/skills/peer-review/SKILL.md (per-story AC check; narrowed degraded-mode cap) | 2026-06-22 | pending | — |
-| prd-readiness | new suite — first run done; needs independent grader pass for CITABLE | 2026-06-22 | partial | Evals/run-log.md 2026-06-22 |
+| prd-readiness | new suite added — needs a runner/grader pass for CITABLE | 2026-06-22 | pending | — |
