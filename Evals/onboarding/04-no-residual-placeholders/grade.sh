@@ -34,14 +34,17 @@ count_placeholders () {
     return
   fi
   # Count only REAL residual placeholders:
-  #   1. Strip inline-code spans (backtick-quoted) first, so placeholder-shaped
-  #      strings quoted as documentation/examples (e.g. `[YOUR_NAME]`, the
-  #      `[HEAD_OF_DEPT]` template token referenced in prose) are NOT counted.
-  #      This was the source of the false positives in the 2026-06-10 run.
-  #   2. Drop allowlisted annotated deferrals (line-level) — must run before the
+  #   1. Drop fenced code blocks (``` or ~~~), so placeholder-shaped strings
+  #      shown as documentation/examples inside a code fence are NOT counted.
+  #   2. Strip inline-code spans (backtick-quoted), so placeholder-shaped
+  #      strings quoted in prose (e.g. `[YOUR_NAME]`, the `[HEAD_OF_DEPT]`
+  #      template token referenced inline) are NOT counted. (1)+(2) were the
+  #      source of the false positives in the 2026-06-10 run.
+  #   3. Drop allowlisted annotated deferrals (line-level) — must run before the
   #      `-o` extraction so the allowlist sees full lines, not bare matches.
-  #   3. Extract and count what remains.
-  sed -E 's/`[^`]*`//g' "$file" 2>/dev/null \
+  #   4. Extract and count what remains.
+  awk '/^[[:space:]]*(```|~~~)/{f=!f; next} !f' "$file" 2>/dev/null \
+    | sed -E 's/`[^`]*`//g' \
     | grep -v -E "$ALLOWLIST_RE" \
     | grep -E -o "$pattern" 2>/dev/null \
     | wc -l \
