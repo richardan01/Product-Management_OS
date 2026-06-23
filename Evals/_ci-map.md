@@ -17,6 +17,11 @@ Extend this table as new suites are added.
 | .claude/skills/prd-readiness/SKILL.md | prd-readiness |
 | Templates/prd.md | prd-readiness |
 | Templates/prd-ai-feature.md | prd-readiness |
+| .claude/skills/go-nogo/SKILL.md | go-nogo |
+| .claude/skills/research-sufficiency/SKILL.md | research-sufficiency |
+| Templates/research-summary.md | research-sufficiency |
+| .claude/skills/build-review/SKILL.md | build-review |
+| Evals/severity-taxonomy.md | peer-review, prd-readiness, go-nogo, research-sufficiency, build-review |
 
 ## Notes
 

@@ -195,10 +195,11 @@ A practical AI PM OS for turning messy product work into clearer workflows, stro
 This OS started as a fork of [Carl Vellotti's Product OS](https://github.com/carlvellotti/carls-product-os) and has since been substantially extended into a harness-neutral template. Additions on top of the original:
 
 - **Harness-neutral operation** — one configuration surface working across Claude Code, Codex CLI, and Gemini CLI (`CLAUDE.md` / `AGENTS.md` / `GEMINI.md`)
-- **Offline eval suites** with author/grader separation, gold datasets, and run logs (`Evals/`)
+- **Offline eval suites** with author/grader separation, gold answer keys, run logs, and a **calibrated LLM-as-judge** (TPR/TNR validated) for the subjective criteria (`Evals/`)
+- **Graded quality gates** — the gates themselves are eval'd by planted-flaw meta-eval suites (peer-review, prd-readiness, go/no-go, research-sufficiency, build-review), so the guardrails are measured, not assumed
+- **Severity taxonomy + online-monitoring loop** — a "bad vs sad" model driving gate verdicts, plus a weekly sample→grade→error-analysis loop (`Evals/severity-taxonomy.md`, `Evals/monitoring/`)
 - **Repo-native memory layer** with an explicit write-gate policy (`Memory/`)
 - **Provenance-tagged knowledge layers** with a hypothesis/decision lifecycle (`Knowledge/`)
 - **Interactive onboarding workflow** with per-file confirmation gates (`Workflows/interactive-onboarding.md`)
-- **Quality gates** for PRDs, research sufficiency, launch readiness, and pre-publish review (`.claude/skills/`)
 
 Thanks to Carl for the original foundation.

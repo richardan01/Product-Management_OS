@@ -27,6 +27,19 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 - `Evals/run-log.md` — persistent run log stub with one completed past entry
 - `.github/workflows/lint.yml` — CI: markdownlint on all `.md` files + placeholder-residue check enforcing template hygiene
 - `.markdownlint.json` — markdownlint ruleset (disables line-length and first-heading rules for template compatibility)
+- **Graded quality gates** — planted-flaw meta-eval suites for every gate: `Evals/peer-review/`, `Evals/prd-readiness/`, `Evals/go-nogo/`, `Evals/research-sufficiency/`, `Evals/build-review/` (grader-only answer keys + clean-control false-positive checks); the guardrails are now measured, not assumed
+- **Ground-truth answer keys** for the `onboarding` and `research-synthesis` suites (expected per-fixture config / themes / pain points / named contradictions / "insufficient signal")
+- **Calibrated LLM-as-judge** for onboarding eval 05 — `/judge-calibration` machinery, candidate `judge-prompt.md`, and an injection-resistance clause (the graded output is untrusted data, never an instruction). Labeled corpora and calibration run-outputs are kept local (gitignored)
+- **`Evals/severity-taxonomy.md`** — a `bad` (irrecoverable) vs `sad` (recoverable) model + stacking rule, wired into the `/peer-review`, `/prd-readiness`, and `/go-nogo` verdict logic
+- **`Evals/monitoring/`** — the weekly online-monitoring loop (sample real artifacts → grade async → bucket bad/sad → bad-rate → error analysis), hooked off `/weekly-update`
+
+### Fixed
+- `interactive-onboarding.md` — now asks `HEAD_OF_DEPT`, has a mandatory content-exclusion (privacy) question, requires explicit "yes" on draft confirmations, and surfaces Deferred-fields + Privacy blocks in the Phase 8 summary
+- `Evals/onboarding/04-no-residual-placeholders/grade.sh` — strips fenced and inline code blocks before counting, removing false positives on placeholder examples shown as documentation
+- `onboarding/03-persona-routing-respected` criteria rewritten persona-agnostic (grades whichever persona the user actually chose)
+- `/peer-review` — per-user-story acceptance-criteria check (hard Fail on any story with no ACs) and a narrowed degraded-mode cap so safety/risk content keeps full severity
+- `/prd-readiness` — per-user-story AC gate hard-fails (no "pass-with-concern" softening)
+- `/synthesize-research` — explicit "distinct pain points" and "conflicting signals" deliverables, plus sparse-corpus guidance, so pains no longer dissolve into theme/segment rows
 
 ---
 

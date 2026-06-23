@@ -22,7 +22,10 @@ Pattern extraction table:
    - Executive summary (3–5 sentences: what we learned, what to do)
    - Top 3 findings with evidence and confidence level
    - Themes table
+   - **Distinct pain points** — a separate list from the themes table: one line each, naming the specific problem (not the theme label), attributed to a participant, with the consequence, and **no embedded solution**. Keep this list distinct even when the prompt is framed around segments — do not let pains dissolve into theme or segment rows.
+   - **Conflicting signals** — name any contradictions between participants explicitly; never flatten them into a single consensus (preserve the minority signal).
    - Recommendations: immediate actions + what NOT to do
+   - For a sparse / thin corpus: keep the output short, state the signal is insufficient, and make open questions the most prominent section — do not invent themes, quotes, or confident recommendations to fill space.
 
 6. **Suggest use case implications:**
    - Based on findings, which use case(s) have the strongest case for flight 1?
