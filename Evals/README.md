@@ -4,20 +4,38 @@ This directory contains **offline audit suites** for the PM OS. They are not rea
 
 ---
 
-## Two suites
+## Suites
 
-| Suite | Criteria | What it catches | Pass threshold |
-|---|---|---|---|
-| [`onboarding/`](onboarding/) | 12 | Placeholder residue, persona-routing bugs, batch-write violations, invented identity, skipped Phase 5/5B, polite-ack-as-authorization | ≥ 10 / 12 per fixture |
-| [`research-synthesis/`](research-synthesis/) | 7 | Invented quotes, generic synthesis, missing conflicting signals, unactionable open questions | ≥ 6 / 7 per fixture |
+Two kinds of suite live here:
+
+- **Workflow suites** grade an AI workflow's output.
+- **Meta-eval (gate) suites** grade a quality *gate* itself with the planted-flaw method: a fixture with known flaws plus a grader-only answer key; the gate must catch the flaws and must **not** flunk a clean control.
+
+| Suite | Kind | Criteria | What it catches | Pass threshold |
+|---|---|---|---|---|
+| [`onboarding/`](onboarding/) | workflow | 12 | Placeholder residue, persona-routing bugs, batch-write violations, invented identity, polite-ack-as-authorization | ≥ 10 / 12 per fixture |
+| [`research-synthesis/`](research-synthesis/) | workflow | 7 | Invented quotes, generic synthesis, missing conflicting signals, unactionable open questions | ≥ 6 / 7 per fixture |
+| [`peer-review/`](peer-review/) | meta-eval | 5 | Reviewer gate misses a planted blocker, hallucinates a finding, or flunks clean work | ≥ 3 / 4 + clean eval-01 |
+| [`prd-readiness/`](prd-readiness/) | meta-eval | 4 | Readiness gate returns a wrong verdict, mis-applies the AI gates, or flunks a clean PRD | no ❌ on eval-01 |
+| [`go-nogo/`](go-nogo/) | meta-eval | 4 | Launch gate fails to block on a 🔴, flunks a clean packet, or averages a red away | no ❌ on eval-01 |
+| [`research-sufficiency/`](research-sufficiency/) | meta-eval | 4 | Sufficiency gate clears thin/single-source/stale research, or flunks sufficient research | no ❌ on eval-01 |
+| [`build-review/`](build-review/) | meta-eval | 4 | Build gate passes a never-run or silent-failure artifact, or blocks a clean build | no ❌ on eval-01 |
 
 Each criterion folder contains:
-- `criteria.md` — the rubric (pass/fail/partial definitions)
-- `sample-pass.md` — anchored passing example
-- `sample-fail.md` — anchored failing example
-- `judge-prompt.md` — grader prompt (some criteria only)
+- `criteria.md` — the rubric (pass/fail/partial definitions, with a `bad`/`sad` severity bucket)
+- `sample-pass.md` / `sample-fail.md` — anchored examples (workflow suites; judgment criteria)
+- `_answer-keys/` — grader-only ground truth per fixture (meta-eval suites)
+- `judge-prompt.md` — a calibrated LLM-as-judge prompt (subjective criteria only; e.g. onboarding eval 05)
 
-Each suite has its own detailed README and a `protocol.md` with the full run procedure.
+Each suite has its own README and a `protocol.md` with the full run procedure.
+
+## Cross-cutting
+
+- [`severity-taxonomy.md`](severity-taxonomy.md) — the `bad` (irrecoverable) vs `sad` (recoverable) model + stacking rule that drives every gate verdict.
+- [`monitoring/`](monitoring/README.md) — the weekly online-monitoring loop (sample real artifacts → grade async → bucket bad/sad → bad-rate → error analysis). The achievable form of "every response evaluated."
+- LLM-as-judge calibration — `/judge-calibration` validates a judge (TPR/TNR ≥ 0.9 on a held-out test split) before it is deployed.
+- [`eval-audit-checklist.md`](eval-audit-checklist.md) — the P0/P1/P2 audit applied before citing any result.
+- `_ci-map.md` + `_pending-reruns.md` — the regression sentinel: editing a mapped source file blocks `/peer-review` and `/go-nogo` from citing a stale suite until it re-runs.
 
 ---
 
@@ -47,8 +65,9 @@ Full protocols: [`onboarding/protocol.md`](onboarding/protocol.md) · [`research
 |---|---|---|---|
 | Onboarding | 12 | ≥ 10 / 12 | Onboarding is day-1 UX — bar is strict. A single fixture is a data point; run all three core fixtures. |
 | Research-synthesis | 7 | ≥ 6 / 7 | Single fixture acceptable; add corpora that stress your specific research domain. |
+| Meta-eval (gate) suites | 4–5 | no ❌ on eval-01 (verdict) **and** the clean control not flunked | A gate that returns a wrong verdict or flunks clean work is untrustworthy; verdict correctness is the gating criterion. |
 
-A run that scores 9/12 or 5/7 is a regression, not a pass with caveats. Name the failures and fix the harness.
+A run that scores 9/12 or 5/7 — or a gate that misses the verdict on any fixture — is a regression, not a pass with caveats. Name the failures and fix the harness.
 
 ---
 
@@ -56,10 +75,12 @@ A run that scores 9/12 or 5/7 is a regression, not a pass with caveats. Name the
 
 | Trigger | Suite(s) |
 |---|---|
-| Model upgrade (new Claude version) | Both suites |
-| Onboarding workflow changed | Onboarding suite |
-| Research-synthesis workflow changed | Research-synthesis suite |
-| 60-day cadence (no other trigger) | Both suites |
+| Model upgrade (new Claude version) | All suites |
+| A mapped source file changed (see `_ci-map.md`) | The mapped suite (auto-registered in `_pending-reruns.md`) |
+| Onboarding / synthesis workflow changed | Onboarding / research-synthesis |
+| A gate skill changed (`peer-review`, `prd-readiness`, `go-nogo`, `research-sufficiency`, `build-review`) | That gate's meta-eval suite |
+| Weekly | The `monitoring/` loop (sample real artifacts) |
+| 60-day cadence (no other trigger) | All suites |
 
 A suite that hasn't been run in 60 days is technical debt. The `run-log.md` last-run date is the signal.
 

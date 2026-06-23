@@ -17,7 +17,7 @@ This gate runs **after** the artifact is implemented and **before** it's wired i
 
 1. Artifact exists at `<path>` and is readable.
 2. A spec or PRD exists somewhere. If no spec is locatable, surface that and ask before proceeding.
-3. The author has run the artifact at least once and recorded the run somewhere. "I haven't run it" is an automatic FAIL.
+3. The author has run the artifact at least once and recorded the run somewhere. "I haven't run it" is an automatic **Block** (the verdict vocabulary is Pass / Conditional Pass / Block).
 
 ## Review standard (six checks)
 

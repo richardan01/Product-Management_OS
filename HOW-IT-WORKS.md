@@ -125,6 +125,7 @@ This is the pattern across the board. **Skills** are the trigger surface and car
 | **Build review** | `/build-review`, `/eval-review`, `/test-plan` | Reviewing artifacts, evals, and test coverage |
 | **Launch readiness** | `/launch-plan`, `/go-nogo` | Launch checklists and readiness calls |
 | **Risk tracking** | `/risk-register` | Risk hygiene and mitigation framing |
+| **Eval discipline** | `Evals/` suites + planted-flaw meta-evals for each gate + a calibrated LLM-as-judge + `Evals/monitoring/` | Guessing whether an AI workflow actually works instead of measuring it |
 | **Learning loop** | `/retro`, `/wiki-lint`, `/wiki-maintain` | Retros and wiki health checks |
 
 ---

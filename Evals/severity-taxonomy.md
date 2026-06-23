@@ -71,5 +71,8 @@ Canonical `sad`:
 | onboarding | 01 / 04 (placeholders) | **bad** | Invented identity / residual placeholder misleads |
 | onboarding | others | **sad** | Specificity/interactivity polish |
 | prd-readiness | 01-verdict-correct, 02-no-hallucinated-gaps, 03-ai-gates-applied, 04-clean-prd-not-flunked | **bad** | Same logic as the peer-review meta-eval |
+| go-nogo | 01-verdict-correct, 02-no-hallucinated-blockers, 03-clean-not-flunked, 04-red-risk-blocks-go | **bad** | A wrong launch verdict ships a broken release or blocks a good one |
+| research-sufficiency | 01-verdict-correct, 02-no-hallucinated-gaps, 03-clean-not-flunked, 04-insufficiency-detected | **bad** | Clearing thin research drives a wrong decision |
+| build-review | 01-verdict-correct, 02-no-hallucinated-issues, 03-clean-not-blocked, 04-unrun-or-silent-failure-blocked | **bad** | A wrong build verdict ships an unrun/silent-failure artifact |
 
 When adding a new criterion, tag it `bad` or `sad` in its `criteria.md` header and add a row here.
