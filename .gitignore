@@ -1,0 +1,37 @@
+# Eval run logs / run evidence — kept local, not uploaded to the public template
+Evals/*/results/*
+!Evals/*/results/README.md
+# Calibration run outputs and generated labeled corpora are run evidence, not
+# template scaffolding — keep them local (the suite ships the structure,
+# protocol, criteria, fixtures, answer keys, judge prompt, and data plan).
+Evals/**/_calibration/
+Evals/**/_labeled/
+# Weekly monitoring logs are run evidence; only the README (the loop spec) ships.
+Evals/monitoring/*
+!Evals/monitoring/README.md
+
+# Local telemetry / generated data
+.telemetry/
+
+# Local data / scratch
+Clippings/
+nimbalyst-local/
+*.xlsx
+SensorData_*.md
+tasks.py
+
+# Editor / OS
+.DS_Store
+.obsidian/
+.vscode/
+.venv/
+
+# Worktrees
+.claude/worktrees/
+.claude/settings.local.json
+
+# Python
+__pycache__/
+*.pyc
+.env
+Evals/*/inputs/*.peer-review-passed
