@@ -1,10 +1,11 @@
 # Workflow: Interactive Onboarding
 
-Use this workflow when a user first downloads, forks, or clones Product-Management_OS and asks to set it up.
+Use this workflow when a user first downloads, forks, or clones PM Command Center and asks to set it up.
 
 This workflow is harness-neutral. It runs the same way in **Claude Code** (entry point: `CLAUDE.md`), **Codex CLI** (entry point: `AGENTS.md`), and **Gemini CLI** (entry point: `GEMINI.md`). Each entry-point file points back here. The configuration the workflow writes — persona, tone, routing, quality gates, privacy boundaries — lives in `CLAUDE.md` and is respected by all three harnesses regardless of which one ran the setup. The filename is historical; do not duplicate the file per harness.
 
 Trigger phrases:
+- `Computer, onboard me into this command center`
 - `Computer, onboard me into this OS`
 - `Set up this template for me`
 - `Help me configure my PM OS`

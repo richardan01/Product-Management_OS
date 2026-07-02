@@ -1,6 +1,6 @@
 # How This Works
 
-The goal of this OS is simple: **automate the recurring structure around product management work** so the user can spend more time on judgment, communication, and decisions.
+The goal of PM Command Center is simple: **automate the recurring structure around product management work** so the user can spend more time on judgment, communication, and decisions.
 
 This doc explains how the pieces fit together — agents, skills, workflows, templates, and Knowledge — and how a typical week runs through them.
 
@@ -8,12 +8,12 @@ This doc explains how the pieces fit together — agents, skills, workflows, tem
 
 ## Where work lives
 
-This repository is the working OS after a user forks, clones, or downloads it. The user fills in the placeholders during onboarding, keeps the resulting workspace private by default, and sanitizes any personal/company context before publishing or sharing.
+This repository becomes the user's PM workspace after they fork, clone, or download it. The user fills in the placeholders during onboarding, keeps the resulting workspace private by default, and sanitizes any personal/company context before publishing or sharing.
 
 Run onboarding first:
 
 ```text
-Computer, onboard me into this OS.
+Computer, onboard me into this command center.
 ```
 
 The onboarding workflow lets the user choose purpose, persona, cadence, tasks, goals, stakeholders, and privacy boundaries before the assistant writes setup files.
@@ -50,11 +50,11 @@ The more accurately `CLAUDE.md`, `GOALS.md`, `Knowledge/People/`, and `Tasks/act
 
 ## A typical PM week, automated
 
-Below is what a week looks like when the OS is set up. Each row shows: the moment in the week → the trigger → what gets automated.
+Below is what a week looks like when the command center is set up. Each row shows: the moment in the week → the trigger → what gets automated.
 
 | Moment | You type / say | What happens |
 |---|---|---|
-| **First setup** | `Computer, onboard me into this OS` | Runs an interactive interview, proposes setup edits, and asks for confirmation before writing files |
+| **First setup** | `Computer, onboard me into this command center` | Runs an interactive interview, proposes setup edits, and asks for confirmation before writing files |
 | **Mon 9am** — start the week | `/today` | Reads `Tasks/active.md` + calendar context if available, surfaces 3 priorities, flags blockers, drafts a standup message |
 | **Mon 11am** — 1:1 with your manager | `/meeting-prep [your-manager]` | Pulls last 1:1 notes, scans `Tasks/active.md` for items they care about, drafts agenda + updates + asks |
 | **Tue 2pm** — discovery interview done | `/synthesize-research` | Reads interview notes from `Projects/[project]/research/`, extracts pain points, themes, and use case implications |
@@ -70,7 +70,7 @@ Below is what a week looks like when the OS is set up. Each row shows: the momen
 | **Project launch** | `/go-nogo [project]` → `/launch-plan [project]` | Launch readiness assessment and rollout checklist |
 | **Post-launch** | `/retro` | 1-week and 4-week retrospective: adoption, issues, what to tweak |
 
-What's left for the user? **The judgment.** Reviewing drafts, deciding the call, sending the message. The OS does not automate the thinking — it automates the typing, the looking-things-up, and the structure.
+What's left for the user? **The judgment.** Reviewing drafts, deciding the call, sending the message. The command center does not automate the thinking — it automates the typing, the looking-things-up, and the structure.
 
 ---
 
@@ -83,7 +83,7 @@ The core loop is intentionally simple:
 3. `/eod` closes the day by updating what moved, what is blocked, and what carries forward.
 4. `/weekly-update` summarizes progress and decisions for stakeholders.
 
-When task files are stale, the OS gets weaker. Fresh `Tasks/active.md` context is the highest-leverage habit in this system.
+When task files are stale, the command center gets weaker. Fresh `Tasks/active.md` context is the highest-leverage habit in this system.
 
 ---
 
@@ -155,13 +155,13 @@ Done well, the work that *isn't* automated shrinks down to:
 - The actual conversation in the meeting
 - The strategic call only you can make
 
-Everything else — finding files, recalling what was said, structuring the doc, drafting the language — is the OS's job.
+Everything else — finding files, recalling what was said, structuring the doc, drafting the language — is the command center's job.
 
 ---
 
 ## Going further: connect calendar, Slack, and your tools
 
-The OS works standalone out of the box. Wire up MCPs to push automation further:
+PM Command Center works standalone out of the box. Wire up MCPs to push automation further:
 
 - **Calendar MCP** → so `/today` and `/meeting-prep` know who you're actually meeting
 - **Slack MCP** → so `/eod` follow-up capture can post action items to the right channel
@@ -176,8 +176,8 @@ The pattern stays the same: **agent reads context, agent does work, agent writes
 
 If you've cloned this repo and want to be running automated by end of week:
 
-- [ ] Day 1 (30 min): fork, clone, or download `Product-Management_OS`
-- [ ] Day 1 (20 min): run `Computer, onboard me into this OS`
+- [ ] Day 1 (30 min): fork, clone, or download `PM-Command-Center`
+- [ ] Day 1 (20 min): run `Computer, onboard me into this command center`
 - [ ] Day 1 (15 min): review and approve proposed edits to `CLAUDE.md`, `GOALS.md`, and task files
 - [ ] Day 2 (15 min): list your 4–6 closest stakeholders in `Knowledge/People/`
 - [ ] Day 2: try `/today` — see what's missing, fill in those gaps

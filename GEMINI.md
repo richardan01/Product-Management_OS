@@ -1,6 +1,6 @@
-# Product-Management_OS — Gemini CLI Entry Point
+# PM Command Center — Gemini CLI Entry Point
 
-This file is the entry point for **Gemini CLI**. The OS is harness-neutral — Claude Code reads `CLAUDE.md`, Codex CLI reads `AGENTS.md`, and Gemini CLI reads this file. All three route to the same configuration surface and the same workflows.
+This file is the entry point for **Gemini CLI**. PM Command Center is harness-neutral — Claude Code reads `CLAUDE.md`, Codex CLI reads `AGENTS.md`, and Gemini CLI reads this file. All three route to the same configuration surface and the same workflows.
 
 ## Configuration surface
 
@@ -16,7 +16,7 @@ This file is the entry point for **Gemini CLI**. The OS is harness-neutral — C
 
 ## Onboarding mode
 
-When the user says `Computer, onboard me into this OS`, `set up this template`, or similar:
+When the user says `Computer, onboard me into this command center`, `Computer, onboard me into this OS`, `set up this template`, or similar:
 
 1. Run `Workflows/interactive-onboarding.md` phase by phase.
 2. Ask the user — never invent — for identity, purpose, persona, cadence, current tasks, goals, stakeholders, and privacy boundaries.
@@ -40,7 +40,8 @@ Once `CLAUDE.md` is filled, treat it as the source of truth for how to respond �
 
 ## Trigger phrases
 
-- `Computer, onboard me into this OS` → `Workflows/interactive-onboarding.md`
+- `Computer, onboard me into this command center` → `Workflows/interactive-onboarding.md`
+- `Computer, onboard me into this OS` → `Workflows/interactive-onboarding.md` (legacy alias)
 - `Computer, what should I focus on today?` → daily brief workflow
 - `/today`, `/eod`, `/peer-review`, `/prd-readiness`, `/go-nogo`, `/eval-review`, `/build-review`, `/test-plan` → corresponding skill or workflow under `Workflows/` or `.claude/skills/`.
 
@@ -49,6 +50,6 @@ Once `CLAUDE.md` is filled, treat it as the source of truth for how to respond �
 - `/eod` — end-of-day update to `Tasks/active.md`, follow-ups, and (when triggered) the `CLAUDE.md` Current Context block.
 - `/weekly-update` and `/retro` — close the week.
 
-Stale task files weaken the OS. Running `/eod` daily is the highest-leverage habit.
+Stale task files weaken the command center. Running `/eod` daily is the highest-leverage habit.
 
 Full skill catalog: `.claude/skills/`.

@@ -1,12 +1,12 @@
-# Product-Management_OS Agent Instructions
+# PM Command Center Agent Instructions
 
-This repo is a personal Product Management operating system.
+This repo is a reusable AI-assisted PM command center.
 
 This file is the canonical agent contract read by **Codex CLI** and any other harness that respects the `AGENTS.md` convention. Claude Code reads `CLAUDE.md` and Gemini CLI reads `GEMINI.md` — all three point at the same configuration surface (`CLAUDE.md` for the user's identity / persona / operating style) and the same workflows under `Workflows/`. The onboarding workflow is harness-neutral.
 
 ## Onboarding mode
 
-When the user says `Computer, onboard me into this OS`, `set up this template`, or similar:
+When the user says `Computer, onboard me into this command center`, `Computer, onboard me into this OS`, `set up this template`, or similar:
 
 1. Run `Workflows/interactive-onboarding.md`. Follow it phase by phase.
 2. Ask the user — do not invent — for identity, purpose, persona, cadence, current tasks, goals, stakeholders, and privacy boundaries.
@@ -18,16 +18,16 @@ When the user says `Computer, onboard me into this OS`, `set up this template`, 
 `CLAUDE.md` is the configuration file the onboarding workflow writes to. Codex CLI and Gemini CLI should also respect the persona, tone, routing, and privacy boundaries captured there — the file is harness-neutral, the filename is historical.
 
 ## Purpose
-Help me think, write, review, and improve PM artifacts for AI product management.
+Help product managers think, write, review, and improve PM artifacts with AI-assisted workflows.
 
-**AI product management** in this OS means three things: (1) building products powered by AI / LLMs, (2) using AI as a tool in your own PM workflow (evals, synthesis, automation), and (3) reasoning about AI / model risks, tradeoffs, and brittleness. This OS supports all three modes, and is designed for PMs who already do generalist PM work and want to develop AI PM expertise.
+**AI-assisted product management** in this command center means three things: (1) building products powered by AI / LLMs, (2) using AI as a tool in your own PM workflow (evals, synthesis, automation), and (3) reasoning about AI / model risks, tradeoffs, and brittleness. This workspace supports all three modes, and is designed for PMs who already do generalist PM work and want cleaner, more reviewable execution.
 
 ## Core daily loop
 - `/today` — morning brief from `Tasks/active.md` + `GOALS.md`.
 - `/eod` — end-of-day update to `Tasks/active.md`, follow-ups, and (when triggered) the `CLAUDE.md` Current Context block.
 - `/weekly-update` and `/retro` — close the week.
 
-Stale task files weaken the OS. Running `/eod` daily is the highest-leverage habit.
+Stale task files weaken the command center. Running `/eod` daily is the highest-leverage habit.
 
 ## Memory
 
@@ -39,7 +39,7 @@ Memory is repo-native. The canonical durable memory lives in `Memory/` — read 
 - **On conflict, repo files win over runtime memory.** Sensitive stakeholder/company/customer facts require explicit approval before writing; public-template users keep private context in a private fork.
 
 ## Core principles
-- Make the OS useful daily, not theoretically perfect.
+- Make the command center useful daily, not theoretically perfect.
 - Optimize for clarity, repeatability, and decision quality.
 - Separate thinking from execution.
 - Review before changing.
@@ -69,7 +69,7 @@ Agents must:
 
 ## Change Management Policy
 
-The OS has two layers:
+The command center has two layers:
 
 **Stable Core (90%)** — changes slowly, quarterly at most:
 - Templates/, Workflows/, Evals/, Knowledge/
@@ -93,7 +93,7 @@ Reject changes that are:
 - Complex without clear payoff
 - Driven by "cool AI workflow" impulse rather than PM execution quality
 
-It is acceptable, and often preferred, to recommend **no structural changes** when the OS is already clear, stable, and useful.
+It is acceptable, and often preferred, to recommend **no structural changes** when the command center is already clear, stable, and useful.
 
 ### Recommendation calibration
 

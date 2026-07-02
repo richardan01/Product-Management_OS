@@ -1,16 +1,18 @@
-# Product Management OS 🧠
+# PM Command Center
 
-![AI PM](https://img.shields.io/badge/AI%20PM-Product%20Workflows-blue)
-![LLM Evals](https://img.shields.io/badge/LLM-Evals-purple)
+![PM Workflows](https://img.shields.io/badge/PM-Workflows-blue)
+![AI Assisted](https://img.shields.io/badge/AI-Assisted-purple)
 ![Agentic Workflows](https://img.shields.io/badge/Agentic-Workflows-orange)
-![PM OS](https://img.shields.io/badge/PM-Operating%20System-green)
+![Templates](https://img.shields.io/badge/Reusable-Templates-green)
 ![Status](https://img.shields.io/badge/status-active-brightgreen)
 
-A reusable, harness-neutral Product Management OS for PMs who want AI-assisted workflows that are repeatable, reviewable, and measurable.
+A reusable AI-assisted command center for product managers to run clearer, faster, and more reviewable product work.
 
-This is the public template: fork it, adapt it, and fill it with your own private goals, projects, tasks, stakeholders, and operating context.
+PM Command Center is a practical workspace for daily and weekly PM execution, PRD drafting and review, stakeholder updates, research synthesis, launch readiness, reusable project context, and AI-assisted product workflows.
 
-Instead of using AI through random prompts, this repo gives Product Managers a simple operating system for repeatable work.
+This is the reusable template: fork it, adapt it, and fill it with your own private goals, projects, tasks, stakeholders, and operating context. It is not a personal AI PM portfolio. For the public proof-of-work lab, see [AI Product Lab](https://github.com/richardan01/AI-Product-Lab).
+
+Instead of using AI through random prompts, this repo gives product managers a command center for repeatable, reviewable work.
 
 ---
 
@@ -33,7 +35,7 @@ PM asks for help
    ↓
 "Computer, [task]"
    ↓
-OS routes to the right workflow
+Command center routes to the right workflow
    ↓
 Context is pulled from files
    ↓
@@ -47,7 +49,7 @@ Quality gate checks the output
 ## Folder structure
 
 ```text
-Product-Management_OS/
+PM-Command-Center/
 ├── CLAUDE.md      # Claude Code entry point
 ├── AGENTS.md      # Codex entry point
 ├── GEMINI.md      # Gemini entry point
@@ -66,13 +68,25 @@ Product-Management_OS/
 ## Example commands
 
 ```text
-Computer, onboard me into this OS
+Computer, onboard me into this command center
 Computer, what should I focus on today?
 Computer, draft an AI feature PRD
 Computer, review this PRD before I share it
 Computer, prepare my stakeholder update
 Computer, run a launch readiness review
 ```
+
+---
+
+## What this is
+
+PM Command Center is a reusable AI-assisted PM workspace. It combines lightweight files, workflow prompts, templates, quality gates, and repo-native context so a PM can run recurring work with more structure and less prompt drift.
+
+It is designed for adoption: bring your own goals, stakeholders, active projects, and privacy boundaries. Keep real company, customer, and personal context in a private fork or local copy.
+
+## Naming clarification
+
+This repo was formerly named Product Management OS. The new name better reflects its purpose: a reusable command center for AI-assisted product management workflows.
 
 ---
 
@@ -92,8 +106,8 @@ You just need to be comfortable working with markdown files and AI assistants.
 Fork it if you want your own GitHub copy, or clone it locally:
 
 ```bash
-git clone https://github.com/richardan01/Product-Management_OS.git
-cd Product-Management_OS
+git clone https://github.com/richardan01/PM-Command-Center.git
+cd PM-Command-Center
 ```
 
 ### 2. Open the repo in your AI tool
@@ -106,14 +120,14 @@ Use the entry file that matches your tool:
 | Codex CLI   | `AGENTS.md` | Codex-based PM and repo workflows  |
 | Gemini CLI  | `GEMINI.md` | Gemini-based PM workflow assistant |
 
-The repo is designed so the same OS can work across different AI tools.
+The repo is designed so the same command center can work across different AI tools.
 
 ### 3. Run onboarding
 
 Ask your AI assistant:
 
 ```text
-Computer, onboard me into this OS.
+Computer, onboard me into this command center.
 ```
 
 The assistant should help you set up:
@@ -166,7 +180,7 @@ Use the output to update your goals, backlog, and active tasks.
 
 ## Sample artifacts
 
-The `Examples/` folder shows lightweight sample outputs from the OS.
+The `Examples/` folder shows lightweight sample outputs from the command center.
 
 - [`sample-ai-feature-prd.md`](Examples/sample-ai-feature-prd.md)
 - [`sample-eval-review.md`](Examples/sample-eval-review.md)
@@ -197,13 +211,13 @@ Two things ship as structure, not as finished machinery:
 
 ## One-liner
 
-A reusable Product Management OS for turning messy product work into repeatable AI-assisted workflows, stronger artifacts, and better product decisions.
+A reusable command center for turning messy product work into repeatable AI-assisted workflows, stronger artifacts, and better product decisions.
 
 ---
 
 ## Acknowledgments
 
-This OS started as a fork of [Carl Vellotti's Product OS](https://github.com/carlvellotti/carls-product-os) and has since been substantially extended into a harness-neutral template. Additions on top of the original:
+This command center started as a fork of [Carl Vellotti's Product OS](https://github.com/carlvellotti/carls-product-os) and has since been substantially extended into a harness-neutral template. Additions on top of the original:
 
 - **Harness-neutral operation** — one configuration surface working across Claude Code, Codex CLI, and Gemini CLI (`CLAUDE.md` / `AGENTS.md` / `GEMINI.md`)
 - **Offline eval suites** with author/grader separation, gold answer keys, run logs, and an **LLM-as-judge calibration protocol** (TPR/TNR ≥ 0.9 on held-out data before a judge is trusted) for the subjective criteria (`Evals/`)
