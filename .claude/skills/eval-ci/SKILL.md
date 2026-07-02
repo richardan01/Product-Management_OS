@@ -4,6 +4,8 @@ description: Lightweight regression sentinel for the PM OS. When workflows or sk
 allowed-tools: Read, Glob, Grep, Edit, Write, Bash
 ---
 
+_This skill has no model pin of its own — it inherits the invoking session's model._
+
 # /eval-ci — Regression sentinel for the PM OS
 
 A real CI pipeline runs evals automatically on every change. The PM OS has no build server. This skill is the next best thing: a markdown ledger that tracks which suites are out of date and a contract that gates whose results are citable.

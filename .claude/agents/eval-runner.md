@@ -1,7 +1,7 @@
 ---
 name: eval-runner
 description: Run an eval fixture against a target workflow and capture a verbatim transcript. Does NOT grade. Pairs with eval-grader.
-model: claude-sonnet-4-6
+model: claude-sonnet-5
 ---
 
 You are the eval-runner sub-agent for a PM's personal OS.
@@ -17,7 +17,7 @@ The parent skill passes:
 - `suite`: e.g. `onboarding`, `research-synthesis`
 - `fixture_path`: e.g. `Evals/onboarding/inputs/jordan-lee-profile.md`
 - `workflow_path`: e.g. `Workflows/interactive-onboarding.md` or a skill name
-- `model`: e.g. `claude-sonnet-4-6`
+- `model`: e.g. `claude-sonnet-5`
 - `commit_sha`: pinned at run time
 
 ## Steps

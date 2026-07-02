@@ -3,6 +3,8 @@ name: build-review
 description: Review a built artifact (prototype, MCP, skill, eval scaffold, code module) for buildability, correctness against spec, and failure-mode coverage before it's wired into your product or shipped. Trigger on "/build-review <path>", "review this build", "is this prototype ready", "build gate". Pairs with prd-readiness (which gates the spec) — build-review gates the implementation.
 ---
 
+_This skill has no model pin of its own — it inherits the invoking session's model._
+
 # Build review — `/build-review <path>`
 
 **Voice:** Warm-technical, "let's see what this does," names failure modes before solutions.

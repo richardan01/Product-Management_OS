@@ -171,16 +171,8 @@ Tool, Category, Owner" or "a 3-bullet list of next actions."
 
 ### 3. Pass Criteria
 Concrete, gradable conditions. Aim for 3–6 criteria per eval. Each should be
-binary-ish (yes/no with a brief judgment call).
-
-Good criteria:
-- ✅ "All tools mentioned in transcript appear in output"
-- ✅ "No tools added that weren't in transcript"
-- ✅ "Each tool is categorized as exactly one of: CRM / engagement / data / comms"
-
-Bad criteria:
-- ❌ "Output is high quality" (not gradable)
-- ❌ "Captures the essence" (subjective without anchor)
+binary-ish (yes/no with a brief judgment call). See `references/criteria-patterns.md`
+for good vs. bad criteria examples.
 
 ### 4. Failure Modes to Catch
 The specific bad behaviors this eval is designed to surface. Naming them
@@ -278,6 +270,8 @@ When asked to run an eval suite, this skill orchestrates **two dedicated sub-age
 8. **Update `Evals/run-log.md`** with the summary row.
 9. **Clear pending re-runs** — call `/eval-ci clear <suite>` to mark any pending rows resolved by this run.
 
+_A design for codifying this protocol as an executable Workflow (deterministic pipeline/parallel/aggregate) exists but is deferred — see the 2026-07 model + workflow review. The steps above remain the canonical spec._
+
 ### Result file schema (extended)
 
 `Evals/<suite>/results/YYYY-MM-DD_<model>.md`:
@@ -342,19 +336,10 @@ discovery session?* If no, it's not specific enough.
 
 ## Introspection Loop (The AI PM Move)
 
-This is the highest-leverage habit in the suite. After any eval failure:
-
-1. Show the model its own output
-2. Show it the criterion it missed
-3. Ask: *"Why did you produce this output? What in your context led to this decision?"*
-
-The model will often surface the actual harness bug — a confusing line in the
-skill, a missing piece of context, a misinterpreted instruction. **That's the
-fix.** Apply it, re-run the eval, verify it passes.
-
-Cat Wu's exact framing: *"A lot of times just being very curious about why
-the model made the decision that it did will show you what misled it so that
-you can fix the harness in order to close this gap."*
+This is the highest-leverage habit in the suite. After any eval failure, ask the
+model why it produced that output and apply what it surfaces as the harness fix.
+See `references/introspection-prompts.md` for the exact prompt sequence and
+Cat Wu's framing.
 
 ---
 
