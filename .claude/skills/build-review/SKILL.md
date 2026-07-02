@@ -1,6 +1,6 @@
 ---
 name: build-review
-description: Review a built artifact (prototype, MCP, skill, eval scaffold, code module) for buildability, correctness against spec, and failure-mode coverage before it's wired into the flagship or shipped. Trigger on "/build-review <path>", "review this build", "is this prototype ready", "build gate". Pairs with prd-readiness (which gates the spec) — build-review gates the implementation.
+description: Review a built artifact (prototype, MCP, skill, eval scaffold, code module) for buildability, correctness against spec, and failure-mode coverage before it's wired into your product or shipped. Trigger on "/build-review <path>", "review this build", "is this prototype ready", "build gate". Pairs with prd-readiness (which gates the spec) — build-review gates the implementation.
 ---
 
 # Build review — `/build-review <path>`
@@ -11,7 +11,7 @@ description: Review a built artifact (prototype, MCP, skill, eval scaffold, code
 
 Reviews a built artifact against (a) its spec and (b) sound build doctrine. The artifact is anything [YOUR_NAME] built: an MCP server, a skill, an eval scaffold, a Python module, a runner script.
 
-This gate runs **after** the artifact is implemented and **before** it's wired into the flagship project, exposed to other skills, or claimed in a public artifact.
+This gate runs **after** the artifact is implemented and **before** it's wired into your product or workflow, exposed to other skills, or claimed in a public artifact.
 
 ## Preconditions
 

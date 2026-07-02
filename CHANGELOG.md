@@ -9,11 +9,8 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 ## [Unreleased]
 
 ### Removed
-- **Named-persona strategic layer** — deleted the persona-agent directory (12 named persona agents, persona files, gate schemas) and `Agents/README.md` to make this a pure day-to-day PM OS
-- Career tooling — `career-narrative` and `frontier-lab-interview-prep` skills; "Career transition" OS mode and the strategic-operator persona removed from onboarding
-- Adversarial gate machinery — adversarial-review, user-voice, and voice-conformance skills and `Workflows/gate-dispatch.md` + `gate-merge.md`; `/peer-review` is now the default pre-publish gate for every persona
-- `_Registry/voice-map.md`, `Tasks/dayjob-active.md`, and the `examples/` demo workspaces
-- `Evals/gate-group/` suite (tested the removed gate-dispatch workflow)
+- **Maintainer-specific layers** — persona agents, specialty career/review tooling, and demo workspaces that belonged to the maintainer's own instance rather than the reusable template; `/peer-review` is now the default pre-publish gate for every persona
+- The eval suite that covered the removed review machinery
 
 ### Changed
 - Stripped named-persona/voice references from all skill `SKILL.md` files, `CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, `README.md`, and `HOW-IT-WORKS.md`; skills now use neutral PM role labels
@@ -47,7 +44,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ### Added
 - Interactive onboarding workflow (`Workflows/interactive-onboarding.md`) — structured 10-phase interview with per-step confirmation, Phase 8 summary before any writes, Phase 9 per-file confirmation; polite acknowledgements explicitly not treated as authorization
-- Six OS modes selectable at onboarding start: Day-job PM, AI Builder PM, Research PM, Career transition, Minimalist, Custom
+- Six OS modes selectable at onboarding start: Day-job PM, AI Builder PM, Research PM, Minimalist, Custom, and one since-removed maintainer-specific mode
 - Persona-effects matrix in `Workflows/interactive-onboarding.md` — maps each persona to default commands, quality gates, and surfaced skills
 - Phase 5B thought-framework capture (tradeoff priority, evidence standard, decision certainty bar, acceptable failure)
 - Phase 10 verification checklist — ✅/❌ report run at the end of every onboarding session
@@ -99,12 +96,10 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 - `CLAUDE.md` — identity, persona, routing, operating contract, and memory conventions
 - `GOALS.md` — 30-60-90 goals template with stakeholders, metrics, and strategic alignment sections
 - `HOW-IT-WORKS.md` — 3-layer model walkthrough (Skills → Agents → Knowledge), typical PM week, automation patterns
-- Named-persona strategic agent layer — 12 named persona agents covering daily ops, strategy, research, build, junior tasks, writing, adversarial review, user-voice review, network, negotiation, and technical-depth coaching roles
-- `Agents/README.md` — architecture overview and full routing table
+- Persona agent layer (maintainer-specific; since removed) with an architecture overview and routing table
 - 28 slash commands in `.claude/skills/` across daily ops, quality gates, planning, writing/review, research/knowledge, and specialty categories
 - 10 Claude sub-agent workers in `.claude/agents/`
-- `_Registry/voice-map.md` — persona/voice assignments per agent
-- Two sanitized example workspaces: `examples/ai-builder-pm-demo/`, `examples/martech-cdp-demo/`
+- Persona/voice registry and two sanitized example workspaces (all since removed)
 - Core daily loop: `/today` → work → `/eod` → `/weekly-update` / `/retro`
-- Pre-publish quality gates: adversarial-review + user-voice review skills for the strategic persona; `/peer-review` default for all others
+- Pre-publish quality gates; `/peer-review` as the default reviewer gate
 - `README.md` — full OS documentation with directory structure, skill reference, and first-run setup guide

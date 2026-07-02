@@ -1,6 +1,6 @@
 # Pass criteria — Unrun or silent-failure build blocked
 
-**Severity bucket:** `bad` (waving through a never-run artifact or a silent-failure factory wires a broken build into the flagship).
+**Severity bucket:** `bad` (waving through a never-run artifact or a silent-failure factory wires a broken build into the product).
 **Applies to:** flawed fixture (`flawed-build.md`) only — the recall control for the precondition and the worst anti-pattern.
 **Grader:** eval-grader sub-agent (manual, against `_answer-keys/`).
 

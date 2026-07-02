@@ -29,7 +29,7 @@ jobs:
           #
           # Excluded (intentionally use [YOUR_NAME]/[YOUR_COMPANY] as variables or scaffolding):
           #   Agents/, _Registry/, Evals/, Reviews/, Templates/, Workflows/, Projects/,
-          #   Knowledge/, Memory/, .claude/, .codex/, examples/, _temp/
+          #   Knowledge/, Memory/, .claude/, .codex/, Examples/, _temp/
           #   Root files: GOALS.md, CLAUDE.md, AGENTS.md, GEMINI.md, README.md,
           #               HOW-IT-WORKS.md, CHANGELOG.md
           #
@@ -38,6 +38,7 @@ jobs:
 
           echo "Scanning for [YOUR_NAME] or [YOUR_COMPANY] in user-context .md files..."
 
+          # -print0/xargs -0 so filenames with spaces/quotes can't be split or skipped
           FILES=$(find . -name "*.md" \
             -not -path "./.git/*" \
             -not -path "./node_modules/*" \
@@ -52,7 +53,7 @@ jobs:
             -not -path "./Memory/*" \
             -not -path "./.claude/*" \
             -not -path "./.codex/*" \
-            -not -path "./examples/*" \
+            -not -path "./Examples/*" \
             -not -path "./_temp/*" \
             -not -name "GOALS.md" \
             -not -name "CLAUDE.md" \
@@ -68,7 +69,7 @@ jobs:
             exit 0
           fi
 
-          MATCHES=$(echo "$FILES" | xargs grep -n '\[YOUR_NAME\]\|\[YOUR_COMPANY\]' 2>/dev/null || true)
+          MATCHES=$(printf '%s\n' "$FILES" | tr '\n' '\0' | xargs -0 grep -n '\[YOUR_NAME\]\|\[YOUR_COMPANY\]' 2>/dev/null || true)
 
           if [ -n "$MATCHES" ]; then
             echo "❌ Template placeholder residue found in user-context files:"

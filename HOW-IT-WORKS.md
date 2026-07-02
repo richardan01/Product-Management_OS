@@ -108,7 +108,7 @@ meeting-prep skill
        └──► drafts prep doc (agenda, updates to give, asks to make)
 ```
 
-This is the pattern across the board. **Skills** are the trigger surface and carry the domain judgment. **Sub-agents** in `.claude/agents/` or `.codex/agents/` handle parallel/isolated work.
+This is the pattern across the board. **Skills** are the trigger surface and carry the domain judgment. **Sub-agents** in `.claude/agents/` (mirrored in `.codex/agents/` for 11 of the 14 — the eval trio is Claude-only) handle parallel/isolated work.
 
 ---
 
@@ -164,7 +164,7 @@ Everything else — finding files, recalling what was said, structuring the doc,
 The OS works standalone out of the box. Wire up MCPs to push automation further:
 
 - **Calendar MCP** → so `/today` and `/meeting-prep` know who you're actually meeting
-- **Slack MCP** → so `/follow-ups` can post action items to the right channel
+- **Slack MCP** → so `/eod` follow-up capture can post action items to the right channel
 - **Notion / Linear MCP** → so task updates can write to the actual ticketing system, not just `Tasks/active.md`
 - **Email MCP** → so `/weekly-update` lands in your manager's inbox without a copy-paste
 

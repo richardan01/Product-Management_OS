@@ -34,4 +34,4 @@ Tasks are ranked within each priority tier. Pull from the top of the appropriate
 ---
 
 ## Area Tags
-`#flagship` · `#strategy` · `#ai-pm` · `#[your-domain-1]` · `#[your-domain-2]`
+`#strategy` · `#project` · `#research` · `#stakeholders` · `#[your-domain-1]` · `#[your-domain-2]`

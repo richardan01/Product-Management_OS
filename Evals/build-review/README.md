@@ -1,6 +1,6 @@
 # Eval suite — build-review (meta-eval)
 
-Tests that the `/build-review` gate actually catches the build flaws that make an artifact unsafe to wire into the flagship or ship — and that it does **not** block a clean, runnable artifact. `/build-review` is the gate that stands between a built artifact (MCP, skill, eval scaffold, code module) and being wired into the flagship project or claimed in a public artifact. If the gate is blind, broken or never-run builds ship as "Pass." This suite calibrates the gate itself.
+Tests that the `/build-review` gate actually catches the build flaws that make an artifact unsafe to wire in or ship — and that it does **not** block a clean, runnable artifact. `/build-review` is the gate that stands between a built artifact (MCP, skill, eval scaffold, code module) and being wired into your product or claimed in a public artifact. If the gate is blind, broken or never-run builds ship as "Pass." This suite calibrates the gate itself.
 
 It is the sibling of the `prd-readiness` meta-eval: same planted-flaw method, same isolation rule, applied to the build gate (the implementation) instead of the readiness gate (the spec). It closes the build-side hole in the OS's eval coverage — `prd-readiness` grades whether the spec is handoff-ready; this grades whether the gate that reviews the implementation is trustworthy.
 
