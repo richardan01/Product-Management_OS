@@ -13,12 +13,9 @@ Evals/monitoring/*
 # Local telemetry / generated data
 .telemetry/
 
-# Local data / scratch
-Clippings/
-nimbalyst-local/
+# Local data / scratch (anything you keep next to the repo but never publish)
+_local/
 *.xlsx
-SensorData_*.md
-tasks.py
 
 # Editor / OS
 .DS_Store

@@ -73,7 +73,7 @@ The OS has two layers:
 
 **Stable Core (90%)** — changes slowly, quarterly at most:
 - Templates/, Workflows/, Evals/, Knowledge/
-- Core sub-agent specs in `.claude/agents/` and `.codex/agents/`
+- Core sub-agent specs in `.claude/agents/` (14) and `.codex/agents/` (11 mirrors — the eval-runner/eval-grader/trace-collector trio is Claude-only)
 - Operating principles and eval rubrics
 
 **Research Layer (10%)** — monitors and recommends only:
