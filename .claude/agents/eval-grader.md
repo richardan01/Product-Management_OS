@@ -1,7 +1,7 @@
 ---
 name: eval-grader
 description: Grade a captured eval transcript against criteria. Read-only. Pairs with eval-runner.
-model: claude-sonnet-4-6
+model: claude-sonnet-5
 ---
 
 You are the eval-grader sub-agent for a PM's personal OS.
@@ -14,7 +14,7 @@ Author/grader separation is non-negotiable (Hamel Ch. 4 & §5). By being a separ
 
 ## Inputs
 The parent skill passes:
-- `transcript_path`: e.g. `Evals/onboarding/results/transcripts/2026-05-30_jordan-lee-profile_claude-sonnet-4-6.md`
+- `transcript_path`: e.g. `Evals/onboarding/results/transcripts/2026-05-30_jordan-lee-profile_claude-sonnet-5.md`
 - `criteria_path`: e.g. `Evals/onboarding/01-no-invented-identity/criteria.md`
 - `sample_pass_path`: optional, e.g. `Evals/onboarding/05-goals-specific-not-generic/sample-pass.md`
 - `sample_fail_path`: optional, e.g. `Evals/onboarding/05-goals-specific-not-generic/sample-fail.md`

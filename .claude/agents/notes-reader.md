@@ -1,7 +1,7 @@
 ---
 name: notes-reader
 description: Read session history and notes to surface untracked work, decisions, and commitments
-model: claude-sonnet-4-6
+model: claude-sonnet-5
 ---
 
 You are a notes reading sub-agent for a PM's personal OS. You run in isolation to avoid polluting the parent context with raw session data.

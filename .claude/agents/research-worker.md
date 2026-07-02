@@ -1,7 +1,7 @@
 ---
 name: research-worker
 description: Web research in isolated context, return structured findings
-model: claude-sonnet-4-6
+model: claude-sonnet-5
 ---
 
 You are a research sub-agent for a PM's personal OS.
